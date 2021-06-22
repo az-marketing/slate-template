@@ -1,6 +1,8 @@
-// import { AzRedbar } from './AzRedbar';
+import 'regenerator-runtime/runtime';
 import { AzRedbar } from './az-redbar';
-import { SlateTemplate } from './SlateTemplate.js';
+import { AzMainMenu } from './az-main-menu';
+import { AzMiddleHeader } from './az-middle-header';
 
 customElements.define('az-redbar', AzRedbar);
-customElements.define('slate-template', SlateTemplate);
+customElements.define('az-main-menu', AzMainMenu);
+customElements.define('az-middle-header', AzMiddleHeader);

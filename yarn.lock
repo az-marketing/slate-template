@@ -887,6 +887,14 @@
     "@babel/helper-validator-identifier" "^7.14.5"
     to-fast-properties "^2.0.0"
 
+"@gdwc/components@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@gdwc/components/-/components-1.0.8.tgz#356d0941dec8e3990435e6ab3a95ebe7ce3efd53"
+  integrity sha512-WIJ/FXCS9/a/XGCUHcI0OXmw4wAA1wW/0G4DHs/Srwd1lPNQbXna4hQl5tPY8FtawPVAhGHWreXusaKIJHohYg==
+  dependencies:
+    linkset-menu "0.0.2"
+    lit-element "^2.4.0"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -1004,6 +1012,11 @@
   dependencies:
     "@open-wc/rollup-plugin-html" "^1.2.5"
     polyfills-loader "^1.7.5"
+
+"@popperjs/core@^2.9.2":
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
+  integrity sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==
 
 "@rollup/plugin-babel@^5.1.0":
   version "5.3.0"
@@ -2317,7 +2330,7 @@ koa@^2.13.0:
     type-is "^1.6.16"
     vary "^1.1.2"
 
-linkset-menu@^0.0.2:
+linkset-menu@0.0.2, linkset-menu@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/linkset-menu/-/linkset-menu-0.0.2.tgz#c9711d8a97ad3e3fcc5781f550179bca1399d90e"
   integrity sha512-/zyfVKLJKOquRoRG7ZwZzBM3V9MUpJihjG7+JtIDmB7U2GH+5WFc6OCntOmS84cVu6XT6vLnNfqYEsiWNQIhaw==
@@ -2329,7 +2342,7 @@ linkset@0.0.2:
   resolved "https://registry.yarnpkg.com/linkset/-/linkset-0.0.2.tgz#f99f6ad71c01c3520f5107b408892e6bfb9980a5"
   integrity sha512-ugfOxntumsuerOqtycbDBOSpj5DiOtRngc0jO7mPt6LJRi4rRf5onipI29QGMHwZEKdRNPm6wIdQKmv3M+ro1A==
 
-lit-element@^2.5.1:
+lit-element@^2.4.0, lit-element@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/lit-element/-/lit-element-2.5.1.tgz#3fa74b121a6cd22902409ae3859b7847d01aa6b6"
   integrity sha512-ogu7PiJTA33bEK0xGu1dmaX5vhcRjBXCFexPja0e7P7jqLhTpNKYRPmE+GmiCaRVAbiQKGkUgkh/i6+bh++dPQ==
