@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime';
 import { html, css } from 'lit-element';
 import { GdwcMenu } from '@gdwc/components/gdwc-menu/gdwc-menu.js';
 import '@gdwc/components/menu';

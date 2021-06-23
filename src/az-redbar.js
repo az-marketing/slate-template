@@ -618,4 +618,4 @@
 			`;
 		}
 	}
-
+	customElements.get('az-redbar') || customElements.define('az-redbar', AzRedbar);
