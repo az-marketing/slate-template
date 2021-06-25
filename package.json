@@ -16,5 +16,8 @@
 	"scripts": {
 		"develop": "parcel index.html --open",
 		"build": "parcel build src/az-redbar.js  --no-source-maps --global az_redbar --experimental-scope-hoisting"
+	},
+	"devDependencies": {
+		"parcel-bundler": "^1.12.5"
 	}
 }
