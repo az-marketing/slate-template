@@ -12,5 +12,9 @@
 		"linkset-menu": "^0.0.2",
 		"lit-element": "^2.5.1",
 		"regenerator-runtime": "^0.13.7"
+	},
+	"scripts": {
+		"develop": "parcel index.html --open",
+		"build": "parcel build src/az-redbar.js  --no-source-maps --global az_redbar --experimental-scope-hoisting"
 	}
 }
