@@ -1,18 +1,46 @@
 import 'regenerator-runtime/runtime';
-import { html, css } from 'lit-element';
-import { GdwcMenu } from '@gdwc/components/gdwc-menu/gdwc-menu.js';
-import '@gdwc/components/menu';
+import { html, css, LitElement } from 'lit-element';
 import { denormalize } from 'linkset-menu';
 
 
-export class MainMenu extends GdwcMenu {
+export class MainMenu extends LitElement {
 
   static get properties() {
     return {
-			thisUrl: { type: String},
-			baseUrl: { type: String },
-			menuId: { type: String },
-      data: {attribute: false},
+        thisUrl: { type: String},
+        data: {attribute: false},
+        /**
+         * Base URL of menu endpoint
+         */
+            baseUrl: { type: String },
+
+        /**
+         * Machine name of menu
+         */
+        menuId: { type: String },
+
+        /**
+         * Branding heading for the menu
+         */
+        branding: { type: String },
+
+        /**
+         * An array of objects containing data for the menu tree
+         */
+        tree: { type: Array },
+
+        /**
+         * Loading state
+         */
+        isLoading: {
+        type: Boolean,
+        attribute: false,
+        },
+
+        /**
+         * Loading message
+         */
+        loadingMessage: { type: String },
     };
   }
   static menuLevelTemplate(levels) {
@@ -65,9 +93,9 @@ export class MainMenu extends GdwcMenu {
         </div>
     </li>`;
   }
+
   static openMenu(e) {
     e.preventDefault();
-
     const { target } = e;
     let cur = document.querySelector('az-main-menu').shadowRoot.querySelector('.nav-item.show button');
     const isExpanded = target.getAttribute('aria-expanded') === 'true';
@@ -185,13 +213,6 @@ export class MainMenu extends GdwcMenu {
    ::after,
    ::before {
        box-sizing: border-box;
-   }
-   html {
-       font-family: sans-serif;
-       line-height: 1.15;
-       -webkit-text-size-adjust: 100%;
-       -webkit-tap-highlight-color: transparent;
-       font-size: 16px;
    }
    header,
    main,
