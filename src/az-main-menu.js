@@ -9,6 +9,7 @@ export class MainMenu extends GdwcMenu {
 
   static get properties() {
     return {
+			thisUrl: { type: String},
 			baseUrl: { type: String },
 			menuId: { type: String },
       data: {attribute: false},
@@ -93,10 +94,13 @@ export class MainMenu extends GdwcMenu {
     return MainMenu.menuLevelTemplate(levels);
   }
   static azMenuTopLevelLinkTemplate(title, href) {
+		href = href.charAt(0) === '/' ? this.thisUrl + href : href;
+
     return html`<li part="menu-item" class="nav-item"><a href=${href} class="nav-link">${title}</a></li>`;
   }
 
   static menuLinkTemplate(title, href) {
+		href = href.charAt(0) === '/' ? this.thisUrl + href : href;
     return html`<a part="menu-item" class="dropdown-item" href=${href}>${title}</a>`;
   }
 
@@ -106,11 +110,12 @@ export class MainMenu extends GdwcMenu {
 
   renderAzMenuItem(item) {
     const title = item?.link?.attributes?.title;
-    const href = item?.link?.href;
+    let href = item?.link?.href;
     const children = item?.children;
     let hierarchy = item?.link?.attributes?.['drupal-menu-hierarchy'];
         hierarchy = hierarchy[0].match(/\./g).length;
 
+		href = item?.link?.href.charAt(0) === '/' ? this.thisUrl + item?.link?.href : item?.link?.href;
 
     if (children && children.length) {
       return this.menuParentTemplate(title, children);
@@ -1639,7 +1644,7 @@ export class MainMenu extends GdwcMenu {
                 <nav class="navbar-offcanvas offcanvas-toggle" id="navbarOffcanvasDemo">
                     <div class="navbar-offcanvas-header">
                         <div class="bg-chili d-flex justify-content-between align-items-center">
-                            <az-button theme="primary" redbar href="/" aria-expanded="false" aria-haspopup="true" target="az-main-menu" aria-controls="navbarOffcanvasDemo">
+                            <az-button theme="primary" redbar href="${this.thisUrl}" aria-expanded="false" aria-haspopup="true" target="az-main-menu" aria-controls="navbarOffcanvasDemo">
                                 <svg class="icon" title="home" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
                                 <span class="icon-text"> home </span>
                             </az-button>
