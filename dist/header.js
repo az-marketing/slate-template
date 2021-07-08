@@ -7597,7 +7597,7 @@ label {
 
                                 <div class="col-xs-12 col-sm-12 col-md-5 col-lg-3 right-buffer-md-0 left-buffer-sm-3 right-buffer-sm-reset left-buffer-md-0 right-buffer-lg-5 left-buffer-lg-5 bottom-buffer-5 top-buffer-sm-0 top-buffer-lg-50 col-lg-offset-0">
                                     <div id="block-bean-cta-request-info" class="block block-bean even" role="complementary" aria-label="call to action link">
-                                        <az-button theme="primary" block outline="true" link="https://www.arizona.edu/student-life/virtual-visit">Visit Virtually</az-button>
+                                        <az-button theme="primary" block outline="true" link="https://www.arizona.edu/admissions/visit">Visit</az-button>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-3 col-lg-2 left-buffer-md-5 left-buffer-lg-0 bottom-buffer-30 top-buffer-md-0 top-buffer-lg-50"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
