@@ -1,5 +1,5 @@
 import { html, css, LitElement } from 'lit-element';
-import { createPopper } from '@popperjs/core';
+import { createPopper } from '@popperjs/core/lib/popper-lite';
 import { denormalize } from 'linkset-menu';
 import './az-button';
 

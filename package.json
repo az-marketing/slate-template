@@ -6,11 +6,24 @@
 	"author": "Ryan Dool <ryandool@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
-		"@gdwc/components": "^1.0.8",
 		"@popperjs/core": "^2.9.2",
 		"@webcomponents/webcomponentsjs": "^2.5.0",
 		"linkset-menu": "^0.0.2",
 		"lit-element": "^2.5.1",
 		"regenerator-runtime": "^0.13.7"
-	}
+	},
+	"scripts": {
+		"develop": "parcel index.html --open",
+		"build": "parcel build src/header.js src/az-footer.js --no-source-maps --global az_redbar"
+	},
+	"devDependencies": {
+		"parcel-bundler": "^1.12.5"
+	},
+	"browserslist": [
+		"last 3 and_chr versions",
+		"last 3 chrome versions",
+		"last 3 opera versions",
+		"last 3 ios_saf versions",
+		"last 3 safari versions"
+	]
 }
