@@ -1,16 +1,46 @@
-import { html, css } from 'lit-element';
-import { GdwcMenu } from '@gdwc/components/gdwc-menu/gdwc-menu.js';
-import '@gdwc/components/menu';
+import 'regenerator-runtime/runtime';
+import { html, css, LitElement } from 'lit-element';
 import { denormalize } from 'linkset-menu';
 
 
-export class MainMenu extends GdwcMenu {
+export class MainMenu extends LitElement {
 
   static get properties() {
     return {
-			baseUrl: { type: String },
-			menuId: { type: String },
-      data: {attribute: false},
+        thisUrl: { type: String},
+        data: {attribute: false},
+        /**
+         * Base URL of menu endpoint
+         */
+            baseUrl: { type: String },
+
+        /**
+         * Machine name of menu
+         */
+        menuId: { type: String },
+
+        /**
+         * Branding heading for the menu
+         */
+        branding: { type: String },
+
+        /**
+         * An array of objects containing data for the menu tree
+         */
+        tree: { type: Array },
+
+        /**
+         * Loading state
+         */
+        isLoading: {
+        type: Boolean,
+        attribute: false,
+        },
+
+        /**
+         * Loading message
+         */
+        loadingMessage: { type: String },
     };
   }
   static menuLevelTemplate(levels) {
@@ -63,9 +93,9 @@ export class MainMenu extends GdwcMenu {
         </div>
     </li>`;
   }
+
   static openMenu(e) {
     e.preventDefault();
-
     const { target } = e;
     let cur = document.querySelector('az-main-menu').shadowRoot.querySelector('.nav-item.show button');
     const isExpanded = target.getAttribute('aria-expanded') === 'true';
@@ -92,10 +122,13 @@ export class MainMenu extends GdwcMenu {
     return MainMenu.menuLevelTemplate(levels);
   }
   static azMenuTopLevelLinkTemplate(title, href) {
+		href = href.charAt(0) === '/' ? this.thisUrl + href : href;
+
     return html`<li part="menu-item" class="nav-item"><a href=${href} class="nav-link">${title}</a></li>`;
   }
 
   static menuLinkTemplate(title, href) {
+		href = href.charAt(0) === '/' ? this.thisUrl + href : href;
     return html`<a part="menu-item" class="dropdown-item" href=${href}>${title}</a>`;
   }
 
@@ -105,11 +138,12 @@ export class MainMenu extends GdwcMenu {
 
   renderAzMenuItem(item) {
     const title = item?.link?.attributes?.title;
-    const href = item?.link?.href;
+    let href = item?.link?.href;
     const children = item?.children;
     let hierarchy = item?.link?.attributes?.['drupal-menu-hierarchy'];
         hierarchy = hierarchy[0].match(/\./g).length;
 
+		href = item?.link?.href.charAt(0) === '/' ? this.thisUrl + item?.link?.href : item?.link?.href;
 
     if (children && children.length) {
       return this.menuParentTemplate(title, children);
@@ -179,13 +213,6 @@ export class MainMenu extends GdwcMenu {
    ::after,
    ::before {
        box-sizing: border-box;
-   }
-   html {
-       font-family: sans-serif;
-       line-height: 1.15;
-       -webkit-text-size-adjust: 100%;
-       -webkit-tap-highlight-color: transparent;
-       font-size: 16px;
    }
    header,
    main,
@@ -1638,7 +1665,7 @@ export class MainMenu extends GdwcMenu {
                 <nav class="navbar-offcanvas offcanvas-toggle" id="navbarOffcanvasDemo">
                     <div class="navbar-offcanvas-header">
                         <div class="bg-chili d-flex justify-content-between align-items-center">
-                            <az-button theme="primary" redbar href="/" aria-expanded="false" aria-haspopup="true" target="az-main-menu" aria-controls="navbarOffcanvasDemo">
+                            <az-button theme="primary" redbar href="${this.thisUrl}" aria-expanded="false" aria-haspopup="true" target="az-main-menu" aria-controls="navbarOffcanvasDemo">
                                 <svg class="icon" title="home" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
                                 <span class="icon-text"> home </span>
                             </az-button>

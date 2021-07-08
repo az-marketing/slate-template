@@ -432,6 +432,11 @@
 			static get properties() {
 				return {
 					/**
+					 * URL of target site
+					 */
+					thisUrl: { type: String},
+
+					/**
 					 * Base URL of menu endpoint
 					 */
 					baseUrl: { type: String },
@@ -536,8 +541,10 @@
 
 			renderAzMenuItem(item) {
 				const title = item?.link?.attributes?.title;
-				const href = item?.link?.href;
+				let href = item?.link?.href;
 				const children = item?.children;
+
+				href = href.charAt(0) === '/' ? this.thisUrl + href : href;
 
 				if (children.length) {
 					return this.azMenuParentTemplate(title, children);
@@ -580,7 +587,7 @@
 										<section class="ml-auto d-none d-lg-block d-xl-block region region-header-ua-utilities">
 												<div class="search-block-form block block-search block-search-form-block" data-drupal-selector="search-block-form" id="block-az-barrio-search" role="search">
 														<div class="content">
-																<form action="https://arizona.edu/search/google" method="GET" id="search-block-form" accept-charset="UTF-8" class="search-form search-block-form">
+																<form action="${this.thisUrl}/search/google" method="GET" id="search-block-form" accept-charset="UTF-8" class="search-form search-block-form">
 																		<div class="input-group">
 																				<label for="edit-keys" class="sr-only">Search</label>
 																				<input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128" class="form-search form-control" placeholder="Search this site" aria-label="Search this site">
@@ -618,4 +625,4 @@
 			`;
 		}
 	}
-
+	customElements.get('az-redbar') || customElements.define('az-redbar', AzRedbar);
