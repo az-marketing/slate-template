@@ -7601,7 +7601,7 @@ label {
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-md-3 col-lg-2 left-buffer-md-5 left-buffer-lg-0 bottom-buffer-30 top-buffer-md-0 top-buffer-lg-50"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
-                                    <az-button theme="primary" block link="https://www.arizona.edu/how-apply-uarizona">Apply</az-button>
+                                    <az-button theme="primary" block link="https://www.arizona.edu/admissions/apply">Apply</az-button>
                                 </div>
                             </div>
                         </div>
