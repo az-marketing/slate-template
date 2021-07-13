@@ -1676,7 +1676,7 @@ export class MainMenu extends LitElement {
                         </div>
                         <section class="region region-navigation-offcanvas">
                             <div class="search-block-form bg-white navbar-offcanvas-search" data-drupal-selector="search-block-form-2" id="block-az-barrio-offcanvas-searchform" role="search">
-                                <form action="https://arizona.edu/search/google" method="GET" id="search-block-form" accept-charset="UTF-8" class="search-form search-block-form">
+                                <form action="${this.thisUrl}/search/google" method="GET" id="search-block-form" accept-charset="UTF-8" class="search-form search-block-form">
                                     <div class="input-group">
                                         <label for="edit-keys--2" class="sr-only">Search</label>
                                         <input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" type="search" id="edit-keys--2" name="keys" value="" size="15" maxlength="128" class="form-search form-control" placeholder="Search this site" aria-label="Search this site">
