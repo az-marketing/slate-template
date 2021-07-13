@@ -23,7 +23,6 @@
 				#apply-hero.active{
 					display: block;
 				}
-
 				#apply-hero-content{
 					position: relative;
 					z-index: 0;
@@ -35,7 +34,6 @@
 					margin: auto;
 					box-sizing: border-box;
 				}
-
 				.apply-hero-group{
 					width: 100%;
 					position: relative;
@@ -53,14 +51,15 @@
 				.apply-hero-group.justif-sb{
 					justify-content: space-between;
 				}
-
 				.apply-hero-title{
 					display: block;
 					position: relative;
-					color: 'white';
+					color: white;
 					font-size: 21px;
 					font-weight: 900;
-					line-height: 1;	
+					line-height: 1;
+					margin-block-start: 1em;
+    			margin-block-end: 1em;	
 				}
 				.apply-hero-title:before{
 					content: "";
@@ -71,24 +70,28 @@
 					height: 7px;
 					background-color: #ef4056;
 				}
-
-
-
-
+				.apply-hero-cta{
+					display: block;
+					font-weight: 900;
+					text-transform: uppercase;
+					line-height: 1;
+					font-size: 58px;
+					margin: 0 0 12px 0;
+					padding: 0;
+					color: white;
+				}
 				@media screen and (max-width: 1200px){
 					/* ${breakpoint.device.md} */
 					#apply-hero{
 						padding: 114px 24px;
 					}
 				}
-
 				@media screen and (max-width: 992px){
 					/* ${breakpoint.device.sm} */
 					#apply-hero{
 						padding: 75px 24px;
 					}
 				}
-
 				@media screen and (max-width: 768px){
 					/* ${breakpoint.device.xs} */
 					#apply-hero{
@@ -101,14 +104,11 @@
 						right: 0;
 						margin:auto;
 					}
+					.apply-hero-cta{
+						margin: auto;
+						text-align: center;
+					}
 				}
-
-				@media screen and (max-width: 550px){
-					/* ${breakpoint.device.xxs} */
-				}
-
-
-
 		</style>
 		<script type="text/javascript">
 			function ready() {
@@ -118,7 +118,6 @@
 				// if url is https://slate.admissions.arizona.edu/apply/ or https://uaz.test.technolutions.net/apply/
 				isApply === true ? applyHero.classList.add('active') : '';
 			}
-
 			document.addEventListener("DOMContentLoaded", ready);
 		</script>
 		<!--  -->
@@ -132,17 +131,22 @@
 		<az-middle-header></az-middle-header>
 		<az-main-menu baseurl="https://live-az-admissions.pantheonsite.io" thisUrl="https://arizona.edu" menuId="main"></az-main-menu>
 
+		<!--  -->
 		<!-- Only for Slate Admissions Template -->
+		<!--  -->
 		<div id="apply-hero">
 			<div id="apply-hero-content">
 					<div class="apply-hero-group dir-col align-fs justif-sb">
 						<div class="apply-hero-group dir-col">
-							<h1 class="apply-hero-title">Future Wildcat<br />Application Login</h1>
+							<h1 class="apply-hero-title">Apply</h1>
+							<strong class="apply-hero-cta">Future Wildcat<br />Application Login</strong>
 						</div>
 					</div>
 			</div>
 		</div>
+		<!--  -->
 		<!-- Only for Slate Admissions Template -->
+		<!--  -->
 
 
 		<az-footer thisUrl="https://arizona.edu"></az-footer>
