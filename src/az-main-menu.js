@@ -1,6 +1,6 @@
-import 'regenerator-runtime/runtime';
-import { html, css, LitElement } from 'lit-element';
 import { denormalize } from 'linkset-menu';
+import { css, html, LitElement } from 'lit-element';
+import 'regenerator-runtime/runtime';
 
 
 export class MainMenu extends LitElement {
@@ -12,7 +12,7 @@ export class MainMenu extends LitElement {
         /**
          * Base URL of menu endpoint
          */
-            baseUrl: { type: String },
+        baseUrl: { type: String },
 
         /**
          * Machine name of menu
@@ -1408,6 +1408,7 @@ export class MainMenu extends LitElement {
    :host([state="open"]) .navbar-offcanvas {
         -webkit-transform: translateX(0);
         transform: translateX(0);
+        overflow-y: scroll;
     }
    .navbar-offcanvas.open {
        -webkit-transform: translateX(0);
@@ -1665,7 +1666,7 @@ export class MainMenu extends LitElement {
                 <nav class="navbar-offcanvas offcanvas-toggle" id="navbarOffcanvasDemo">
                     <div class="navbar-offcanvas-header">
                         <div class="bg-chili d-flex justify-content-between align-items-center">
-                            <az-button theme="primary" redbar href="${this.thisUrl}" aria-expanded="false" aria-haspopup="true" target="az-main-menu" aria-controls="navbarOffcanvasDemo">
+                            <az-button theme="primary" redbar href="https://www.arizona.edu" aria-expanded="false" aria-haspopup="true" target="az-main-menu" aria-controls="navbarOffcanvasDemo">
                                 <svg class="icon" title="home" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
                                 <span class="icon-text"> home </span>
                             </az-button>
