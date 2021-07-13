@@ -1230,7 +1230,7 @@ class AzFooter  extends LitElement {
 							<div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 text-center-xs text-left-not-xs">
 								<div class="row bottom-buffer-30">
 									<div class="col-xs-12">
-										<a href="https://arizona.edu/" title="Home" class="remove-external-link-icon active"><img src="https://www.arizona.edu/sites/default/files/UA_horiz_rgb_webheader.png" alt="Home"></a>              </div>
+										<a href="https://www.arizona.edu/" title="Home" class="remove-external-link-icon active"><img src="https://www.arizona.edu/sites/default/files/UA_horiz_rgb_webheader.png" alt="Home"></a>              </div>
 									</div>
 								</div>
 								<!-- Add the extra clearfix for only the required viewport -->
@@ -1241,12 +1241,12 @@ class AzFooter  extends LitElement {
 											<li class="menu__item is-leaf first leaf"><a href="https://talent.arizona.edu" title="" class="menu__link">Employment</a></li>
 											<li class="menu__item is-leaf leaf"><a href="http://cirt.arizona.edu" title="" class="menu__link">Emergency Information</a></li>
 											<li class="menu__item is-leaf leaf"><a href="http://titleix.arizona.edu/submit_complaint_report" title="" class="menu__link">Title IX / Sexual Misconduct Reporting</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/campus-safety" title="" class="menu__link">Campus Safety</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/campus-safety" title="" class="menu__link">Campus Safety</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://cirt.arizona.edu/ualert" class="menu__link">UAlert</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/copyright" title="" class="menu__link">Copyright</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/campus-accessibility" title="" class="menu__link">Campus Accessibility</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/contact-us" title="" class="menu__link">Contact Us</a></li>
-											<li class="menu__item is-leaf last leaf"><a href="https://arizona.edu/website-feedback" title="" class="menu__link">Feedback</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/copyright" title="" class="menu__link">Copyright</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/campus-accessibility" title="" class="menu__link">Campus Accessibility</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/contact-us" title="" class="menu__link">Contact Us</a></li>
+											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/website-feedback" title="" class="menu__link">Feedback</a></li>
 										</ul>
 									</div>
 									<div id="block-bean-footer-university-address" class="block block-bean last even" role="complementary">
@@ -1270,11 +1270,11 @@ class AzFooter  extends LitElement {
 										<h5><strong class="text-uppercase">Information for</strong></h5>
 										<ul class="menu">
 											<li class="menu__item is-leaf first leaf"><a href="http://www.arizona.edu/future-students" class="menu__link">Future Students</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/students" title="" class="menu__link">Current Students</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/faculty-staff" title="" class="menu__link">Faculty &amp; Staff</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/alumni-donors" title="" class="menu__link">Alumni &amp; Donors</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/parents-visitors" title="" class="menu__link">Parents &amp; Visitors</a></li>
-											<li class="menu__item is-leaf last leaf"><a href="https://arizona.edu/corporations-businesses" title="" class="menu__link">Corporations &amp; Businesses</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/students" title="" class="menu__link">Current Students</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/faculty-staff" title="" class="menu__link">Faculty &amp; Staff</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/alumni-donors" title="" class="menu__link">Alumni &amp; Donors</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/parents-visitors" title="" class="menu__link">Parents &amp; Visitors</a></li>
+											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/corporations-businesses" title="" class="menu__link">Corporations &amp; Businesses</a></li>
 										</ul>
 									</div>
 									<div class="clearfix visible-xs-block col-xs-12">
@@ -1283,19 +1283,19 @@ class AzFooter  extends LitElement {
 									<div id="block-bean-uaqs-footer-links-bean-topics" class="block block-bean even col-xs-12 col-sm-8 col-md-5 two-col-menu" role="complementary">
 										<h5><strong class="text-uppercase">Topics</strong></h5>
 										<ul class="menu">
-											<li class="menu__item is-leaf first leaf"><a href="https://arizona.edu/about" title="" class="menu__link">About the University</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/academics" title="" class="menu__link">Academics</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/arts-museums" title="" class="menu__link">Arts &amp; Museums</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/athletics-recreation" title="" class="menu__link">Athletics &amp; Recreation</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/colleges-schools" title="" class="menu__link">Colleges, Schools, Departments</a></li>
+											<li class="menu__item is-leaf first leaf"><a href="https://www.arizona.edu/about" title="" class="menu__link">About the University</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/academics" title="" class="menu__link">Academics</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/arts-museums" title="" class="menu__link">Arts &amp; Museums</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/athletics-recreation" title="" class="menu__link">Athletics &amp; Recreation</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/colleges-schools" title="" class="menu__link">Colleges, Schools, Departments</a></li>
 											<li class="menu__item is-leaf leaf"><a href="http://diversity.arizona.edu" class="menu__link">Diversity</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.environment.arizona.edu" title="" class="menu__link">Environment &amp; Sustainability</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://global.arizona.edu" class="menu__link">Global Engagement</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/health-sciences" title="" class="menu__link">Health &amp; Medical</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://arizona.edu/libraries" title="" class="menu__link">Libraries</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/health-sciences" title="" class="menu__link">Health &amp; Medical</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/libraries" title="" class="menu__link">Libraries</a></li>
 											<li class="menu__item is-leaf leaf"><a href="http://uaforyou.arizona.edu" class="menu__link">Outreach &amp; Extension</a></li>
 											<li class="menu__item is-leaf leaf"><a href="http://research.arizona.edu" class="menu__link">Research &amp; Innovation</a></li>
-											<li class="menu__item is-leaf last leaf"><a href="https://arizona.edu/purpose-mission-values" title="" class="menu__link">Purpose, Mission &amp; Values</a></li>
+											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/purpose-mission-values" title="" class="menu__link">Purpose, Mission &amp; Values</a></li>
 										</ul>
 									</div>
 									<div class="clearfix visible-xs-block col-xs-12">
