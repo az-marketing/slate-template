@@ -418,7 +418,6 @@ export class MainMenu extends LitElement {
        padding-left: 15px;
        margin-right: auto;
        margin-left: auto;
-       border-top: 1px solid var(--coolgray);
    }
    @media (min-width: 576px) {
        .container {
@@ -434,6 +433,7 @@ export class MainMenu extends LitElement {
        .container,
        .container-lg {
            max-width: 960px;
+					 border-top: 1px solid var(--coolgray);
        }
    }
    @media (min-width: 1200px) {
