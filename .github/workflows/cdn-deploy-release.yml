@@ -1,7 +1,7 @@
 name: Build & deploy CDN assets
 on:
   repository_dispatch:
-    types: az_bootstrap_release
+    types: web_components_release
 
 jobs:
   deploy:
