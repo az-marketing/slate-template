@@ -8,8 +8,65 @@
 	* base class.
 	*/
 	export class AzRedbar extends LitElement {
-			static get styles() {
-				return css`
+		static get styles() {
+			return css`
+						:root {
+			 				--blue: #0c234b;
+			 				--red: #ab0520;
+			 				--white: #fff;
+			 				--bloom: #ef4056;
+			 				--chili: #8b0015;
+			 				--sky: #81d3eb;
+			 				--oasis: #378dbd;
+			 				--azurite: #1e5288;
+			 				--midnight: #001c48;
+			 				--cool-gray: #e2e9eb;
+			 				--warm-gray: #f4ede5;
+			 				--leaf: #70b865;
+			 				--river: #007d84;
+			 				--silver: #9eabae;
+			 				--mesa: #a95c42;
+			 				--ash: #403635;
+			 				--sage: #4a634e;
+			 				--black: #000;
+			 				--success: #70b865;
+			 				--info: #81d3eb;
+			 				--warning: #f19e1f;
+			 				--danger: #a95c42;
+			 				--light: #dee2e6;
+			 				--dark: #343a40;
+			 				--breakpoint-xs: 0;
+			 				--breakpoint-sm: 576px;
+			 				--breakpoint-md: 768px;
+			 				--breakpoint-lg: 992px;
+			 				--breakpoint-xl: 1200px;
+			 				--font-family-sans-serif: proxima-nova, calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+			 				--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+	 					}
+	 					*,
+	 					::after,
+	 					::before {
+								 box-sizing: border-box;
+	 					}
+	 					header,
+	 					main,
+	 					nav,
+	 					section {
+								 display: block;
+	 					}
+	 					:host {
+								 margin: 0;
+								 font-family: proxima-nova, calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+								 font-size: 1rem;
+								 font-weight: 400;
+								 line-height: 1.5;
+								 color: #212529;
+								 text-align: left;
+								 background-color: #fff;
+	 					}
+	 					div {
+							font-size: 16px;
+	 					}
 						* {
 								box-sizing: border-box;
 						}

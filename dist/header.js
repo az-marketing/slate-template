@@ -994,7 +994,7 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
        .container,
        .container-lg {
            max-width: 960px;
-					 border-top: 1px solid var(--coolgray);
+					 border-top: 1px solid var(--cool-gray);
        }
    }
    @media (min-width: 1200px) {
