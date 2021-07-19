@@ -1,7 +1,8 @@
 name: Build & deploy CDN assets
 on:
-  repository_dispatch:
-    types: web_components_release
+  release:
+    types:
+      - created
 
 jobs:
   deploy:
