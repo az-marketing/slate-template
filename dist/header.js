@@ -241,6 +241,168 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
     `}firstUpdated(){super.firstUpdated(),this.setAttribute("role","button")}get focusElement(){return this.shadowRoot.querySelector(".button")}}exports.AzButton=n,customElements.get("az-button")||customElements.define("az-button",n);
 },{"lit-element":"bhxD","./mixins/delegate-focus-mixin.js":"Ktcg","./styles/az-button-css.js":"re2C"}],"EM68":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.AzRedbar=void 0;var e=require("lit-element"),t=require("linkset-menu");require("./az-button");class o extends e.LitElement{static get styles(){return e.css`
+						:root {
+   					    --blue: #0c234b;
+   					    --red: #ab0520;
+   					    --white: #fff;
+   					    --bloom: #ef4056;
+   					    --chili: #8b0015;
+   					    --sky: #81d3eb;
+   					    --oasis: #378dbd;
+   					    --azurite: #1e5288;
+   					    --midnight: #001c48;
+   					    --cool-gray: #e2e9eb;
+   					    --warm-gray: #f4ede5;
+   					    --leaf: #70b865;
+   					    --river: #007d84;
+   					    --silver: #9eabae;
+   					    --mesa: #a95c42;
+   					    --ash: #403635;
+   					    --sage: #4a634e;
+   					    --black: #000;
+   					    --success: #70b865;
+   					    --info: #81d3eb;
+   					    --warning: #f19e1f;
+   					    --danger: #a95c42;
+   					    --light: #dee2e6;
+   					    --dark: #343a40;
+   					    --breakpoint-xs: 0;
+   					    --breakpoint-sm: 576px;
+   					    --breakpoint-md: 768px;
+   					    --breakpoint-lg: 992px;
+   					    --breakpoint-xl: 1200px;
+   					    --font-family-sans-serif: proxima-nova, calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+   					    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+   					}
+   					*,
+   					::after,
+   					::before {
+   					    box-sizing: border-box;
+   					}
+   					header,
+   					main,
+   					nav,
+   					section {
+   					    display: block;
+   					}
+   					:host {
+   					    margin: 0;
+   					    font-family: proxima-nova, calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+   					    font-size: 1rem;
+   					    font-weight: 400;
+   					    line-height: 1.5;
+   					    color: #212529;
+   					    text-align: left;
+   					    background-color: #fff;
+   					}
+   					div {
+   					 font-size: 16px;
+   					}
+   					[tabindex="-1"]:focus:not(:focus-visible) {
+   					    outline: 0 !important;
+   					}
+   					h1,
+   					h2,
+   					h3,
+   					h4,
+   					h5,
+   					h6 {
+   					    margin-top: 0;
+   					    margin-bottom: 0.5rem;
+   					}
+   					ul {
+   					    margin-top: 0;
+   					    margin-bottom: 1rem;
+   					}
+   					ul ul {
+   					    margin-bottom: 0;
+   					}
+   					a {
+   					    color: #8b0015;
+   					    text-decoration: none;
+   					    background-color: transparent;
+   					}
+   					a:hover {
+   					    color: #3f0009;
+   					    text-decoration: underline;
+   					}
+   					a:not([href]):not([class]) {
+   					    color: inherit;
+   					    text-decoration: none;
+   					}
+   					a:not([href]):not([class]):hover {
+   					    color: inherit;
+   					    text-decoration: none;
+   					}
+   					label {
+   					    display: inline-block;
+   					    margin-bottom: 0.5rem;
+   					}
+   					button {
+   					    border-radius: 0;
+   					}
+   					button:focus:not(:focus-visible) {
+   					    outline: 0;
+   					}
+   					button,
+   					input {
+   					    margin: 0;
+   					    font-family: inherit;
+   					    font-size: inherit;
+   					    line-height: inherit;
+   					}
+   					button,
+   					input {
+   					    overflow: visible;
+   					}
+   					button {
+   					    text-transform: none;
+   					}
+   					[role="button"] {
+   					    cursor: pointer;
+   					}
+   					[type="button"],
+   					[type="reset"],
+   					[type="submit"],
+   					button {
+   					    -webkit-appearance: button;
+   					}
+   					[type="button"]:not(:disabled),
+   					[type="reset"]:not(:disabled),
+   					[type="submit"]:not(:disabled),
+   					button:not(:disabled) {
+   					    cursor: pointer;
+   					}
+   					[type="button"]::-moz-focus-inner,
+   					[type="reset"]::-moz-focus-inner,
+   					[type="submit"]::-moz-focus-inner,
+   					button::-moz-focus-inner {
+   					    padding: 0;
+   					    border-style: none;
+   					}
+   					input[type="checkbox"],
+   					input[type="radio"] {
+   					    box-sizing: border-box;
+   					    padding: 0;
+   					}
+   					[type="number"]::-webkit-inner-spin-button,
+   					[type="number"]::-webkit-outer-spin-button {
+   					    height: auto;
+   					}
+   					[type="search"] {
+   					    outline-offset: -2px;
+   					    -webkit-appearance: none;
+   					}
+   					[type="search"]::-webkit-search-decoration {
+   					    -webkit-appearance: none;
+   					}
+   					::-webkit-file-upload-button {
+   					    font: inherit;
+   					    -webkit-appearance: button;
+   					}
+   					[hidden] {
+   					    display: none !important;
+   					}
 						* {
 								box-sizing: border-box;
 						}
@@ -659,7 +821,7 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 
 						`}static get properties(){return{thisUrl:{type:String},baseUrl:{type:String},menuId:{type:String},branding:{type:String},tree:{type:Array},isLoading:{type:Boolean,attribute:!1},loadingMessage:{type:String}}}constructor(){super(),this.tree=[],this.isLoading=!1,this.loadingMessage="Loading..."}connectedCallback(){super.connectedCallback(),this.baseUrl&&this.menuId&&this.fetchData(this.baseUrl,this.menuId)}static azMenuLevelTemplate(t){return e.html`
 					${t}
-				`}static openMenu(e){e.preventDefault();const{target:t}=e;"true"===t.getAttribute("aria-expanded")?(t.setAttribute("aria-expanded","false"),t.nextElementSibling.classList.remove("show")):(t.setAttribute("aria-expanded","true"),t.nextElementSibling.classList.add("show"))}azMenuParentTemplate(t,r){return e.html`
+				`}static openMenu(e){e.preventDefault();const{target:t}=e;"true"===t.getAttribute("aria-expanded")?(t.setAttribute("aria-expanded","false"),t.nextElementSibling.classList.remove("show")):(t.setAttribute("aria-expanded","true"),t.nextElementSibling.classList.add("show"))}azMenuParentTemplate(t,i){return e.html`
 					<button
 						@click="${o.openMenu}"
 						role="button"
@@ -671,9 +833,9 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 						${t}
 					</button>
 					<div class="dropdown-menu dropdown-menu pull-right">
-						${this.renderAzMenuLevel(r)}
+						${this.renderAzMenuLevel(i)}
 						</div>
-				`}static azMenuLinkTemplate(t,o){return e.html`<div class="dropdown-item"><a href=${o}>${t}</a></div>`}static azMenuItemTemplate(t){return e.html`${t}`}renderAzMenuLevel(e){const t=e.map(e=>this.renderAzMenuItem(e));return o.azMenuLevelTemplate(t)}renderAzMenuItem(e){var t,r,i;const n=null==e?void 0:null===(t=e.link)||void 0===t?void 0:null===(r=t.attributes)||void 0===r?void 0:r.title;let a=null==e?void 0:null===(i=e.link)||void 0===i?void 0:i.href;const s=null==e?void 0:e.children;return a="/"===a.charAt(0)?this.thisUrl+a:a,s.length?this.azMenuParentTemplate(n,s):a?o.azMenuLinkTemplate(n,a):o.azMenuItemTemplate(n)}fetchData(e,o){this.isLoading=!0;const r=`${e}/system/menu/${o}/linkset`;fetch(r,{}).then(e=>{if(e.ok)return e.json();throw this.isLoading=!1,new Error(`Unable to fetch ${r}. ${e.status} ${e.statusText}`)}).then(e=>{try{const i=(0,t.denormalize)(e,o);this.tree=i.tree}catch(r){throw new Error("Unable to denormalize menu.")}this.isLoading=!1})}render(){return e.html`
+				`}static azMenuLinkTemplate(t,o){return e.html`<div class="dropdown-item"><a href=${o}>${t}</a></div>`}static azMenuItemTemplate(t){return e.html`${t}`}renderAzMenuLevel(e){const t=e.map(e=>this.renderAzMenuItem(e));return o.azMenuLevelTemplate(t)}renderAzMenuItem(e){var t,i,n;const r=null==e?void 0:null===(t=e.link)||void 0===t?void 0:null===(i=t.attributes)||void 0===i?void 0:i.title;let a=null==e?void 0:null===(n=e.link)||void 0===n?void 0:n.href;const s=null==e?void 0:e.children;return a="/"===a.charAt(0)?this.thisUrl+a:a,s.length?this.azMenuParentTemplate(r,s):a?o.azMenuLinkTemplate(r,a):o.azMenuItemTemplate(r)}fetchData(e,o){this.isLoading=!0;const i=`${e}/system/menu/${o}/linkset`;fetch(i,{}).then(e=>{if(e.ok)return e.json();throw this.isLoading=!1,new Error(`Unable to fetch ${i}. ${e.status} ${e.statusText}`)}).then(e=>{try{const n=(0,t.denormalize)(e,o);this.tree=n.tree}catch(i){throw new Error("Unable to denormalize menu.")}this.isLoading=!1})}render(){return e.html`
 				<header class="bg-red arizona-header" id="header_arizona" role="banner">
 						<div class="container">
 								<div class="row">
@@ -793,7 +955,6 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
    }
    div {
     font-size: 16px;
-
    }
    [tabindex="-1"]:focus:not(:focus-visible) {
        outline: 0 !important;
@@ -994,7 +1155,7 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
        .container,
        .container-lg {
            max-width: 960px;
-					 border-top: 1px solid var(--coolgray);
+					 border-top: 1px solid var(--cool-gray);
        }
    }
    @media (min-width: 1200px) {
