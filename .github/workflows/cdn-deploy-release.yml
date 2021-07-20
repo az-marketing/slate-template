@@ -23,8 +23,8 @@ jobs:
           aws-region: us-west-2
       - name: Deploy CDN assets to S3 + CloudFront
         run: |
-          aws s3 sync --cache-control max-age=691200 dist/ s3://${{ secrets.AZ_DIGITAL_CDN_BUCKET }}/lib/temp-web-components/${{GITHUB_REF#refs/*/}}/
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.AZ_DIGITAL_CDN }} --paths /lib/temp-web-components/${{GITHUB_REF#refs/*/}}/*
+          aws s3 sync --cache-control max-age=691200 dist/ s3://${{ secrets.AZ_DIGITAL_CDN_BUCKET }}/lib/temp-web-components/${{ github.event.release.tag_name }}/
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.AZ_DIGITAL_CDN }} --paths /lib/temp-web-components/${{ github.event.release.tag_name }}/*
       - name: Update 'latest' CDN assets to S3 + CloudFront
         run: |
           aws s3 sync --cache-control max-age=691200 dist/ s3://${{ secrets.AZ_DIGITAL_CDN_BUCKET }}/lib/temp-web-components/latest/
