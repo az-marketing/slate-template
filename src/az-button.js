@@ -14,14 +14,25 @@ export class AzButton extends DelegateFocusMixin(LitElement) {
         reflect: true
       },
       target: {
-        type: String, reflect: true
+        type: String,
+				reflect: true
       },
       toggle: {
-        type: String, reflect: true
+        type: String,
+				reflect: true
       },
       event: {
-        type: String, reflect: true
-      }
+        type: String,
+				reflect: true
+      },
+			elmid: {
+				type: String,
+				reflect: true
+			},
+			value: {
+				type: String,
+				reflect: true
+			}
     };
   }
 
@@ -62,13 +73,13 @@ export class AzButton extends DelegateFocusMixin(LitElement) {
     return html`
       ${this.link
         ? html`
-            <a class="button" href="${this.link}" ?disabled="${this.disabled}">
-              <slot></slot>
+            <a class="button" href="${this.link}" ?disabled="${this.disabled}" id="${this.elmid}">
+              <slot>${this.value}</slot>
             </a>
           `
         : html`
-            <button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick}">
-              <slot></slot>
+            <button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick}" id="${this.elmid}">
+              <slot>${this.value}</slot>
             </button>
           `}
     `;
