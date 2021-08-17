@@ -2543,7 +2543,7 @@ parcelRequire = function (e, r, t, n) {
         console.log(t), window.dataLayer.push({
           event: "shadow_event_" + e.type,
           shadow_event: {
-            elementInnerHTML: t.innerHTML.replace("\n", "").trim().replace("\x3c!----\x3e", "").replace("<slot></slot>", "") || "",
+            elementInnerHTML: t.textContent || "",
             elementInnerText: t.innerText || "",
             title: "shadow-dom-link",
             element: t,
@@ -12510,7 +12510,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53312" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58686" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

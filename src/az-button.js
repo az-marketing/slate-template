@@ -74,13 +74,14 @@ export class AzButton extends DelegateFocusMixin(LitElement) {
 	trackClicks(e){			
 		// Add window.dataLayer if doesnt exist
 		window.dataLayer = window.dataLayer || [];
+		
 		// Fetch reference to the element that was actually clicked
 		var targetElement = e.composedPath()[0];
 
 		window.dataLayer.push({
 			event: 'shadow_event_' + e.type,
 			shadow_event: {
-				elementInnerHTML: targetElement.innerHTML.replace("\n", "").replace("<!---->", "").replace("<slot></slot>", "").trim() || '',
+				elementInnerHTML: targetElement.textContent || '',
 				elementInnerText: targetElement.innerText || '',
 				title: 'shadow-dom-link',
 				element: targetElement,
