@@ -2471,17 +2471,17 @@ parcelRequire = function (e, r, t, n) {
       value: !0
     }), exports.AzButton = void 0;
 
-    var t = require("lit-element"),
-        e = require("./mixins/delegate-focus-mixin.js"),
-        s = i(require("./styles/az-button-css.js"));
+    var e = require("lit-element"),
+        t = require("./mixins/delegate-focus-mixin.js"),
+        s = n(require("./styles/az-button-css.js"));
 
-    function i(t) {
-      return t && t.__esModule ? t : {
-        default: t
+    function n(e) {
+      return e && e.__esModule ? e : {
+        default: e
       };
     }
 
-    class r extends (0, e.DelegateFocusMixin)(t.LitElement) {
+    class i extends (0, t.DelegateFocusMixin)(e.LitElement) {
       static get properties() {
         return {
           link: {
@@ -2519,35 +2519,47 @@ parcelRequire = function (e, r, t, n) {
         super();
       }
 
-      attributeChangedCallback(t, e, s) {
-        super.attributeChangedCallback(t, e, s);
+      attributeChangedCallback(e, t, s) {
+        super.attributeChangedCallback(e, t, s);
       }
 
       changeAttributes() {
         this.setAttribute("closed", "true"), this.setAttribute("aria-expanded", "true"), this.requestUpdate();
       }
 
-      _handleClick(t) {
+      _handleClick(e) {
         if (this.event) {
-          let t = new Event(this.event);
-          document.querySelector(this.target).dispatchEvent(t);
+          let e = new Event(this.event);
+          document.querySelector(this.target).dispatchEvent(e);
         } else {
-          let t = new Event("open-az-offcanvas-menu");
-          document.querySelector(this.target).dispatchEvent(t), console.log(this);
+          let e = new Event("open-az-offcanvas-menu");
+          document.querySelector(this.target).dispatchEvent(e), console.log(this);
         }
       }
 
+      trackClicks(e) {
+        e.preventDefault(), window.dataLayer = window.dataLayer || [];
+        var t = e.composedPath()[0];
+        console.log(t), window.dataLayer.push({
+          event: "shadow_event_" + e.type,
+          shadow_event: {
+            elementInnerHTML: t.textContent || "",
+            elementInnerText: t.innerText || "",
+            title: "shadow-dom-link",
+            element: t,
+            elementId: t.id || "",
+            elementClasses: t.className || "",
+            elementUrl: t.href || t.action || "",
+            elementTarget: t.target || "",
+            originalEvent: e,
+            inShadowDom: !0
+          }
+        }), console.log(window.dataLayer);
+      }
+
       render() {
-        return t.html`
-      ${this.link ? t.html`
-            <a class="button" href="${this.link}" ?disabled="${this.disabled}" id="${this.elmid}">
-              <slot>${this.value}</slot>
-            </a>
-          ` : t.html`
-            <button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick}" id="${this.elmid}">
-              <slot>${this.value}</slot>
-            </button>
-          `}
+        return e.html`
+      ${this.link ? e.html`<a class="button" href="${this.link}" ?disabled="${this.disabled}" @click="${this.trackClicks}" id="${this.elmid}">${this.value}<slot></slot></a>` : e.html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${(this._handleClick, this.trackClicks)}" id="${this.elmid}">${this.value}<slot></slot></button>`}
     `;
       }
 
@@ -2561,7 +2573,7 @@ parcelRequire = function (e, r, t, n) {
 
     }
 
-    exports.AzButton = r, customElements.get("az-button") || customElements.define("az-button", r);
+    exports.AzButton = i, customElements.get("az-button") || customElements.define("az-button", i);
   }, {
     "lit-element": "bhxD",
     "./mixins/delegate-focus-mixin.js": "Ktcg",
@@ -12498,7 +12510,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65120" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58686" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
