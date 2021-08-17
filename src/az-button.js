@@ -55,6 +55,8 @@ export class AzButton extends DelegateFocusMixin(LitElement) {
     this.requestUpdate();
   }
 
+	
+
 
   _handleClick(e) {
     if(this.event){
@@ -69,19 +71,35 @@ export class AzButton extends DelegateFocusMixin(LitElement) {
     }
   }
 
-  render() {
+	trackClicks(e){			
+		// Add window.dataLayer if doesnt exist
+		window.dataLayer = window.dataLayer || [];
+		// Fetch reference to the element that was actually clicked
+		var targetElement = e.composedPath()[0];
+
+		window.dataLayer.push({
+			event: 'shadow_event_' + e.type,
+			shadow_event: {
+				elementInnerHTML: targetElement.innerHTML.replace("\n", "").replace("<!---->", "").replace("<slot></slot>", "").trim() || '',
+				elementInnerText: targetElement.innerText || '',
+				title: 'shadow-dom-link',
+				element: targetElement,
+				elementId: targetElement.id || '',
+				elementClasses: targetElement.className || '',
+				elementUrl: targetElement.href || targetElement.action || '',
+				elementTarget: targetElement.target || '',
+				originalEvent: e,
+				inShadowDom: true
+			}
+		});
+	}
+
+  render() {	
     return html`
-      ${this.link
-        ? html`
-            <a class="button" href="${this.link}" ?disabled="${this.disabled}" id="${this.elmid}">
-              <slot>${this.value}</slot>
-            </a>
-          `
-        : html`
-            <button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick}" id="${this.elmid}">
-              <slot>${this.value}</slot>
-            </button>
-          `}
+      ${this.link ? 
+				html`<a class="button" href="${this.link}" ?disabled="${this.disabled}" @click="${this.trackClicks}" id="${this.elmid}">${this.value}<slot></slot></a>`
+        : 
+				html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick, this.trackClicks}" id="${this.elmid}">${this.value}<slot></slot></button>`}
     `;
   }
 
