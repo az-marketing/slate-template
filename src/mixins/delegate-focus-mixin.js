@@ -153,37 +153,4 @@ export const DelegateFocusMixin = superClass =>
         this.tabIndex = null;
       }
     }
-
-
-		// eventDataLayerPush(e){			
-		// 	// FOR TESTING ----- REMOVE
-		// 	e.preventDefault();
-	
-		// 	// Add window.dataLayer if doesnt exist
-		// 	window.dataLayer = window.dataLayer || [];
-			
-		// 	// Fetch reference to the element that was actually clicked
-		// 	var targetElement = e.composedPath()[0];
-	
-		// 	window.dataLayer.push({
-		// 		event: 'shadow_event_' + e.type,
-		// 		shadow_event: {
-		// 			elementInnerHTML: targetElement.textContent || '',
-		// 			elementInnerText: targetElement.innerText || '',
-		// 			title: 'shadow-dom-link',
-		// 			element: targetElement,
-		// 			elementId: targetElement.id || '',
-		// 			elementClasses: targetElement.className || '',
-		// 			elementUrl: targetElement.href || targetElement.action || '',
-		// 			elementTarget: targetElement.target || '',
-		// 			originalEvent: e,
-		// 			inShadowDom: true
-		// 		}
-		// 	});
-	
-		// 	console.log(window.dataLayer);
-		// }
-
-
-
   };
