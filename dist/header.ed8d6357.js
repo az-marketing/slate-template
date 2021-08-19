@@ -2467,31 +2467,34 @@ parcelRequire = function (e, r, t, n) {
   "tktD": [function (require, module, exports) {
     "use strict";
 
-    function e(e) {
-      e.preventDefault(), window.dataLayer = window.dataLayer || [];
-      var t = e.composedPath()[0],
-          n = e.composedPath()[3];
+    Object.defineProperty(exports, "__esModule", {
+      value: !0
+    }), exports.eventDataLayerPush = void 0;
+
+    const e = (e, t = "") => {
+      window.dataLayer = window.dataLayer || [];
+      var n = e.composedPath()[0],
+          a = e.composedPath()[3];
       window.dataLayer.push({
         event: "shadow_event_" + e.type,
         shadow_event: {
-          elementInnerHTML: t.textContent || "",
-          elementInnerText: t.innerText || "",
+          elementInnerHTML: n.textContent || "",
+          elementInnerText: n.innerText || "",
           title: "shadow-dom-link",
-          element: t,
-          elementId: t.id || "",
-          elementClasses: t.className || "",
-          elementUrl: t.href || t.action || "",
-          elementTarget: t.target || "",
+          element: n,
+          elementClasses: n.className || "",
+          elementId: n.id || "",
+          elementLocation: t || "",
+          elementTarget: n.target || "",
+          elementUrl: n.href || n.action || "",
           originalEvent: e,
-          parentDropdown: n.innerText.split("\n")[0] || "",
+          parent: a.innerText.split("\n")[0] || "",
           inShadowDom: !0
         }
-      }), console.log(window.dataLayer);
-    }
+      });
+    };
 
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    }), exports.eventDataLayerPush = e;
+    exports.eventDataLayerPush = e;
   }, {}],
   "nH9T": [function (require, module, exports) {
     "use strict";
@@ -3256,7 +3259,9 @@ parcelRequire = function (e, r, t, n) {
       }
 
       static azMenuLinkTemplate(t, i) {
-        return e.html`<div class="dropdown-item"><a href=${i} @click="${o.eventDataLayerPush}">${t}</a></div>`;
+        return e.html`<div class="dropdown-item"><a href=${i} @click="${e => {
+          (0, o.eventDataLayerPush)(e, "az-redbar");
+        }}">${t}</a></div>`;
       }
 
       static azMenuItemTemplate(t) {
@@ -3712,7 +3717,11 @@ parcelRequire = function (e, r, t, n) {
     var e = require("linkset-menu"),
         t = require("lit-element");
 
-    function n(e, t, n) {
+    require("regenerator-runtime/runtime");
+
+    var n = require("./mixins/shadow-events-datalayer");
+
+    function o(e, t, n) {
       return t in e ? Object.defineProperty(e, t, {
         value: n,
         enumerable: !0,
@@ -3721,9 +3730,7 @@ parcelRequire = function (e, r, t, n) {
       }) : e[t] = n, e;
     }
 
-    require("regenerator-runtime/runtime");
-
-    class o extends t.LitElement {
+    class i extends t.LitElement {
       static get properties() {
         return {
           thisUrl: {
@@ -3782,7 +3789,7 @@ parcelRequire = function (e, r, t, n) {
       menuParentTemplate(e, n) {
         return t.html`<li part="menu-item" class="nav-item menu-item--expanded dropdown nav-item nav-item-parent keep-open">
       <button
-        @click="${o.openMenu}"
+        @click="${i.openMenu}"
         role="button"
         aria-expanded="false"
         aria-haspopup="true"
@@ -3809,15 +3816,17 @@ parcelRequire = function (e, r, t, n) {
 
       renderAzMenuLevel(e) {
         const t = e.map(e => this.renderAzMenuItem(e));
-        return o.menuLevelTemplate(t);
+        return i.menuLevelTemplate(t);
       }
 
       static azMenuTopLevelLinkTemplate(e, n) {
         return n = "/" === n.charAt(0) ? this.thisUrl + n : n, t.html`<li part="menu-item" class="nav-item"><a href=${n} class="nav-link">${e}</a></li>`;
       }
 
-      static menuLinkTemplate(e, n) {
-        return n = "/" === n.charAt(0) ? this.thisUrl + n : n, t.html`<a part="menu-item" class="dropdown-item" href=${n}>${e}</a>`;
+      static menuLinkTemplate(e, o) {
+        return o = "/" === o.charAt(0) ? this.thisUrl + o : o, t.html`<a part="menu-item" class="dropdown-item" href=${o} @click="${e => {
+          (0, n.eventDataLayerPush)(e, "az-main-menu");
+        }}">${e}</a>`;
       }
 
       static menuItemTemplate(e) {
@@ -3825,18 +3834,18 @@ parcelRequire = function (e, r, t, n) {
       }
 
       renderAzMenuItem(e) {
-        var t, n, i, a, r, l, s, p;
+        var t, n, o, a, r, l, s, p;
         const c = null == e ? void 0 : null === (t = e.link) || void 0 === t ? void 0 : null === (n = t.attributes) || void 0 === n ? void 0 : n.title;
-        let d = null == e ? void 0 : null === (i = e.link) || void 0 === i ? void 0 : i.href;
+        let d = null == e ? void 0 : null === (o = e.link) || void 0 === o ? void 0 : o.href;
         const b = null == e ? void 0 : e.children;
         let m = null == e ? void 0 : null === (a = e.link) || void 0 === a ? void 0 : null === (r = a.attributes) || void 0 === r ? void 0 : r["drupal-menu-hierarchy"];
-        return m = m[0].match(/\./g).length, d = "/" === (null == e ? void 0 : null === (l = e.link) || void 0 === l ? void 0 : l.href.charAt(0)) ? this.thisUrl + (null == e ? void 0 : null === (s = e.link) || void 0 === s ? void 0 : s.href) : null == e ? void 0 : null === (p = e.link) || void 0 === p ? void 0 : p.href, b && b.length ? this.menuParentTemplate(c, b) : b && 0 === b.length && d && m && 1 === m ? o.azMenuTopLevelLinkTemplate(c, d) : d ? o.menuLinkTemplate(c, d) : o.menuItemTemplate(c);
+        return m = m[0].match(/\./g).length, d = "/" === (null == e ? void 0 : null === (l = e.link) || void 0 === l ? void 0 : l.href.charAt(0)) ? this.thisUrl + (null == e ? void 0 : null === (s = e.link) || void 0 === s ? void 0 : s.href) : null == e ? void 0 : null === (p = e.link) || void 0 === p ? void 0 : p.href, b && b.length ? this.menuParentTemplate(c, b) : b && 0 === b.length && d && m && 1 === m ? i.azMenuTopLevelLinkTemplate(c, d) : d ? i.menuLinkTemplate(c, d) : i.menuItemTemplate(c);
       }
 
       constructor() {
-        super(), n(this, "handleClose", e => {
+        super(), o(this, "handleClose", e => {
           this.setAttribute("state", "closed"), document.body.style.overflowY = "initial";
-        }), n(this, "handleOpen", e => {
+        }), o(this, "handleOpen", e => {
           this.setAttribute("state", "open"), document.body.style.overflowY = "hidden";
         }), this.tree = [], this.isLoading = !1, this.loadingMessage = "Loading...";
       }
@@ -5366,11 +5375,12 @@ parcelRequire = function (e, r, t, n) {
 
     }
 
-    exports.MainMenu = o, customElements.get("az-main-menu") || customElements.define("az-main-menu", o);
+    exports.MainMenu = i, customElements.get("az-main-menu") || customElements.define("az-main-menu", i);
   }, {
     "linkset-menu": "KH0w",
     "lit-element": "bhxD",
-    "regenerator-runtime/runtime": "QVnC"
+    "regenerator-runtime/runtime": "QVnC",
+    "./mixins/shadow-events-datalayer": "tktD"
   }],
   "W8bA": [function (require, module, exports) {
     "use strict";
@@ -7024,7 +7034,11 @@ parcelRequire = function (e, r, t, n) {
         t = require("@popperjs/core/lib/popper-lite"),
         e = require("linkset-menu");
 
-    function r(o, t, e) {
+    require("./az-button");
+
+    var r = require("./mixins/shadow-events-datalayer");
+
+    function i(o, t, e) {
       return t in o ? Object.defineProperty(o, t, {
         value: e,
         enumerable: !0,
@@ -7033,9 +7047,7 @@ parcelRequire = function (e, r, t, n) {
       }) : o[t] = e, o;
     }
 
-    require("./az-button");
-
-    class i extends o.LitElement {
+    class n extends o.LitElement {
       static get styles() {
         return o.css`
 * {
@@ -11084,21 +11096,21 @@ label {
       }
 
       constructor() {
-        super(), r(this, "_showTooltip", () => {
+        super(), i(this, "_showTooltip", () => {
           this.tooltip.setAttribute("data-show", ""), this.popperInstance.setOptions({
             modifiers: [{
               name: "eventListeners",
               enabled: !0
             }]
           }), this.popperInstance.update();
-        }), r(this, "_hideTooltip", () => {
+        }), i(this, "_hideTooltip", () => {
           this.tooltip.removeAttribute("data-show"), this.popperInstance.setOptions({
             modifiers: [{
               name: "eventListeners",
               enabled: !1
             }]
           });
-        }), r(this, "_handleEvents", o => {
+        }), i(this, "_handleEvents", o => {
           const t = this.select.options[this.select.selectedIndex].dataset.href;
           if (t.includes("%3Cnolink%3E")) switch (this.btn.classList.add("disabled"), this.select.setAttribute("aria-invalid", "true"), o.type) {
             case "click":
@@ -11135,7 +11147,9 @@ label {
       }
 
       static azMenuOptionTemplate(t, e) {
-        return o.html`<option data-href="${e}">${t}</option>`;
+        return o.html`<option data-href="${e}" @click="${o => {
+          (0, r.eventDataLayerPush)(o, "az-select-menu");
+        }}">${t}</option>`;
       }
 
       static azMenuItemTemplate(t) {
@@ -11144,14 +11158,14 @@ label {
 
       renderAzSelectMenuOptions(o) {
         const t = o.map(o => this.renderAzMenuItem(o));
-        return i.azMenuLevelTemplate(t);
+        return n.azMenuLevelTemplate(t);
       }
 
       renderAzMenuItem(o) {
         var t, e, r;
-        const n = null == o ? void 0 : null === (t = o.link) || void 0 === t ? void 0 : null === (e = t.attributes) || void 0 === e ? void 0 : e.title,
+        const i = null == o ? void 0 : null === (t = o.link) || void 0 === t ? void 0 : null === (e = t.attributes) || void 0 === e ? void 0 : e.title,
               l = null == o ? void 0 : null === (r = o.link) || void 0 === r ? void 0 : r.href;
-        return l ? i.azMenuOptionTemplate(n, l) : this.azMenuItemTemplate(n);
+        return l ? n.azMenuOptionTemplate(i, l) : this.azMenuItemTemplate(i);
       }
 
       fetchData(o, t) {
@@ -11221,12 +11235,13 @@ label {
 
     }
 
-    customElements.get("az-select-menu") || customElements.define("az-select-menu", i);
+    customElements.get("az-select-menu") || customElements.define("az-select-menu", n);
   }, {
     "lit-element": "bhxD",
     "@popperjs/core/lib/popper-lite": "hwU4",
     "linkset-menu": "KH0w",
-    "./az-button": "nH9T"
+    "./az-button": "nH9T",
+    "./mixins/shadow-events-datalayer": "tktD"
   }],
   "GiDN": [function (require, module, exports) {
     "use strict";
@@ -12524,7 +12539,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53243" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61324" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

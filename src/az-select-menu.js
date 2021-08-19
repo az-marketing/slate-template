@@ -2,6 +2,7 @@ import { html, css, LitElement } from 'lit-element';
 import { createPopper } from '@popperjs/core/lib/popper-lite';
 import { denormalize } from 'linkset-menu';
 import './az-button';
+import {eventDataLayerPush} from './mixins/shadow-events-datalayer';
 
 class AzSelectMenu  extends LitElement {
      static get styles() {
@@ -4162,7 +4163,7 @@ label {
        `;
      }
      static azMenuOptionTemplate(title, href) {
-       return html`<option data-href="${href}">${title}</option>`;
+       return html`<option data-href="${href}" @click="${(e) => {eventDataLayerPush(e, 'az-select-menu')}}">${title}</option>`;
      }
 
      static azMenuItemTemplate(title) {

@@ -689,7 +689,7 @@
 			}
 
 			static azMenuLinkTemplate(title, href) {
-				return html`<div class="dropdown-item"><a href=${href} @click="${eventDataLayerPush}">${title}</a></div>`;
+				return html`<div class="dropdown-item"><a href=${href} @click="${(e) => {eventDataLayerPush(e, 'az-redbar')}}">${title}</a></div>`;
 			}
 
 			static azMenuItemTemplate(title) {

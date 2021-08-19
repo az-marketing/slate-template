@@ -1,10 +1,6 @@
-export function eventDataLayerPush(e){			
-	// FOR TESTING ----- REMOVE
-	e.preventDefault();
-
+export const eventDataLayerPush = (e, location = '') => {			
 	// Add window.dataLayer if doesnt exist
 	window.dataLayer = window.dataLayer || [];
-	
 	// Fetch reference to the element that was actually clicked
 	var targetElement = e.composedPath()[0];
 	// Fetch reference to the element's parent dropdown which was clicked
@@ -17,15 +13,14 @@ export function eventDataLayerPush(e){
 			elementInnerText: targetElement.innerText || '',
 			title: 'shadow-dom-link',
 			element: targetElement,
-			elementId: targetElement.id || '',
 			elementClasses: targetElement.className || '',
-			elementUrl: targetElement.href || targetElement.action || '',
+			elementId: targetElement.id || '',
+			elementLocation: location || '',
 			elementTarget: targetElement.target || '',
+			elementUrl: targetElement.href || targetElement.action || '',
 			originalEvent: e,
-			parentDropdown: parentDropDown.innerText.split("\n")[0] || "",
+			parent: parentDropDown.innerText.split("\n")[0] || "",
 			inShadowDom: true
 		}
 	});
-
-	console.log(window.dataLayer);
 }

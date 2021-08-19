@@ -1,7 +1,7 @@
 import { denormalize } from 'linkset-menu';
 import { css, html, LitElement } from 'lit-element';
 import 'regenerator-runtime/runtime';
-
+import {eventDataLayerPush} from './mixins/shadow-events-datalayer';
 
 export class MainMenu extends LitElement {
 
@@ -129,7 +129,7 @@ export class MainMenu extends LitElement {
 
   static menuLinkTemplate(title, href) {
 		href = href.charAt(0) === '/' ? this.thisUrl + href : href;
-    return html`<a part="menu-item" class="dropdown-item" href=${href}>${title}</a>`;
+    return html`<a part="menu-item" class="dropdown-item" href=${href} @click="${(e) => {eventDataLayerPush(e, 'az-main-menu')}}">${title}</a>`;
   }
 
   static menuItemTemplate(title) {
