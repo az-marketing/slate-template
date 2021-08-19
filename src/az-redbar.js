@@ -1,6 +1,7 @@
  import { html, css, LitElement } from 'lit-element';
  import { denormalize } from 'linkset-menu';
  import './az-button';
+ import {eventDataLayerPush} from './mixins/shadow-events-datalayer';
 
 
  /**
@@ -688,7 +689,7 @@
 			}
 
 			static azMenuLinkTemplate(title, href) {
-				return html`<div class="dropdown-item"><a href=${href}>${title}</a></div>`;
+				return html`<div class="dropdown-item"><a href=${href} @click="${eventDataLayerPush}">${title}</a></div>`;
 			}
 
 			static azMenuItemTemplate(title) {

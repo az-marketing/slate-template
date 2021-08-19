@@ -2464,6 +2464,35 @@ parcelRequire = function (e, r, t, n) {
   }, {
     "lit-element": "bhxD"
   }],
+  "tktD": [function (require, module, exports) {
+    "use strict";
+
+    function e(e) {
+      e.preventDefault(), window.dataLayer = window.dataLayer || [];
+      var t = e.composedPath()[0],
+          n = e.composedPath()[3];
+      window.dataLayer.push({
+        event: "shadow_event_" + e.type,
+        shadow_event: {
+          elementInnerHTML: t.textContent || "",
+          elementInnerText: t.innerText || "",
+          title: "shadow-dom-link",
+          element: t,
+          elementId: t.id || "",
+          elementClasses: t.className || "",
+          elementUrl: t.href || t.action || "",
+          elementTarget: t.target || "",
+          originalEvent: e,
+          parentDropdown: n.innerText.split("\n")[0] || "",
+          inShadowDom: !0
+        }
+      }), console.log(window.dataLayer);
+    }
+
+    Object.defineProperty(exports, "__esModule", {
+      value: !0
+    }), exports.eventDataLayerPush = e;
+  }, {}],
   "nH9T": [function (require, module, exports) {
     "use strict";
 
@@ -2471,17 +2500,18 @@ parcelRequire = function (e, r, t, n) {
       value: !0
     }), exports.AzButton = void 0;
 
-    var e = require("lit-element"),
-        t = require("./mixins/delegate-focus-mixin.js"),
-        s = n(require("./styles/az-button-css.js"));
+    var t = require("lit-element"),
+        e = require("./mixins/delegate-focus-mixin.js"),
+        s = r(require("./styles/az-button-css.js")),
+        i = require("./mixins/shadow-events-datalayer");
 
-    function n(e) {
-      return e && e.__esModule ? e : {
-        default: e
+    function r(t) {
+      return t && t.__esModule ? t : {
+        default: t
       };
     }
 
-    class i extends (0, t.DelegateFocusMixin)(e.LitElement) {
+    class n extends (0, e.DelegateFocusMixin)(t.LitElement) {
       static get properties() {
         return {
           link: {
@@ -2519,47 +2549,27 @@ parcelRequire = function (e, r, t, n) {
         super();
       }
 
-      attributeChangedCallback(e, t, s) {
-        super.attributeChangedCallback(e, t, s);
+      attributeChangedCallback(t, e, s) {
+        super.attributeChangedCallback(t, e, s);
       }
 
       changeAttributes() {
         this.setAttribute("closed", "true"), this.setAttribute("aria-expanded", "true"), this.requestUpdate();
       }
 
-      _handleClick(e) {
+      _handleClick(t) {
         if (this.event) {
-          let e = new Event(this.event);
-          document.querySelector(this.target).dispatchEvent(e);
+          let t = new Event(this.event);
+          document.querySelector(this.target).dispatchEvent(t);
         } else {
-          let e = new Event("open-az-offcanvas-menu");
-          document.querySelector(this.target).dispatchEvent(e), console.log(this);
+          let t = new Event("open-az-offcanvas-menu");
+          document.querySelector(this.target).dispatchEvent(t), console.log(this);
         }
       }
 
-      trackClicks(e) {
-        e.preventDefault(), window.dataLayer = window.dataLayer || [];
-        var t = e.composedPath()[0];
-        console.log(t), window.dataLayer.push({
-          event: "shadow_event_" + e.type,
-          shadow_event: {
-            elementInnerHTML: t.textContent || "",
-            elementInnerText: t.innerText || "",
-            title: "shadow-dom-link",
-            element: t,
-            elementId: t.id || "",
-            elementClasses: t.className || "",
-            elementUrl: t.href || t.action || "",
-            elementTarget: t.target || "",
-            originalEvent: e,
-            inShadowDom: !0
-          }
-        }), console.log(window.dataLayer);
-      }
-
       render() {
-        return e.html`
-      ${this.link ? e.html`<a class="button" href="${this.link}" ?disabled="${this.disabled}" @click="${this.trackClicks}" id="${this.elmid}">${this.value}<slot></slot></a>` : e.html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${(this._handleClick, this.trackClicks)}" id="${this.elmid}">${this.value}<slot></slot></button>`}
+        return t.html`
+      ${this.link ? t.html`<a class="button" href="${this.link}" ?disabled="${this.disabled}" @click="${i.eventDataLayerPush}" id="${this.elmid}">${this.value}<slot></slot></a>` : t.html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${(this._handleClick, i.eventDataLayerPush)}" id="${this.elmid}">${this.value}<slot></slot></button>`}
     `;
       }
 
@@ -2573,11 +2583,12 @@ parcelRequire = function (e, r, t, n) {
 
     }
 
-    exports.AzButton = i, customElements.get("az-button") || customElements.define("az-button", i);
+    exports.AzButton = n, customElements.get("az-button") || customElements.define("az-button", n);
   }, {
     "lit-element": "bhxD",
     "./mixins/delegate-focus-mixin.js": "Ktcg",
-    "./styles/az-button-css.js": "re2C"
+    "./styles/az-button-css.js": "re2C",
+    "./mixins/shadow-events-datalayer": "tktD"
   }],
   "EM68": [function (require, module, exports) {
     "use strict";
@@ -2591,7 +2602,9 @@ parcelRequire = function (e, r, t, n) {
 
     require("./az-button");
 
-    class o extends e.LitElement {
+    var o = require("./mixins/shadow-events-datalayer");
+
+    class i extends e.LitElement {
       static get styles() {
         return e.css`
 						:root {
@@ -3224,10 +3237,10 @@ parcelRequire = function (e, r, t, n) {
         "true" === t.getAttribute("aria-expanded") ? (t.setAttribute("aria-expanded", "false"), t.nextElementSibling.classList.remove("show")) : (t.setAttribute("aria-expanded", "true"), t.nextElementSibling.classList.add("show"));
       }
 
-      azMenuParentTemplate(t, i) {
+      azMenuParentTemplate(t, o) {
         return e.html`
 					<button
-						@click="${o.openMenu}"
+						@click="${i.openMenu}"
 						role="button"
 						aria-expanded="false"
 						aria-haspopup="true"
@@ -3237,13 +3250,13 @@ parcelRequire = function (e, r, t, n) {
 						${t}
 					</button>
 					<div class="dropdown-menu dropdown-menu pull-right">
-						${this.renderAzMenuLevel(i)}
+						${this.renderAzMenuLevel(o)}
 						</div>
 				`;
       }
 
-      static azMenuLinkTemplate(t, o) {
-        return e.html`<div class="dropdown-item"><a href=${o}>${t}</a></div>`;
+      static azMenuLinkTemplate(t, i) {
+        return e.html`<div class="dropdown-item"><a href=${i} @click="${o.eventDataLayerPush}">${t}</a></div>`;
       }
 
       static azMenuItemTemplate(t) {
@@ -3252,15 +3265,15 @@ parcelRequire = function (e, r, t, n) {
 
       renderAzMenuLevel(e) {
         const t = e.map(e => this.renderAzMenuItem(e));
-        return o.azMenuLevelTemplate(t);
+        return i.azMenuLevelTemplate(t);
       }
 
       renderAzMenuItem(e) {
-        var t, i, n;
-        const r = null == e ? void 0 : null === (t = e.link) || void 0 === t ? void 0 : null === (i = t.attributes) || void 0 === i ? void 0 : i.title;
+        var t, o, n;
+        const r = null == e ? void 0 : null === (t = e.link) || void 0 === t ? void 0 : null === (o = t.attributes) || void 0 === o ? void 0 : o.title;
         let a = null == e ? void 0 : null === (n = e.link) || void 0 === n ? void 0 : n.href;
         const s = null == e ? void 0 : e.children;
-        return a = "/" === a.charAt(0) ? this.thisUrl + a : a, s.length ? this.azMenuParentTemplate(r, s) : a ? o.azMenuLinkTemplate(r, a) : o.azMenuItemTemplate(r);
+        return a = "/" === a.charAt(0) ? this.thisUrl + a : a, s.length ? this.azMenuParentTemplate(r, s) : a ? i.azMenuLinkTemplate(r, a) : i.azMenuItemTemplate(r);
       }
 
       fetchData(e, o) {
@@ -3327,11 +3340,12 @@ parcelRequire = function (e, r, t, n) {
 
     }
 
-    exports.AzRedbar = o, customElements.get("az-redbar") || customElements.define("az-redbar", o);
+    exports.AzRedbar = i, customElements.get("az-redbar") || customElements.define("az-redbar", i);
   }, {
     "lit-element": "bhxD",
     "linkset-menu": "KH0w",
-    "./az-button": "nH9T"
+    "./az-button": "nH9T",
+    "./mixins/shadow-events-datalayer": "tktD"
   }],
   "QVnC": [function (require, module, exports) {
     var define;
@@ -12510,7 +12524,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58686" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53243" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
