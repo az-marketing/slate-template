@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit-element';
 import { DelegateFocusMixin } from './mixins/delegate-focus-mixin.js';
 import azButtonStyles from './styles/az-button-css.js';
-
+import {eventDataLayerPush} from './mixins/shadow-events-datalayer';
 
 export class AzButton extends DelegateFocusMixin(LitElement) {
   static get properties() {
@@ -55,9 +55,6 @@ export class AzButton extends DelegateFocusMixin(LitElement) {
     this.requestUpdate();
   }
 
-	
-
-
   _handleClick(e) {
     if(this.event){
       let event = new Event(this.event);
@@ -71,36 +68,12 @@ export class AzButton extends DelegateFocusMixin(LitElement) {
     }
   }
 
-	trackClicks(e){			
-		// Add window.dataLayer if doesnt exist
-		window.dataLayer = window.dataLayer || [];
-		
-		// Fetch reference to the element that was actually clicked
-		var targetElement = e.composedPath()[0];
-
-		window.dataLayer.push({
-			event: 'shadow_event_' + e.type,
-			shadow_event: {
-				elementInnerHTML: targetElement.textContent || '',
-				elementInnerText: targetElement.innerText || '',
-				title: 'shadow-dom-link',
-				element: targetElement,
-				elementId: targetElement.id || '',
-				elementClasses: targetElement.className || '',
-				elementUrl: targetElement.href || targetElement.action || '',
-				elementTarget: targetElement.target || '',
-				originalEvent: e,
-				inShadowDom: true
-			}
-		});
-	}
-
   render() {	
     return html`
       ${this.link ? 
-				html`<a class="button" href="${this.link}" ?disabled="${this.disabled}" @click="${this.trackClicks}" id="${this.elmid}">${this.value}<slot></slot></a>`
+				html`<a class="button" href="${this.link}" ?disabled="${this.disabled}" @click="${eventDataLayerPush}" id="${this.elmid}">${this.value}<slot></slot></a>`
         : 
-				html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick, this.trackClicks}" id="${this.elmid}">${this.value}<slot></slot></button>`}
+				html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick, eventDataLayerPush}" id="${this.elmid}">${this.value}<slot></slot></button>`}
     `;
   }
 
