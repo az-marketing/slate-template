@@ -2474,7 +2474,7 @@ parcelRequire = function (e, r, t, n) {
     const e = (e, t = "") => {
       window.dataLayer = window.dataLayer || [];
       var n = e.composedPath()[0],
-          a = e.composedPath()[3];
+          a = e.composedPath()[3].innerText ? e.composedPath()[3].innerText.split("\n")[0] : "";
       window.dataLayer.push({
         event: "shadow_event_" + e.type,
         shadow_event: {
@@ -2488,7 +2488,7 @@ parcelRequire = function (e, r, t, n) {
           elementTarget: n.target || "",
           elementUrl: n.href || n.action || "",
           originalEvent: e,
-          parent: a.innerText.split("\n")[0] || "",
+          parent: a || "",
           inShadowDom: !0
         }
       });
@@ -2561,19 +2561,20 @@ parcelRequire = function (e, r, t, n) {
       }
 
       _handleClick(t) {
-        if (this.event) {
+        if ((0, i.eventDataLayerPush)(t, ""), this.event) {
           let t = new Event(this.event);
           document.querySelector(this.target).dispatchEvent(t);
         } else {
           let t = new Event("open-az-offcanvas-menu");
-          document.querySelector(this.target).dispatchEvent(t), console.log(this);
+          document.querySelector(this.target).dispatchEvent(t);
         }
       }
 
       render() {
         return t.html`
-      ${this.link ? t.html`<a class="button" href="${this.link}" ?disabled="${this.disabled}" @click="${i.eventDataLayerPush}" id="${this.elmid}">${this.value}<slot></slot></a>` : t.html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${(this._handleClick, i.eventDataLayerPush)}" id="${this.elmid}">${this.value}<slot></slot></button>`}
-    `;
+			${this.link ? t.html`<a class="button" href="${this.link}" ?disabled="${this.disabled}" @click="${i.eventDataLayerPush}" id="${this.elmid}">${this.value}<slot></slot></a>` : t.html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick}" id="${this.elmid}">${this.value}<slot></slot></button>`}
+	
+		`;
       }
 
       firstUpdated() {
@@ -12539,7 +12540,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61324" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63504" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
