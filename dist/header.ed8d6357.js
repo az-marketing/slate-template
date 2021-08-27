@@ -11164,9 +11164,9 @@ label {
 
       renderAzMenuItem(o) {
         var t, e, r;
-        const i = null == o ? void 0 : null === (t = o.link) || void 0 === t ? void 0 : null === (e = t.attributes) || void 0 === e ? void 0 : e.title,
-              l = null == o ? void 0 : null === (r = o.link) || void 0 === r ? void 0 : r.href;
-        return l ? n.azMenuOptionTemplate(i, l) : this.azMenuItemTemplate(i);
+        const i = null == o ? void 0 : null === (t = o.link) || void 0 === t ? void 0 : null === (e = t.attributes) || void 0 === e ? void 0 : e.title;
+        let l = null == o ? void 0 : null === (r = o.link) || void 0 === r ? void 0 : r.href;
+        return (l = "/" === l.charAt(0) ? "https://www.arizona.edu" + l : l) ? n.azMenuOptionTemplate(i, l) : this.azMenuItemTemplate(i);
       }
 
       fetchData(o, t) {
@@ -12540,7 +12540,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63504" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54443" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
