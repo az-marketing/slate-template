@@ -45,7 +45,6 @@ export class AzButton extends DelegateFocusMixin(LitElement) {
   }
 
   attributeChangedCallback(name, oldVal, newVal) {
-    // console.log('attribute change: ', name, newVal);
     super.attributeChangedCallback(name, oldVal, newVal);
   }
 
@@ -64,15 +63,14 @@ export class AzButton extends DelegateFocusMixin(LitElement) {
     else {
       let openAzOffCanvasMenu = new Event('open-az-offcanvas-menu');
       document.querySelector(this.target).dispatchEvent(openAzOffCanvasMenu);
-      console.log(this);
     }
   }
 
-  render() {	
+  render() {
     return html`
-      ${this.link ? 
+      ${this.link ?
 				html`<a class="button" href="${this.link}" ?disabled="${this.disabled}" @click="${eventDataLayerPush}" id="${this.elmid}">${this.value}<slot></slot></a>`
-        : 
+        :
 				html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick, eventDataLayerPush}" id="${this.elmid}">${this.value}<slot></slot></button>`}
     `;
   }
