@@ -54,26 +54,26 @@ export class AzButton extends DelegateFocusMixin(LitElement) {
     this.requestUpdate();
   }
 
-  _handleClick(e) {
-    if(this.event){
-      let event = new Event(this.event);
-      document.querySelector(this.target).dispatchEvent(event);
-      return
-    }
-    else {
-      let openAzOffCanvasMenu = new Event('open-az-offcanvas-menu');
-      document.querySelector(this.target).dispatchEvent(openAzOffCanvasMenu);
-    }
-  }
-
-  render() {
-    return html`
-      ${this.link ?
+	_handleClick(e) {
+		eventDataLayerPush(e, '');
+		if(this.event){
+			let event = new Event(this.event);
+			document.querySelector(this.target).dispatchEvent(event);
+			return
+		} else {
+			let openAzOffCanvasMenu = new Event('open-az-offcanvas-menu');
+			document.querySelector(this.target).dispatchEvent(openAzOffCanvasMenu);
+		}
+	}
+	
+	render() {	
+		return html`
+			${this.link ? 
 				html`<a class="button" href="${this.link}" ?disabled="${this.disabled}" @click="${eventDataLayerPush}" id="${this.elmid}">${this.value}<slot></slot></a>`
-        :
-				html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick, eventDataLayerPush}" id="${this.elmid}">${this.value}<slot></slot></button>`}
-    `;
-  }
+				: 
+				html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick}" id="${this.elmid}">${this.value}<slot></slot></button>`}
+		`;
+	}
 
   firstUpdated() {
     super.firstUpdated();

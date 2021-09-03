@@ -1861,7 +1861,7 @@ parcelRequire = function (e, r, t, n) {
     const e = (e, t = "") => {
       window.dataLayer = window.dataLayer || [];
       var n = e.composedPath()[0],
-          a = e.composedPath()[3];
+          a = e.composedPath()[3].innerText ? e.composedPath()[3].innerText.split("\n")[0] : "";
       window.dataLayer.push({
         event: "shadow_event_" + e.type,
         shadow_event: {
@@ -1875,7 +1875,7 @@ parcelRequire = function (e, r, t, n) {
           elementTarget: n.target || "",
           elementUrl: n.href || n.action || "",
           originalEvent: e,
-          parent: a.innerText.split("\n")[0] || "",
+          parent: a || "",
           inShadowDom: !0
         }
       });
@@ -3372,7 +3372,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61324" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54443" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

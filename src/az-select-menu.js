@@ -4176,7 +4176,11 @@ label {
 
      renderAzMenuItem(item) {
        const title = item?.link?.attributes?.title;
-       const href = item?.link?.href;
+       let href = item?.link?.href;
+
+			 // check if external or relative href
+			 href = href.charAt(0) === '/' ? 'https://www.arizona.edu' + href : href;
+
 
        if (href) {
          return AzSelectMenu.azMenuOptionTemplate(title, href);
