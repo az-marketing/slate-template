@@ -2573,7 +2573,6 @@ parcelRequire = function (e, r, t, n) {
       render() {
         return t.html`
 			${this.link ? t.html`<a class="button" href="${this.link}" ?disabled="${this.disabled}" @click="${i.eventDataLayerPush}" id="${this.elmid}">${this.value}<slot></slot></a>` : t.html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick}" id="${this.elmid}">${this.value}<slot></slot></button>`}
-	
 		`;
       }
 
@@ -3379,14 +3378,14 @@ parcelRequire = function (e, r, t, n) {
 
       try {
         u({}, "");
-      } catch (P) {
+      } catch (F) {
         u = function (t, r, e) {
           return t[r] = e;
         };
       }
 
       function h(t, r, e, n) {
-        var o = r && r.prototype instanceof d ? r : d,
+        var o = r && r.prototype instanceof g ? r : g,
             i = Object.create(o.prototype),
             a = new G(n || []);
         return i._invoke = function (t, r, e) {
@@ -3396,7 +3395,7 @@ parcelRequire = function (e, r, t, n) {
 
             if (n === y) {
               if ("throw" === o) throw i;
-              return F();
+              return T();
             }
 
             for (e.method = o, e.arg = i;;) {
@@ -3438,10 +3437,10 @@ parcelRequire = function (e, r, t, n) {
             type: "normal",
             arg: t.call(r, e)
           };
-        } catch (P) {
+        } catch (F) {
           return {
             type: "throw",
-            arg: P
+            arg: F
           };
         }
       }
@@ -3453,22 +3452,20 @@ parcelRequire = function (e, r, t, n) {
           y = "completed",
           v = {};
 
-      function d() {}
-
       function g() {}
+
+      function d() {}
 
       function m() {}
 
       var w = {};
-
-      w[i] = function () {
+      u(w, i, function () {
         return this;
-      };
-
+      });
       var L = Object.getPrototypeOf,
           x = L && L(L(N([])));
       x && x !== e && n.call(x, i) && (w = x);
-      var b = m.prototype = d.prototype = Object.create(w);
+      var b = m.prototype = g.prototype = Object.create(w);
 
       function E(t) {
         ["next", "throw", "return"].forEach(function (r) {
@@ -3565,39 +3562,39 @@ parcelRequire = function (e, r, t, n) {
         }
 
         return {
-          next: F
+          next: T
         };
       }
 
-      function F() {
+      function T() {
         return {
           value: r,
           done: !0
         };
       }
 
-      return g.prototype = b.constructor = m, m.constructor = g, g.displayName = u(m, c, "GeneratorFunction"), t.isGeneratorFunction = function (t) {
+      return d.prototype = m, u(b, "constructor", m), u(m, "constructor", d), d.displayName = u(m, c, "GeneratorFunction"), t.isGeneratorFunction = function (t) {
         var r = "function" == typeof t && t.constructor;
-        return !!r && (r === g || "GeneratorFunction" === (r.displayName || r.name));
+        return !!r && (r === d || "GeneratorFunction" === (r.displayName || r.name));
       }, t.mark = function (t) {
         return Object.setPrototypeOf ? Object.setPrototypeOf(t, m) : (t.__proto__ = m, u(t, c, "GeneratorFunction")), t.prototype = Object.create(b), t;
       }, t.awrap = function (t) {
         return {
           __await: t
         };
-      }, E(_.prototype), _.prototype[a] = function () {
+      }, E(_.prototype), u(_.prototype, a, function () {
         return this;
-      }, t.AsyncIterator = _, t.async = function (r, e, n, o, i) {
+      }), t.AsyncIterator = _, t.async = function (r, e, n, o, i) {
         void 0 === i && (i = Promise);
         var a = new _(h(r, e, n, o), i);
         return t.isGeneratorFunction(e) ? a : a.next().then(function (t) {
           return t.done ? t.value : a.next();
         });
-      }, E(b), u(b, c, "Generator"), b[i] = function () {
+      }, E(b), u(b, c, "Generator"), u(b, i, function () {
         return this;
-      }, b.toString = function () {
+      }), u(b, "toString", function () {
         return "[object Generator]";
-      }, t.keys = function (t) {
+      }), t.keys = function (t) {
         var r = [];
 
         for (var e in t) r.push(e);
@@ -3705,7 +3702,7 @@ parcelRequire = function (e, r, t, n) {
     try {
       regeneratorRuntime = r;
     } catch (e) {
-      Function("r", "regeneratorRuntime = r")(r);
+      "object" == typeof globalThis ? globalThis.regeneratorRuntime = r : Function("r", "regeneratorRuntime = r")(r);
     }
   }, {}],
   "MlEP": [function (require, module, exports) {
@@ -5332,7 +5329,7 @@ parcelRequire = function (e, r, t, n) {
                 <nav class="navbar-offcanvas offcanvas-toggle" id="navbarOffcanvasDemo">
                     <div class="navbar-offcanvas-header">
                         <div class="bg-chili d-flex justify-content-between align-items-center">
-                            <az-button theme="primary" redbar href="https://www.arizona.edu" aria-expanded="false" aria-haspopup="true" target="az-main-menu" aria-controls="navbarOffcanvasDemo">
+                            <az-button theme="primary" redbar link="https://www.arizona.edu" aria-expanded="false" aria-haspopup="true" target="az-main-menu" aria-controls="navbarOffcanvasDemo">
                                 <svg class="icon" title="home" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
                                 <span class="icon-text"> home </span>
                             </az-button>
@@ -5383,27 +5380,6 @@ parcelRequire = function (e, r, t, n) {
     "regenerator-runtime/runtime": "QVnC",
     "./mixins/shadow-events-datalayer": "tktD"
   }],
-  "W8bA": [function (require, module, exports) {
-    "use strict";
-
-    function t(t) {
-      var e = t.getBoundingClientRect();
-      return {
-        width: e.width,
-        height: e.height,
-        top: e.top,
-        right: e.right,
-        bottom: e.bottom,
-        left: e.left,
-        x: e.left,
-        y: e.top
-      };
-    }
-
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    }), exports.default = t;
-  }, {}],
   "QiNa": [function (require, module, exports) {
     "use strict";
 
@@ -5422,30 +5398,6 @@ parcelRequire = function (e, r, t, n) {
       value: !0
     }), exports.default = e;
   }, {}],
-  "oJ75": [function (require, module, exports) {
-    "use strict";
-
-    Object.defineProperty(exports, "__esModule", {
-      value: !0
-    }), exports.default = r;
-    var e = t(require("./getWindow.js"));
-
-    function t(e) {
-      return e && e.__esModule ? e : {
-        default: e
-      };
-    }
-
-    function r(t) {
-      var r = (0, e.default)(t);
-      return {
-        scrollLeft: r.pageXOffset,
-        scrollTop: r.pageYOffset
-      };
-    }
-  }, {
-    "./getWindow.js": "QiNa"
-  }],
   "wsKO": [function (require, module, exports) {
     "use strict";
 
@@ -5470,6 +5422,66 @@ parcelRequire = function (e, r, t, n) {
 
     function i(t) {
       return "undefined" != typeof ShadowRoot && (t instanceof (0, e.default)(t).ShadowRoot || t instanceof ShadowRoot);
+    }
+  }, {
+    "./getWindow.js": "QiNa"
+  }],
+  "W8bA": [function (require, module, exports) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+      value: !0
+    }), exports.default = i;
+
+    var t = require("./instanceOf.js"),
+        e = Math.round;
+
+    function i(i, o) {
+      void 0 === o && (o = !1);
+      var r = i.getBoundingClientRect(),
+          h = 1,
+          f = 1;
+
+      if ((0, t.isHTMLElement)(i) && o) {
+        var n = i.offsetHeight,
+            d = i.offsetWidth;
+        d > 0 && (h = r.width / d || 1), n > 0 && (f = r.height / n || 1);
+      }
+
+      return {
+        width: e(r.width / h),
+        height: e(r.height / f),
+        top: e(r.top / f),
+        right: e(r.right / h),
+        bottom: e(r.bottom / f),
+        left: e(r.left / h),
+        x: e(r.left / h),
+        y: e(r.top / f)
+      };
+    }
+  }, {
+    "./instanceOf.js": "wsKO"
+  }],
+  "oJ75": [function (require, module, exports) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+      value: !0
+    }), exports.default = r;
+    var e = t(require("./getWindow.js"));
+
+    function t(e) {
+      return e && e.__esModule ? e : {
+        default: e
+      };
+    }
+
+    function r(t) {
+      var r = (0, e.default)(t);
+      return {
+        scrollLeft: r.pageXOffset,
+        scrollTop: r.pageYOffset
+      };
     }
   }, {
     "./getWindow.js": "QiNa"
@@ -5616,38 +5628,46 @@ parcelRequire = function (e, r, t, n) {
       value: !0
     }), exports.default = d;
 
-    var e = s(require("./getBoundingClientRect.js")),
-        t = s(require("./getNodeScroll.js")),
-        r = s(require("./getNodeName.js")),
+    var e = n(require("./getBoundingClientRect.js")),
+        t = n(require("./getNodeScroll.js")),
+        r = n(require("./getNodeName.js")),
         l = require("./instanceOf.js"),
-        u = s(require("./getWindowScrollBarX.js")),
-        i = s(require("./getDocumentElement.js")),
-        o = s(require("./isScrollParent.js"));
+        i = n(require("./getWindowScrollBarX.js")),
+        o = n(require("./getDocumentElement.js")),
+        u = n(require("./isScrollParent.js"));
 
-    function s(e) {
+    function n(e) {
       return e && e.__esModule ? e : {
         default: e
       };
     }
 
-    function d(s, d, n) {
-      void 0 === n && (n = !1);
-      var f = (0, i.default)(d),
-          a = (0, e.default)(s),
-          c = (0, l.isHTMLElement)(d),
-          g = {
+    function s(e) {
+      var t = e.getBoundingClientRect(),
+          r = t.width / e.offsetWidth || 1,
+          l = t.height / e.offsetHeight || 1;
+      return 1 !== r || 1 !== l;
+    }
+
+    function d(n, d, f) {
+      void 0 === f && (f = !1);
+      var c = (0, l.isHTMLElement)(d),
+          a = (0, l.isHTMLElement)(d) && s(d),
+          g = (0, o.default)(d),
+          h = (0, e.default)(n, a),
+          j = {
         scrollLeft: 0,
         scrollTop: 0
       },
-          j = {
+          p = {
         x: 0,
         y: 0
       };
-      return (c || !c && !n) && (("body" !== (0, r.default)(d) || (0, o.default)(f)) && (g = (0, t.default)(d)), (0, l.isHTMLElement)(d) ? ((j = (0, e.default)(d)).x += d.clientLeft, j.y += d.clientTop) : f && (j.x = (0, u.default)(f))), {
-        x: a.left + g.scrollLeft - j.x,
-        y: a.top + g.scrollTop - j.y,
-        width: a.width,
-        height: a.height
+      return (c || !c && !f) && (("body" !== (0, r.default)(d) || (0, u.default)(g)) && (j = (0, t.default)(d)), (0, l.isHTMLElement)(d) ? ((p = (0, e.default)(d, !0)).x += d.clientLeft, p.y += d.clientTop) : g && (p.x = (0, i.default)(g))), {
+        x: h.left + j.scrollLeft - p.x,
+        y: h.top + j.scrollTop - p.y,
+        width: h.width,
+        height: h.height
       };
     }
   }, {
@@ -5977,7 +5997,7 @@ parcelRequire = function (e, r, t, n) {
 
     Object.defineProperty(exports, "__esModule", {
       value: !0
-    }), exports.default = s;
+    }), exports.default = t;
 
     var e = n(require("./format.js")),
         r = require("../enums.js");
@@ -5992,35 +6012,38 @@ parcelRequire = function (e, r, t, n) {
         o = 'Popper: modifier "%s" requires "%s", but "%s" modifier is not available',
         i = ["name", "enabled", "phase", "fn", "effect", "requires", "options"];
 
-    function s(n) {
-      n.forEach(function (s) {
-        Object.keys(s).forEach(function (t) {
-          switch (t) {
+    function t(n) {
+      n.forEach(function (t) {
+        [].concat(Object.keys(t), i).filter(function (e, r, n) {
+          return n.indexOf(e) === r;
+        }).forEach(function (s) {
+          switch (s) {
             case "name":
-              "string" != typeof s.name && console.error((0, e.default)(a, String(s.name), '"name"', '"string"', '"' + String(s.name) + '"'));
+              "string" != typeof t.name && console.error((0, e.default)(a, String(t.name), '"name"', '"string"', '"' + String(t.name) + '"'));
               break;
 
             case "enabled":
-              "boolean" != typeof s.enabled && console.error((0, e.default)(a, s.name, '"enabled"', '"boolean"', '"' + String(s.enabled) + '"'));
+              "boolean" != typeof t.enabled && console.error((0, e.default)(a, t.name, '"enabled"', '"boolean"', '"' + String(t.enabled) + '"'));
+              break;
 
             case "phase":
-              r.modifierPhases.indexOf(s.phase) < 0 && console.error((0, e.default)(a, s.name, '"phase"', "either " + r.modifierPhases.join(", "), '"' + String(s.phase) + '"'));
+              r.modifierPhases.indexOf(t.phase) < 0 && console.error((0, e.default)(a, t.name, '"phase"', "either " + r.modifierPhases.join(", "), '"' + String(t.phase) + '"'));
               break;
 
             case "fn":
-              "function" != typeof s.fn && console.error((0, e.default)(a, s.name, '"fn"', '"function"', '"' + String(s.fn) + '"'));
+              "function" != typeof t.fn && console.error((0, e.default)(a, t.name, '"fn"', '"function"', '"' + String(t.fn) + '"'));
               break;
 
             case "effect":
-              "function" != typeof s.effect && console.error((0, e.default)(a, s.name, '"effect"', '"function"', '"' + String(s.fn) + '"'));
+              null != t.effect && "function" != typeof t.effect && console.error((0, e.default)(a, t.name, '"effect"', '"function"', '"' + String(t.fn) + '"'));
               break;
 
             case "requires":
-              Array.isArray(s.requires) || console.error((0, e.default)(a, s.name, '"requires"', '"array"', '"' + String(s.requires) + '"'));
+              null == t.requires || Array.isArray(t.requires) || console.error((0, e.default)(a, t.name, '"requires"', '"array"', '"' + String(t.requires) + '"'));
               break;
 
             case "requiresIfExists":
-              Array.isArray(s.requiresIfExists) || console.error((0, e.default)(a, s.name, '"requiresIfExists"', '"array"', '"' + String(s.requiresIfExists) + '"'));
+              Array.isArray(t.requiresIfExists) || console.error((0, e.default)(a, t.name, '"requiresIfExists"', '"array"', '"' + String(t.requiresIfExists) + '"'));
               break;
 
             case "options":
@@ -6028,15 +6051,15 @@ parcelRequire = function (e, r, t, n) {
               break;
 
             default:
-              console.error('PopperJS: an invalid property has been provided to the "' + s.name + '" modifier, valid properties are ' + i.map(function (e) {
+              console.error('PopperJS: an invalid property has been provided to the "' + t.name + '" modifier, valid properties are ' + i.map(function (e) {
                 return '"' + e + '"';
-              }).join(", ") + '; but "' + t + '" was provided.');
+              }).join(", ") + '; but "' + s + '" was provided.');
           }
 
-          s.requires && s.requires.forEach(function (r) {
+          t.requires && t.requires.forEach(function (r) {
             null == n.find(function (e) {
               return e.name === r;
-            }) && console.error((0, e.default)(o, String(s.name), r, r));
+            }) && console.error((0, e.default)(o, String(t.name), r, r));
           });
         });
       });
@@ -6465,9 +6488,9 @@ parcelRequire = function (e, r, t, n) {
       value: !0
     }), exports.default = a;
 
-    var e = l(require("../dom-utils/getBoundingClientRect.js")),
-        t = l(require("../dom-utils/getClippingRect.js")),
-        r = l(require("../dom-utils/getDocumentElement.js")),
+    var e = l(require("../dom-utils/getClippingRect.js")),
+        t = l(require("../dom-utils/getDocumentElement.js")),
+        r = l(require("../dom-utils/getBoundingClientRect.js")),
         o = l(require("./computeOffsets.js")),
         i = l(require("./rectToClientRect.js")),
         n = require("../enums.js"),
@@ -6498,42 +6521,41 @@ parcelRequire = function (e, r, t, n) {
           h = void 0 === O ? 0 : O,
           C = (0, u.default)("number" != typeof h ? h : (0, s.default)(h, n.basePlacements)),
           E = q === n.popper ? n.reference : n.popper,
-          P = l.elements.reference,
-          _ = l.rects.popper,
-          B = l.elements[y ? E : q],
-          M = (0, t.default)((0, p.isElement)(B) ? B : B.contextElement || (0, r.default)(l.elements.popper), g, j),
-          R = (0, e.default)(P),
-          D = (0, o.default)({
-        reference: R,
-        element: _,
+          P = l.rects.popper,
+          _ = l.elements[y ? E : q],
+          B = (0, e.default)((0, p.isElement)(_) ? _ : _.contextElement || (0, t.default)(l.elements.popper), g, j),
+          M = (0, r.default)(l.elements.reference),
+          R = (0, o.default)({
+        reference: M,
+        element: P,
         strategy: "absolute",
         placement: m
       }),
-          T = (0, i.default)(Object.assign({}, _, D)),
-          k = q === n.popper ? T : R,
-          w = {
-        top: M.top - k.top + C.top,
-        bottom: k.bottom - M.bottom + C.bottom,
-        left: M.left - k.left + C.left,
-        right: k.right - M.right + C.right
+          D = (0, i.default)(Object.assign({}, P, R)),
+          T = q === n.popper ? D : M,
+          k = {
+        top: B.top - T.top + C.top,
+        bottom: T.bottom - B.bottom + C.bottom,
+        left: B.left - T.left + C.left,
+        right: T.right - B.right + C.right
       },
-          H = l.modifiersData.offset;
+          w = l.modifiersData.offset;
 
-      if (q === n.popper && H) {
-        var z = H[m];
-        Object.keys(w).forEach(function (e) {
+      if (q === n.popper && w) {
+        var H = w[m];
+        Object.keys(k).forEach(function (e) {
           var t = [n.right, n.bottom].indexOf(e) >= 0 ? 1 : -1,
               r = [n.top, n.bottom].indexOf(e) >= 0 ? "y" : "x";
-          w[e] += z[r] * t;
+          k[e] += H[r] * t;
         });
       }
 
-      return w;
+      return k;
     }
   }, {
-    "../dom-utils/getBoundingClientRect.js": "W8bA",
     "../dom-utils/getClippingRect.js": "M7BJ",
     "../dom-utils/getDocumentElement.js": "sJcE",
+    "../dom-utils/getBoundingClientRect.js": "W8bA",
     "./computeOffsets.js": "dvfD",
     "./rectToClientRect.js": "rB0G",
     "../enums.js": "XHUo",
@@ -6576,13 +6598,13 @@ parcelRequire = function (e, r, t, n) {
 
     var v = "Popper: Invalid reference or popper argument provided. They must be either a DOM element or virtual element.",
         j = "Popper: An infinite loop in the modifiers cycle has been detected! The cycle has been interrupted to prevent a browser crash.",
-        g = {
+        y = {
       placement: "bottom",
       modifiers: [],
       strategy: "absolute"
     };
 
-    function y() {
+    function g() {
       for (var e = arguments.length, t = new Array(e), r = 0; r < e; r++) t[r] = arguments[r];
 
       return !t.some(function (e) {
@@ -6596,13 +6618,13 @@ parcelRequire = function (e, r, t, n) {
           a = u.defaultModifiers,
           f = void 0 === a ? [] : a,
           c = u.defaultOptions,
-          l = void 0 === c ? g : c;
+          l = void 0 === c ? y : c;
       return function (n, u, a) {
         void 0 === a && (a = l);
         var c = {
           placement: "bottom",
           orderedModifiers: [],
-          options: Object.assign({}, g, l),
+          options: Object.assign({}, y, l),
           modifiersData: {},
           elements: {
             reference: n,
@@ -6616,12 +6638,13 @@ parcelRequire = function (e, r, t, n) {
             j = {
           state: c,
           setOptions: function (e) {
-            b(), c.options = Object.assign({}, l, c.options, e), c.scrollParents = {
+            var t = "function" == typeof e ? e(c.options) : e;
+            b(), c.options = Object.assign({}, l, c.options, t), c.scrollParents = {
               reference: (0, p.isElement)(n) ? (0, r.default)(n) : n.contextElement ? (0, r.default)(n.contextElement) : [],
               popper: (0, r.default)(u)
             };
-            var t = (0, i.default)((0, d.default)([].concat(f, c.options.modifiers)));
-            return c.orderedModifiers = t.filter(function (e) {
+            var o = (0, i.default)((0, d.default)([].concat(f, c.options.modifiers)));
+            return c.orderedModifiers = o.filter(function (e) {
               return e.enabled;
             }), c.orderedModifiers.forEach(function (e) {
               var t = e.name,
@@ -6646,7 +6669,7 @@ parcelRequire = function (e, r, t, n) {
                   n = r.reference,
                   i = r.popper;
 
-              if (y(n, i)) {
+              if (g(n, i)) {
                 c.rects = {
                   reference: (0, e.default)(n, (0, o.default)(i), "fixed" === c.options.strategy),
                   popper: (0, t.default)(i)
@@ -6679,7 +6702,7 @@ parcelRequire = function (e, r, t, n) {
             b(), v = !0;
           }
         };
-        if (!y(n, u)) return j;
+        if (!g(n, u)) return j;
 
         function b() {
           m.forEach(function (e) {
@@ -6801,112 +6824,115 @@ parcelRequire = function (e, r, t, n) {
 
     Object.defineProperty(exports, "__esModule", {
       value: !0
-    }), exports.mapToStyles = l, exports.default = void 0;
+    }), exports.mapToStyles = d, exports.default = void 0;
 
     var e = require("../enums.js"),
-        t = p(require("../dom-utils/getOffsetParent.js")),
-        o = p(require("../dom-utils/getWindow.js")),
-        s = p(require("../dom-utils/getDocumentElement.js")),
-        r = p(require("../dom-utils/getComputedStyle.js")),
-        a = p(require("../utils/getBasePlacement.js")),
-        i = require("../utils/math.js");
+        t = n(require("../dom-utils/getOffsetParent.js")),
+        o = n(require("../dom-utils/getWindow.js")),
+        s = n(require("../dom-utils/getDocumentElement.js")),
+        r = n(require("../dom-utils/getComputedStyle.js")),
+        a = n(require("../utils/getBasePlacement.js")),
+        i = n(require("../utils/getVariation.js")),
+        p = require("../utils/math.js");
 
-    function p(e) {
+    function n(e) {
       return e && e.__esModule ? e : {
         default: e
       };
     }
 
-    var n = {
+    var u = {
       top: "auto",
       right: "auto",
       bottom: "auto",
       left: "auto"
     };
 
-    function u(e) {
+    function l(e) {
       var t = e.x,
           o = e.y,
           s = window.devicePixelRatio || 1;
       return {
-        x: (0, i.round)((0, i.round)(t * s) / s) || 0,
-        y: (0, i.round)((0, i.round)(o * s) / s) || 0
+        x: (0, p.round)((0, p.round)(t * s) / s) || 0,
+        y: (0, p.round)((0, p.round)(o * s) / s) || 0
       };
     }
 
-    function l(a) {
+    function d(a) {
       var i,
           p = a.popper,
-          l = a.popperRect,
+          n = a.popperRect,
           d = a.placement,
-          f = a.offsets,
-          c = a.position,
-          m = a.gpuAcceleration,
-          g = a.adaptive,
-          v = a.roundOffsets,
-          O = !0 === v ? u(f) : "function" == typeof v ? v(f) : f,
-          b = O.x,
-          j = void 0 === b ? 0 : b,
-          x = O.y,
-          y = void 0 === x ? 0 : x,
-          h = f.hasOwnProperty("x"),
-          w = f.hasOwnProperty("y"),
-          q = e.left,
-          P = e.top,
-          D = window;
+          f = a.variation,
+          c = a.offsets,
+          m = a.position,
+          g = a.gpuAcceleration,
+          v = a.adaptive,
+          b = a.roundOffsets,
+          O = !0 === b ? l(c) : "function" == typeof b ? b(c) : c,
+          j = O.x,
+          x = void 0 === j ? 0 : j,
+          y = O.y,
+          h = void 0 === y ? 0 : y,
+          w = c.hasOwnProperty("x"),
+          q = c.hasOwnProperty("y"),
+          P = e.left,
+          D = e.top,
+          R = window;
 
-      if (g) {
-        var R = (0, t.default)(p),
-            W = "clientHeight",
-            _ = "clientWidth";
-        R === (0, o.default)(p) && (R = (0, s.default)(p), "static" !== (0, r.default)(R).position && (W = "scrollHeight", _ = "scrollWidth")), R = R, d === e.top && (P = e.bottom, y -= R[W] - l.height, y *= m ? 1 : -1), d === e.left && (q = e.right, j -= R[_] - l.width, j *= m ? 1 : -1);
+      if (v) {
+        var W = (0, t.default)(p),
+            _ = "clientHeight",
+            A = "clientWidth";
+        W === (0, o.default)(p) && (W = (0, s.default)(p), "static" !== (0, r.default)(W).position && "absolute" === m && (_ = "scrollHeight", A = "scrollWidth")), W = W, d !== e.top && (d !== e.left && d !== e.right || f !== e.end) || (D = e.bottom, h -= W[_] - n.height, h *= g ? 1 : -1), d !== e.left && (d !== e.top && d !== e.bottom || f !== e.end) || (P = e.right, x -= W[A] - n.width, x *= g ? 1 : -1);
       }
 
-      var A,
-          S = Object.assign({
-        position: c
-      }, g && n);
-      return m ? Object.assign({}, S, ((A = {})[P] = w ? "0" : "", A[q] = h ? "0" : "", A.transform = (D.devicePixelRatio || 1) < 2 ? "translate(" + j + "px, " + y + "px)" : "translate3d(" + j + "px, " + y + "px, 0)", A)) : Object.assign({}, S, ((i = {})[P] = w ? y + "px" : "", i[q] = h ? j + "px" : "", i.transform = "", i));
+      var S,
+          H = Object.assign({
+        position: m
+      }, v && u);
+      return g ? Object.assign({}, H, ((S = {})[D] = q ? "0" : "", S[P] = w ? "0" : "", S.transform = (R.devicePixelRatio || 1) <= 1 ? "translate(" + x + "px, " + h + "px)" : "translate3d(" + x + "px, " + h + "px, 0)", S)) : Object.assign({}, H, ((i = {})[D] = q ? h + "px" : "", i[P] = w ? x + "px" : "", i.transform = "", i));
     }
 
-    function d(e) {
+    function f(e) {
       var t = e.state,
           o = e.options,
           s = o.gpuAcceleration,
           r = void 0 === s || s,
-          i = o.adaptive,
-          p = void 0 === i || i,
-          n = o.roundOffsets,
-          u = void 0 === n || n,
-          d = {
+          p = o.adaptive,
+          n = void 0 === p || p,
+          u = o.roundOffsets,
+          l = void 0 === u || u,
+          f = {
         placement: (0, a.default)(t.placement),
+        variation: (0, i.default)(t.placement),
         popper: t.elements.popper,
         popperRect: t.rects.popper,
         gpuAcceleration: r
       };
-      null != t.modifiersData.popperOffsets && (t.styles.popper = Object.assign({}, t.styles.popper, l(Object.assign({}, d, {
+      null != t.modifiersData.popperOffsets && (t.styles.popper = Object.assign({}, t.styles.popper, d(Object.assign({}, f, {
         offsets: t.modifiersData.popperOffsets,
         position: t.options.strategy,
-        adaptive: p,
-        roundOffsets: u
-      })))), null != t.modifiersData.arrow && (t.styles.arrow = Object.assign({}, t.styles.arrow, l(Object.assign({}, d, {
+        adaptive: n,
+        roundOffsets: l
+      })))), null != t.modifiersData.arrow && (t.styles.arrow = Object.assign({}, t.styles.arrow, d(Object.assign({}, f, {
         offsets: t.modifiersData.arrow,
         position: "absolute",
         adaptive: !1,
-        roundOffsets: u
+        roundOffsets: l
       })))), t.attributes.popper = Object.assign({}, t.attributes.popper, {
         "data-popper-placement": t.placement
       });
     }
 
-    var f = {
+    var c = {
       name: "computeStyles",
       enabled: !0,
       phase: "beforeWrite",
-      fn: d,
+      fn: f,
       data: {}
     };
-    exports.default = f;
+    exports.default = c;
   }, {
     "../enums.js": "XHUo",
     "../dom-utils/getOffsetParent.js": "CUhI",
@@ -6914,6 +6940,7 @@ parcelRequire = function (e, r, t, n) {
     "../dom-utils/getDocumentElement.js": "sJcE",
     "../dom-utils/getComputedStyle.js": "S6rb",
     "../utils/getBasePlacement.js": "QS9h",
+    "../utils/getVariation.js": "auH8",
     "../utils/math.js": "FuL6"
   }],
   "D2nT": [function (require, module, exports) {
@@ -12512,7 +12539,7 @@ label {
     "./az-middle-header": "GiDN"
   }]
 }, {}, ["cJDT"], "az_redbar");
-},{}],"../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -12540,7 +12567,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54443" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54955" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -12716,5 +12743,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","dist/header.js"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","dist/header.js"], null)
 //# sourceMappingURL=/header.ed8d6357.js.map

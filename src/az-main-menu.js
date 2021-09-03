@@ -1,7 +1,7 @@
 import { denormalize } from 'linkset-menu';
 import { css, html, LitElement } from 'lit-element';
 import 'regenerator-runtime/runtime';
-import {eventDataLayerPush} from './mixins/shadow-events-datalayer';
+import { eventDataLayerPush } from './mixins/shadow-events-datalayer';
 
 export class MainMenu extends LitElement {
 
