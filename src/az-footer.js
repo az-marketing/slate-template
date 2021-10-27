@@ -1,5 +1,5 @@
-import { html, css, LitElement } from 'lit-element';
-import {eventDataLayerPush} from './mixins/shadow-events-datalayer';
+import { css, html, LitElement } from 'lit-element';
+import { eventDataLayerPush } from './mixins/shadow-events-datalayer';
 
 class AzFooter  extends LitElement {
 	static get styles() {
@@ -50,8 +50,8 @@ class AzFooter  extends LitElement {
 				height: 10px;
 				width: 100%;
 				margin-top: 24px;
-    		margin-bottom: 24px;
-    		border: 0;
+				margin-bottom: 24px;
+				border: 0;
 				box-sizing: content-box;
 			}
 			#footer_site hr:after, #footer_site hr:before {
@@ -1140,7 +1140,7 @@ class AzFooter  extends LitElement {
 				display: inline-block;
 				padding: 0;
 				margin: 0 0 12px;
-			}			
+			}
 			#footer_site ul>li {
 				border-right: 1px solid #e2e9eb;
 				display: inline-block;
@@ -1240,7 +1240,7 @@ class AzFooter  extends LitElement {
 										<ul class="menu">
 											<li class="menu__item is-leaf first leaf"><a href="https://talent.arizona.edu" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Employment</a></li>
 											<li class="menu__item is-leaf leaf"><a href="http://cirt.arizona.edu" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Emergency Information</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://titleix.arizona.edu/submit_complaint_report" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Title IX / Sexual Misconduct Reporting</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/title-ix" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Title IX / Non-Discrimination</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/campus-safety" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Campus Safety</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://cirt.arizona.edu/ualert" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">UAlert</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/copyright" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Copyright</a></li>
@@ -1336,6 +1336,8 @@ class AzFooter  extends LitElement {
 									<div class="container">
 										<div class="row">
 											<div class="col-sm-12">
+												<hr>
+												<p class="text-align-center text-muted mt-0 mb-0">We respectfully acknowledge the University of Arizona is on the land and territories of Indigenous peoples. Today, Arizona is home to 22 federally recognized tribes, with Tucson being home to the O’odham and the Yaqui. Committed to diversity and inclusion, the University strives to build sustainable relationships with sovereign Native Nations and Indigenous communities through education offerings, partnerships, and community service.</p>
 												<hr>
 												<p class="text-align-center text-muted mt-0 mb-0">We are affiliated with the&nbsp;<a class="text-muted" href="https://www.uagc.edu" target="_blank" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">University of Arizona Global Campus</a></p>
 											</div>
