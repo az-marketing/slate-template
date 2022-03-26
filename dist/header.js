@@ -407,6 +407,7 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 								position: relative;
 								color: #fff;
 								background-color: #ab0520;
+								height: 53px;
 						}
 						.container {
 								width: 100%;
@@ -424,8 +425,7 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 								justify-content: flex-end;
 								margin-right: -15px;
 								margin-left: -15px;
-								padding-top: 6.59px;
-								padding-bottom: 8.59px;
+								padding: 6px 0 7px
 						}
 						.row section{
 								align-items: center;
@@ -434,11 +434,8 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 								position: absolute;
 								top: 0;
 								right: 0;
-								height: 50px;
-								max-height: 50px;
-						}
-						.arizona-header {
-								height: 50px;
+								height: 53px;
+								max-height: 53px;
 						}
 
 						@media (min-width: 576px) {
@@ -452,6 +449,9 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 								}
 						}
 						@media (min-width: 992px) {
+							.arizona-header{
+								height: auto;
+							}
 								.container, .container-lg, .container-md, .container-sm {
 										max-width: 960px;
 								}
@@ -505,7 +505,6 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 						}
 						#search-block-form {
 								display: flex;
-								border: 1px solid var(--bloom);
 								overflow: hidden;
 								position: relative;
 						}
@@ -539,22 +538,23 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 								-ms-flex-align: center;
 								align-items: center;
 								width: 100%;
-								border: 1px solid var(--bloom);
 								right: 1px;
 						}
 						.input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control, .input-group>.form-control-plaintext {
 								position: relative;
 								-ms-flex: 1 1 auto;
 								flex: 1 1 auto;
-								width: 1%;
 								min-width: 0;
-								margin-bottom: -1px;
 								border: none;
 						}
 						.search-block-form {
-								height: 37px;
 								overflow: hidden;
-								width: 228px;
+								width: 189.5px;
+								padding: 1px 0;
+								background-color: white;
+						}
+						#block-az-barrio-search{
+							border: 1px solid var(--bloom);
 						}
 						.search-block-form input {
 								height: 34px;
@@ -587,13 +587,13 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 						.search-block-form .input-group-append button#edit-submit {
 								background-color: hsl(0deg 0% 100%);
 								padding: 0px;
-								height: 33px;
-								width: 34px;
 								border: none;
 								position: absolute;
 								top: 0px;
-								right: -1px;
+								right: 1px;
 								text-align: center;
+								padding: 0 8px;
+								border-left: 1px solid #CED4DA;
 						}
 						.search-block-form .input-group-append button#edit-submit
 						.search-block-form .input-group-append button#edit-submit svg {
