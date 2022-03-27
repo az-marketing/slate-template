@@ -1223,7 +1223,7 @@ class AzLogoSelectCta  extends LitElement {
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-lg-4">
-                    <a href="https://www.arizona.edu/" title="The University of Arizona, Tucson, Arizona | Home" class="header__logo active" rel="home" id="logo"><img src="https://www.arizona.edu/sites/default/files/UA_horiz_rgb_webheader.png" alt="The University of Arizona, Tucson, Arizona | Home" class="header__logo-image"></a>              </div>
+                    <a href="https://www.arizona.edu/" title="The University of Arizona, Tucson, Arizona | Home" class="header__logo active" rel="home" id="logo"><img src="https://www.arizona.edu/sites/default/files/www_webheader-01.svg" alt="The University of Arizona, Tucson, Arizona | Home" class="header__logo-image"></a>              </div>
                     <div class="col-xs-12 col-sm-6 col-lg-8">
                         <div class="row">
                             <div class="region region-header-2">

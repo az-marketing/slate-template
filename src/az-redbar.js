@@ -201,7 +201,7 @@
 								justify-content: flex-end;
 								margin-right: -15px;
 								margin-left: -15px;
-								padding: 6px 0 7px
+								padding: 5px 0;
 						}
 						.row section{
 								align-items: center;
@@ -326,16 +326,16 @@
 						.search-block-form {
 								overflow: hidden;
 								width: 189.5px;
-								padding: 1px 0;
 								background-color: white;
 						}
 						#block-az-barrio-search{
 							border: 1px solid var(--bloom);
+							padding: 4px 0 5px;
 						}
 						.search-block-form input {
 								height: 34px;
 								font-size: 14px;
-								padding: 0px 37px 0px 9px;
+								padding: 0px 37px 0px 13px;
 								width: 100%;
 						}
 						input[type="search"] {
@@ -536,7 +536,7 @@
 						}
 						.resources {
 								position: relative;
-								margin-left: 17px;
+								margin-left: 10px;
 								padding: 0 2px 0 6px;
 						}
 						.resources:hover button + .dropdown-menu, .resources button + .dropdown-menu:focus{
@@ -544,8 +544,8 @@
 						}
 						.resources .caret{
 								position: absolute;
-								right: 12px;
-								top: 19px;
+								right: 30px;
+								top: 18px;
 								margin: 0;
 								display: inline-block;
 								width: 0;
@@ -556,9 +556,9 @@
 								border-left: 4px solid transparent;
 						}
 						.resources button {
-								font-size: 12px;
-								height: 37px;
-								padding: 3px 28px 3px 16px;
+								font-size: 14px;
+								height: auto;
+								padding: 10px 35px 10px 24px;
 								font-weight: bold;
 						}
 						.resources button:hover{
