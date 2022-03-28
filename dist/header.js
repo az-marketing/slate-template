@@ -335,6 +335,9 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
    					button {
    					    border-radius: 0;
    					}
+					   button span{
+						   font-family: proxima-nova !important;
+					   }
    					button:focus:not(:focus-visible) {
    					    outline: 0;
    					}
