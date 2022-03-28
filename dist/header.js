@@ -558,7 +558,7 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 						}
 						.search-block-form input {
 								height: 34px;
-								font-size: 14px;
+								font-size: 16px;
 								padding: 0px 37px 0px 13px;
 								width: 100%;
 						}
@@ -782,7 +782,7 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 						.resources button {
 								font-size: 14px;
 								height: auto;
-								padding: 10px 35px 10px 24px;
+								padding: 8px 40px 9px 24px;
 								font-weight: bold;
 						}
 						.resources button:hover{
@@ -2073,7 +2073,7 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
        padding: 0 1rem;
    }
    .navbar-nav .nav-link {
-       font-weight: 700;
+       font-weight: 600;
        background-color: inherit;
        border: none;
    }
@@ -2264,6 +2264,7 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
            width: initial;
            height: initial;
            transition: initial;
+           border-top: 1px solid #e9ecef
        }
        .navbar .navbar-offcanvas .container,
        .navbar .navbar-offcanvas .container-lg,
@@ -2299,14 +2300,14 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
        .navbar-offcanvas .navbar-nav .nav-link {
            display: block;
            padding: 0.5rem 1rem;
-           font-weight: 700;
+           font-weight: 600;
        }
        .navbar-offcanvas .navbar-nav .nav-link:focus,
        .navbar-offcanvas .navbar-nav .nav-link:hover {
            text-decoration: none;
        }
        .navbar-offcanvas .nav-item .nav-link {
-           padding: 0.85rem 0.85rem;
+           padding: 20px 14px 21px;
            color: #1e5288;
        }
        .navbar-offcanvas .nav-item .nav-link.show,
@@ -2331,7 +2332,7 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
            position: absolute;
        }
        .navbar-offcanvas .dropdown-menu .dropdown-item {
-           padding: 0.25rem 1.5rem;
+           padding: 4px 22px;
            white-space: nowrap;
        }
        .navbar-offcanvas .dropdown-toggle {
@@ -2491,7 +2492,7 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
 },{"../dom-utils/getNodeName.js":"B1zX","../dom-utils/instanceOf.js":"wsKO"}],"hwU4":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),Object.defineProperty(exports,"popperGenerator",{enumerable:!0,get:function(){return e.popperGenerator}}),Object.defineProperty(exports,"detectOverflow",{enumerable:!0,get:function(){return e.detectOverflow}}),exports.defaultModifiers=exports.createPopper=void 0;var e=require("./createPopper.js"),r=s(require("./modifiers/eventListeners.js")),t=s(require("./modifiers/popperOffsets.js")),o=s(require("./modifiers/computeStyles.js")),p=s(require("./modifiers/applyStyles.js"));function s(e){return e&&e.__esModule?e:{default:e}}var i=[r.default,t.default,o.default,p.default];exports.defaultModifiers=i;var u=(0,e.popperGenerator)({defaultModifiers:i});exports.createPopper=u;
 },{"./createPopper.js":"rg1d","./modifiers/eventListeners.js":"psGJ","./modifiers/popperOffsets.js":"Pf8x","./modifiers/computeStyles.js":"ebtt","./modifiers/applyStyles.js":"D2nT"}],"zu08":[function(require,module,exports) {
-"use strict";var o=require("lit-element"),t=require("@popperjs/core/lib/popper-lite"),e=require("linkset-menu");require("./az-button");var r=require("./mixins/shadow-events-datalayer");function i(o,t,e){return t in o?Object.defineProperty(o,t,{value:e,enumerable:!0,configurable:!0,writable:!0}):o[t]=e,o}class n extends o.LitElement{static get styles(){return o.css`
+"use strict";var o=require("lit-element"),t=require("@popperjs/core/lib/popper-lite"),e=require("linkset-menu");require("./az-button");var r=require("./mixins/shadow-events-datalayer");function n(o,t,e){return t in o?Object.defineProperty(o,t,{value:e,enumerable:!0,configurable:!0,writable:!0}):o[t]=e,o}class i extends o.LitElement{static get styles(){return o.css`
 * {
        -webkit-box-sizing: border-box;
        box-sizing: border-box;
@@ -2531,6 +2532,7 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
   -ms-user-select: none;
   user-select: none;
 }
+
 .btn {
   background-clip: border-box;
   font-weight: 700;
@@ -2698,10 +2700,7 @@ select.select-primary {
 .input-group-btn>.btn {
   position: relative;
 }
-.btn-blue.disabled, .btn-blue.disabled.active, .btn-blue.disabled.focus, .btn-blue.disabled:active, .btn-blue.disabled:focus, .btn-blue.disabled:hover, .btn-blue[disabled], .btn-blue[disabled].active, .btn-blue[disabled].focus, .btn-blue[disabled]:active, .btn-blue[disabled]:focus, .btn-blue[disabled]:hover, .btn-primary.disabled, .btn-primary.disabled.active, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled], .btn-primary[disabled].active, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-blue, fieldset[disabled] .btn-blue.active, fieldset[disabled] .btn-blue.focus, fieldset[disabled] .btn-blue:active, fieldset[disabled] .btn-blue:focus, fieldset[disabled] .btn-blue:hover, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary.active, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
-  background: #495057;
-  border-color: #495057;
-}
+
 .input-group-btn>.btn {
   position: relative;
 }
@@ -5218,15 +5217,6 @@ a.btn.disabled {
     background-color: #000;
     border-color: #000;
 }
-.btn-primary.disabled.focus,
-.btn-primary.disabled:focus,
-.btn-primary.disabled:hover,
-.btn-primary[disabled].focus,
-.btn-primary[disabled]:focus,
-.btn-primary[disabled]:hover {
-    background-color: #0c234b;
-    border-color: #0c234b;
-}
 .btn-info {
     color: #fff;
     background-color: #81d3eb;
@@ -5765,19 +5755,6 @@ label {
 .btn-primary:active {
     background-image: none;
 }
-.btn-primary.disabled,
-.btn-primary.disabled.focus,
-.btn-primary.disabled:active,
-.btn-primary.disabled:focus,
-.btn-primary.disabled:hover,
-.btn-primary[disabled],
-.btn-primary[disabled].focus,
-.btn-primary[disabled]:active,
-.btn-primary[disabled]:focus,
-.btn-primary[disabled]:hover {
-    background: #495057;
-    border-color: #495057;
-}
 .btn-info {
     color: #fff;
     background-color: #81d3eb;
@@ -5855,7 +5832,7 @@ label {
     z-index: 2;
     margin-left: -2px;
     margin-top: 0;
-    padding: 5px 8px;
+    padding: 5px 12px;
 }
 .label {
     font-size: 0.7em;
@@ -6510,9 +6487,9 @@ label {
     }
 }
 
-           `}static get properties(){return{baseUrl:{type:String},menuId:{type:String},branding:{type:String},tree:{type:Array},isLoading:{type:Boolean,attribute:!1},loadingMessage:{type:String}}}constructor(){super(),i(this,"_showTooltip",()=>{this.tooltip.setAttribute("data-show",""),this.popperInstance.setOptions({modifiers:[{name:"eventListeners",enabled:!0}]}),this.popperInstance.update()}),i(this,"_hideTooltip",()=>{this.tooltip.removeAttribute("data-show"),this.popperInstance.setOptions({modifiers:[{name:"eventListeners",enabled:!1}]})}),i(this,"_handleEvents",o=>{const t=this.select.options[this.select.selectedIndex].dataset.href;if(t.includes("%3Cnolink%3E"))switch(this.btn.classList.add("disabled"),this.select.setAttribute("aria-invalid","true"),o.type){case"click":this.btn&&(this.select.focus(),this._showTooltip());break;case"focus":case"mouseenter":this.btn?this._showTooltip():this._hideTooltip();break;case"mouseleave":this._hideTooltip()}else switch(this.select.setAttribute("aria-invalid","false"),this.btn.classList.remove("disabled"),o.type){case"click":this._hideTooltip(),o.stopImmediatePropagation(),window.location=t}}),this.tree=[],this.isLoading=!1,this.loadingMessage="Loading..."}connectedCallback(){super.connectedCallback(),this.baseUrl&&this.menuId&&this.fetchData(this.baseUrl,this.menuId)}disconnectedCallback(){super.disconnectedCallback&&super.disconnectedCallback()}static azMenuLevelTemplate(t){return o.html`
+           `}static get properties(){return{baseUrl:{type:String},menuId:{type:String},branding:{type:String},tree:{type:Array},isLoading:{type:Boolean,attribute:!1},loadingMessage:{type:String}}}constructor(){super(),n(this,"_showTooltip",()=>{this.tooltip.setAttribute("data-show",""),this.popperInstance.setOptions({modifiers:[{name:"eventListeners",enabled:!0}]}),this.popperInstance.update()}),n(this,"_hideTooltip",()=>{this.tooltip.removeAttribute("data-show"),this.popperInstance.setOptions({modifiers:[{name:"eventListeners",enabled:!1}]})}),n(this,"_handleEvents",o=>{const t=this.select.options[this.select.selectedIndex].dataset.href;if(t.includes("%3Cnolink%3E"))switch(this.btn.classList.add("disabled"),this.select.setAttribute("aria-invalid","true"),o.type){case"click":this.btn&&(this.select.focus(),this._showTooltip());break;case"focus":case"mouseenter":this.btn?this._showTooltip():this._hideTooltip();break;case"mouseleave":this._hideTooltip()}else switch(this.select.setAttribute("aria-invalid","false"),this.btn.classList.remove("disabled"),o.type){case"click":this._hideTooltip(),o.stopImmediatePropagation(),window.location=t}}),this.tree=[],this.isLoading=!1,this.loadingMessage="Loading..."}connectedCallback(){super.connectedCallback(),this.baseUrl&&this.menuId&&this.fetchData(this.baseUrl,this.menuId)}disconnectedCallback(){super.disconnectedCallback&&super.disconnectedCallback()}static azMenuLevelTemplate(t){return o.html`
            ${t}
-       `}static azMenuOptionTemplate(t,e){return o.html`<option data-href="${e}" @click="${o=>{(0,r.eventDataLayerPush)(o,"az-select-menu")}}">${t}</option>`}static azMenuItemTemplate(t){return o.html`${t}`}renderAzSelectMenuOptions(o){const t=o.map(o=>this.renderAzMenuItem(o));return n.azMenuLevelTemplate(t)}renderAzMenuItem(o){var t,e,r;const i=null==o?void 0:null===(t=o.link)||void 0===t?void 0:null===(e=t.attributes)||void 0===e?void 0:e.title;let l=null==o?void 0:null===(r=o.link)||void 0===r?void 0:r.href;return(l="/"===l.charAt(0)?"https://www.arizona.edu"+l:l)?n.azMenuOptionTemplate(i,l):this.azMenuItemTemplate(i)}fetchData(o,t){this.isLoading=!0;const r=`${o}/system/menu/${t}/linkset`;fetch(r,{}).then(o=>{if(o.ok)return o.json();throw this.isLoading=!1,new Error(`Unable to fetch ${r}. ${o.status} ${o.statusText}`)}).then(o=>{try{const i=(0,e.denormalize)(o,t);this.tree=i.tree}catch(r){throw new Error("Unable to denormalize menu.")}this.isLoading=!1})}async firstUpdated(){await new Promise(o=>setTimeout(o,0)),this.btn=this.shadowRoot.querySelector("#button"),this.btn.addEventListener("click",this._handleEvents,{passive:!0}),this.btn.addEventListener("mouseenter",this._handleEvents,{passive:!0}),this.btn.addEventListener("mouseleave",this._handleEvents,{passive:!0}),this.btn.addEventListener("focus",this._handleEvents,{passive:!0}),this.btn.addEventListener("touchstart",this._handleEvents,{passive:!0}),this.btn.addEventListener("blur",this._handleEvents,{passive:!0}),this.form=this.shadowRoot.querySelector("form"),this.tooltip=this.shadowRoot.querySelector("#tooltip"),this.popperInstance=(0,t.createPopper)(this.form,this.tooltip,{placement:"top",modifiers:[{name:"offset",options:{offset:[0,8]}}]}),this.select=this.shadowRoot.querySelector("select")}render(){return o.html`
+       `}static azMenuOptionTemplate(t,e){return o.html`<option data-href="${e}" @click="${o=>{(0,r.eventDataLayerPush)(o,"az-select-menu")}}">${t}</option>`}static azMenuItemTemplate(t){return o.html`${t}`}renderAzSelectMenuOptions(o){const t=o.map(o=>this.renderAzMenuItem(o));return i.azMenuLevelTemplate(t)}renderAzMenuItem(o){var t,e,r;const n=null==o?void 0:null===(t=o.link)||void 0===t?void 0:null===(e=t.attributes)||void 0===e?void 0:e.title;let l=null==o?void 0:null===(r=o.link)||void 0===r?void 0:r.href;return(l="/"===l.charAt(0)?"https://www.arizona.edu"+l:l)?i.azMenuOptionTemplate(n,l):this.azMenuItemTemplate(n)}fetchData(o,t){this.isLoading=!0;const r=`${o}/system/menu/${t}/linkset`;fetch(r,{}).then(o=>{if(o.ok)return o.json();throw this.isLoading=!1,new Error(`Unable to fetch ${r}. ${o.status} ${o.statusText}`)}).then(o=>{try{const n=(0,e.denormalize)(o,t);this.tree=n.tree}catch(r){throw new Error("Unable to denormalize menu.")}this.isLoading=!1})}async firstUpdated(){await new Promise(o=>setTimeout(o,0)),this.btn=this.shadowRoot.querySelector("#button"),this.btn.addEventListener("click",this._handleEvents,{passive:!0}),this.btn.addEventListener("mouseenter",this._handleEvents,{passive:!0}),this.btn.addEventListener("mouseleave",this._handleEvents,{passive:!0}),this.btn.addEventListener("focus",this._handleEvents,{passive:!0}),this.btn.addEventListener("touchstart",this._handleEvents,{passive:!0}),this.btn.addEventListener("blur",this._handleEvents,{passive:!0}),this.form=this.shadowRoot.querySelector("form"),this.tooltip=this.shadowRoot.querySelector("#tooltip"),this.popperInstance=(0,t.createPopper)(this.form,this.tooltip,{placement:"top",modifiers:[{name:"offset",options:{offset:[0,8]}}]}),this.select=this.shadowRoot.querySelector("select")}render(){return o.html`
      <form aria-describedby="tooltip">
             <div id="tooltip" role="tooltip">
               Please make a selection.
@@ -6527,13 +6504,13 @@ label {
                 ${this.isLoading?o.html`<slot name="loading">${this.loadingMessage}</slot>`:this.renderAzSelectMenuOptions(this.tree)}
               </select>
               <span class="input-group-btn">
-                <button id="button" class="btn btn-primary disabled" role="button" type="button" tabindex="0">Go<span class="sr-only">to the page for that group</span></button>
+                <button id="button" class="btn btn-primary btn-blue disabled" role="button" type="button" tabindex="0">Go<span class="sr-only">to the page for that group</span></button>
               </span>
             </div>
           </form>
-    `}}customElements.get("az-select-menu")||customElements.define("az-select-menu",n);
+    `}}customElements.get("az-select-menu")||customElements.define("az-select-menu",i);
 },{"lit-element":"bhxD","@popperjs/core/lib/popper-lite":"hwU4","linkset-menu":"KH0w","./az-button":"nH9T","./mixins/shadow-events-datalayer":"tktD"}],"GiDN":[function(require,module,exports) {
-"use strict";var t=require("lit-element");require("./az-button"),require("./az-select-menu");class o extends t.LitElement{static get styles(){return t.css`
+"use strict";var t=require("lit-element");require("./az-button"),require("./az-select-menu");class e extends t.LitElement{static get styles(){return t.css`
        :host {
         font-family: inherit;
         -ms-text-size-adjust: inherit;
@@ -6564,6 +6541,7 @@ label {
         font: inherit;
         margin: 0;
     }
+    
     select {
         text-transform: none;
     } /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
@@ -6670,6 +6648,9 @@ label {
         }
     }
     @media (min-width: 992px) {
+        .region-header-2{
+            margin-top: 23px;
+        }
         .container {
             width: 972px;
         }
@@ -6741,8 +6722,8 @@ label {
     .col-xs-9 {
         position: relative;
         min-height: 1px;
-        padding-right: 16px;
-        padding-left: 16px;
+        padding-right: 11px;
+        padding-left: 2px;
     }
     .col-xs-1,
     .col-xs-10,
@@ -6832,6 +6813,10 @@ label {
     }
     .col-xs-offset-12 {
         margin-left: 100%;
+    }
+    #block-bean-uaqs-audience-select{
+        padding-right: 16px;
+        padding-left: 29px;
     }
     @media (min-width: 768px) {
         .col-sm-1,
@@ -7684,16 +7669,15 @@ label {
     }
     @media (min-width: 48em) {
         .header__logo {
-            width: auto;
+            width: 100%;
             text-align: left;
-            margin: 40px 0;
-            margin: 2rem 0;
+            margin: 30px 26px;
         }
     }
     .header__logo-image {
         vertical-align: bottom;
         width: 100%;
-        max-width: 400px;
+        max-width: 350px;
         height: auto;
     }
     .header__site-link:link,
@@ -7747,17 +7731,18 @@ label {
                     <div class="col-xs-12 col-sm-6 col-lg-8">
                         <div class="row">
                             <div class="region region-header-2">
-                            <div id="block-bean-uaqs-audience-select" class="block block-bean col-xs-12 top-buffer-xs-20 bottom-buffer-xs-20 col-sm-12 top-buffer-sm-15 bottom-buffer-sm-10 col-md-11 top-buffer-md-30 bottom-buffer-md-15 col-lg-5 col-lg-offset-2 top-buffer-lg-50 bottom-buffer-lg-5 left-buffer-lg-0 right-buffer-lg-0 first odd" role="complementary" aria-label="select menu">
-                                 <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
-                            </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-3 right-buffer-md-0 left-buffer-sm-3 right-buffer-sm-reset left-buffer-md-0 right-buffer-lg-5 left-buffer-lg-5 bottom-buffer-5 top-buffer-sm-0 top-buffer-lg-50 col-lg-offset-0">
-                                    <div id="block-bean-cta-request-info" class="block block-bean even" role="complementary" aria-label="call to action link">
-                                        <az-button theme="primary" block outline="true" link="https://www.arizona.edu/admissions/visit" elmid="cta-visit" value="Visit"></az-button>
-                                    </div>
+                                <div id="block-bean-uaqs-audience-select" class="col-12 col-lg-6 mt-sm-2 mt-md-4 mb-3 block block-az-select-menu block-az-select-menuselect-menu" role="complementary" aria-label="select menu">
+                                    <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
                                 </div>
-                                <div class="col-xs-12 col-md-3 col-lg-2 left-buffer-md-5 left-buffer-lg-0 bottom-buffer-30 top-buffer-md-0 top-buffer-lg-50"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
-                                    <az-button theme="primary" block link="https://www.arizona.edu/admissions/apply" elmid="cta-apply" value="Apply"></az-button>
+                                <div class="col-lg-6">
+                                    <div class="col-lg-5 pl-lg-2 pr-lg-0">
+                                        <div id="block-bean-cta-request-info" class="block block-bean even" role="complementary" aria-label="call to action link">
+                                            <az-button theme="primary" block outline="true" link="https://www.arizona.edu/admissions/visit" elmid="cta-visit" value="Visit"></az-button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 pl-lg-0 pr-lg-0"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
+                                        <az-button theme="primary" block link="https://www.arizona.edu/admissions/apply" elmid="cta-apply" value="Apply"></az-button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -7765,7 +7750,7 @@ label {
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </header>
-    `}}customElements.get("az-middle-header")||customElements.define("az-middle-header",o);
+    `}}customElements.get("az-middle-header")||customElements.define("az-middle-header",e);
 },{"lit-element":"bhxD","./az-button":"nH9T","./az-select-menu":"zu08"}],"cJDT":[function(require,module,exports) {
 "use strict";var e=require("./az-redbar"),r=require("./az-main-menu"),a=require("./az-middle-header");
 },{"./az-redbar":"EM68","./az-main-menu":"MlEP","./az-middle-header":"GiDN"}]},{},["cJDT"], "az_redbar")

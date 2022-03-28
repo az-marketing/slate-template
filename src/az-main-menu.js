@@ -1356,7 +1356,7 @@ export class MainMenu extends LitElement {
        padding: 0 1rem;
    }
    .navbar-nav .nav-link {
-       font-weight: 700;
+       font-weight: 600;
        background-color: inherit;
        border: none;
    }
@@ -1547,6 +1547,7 @@ export class MainMenu extends LitElement {
            width: initial;
            height: initial;
            transition: initial;
+           border-top: 1px solid #e9ecef
        }
        .navbar .navbar-offcanvas .container,
        .navbar .navbar-offcanvas .container-lg,
@@ -1582,14 +1583,14 @@ export class MainMenu extends LitElement {
        .navbar-offcanvas .navbar-nav .nav-link {
            display: block;
            padding: 0.5rem 1rem;
-           font-weight: 700;
+           font-weight: 600;
        }
        .navbar-offcanvas .navbar-nav .nav-link:focus,
        .navbar-offcanvas .navbar-nav .nav-link:hover {
            text-decoration: none;
        }
        .navbar-offcanvas .nav-item .nav-link {
-           padding: 0.85rem 0.85rem;
+           padding: 20px 14px 21px;
            color: #1e5288;
        }
        .navbar-offcanvas .nav-item .nav-link.show,
@@ -1614,7 +1615,7 @@ export class MainMenu extends LitElement {
            position: absolute;
        }
        .navbar-offcanvas .dropdown-menu .dropdown-item {
-           padding: 0.25rem 1.5rem;
+           padding: 4px 22px;
            white-space: nowrap;
        }
        .navbar-offcanvas .dropdown-toggle {

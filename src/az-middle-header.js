@@ -40,6 +40,7 @@ class AzLogoSelectCta  extends LitElement {
         font: inherit;
         margin: 0;
     }
+    
     select {
         text-transform: none;
     } /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
@@ -146,6 +147,9 @@ class AzLogoSelectCta  extends LitElement {
         }
     }
     @media (min-width: 992px) {
+        .region-header-2{
+            margin-top: 23px;
+        }
         .container {
             width: 972px;
         }
@@ -217,8 +221,8 @@ class AzLogoSelectCta  extends LitElement {
     .col-xs-9 {
         position: relative;
         min-height: 1px;
-        padding-right: 16px;
-        padding-left: 16px;
+        padding-right: 11px;
+        padding-left: 2px;
     }
     .col-xs-1,
     .col-xs-10,
@@ -308,6 +312,10 @@ class AzLogoSelectCta  extends LitElement {
     }
     .col-xs-offset-12 {
         margin-left: 100%;
+    }
+    #block-bean-uaqs-audience-select{
+        padding-right: 16px;
+        padding-left: 29px;
     }
     @media (min-width: 768px) {
         .col-sm-1,
@@ -1160,16 +1168,15 @@ class AzLogoSelectCta  extends LitElement {
     }
     @media (min-width: 48em) {
         .header__logo {
-            width: auto;
+            width: 100%;
             text-align: left;
-            margin: 40px 0;
-            margin: 2rem 0;
+            margin: 30px 26px;
         }
     }
     .header__logo-image {
         vertical-align: bottom;
         width: 100%;
-        max-width: 400px;
+        max-width: 350px;
         height: auto;
     }
     .header__site-link:link,
@@ -1227,17 +1234,18 @@ class AzLogoSelectCta  extends LitElement {
                     <div class="col-xs-12 col-sm-6 col-lg-8">
                         <div class="row">
                             <div class="region region-header-2">
-                            <div id="block-bean-uaqs-audience-select" class="block block-bean col-xs-12 top-buffer-xs-20 bottom-buffer-xs-20 col-sm-12 top-buffer-sm-15 bottom-buffer-sm-10 col-md-11 top-buffer-md-30 bottom-buffer-md-15 col-lg-5 col-lg-offset-2 top-buffer-lg-50 bottom-buffer-lg-5 left-buffer-lg-0 right-buffer-lg-0 first odd" role="complementary" aria-label="select menu">
-                                 <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
-                            </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-3 right-buffer-md-0 left-buffer-sm-3 right-buffer-sm-reset left-buffer-md-0 right-buffer-lg-5 left-buffer-lg-5 bottom-buffer-5 top-buffer-sm-0 top-buffer-lg-50 col-lg-offset-0">
-                                    <div id="block-bean-cta-request-info" class="block block-bean even" role="complementary" aria-label="call to action link">
-                                        <az-button theme="primary" block outline="true" link="https://www.arizona.edu/admissions/visit" elmid="cta-visit" value="Visit"></az-button>
-                                    </div>
+                                <div id="block-bean-uaqs-audience-select" class="col-12 col-lg-6 mt-sm-2 mt-md-4 mb-3 block block-az-select-menu block-az-select-menuselect-menu" role="complementary" aria-label="select menu">
+                                    <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
                                 </div>
-                                <div class="col-xs-12 col-md-3 col-lg-2 left-buffer-md-5 left-buffer-lg-0 bottom-buffer-30 top-buffer-md-0 top-buffer-lg-50"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
-                                    <az-button theme="primary" block link="https://www.arizona.edu/admissions/apply" elmid="cta-apply" value="Apply"></az-button>
+                                <div class="col-lg-6">
+                                    <div class="col-lg-5 pl-lg-2 pr-lg-0">
+                                        <div id="block-bean-cta-request-info" class="block block-bean even" role="complementary" aria-label="call to action link">
+                                            <az-button theme="primary" block outline="true" link="https://www.arizona.edu/admissions/visit" elmid="cta-visit" value="Visit"></az-button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 pl-lg-0 pr-lg-0"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
+                                        <az-button theme="primary" block link="https://www.arizona.edu/admissions/apply" elmid="cta-apply" value="Apply"></az-button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

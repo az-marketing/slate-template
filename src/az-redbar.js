@@ -334,7 +334,7 @@
 						}
 						.search-block-form input {
 								height: 34px;
-								font-size: 14px;
+								font-size: 16px;
 								padding: 0px 37px 0px 13px;
 								width: 100%;
 						}
@@ -558,7 +558,7 @@
 						.resources button {
 								font-size: 14px;
 								height: auto;
-								padding: 10px 35px 10px 24px;
+								padding: 8px 40px 9px 24px;
 								font-weight: bold;
 						}
 						.resources button:hover{

@@ -46,6 +46,7 @@ class AzSelectMenu  extends LitElement {
   -ms-user-select: none;
   user-select: none;
 }
+
 .btn {
   background-clip: border-box;
   font-weight: 700;
@@ -213,10 +214,7 @@ select.select-primary {
 .input-group-btn>.btn {
   position: relative;
 }
-.btn-blue.disabled, .btn-blue.disabled.active, .btn-blue.disabled.focus, .btn-blue.disabled:active, .btn-blue.disabled:focus, .btn-blue.disabled:hover, .btn-blue[disabled], .btn-blue[disabled].active, .btn-blue[disabled].focus, .btn-blue[disabled]:active, .btn-blue[disabled]:focus, .btn-blue[disabled]:hover, .btn-primary.disabled, .btn-primary.disabled.active, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled], .btn-primary[disabled].active, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-blue, fieldset[disabled] .btn-blue.active, fieldset[disabled] .btn-blue.focus, fieldset[disabled] .btn-blue:active, fieldset[disabled] .btn-blue:focus, fieldset[disabled] .btn-blue:hover, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary.active, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
-  background: #495057;
-  border-color: #495057;
-}
+
 .input-group-btn>.btn {
   position: relative;
 }
@@ -2733,15 +2731,6 @@ a.btn.disabled {
     background-color: #000;
     border-color: #000;
 }
-.btn-primary.disabled.focus,
-.btn-primary.disabled:focus,
-.btn-primary.disabled:hover,
-.btn-primary[disabled].focus,
-.btn-primary[disabled]:focus,
-.btn-primary[disabled]:hover {
-    background-color: #0c234b;
-    border-color: #0c234b;
-}
 .btn-info {
     color: #fff;
     background-color: #81d3eb;
@@ -3280,19 +3269,6 @@ label {
 .btn-primary:active {
     background-image: none;
 }
-.btn-primary.disabled,
-.btn-primary.disabled.focus,
-.btn-primary.disabled:active,
-.btn-primary.disabled:focus,
-.btn-primary.disabled:hover,
-.btn-primary[disabled],
-.btn-primary[disabled].focus,
-.btn-primary[disabled]:active,
-.btn-primary[disabled]:focus,
-.btn-primary[disabled]:hover {
-    background: #495057;
-    border-color: #495057;
-}
 .btn-info {
     color: #fff;
     background-color: #81d3eb;
@@ -3370,7 +3346,7 @@ label {
     z-index: 2;
     margin-left: -2px;
     margin-top: 0;
-    padding: 5px 8px;
+    padding: 5px 12px;
 }
 .label {
     font-size: 0.7em;
@@ -4256,7 +4232,7 @@ label {
                   : this.renderAzSelectMenuOptions(this.tree)}
               </select>
               <span class="input-group-btn">
-                <button id="button" class="btn btn-primary disabled" role="button" type="button" tabindex="0">Go<span class="sr-only">to the page for that group</span></button>
+                <button id="button" class="btn btn-primary btn-blue disabled" role="button" type="button" tabindex="0">Go<span class="sr-only">to the page for that group</span></button>
               </span>
             </div>
           </form>
