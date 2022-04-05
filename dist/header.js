@@ -410,7 +410,7 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 								position: relative;
 								color: #fff;
 								background-color: #ab0520;
-								height: 53px;
+								height: 50px;
 						}
 						.container {
 								width: 100%;
@@ -895,7 +895,7 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
 
       ${this.renderAzMenuLevel(n)}
         </div>
-    </li>`}static openMenu(e){e.preventDefault();const{target:t}=e;let n=document.querySelector("az-main-menu").shadowRoot.querySelector(".nav-item.show button");"true"===t.getAttribute("aria-expanded")?(t.parentElement.classList.remove("show"),t.setAttribute("aria-expanded","false"),t.nextElementSibling.classList.remove("show")):(n&&(n.parentElement.classList.remove("show"),n.setAttribute("aria-expanded","false"),n.nextElementSibling.classList.remove("show")),t.parentElement.classList.add("show"),t.setAttribute("aria-expanded","true"),t.nextElementSibling.classList.add("show"))}renderAzMenuLevel(e){const t=e.map(e=>this.renderAzMenuItem(e));return i.menuLevelTemplate(t)}static azMenuTopLevelLinkTemplate(e,n){return n="/"===n.charAt(0)?this.thisUrl+n:n,t.html`<li part="menu-item" class="nav-item"><a href=${n} class="nav-link">${e}</a></li>`}static menuLinkTemplate(e,o){return o="/"===o.charAt(0)?this.thisUrl+o:o,t.html`<a part="menu-item" class="dropdown-item" href=${o} @click="${e=>{(0,n.eventDataLayerPush)(e,"az-main-menu")}}">${e}</a>`}static menuItemTemplate(e){return t.html`<li part="menu-item">${e}</li>`}renderAzMenuItem(e){var t,n,o,a,r,l,s,p;const c=null==e?void 0:null===(t=e.link)||void 0===t?void 0:null===(n=t.attributes)||void 0===n?void 0:n.title;let d=null==e?void 0:null===(o=e.link)||void 0===o?void 0:o.href;const b=null==e?void 0:e.children;let m=null==e?void 0:null===(a=e.link)||void 0===a?void 0:null===(r=a.attributes)||void 0===r?void 0:r["drupal-menu-hierarchy"];return m=m[0].match(/\./g).length,d="/"===(null==e?void 0:null===(l=e.link)||void 0===l?void 0:l.href.charAt(0))?this.thisUrl+(null==e?void 0:null===(s=e.link)||void 0===s?void 0:s.href):null==e?void 0:null===(p=e.link)||void 0===p?void 0:p.href,b&&b.length?this.menuParentTemplate(c,b):b&&0===b.length&&d&&m&&1===m?i.azMenuTopLevelLinkTemplate(c,d):d?i.menuLinkTemplate(c,d):i.menuItemTemplate(c)}constructor(){super(),o(this,"handleClose",e=>{this.setAttribute("state","closed"),document.body.style.overflowY="initial"}),o(this,"handleOpen",e=>{this.setAttribute("state","open"),document.body.style.overflowY="hidden"}),this.tree=[],this.isLoading=!1,this.loadingMessage="Loading..."}connectedCallback(){super.connectedCallback(),this.baseUrl&&this.menuId&&this.fetchData(this.baseUrl,this.menuId)}static get styles(){return t.css`
+    </li>`}static openMenu(e){e.preventDefault();const{target:t}=e;document.querySelector("az-main-menu").shadowRoot.querySelector(".nav-item.show button");"true"===t.getAttribute("aria-expanded")?(t.parentElement.classList.remove("show"),t.setAttribute("aria-expanded","false"),t.nextElementSibling.classList.remove("show")):(t.parentElement.classList.add("show"),t.setAttribute("aria-expanded","true"),t.nextElementSibling.classList.add("show"))}renderAzMenuLevel(e){const t=e.map(e=>this.renderAzMenuItem(e));return i.menuLevelTemplate(t)}static azMenuTopLevelLinkTemplate(e,n){return n="/"===n.charAt(0)?this.thisUrl+n:n,t.html`<li part="menu-item" class="nav-item"><a href=${n} class="nav-link">${e}</a></li>`}static menuLinkTemplate(e,o){return o="/"===o.charAt(0)?this.thisUrl+o:o,t.html`<a part="menu-item" class="dropdown-item" href=${o} @click="${e=>{(0,n.eventDataLayerPush)(e,"az-main-menu")}}">${e}</a>`}static menuItemTemplate(e){return t.html`<li part="menu-item">${e}</li>`}renderAzMenuItem(e){var t,n,o,a,r,l,s,p;const c=null==e?void 0:null===(t=e.link)||void 0===t?void 0:null===(n=t.attributes)||void 0===n?void 0:n.title;let d=null==e?void 0:null===(o=e.link)||void 0===o?void 0:o.href;const b=null==e?void 0:e.children;let m=null==e?void 0:null===(a=e.link)||void 0===a?void 0:null===(r=a.attributes)||void 0===r?void 0:r["drupal-menu-hierarchy"];return m=m[0].match(/\./g).length,d="/"===(null==e?void 0:null===(l=e.link)||void 0===l?void 0:l.href.charAt(0))?this.thisUrl+(null==e?void 0:null===(s=e.link)||void 0===s?void 0:s.href):null==e?void 0:null===(p=e.link)||void 0===p?void 0:p.href,b&&b.length?this.menuParentTemplate(c,b):b&&0===b.length&&d&&m&&1===m?i.azMenuTopLevelLinkTemplate(c,d):d?i.menuLinkTemplate(c,d):i.menuItemTemplate(c)}constructor(){super(),o(this,"handleClose",e=>{this.setAttribute("state","closed"),document.body.style.overflowY="initial"}),o(this,"handleOpen",e=>{this.setAttribute("state","open"),document.body.style.overflowY="hidden"}),this.tree=[],this.isLoading=!1,this.loadingMessage="Loading..."}connectedCallback(){super.connectedCallback(),this.baseUrl&&this.menuId&&this.fetchData(this.baseUrl,this.menuId)}static get styles(){return t.css`
    :root {
        --blue: #0c234b;
        --red: #ab0520;
@@ -2163,7 +2163,7 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
        overflow-y: auto;
    }
    .navbar-offcanvas .navbar-nav .nav-link {
-       font-weight: 500;
+       font-weight: 600;
    }
    .navbar-offcanvas ul.navbar-nav li.nav-item a.nav-link,
    .navbar-offcanvas .nav-item-parent .nav-link {
@@ -2202,8 +2202,10 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
         border: none;
         margin-left: 20px;
         background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGVuYWJsZS1iYWNrZ3JvdW5kPSduZXcgMCAwIDI0IDI0JyBoZWlnaHQ9JzI0cHgnIHZpZXdCb3g9JzAgMCAyNCAyNCcgd2lkdGg9JzI0cHgnIGZpbGw9JyNGRkZGRkYnPjxnPjxyZWN0IGZpbGw9J25vbmUnIGhlaWdodD0nMjQnIHdpZHRoPScyNCcvPjwvZz48Zz48Zz48cGF0aCBkPSdNMTksMTNoLTZ2NmgtMnYtNkg1di0yaDZWNWgydjZoNlYxM3onLz48L2c+PC9nPjwvc3ZnPg==");
-        height: 24px;
-        width: 24px;
+        height: 18px;
+        width: 16px;
+        background-size: cover;
+        background-position: center;
     }
     .navbar-offcanvas .nav-item.show .dropdown-toggle::after {
         background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iI0ZGRkZGRiI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTE5IDEzSDV2LTJoMTR2MnoiLz48L3N2Zz4=');
@@ -6544,7 +6546,7 @@ label {
         font: inherit;
         margin: 0;
     }
-    
+
     select {
         text-transform: none;
     } /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
@@ -6645,9 +6647,83 @@ label {
     .container:after {
         clear: both;
     }
+
+    #block-bean-cta-request-info{
+        margin-top: 17px;
+        padding-left: 23px;
+        max-width: 539px;
+    }
+    
+    #block-bean-cta-apply{
+        margin-top: 16px;
+        padding-left: 23px;
+        max-width: 539px;
+        margin-bottom: 16px;
+    }
+
+    .region-header-2{
+        max-width: 540px;
+        margin: auto;
+    }
+
+
     @media (min-width: 768px) {
         .container {
             width: 752px;
+        }
+        .region #block-bean-uaqs-audience-select{
+                padding-right: 35px;
+                padding-left: 25px;
+                margin-top: 27px;
+        }
+        #block-bean-cta-request-info{
+            margin-top: 39px;
+            padding-left: 23px;
+            max-width: 352px;
+        }
+        
+        #block-bean-cta-apply{
+            margin-top: 16px;
+            padding-left: 23px;
+            max-width: 352px;
+            margin-bottom: 16px;
+        }
+    }
+    @media (min-width: 992px){
+        #block-bean-cta-request-info{
+            margin-top: 0;
+            padding-left: 0;
+        }
+        #block-bean-cta-apply{
+            margin-top: 0;
+            padding-left: 0;
+        }
+        .region #block-bean-uaqs-audience-select{
+            padding-right: 33px;
+            padding-left: 15px;
+            margin-top: 0px;
+        }
+        .region-header-2{
+            max-width: 100%;
+        }
+    }
+    @media (min-width: 1200px){
+        .region #block-bean-uaqs-audience-select{
+            padding-right: 16px;
+            padding-left: 29px;
+            margin-top: 0px;
+        }
+        #block-bean-cta-request-info{
+            margin-top: 0px;
+            padding-left: 0;
+            max-width: 100%;
+        }
+        
+        #block-bean-cta-apply{
+            margin-top: 0px;
+            padding-left: 0;
+            max-width: 100%;
+            margin-bottom: 0;
         }
     }
     @media (min-width: 992px) {
@@ -6818,8 +6894,9 @@ label {
         margin-left: 100%;
     }
     #block-bean-uaqs-audience-select{
-        padding-right: 16px;
-        padding-left: 29px;
+        padding-right: 20px;
+        padding-left: 26px;
+        margin-top: 18px;
     }
     @media (min-width: 768px) {
         .col-sm-1,
@@ -7666,8 +7743,9 @@ label {
         float: left;
         width: 100%;
         text-align: center;
-        margin: 24px 0;
-        margin: 1.5rem 0;
+        // margin: 24px 0;
+        // margin: 1.5rem 0;
+        margin: 39px 0 24px;
         padding: 0;
     }
     @media (min-width: 48em) {
@@ -7680,8 +7758,13 @@ label {
     .header__logo-image {
         vertical-align: bottom;
         width: 100%;
-        max-width: 350px;
+        max-width: 510px;
         height: auto;
+    }
+    @media (min-width: 768px){
+        .header__logo-image{
+            max-width: 332px;
+        }
     }
     .header__site-link:link,
     .header__site-link:visited {
@@ -7729,21 +7812,21 @@ label {
     <header class="header page-row" id="header_site" role="banner">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="col-xs-12 col-sm-6 col-md-4">
                     <a href="https://www.arizona.edu/" title="The University of Arizona, Tucson, Arizona | Home" class="header__logo active" rel="home" id="logo"><img src="https://www.arizona.edu/sites/default/files/www_webheader-01.svg" alt="The University of Arizona, Tucson, Arizona | Home" class="header__logo-image"></a>              </div>
-                    <div class="col-xs-12 col-sm-6 col-lg-8">
+                    <div class="col-xs-12 col-sm-6 col-md-8">
                         <div class="row">
                             <div class="region region-header-2">
-                                <div id="block-bean-uaqs-audience-select" class="col-12 col-lg-6 mt-sm-2 mt-md-4 mb-3 block block-az-select-menu block-az-select-menuselect-menu" role="complementary" aria-label="select menu">
+                                <div id="block-bean-uaqs-audience-select" class="col-12 col-md-6 mt-sm-2 mt-md-4 mb-3 block block-az-select-menu block-az-select-menuselect-menu" role="complementary" aria-label="select menu">
                                     <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="col-lg-5 pl-lg-2 pr-lg-0">
+                                <div class="col-md-6">
+                                    <div class="col-md-5 pl-lg-2 pr-lg-0">
                                         <div id="block-bean-cta-request-info" class="block block-bean even" role="complementary" aria-label="call to action link">
                                             <az-button theme="primary" block outline="true" link="https://www.arizona.edu/admissions/visit" elmid="cta-visit" value="Visit"></az-button>
                                         </div>
                                     </div>
-                                    <div class="col-lg-7 pl-lg-0 pr-lg-0"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
+                                    <div class="col-md-7 pl-lg-0 pr-lg-0"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
                                         <az-button theme="primary" block link="https://www.arizona.edu/admissions/apply" elmid="cta-apply" value="Apply"></az-button>
                                     </div>
                                 </div>

@@ -40,7 +40,7 @@ class AzLogoSelectCta  extends LitElement {
         font: inherit;
         margin: 0;
     }
-    
+
     select {
         text-transform: none;
     } /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
@@ -141,9 +141,83 @@ class AzLogoSelectCta  extends LitElement {
     .container:after {
         clear: both;
     }
+
+    #block-bean-cta-request-info{
+        margin-top: 17px;
+        padding-left: 23px;
+        max-width: 539px;
+    }
+    
+    #block-bean-cta-apply{
+        margin-top: 16px;
+        padding-left: 23px;
+        max-width: 539px;
+        margin-bottom: 16px;
+    }
+
+    .region-header-2{
+        max-width: 540px;
+        margin: auto;
+    }
+
+
     @media (min-width: 768px) {
         .container {
             width: 752px;
+        }
+        .region #block-bean-uaqs-audience-select{
+                padding-right: 35px;
+                padding-left: 25px;
+                margin-top: 27px;
+        }
+        #block-bean-cta-request-info{
+            margin-top: 39px;
+            padding-left: 23px;
+            max-width: 352px;
+        }
+        
+        #block-bean-cta-apply{
+            margin-top: 16px;
+            padding-left: 23px;
+            max-width: 352px;
+            margin-bottom: 16px;
+        }
+    }
+    @media (min-width: 992px){
+        #block-bean-cta-request-info{
+            margin-top: 0;
+            padding-left: 0;
+        }
+        #block-bean-cta-apply{
+            margin-top: 0;
+            padding-left: 0;
+        }
+        .region #block-bean-uaqs-audience-select{
+            padding-right: 33px;
+            padding-left: 15px;
+            margin-top: 0px;
+        }
+        .region-header-2{
+            max-width: 100%;
+        }
+    }
+    @media (min-width: 1200px){
+        .region #block-bean-uaqs-audience-select{
+            padding-right: 16px;
+            padding-left: 29px;
+            margin-top: 0px;
+        }
+        #block-bean-cta-request-info{
+            margin-top: 0px;
+            padding-left: 0;
+            max-width: 100%;
+        }
+        
+        #block-bean-cta-apply{
+            margin-top: 0px;
+            padding-left: 0;
+            max-width: 100%;
+            margin-bottom: 0;
         }
     }
     @media (min-width: 992px) {
@@ -314,8 +388,9 @@ class AzLogoSelectCta  extends LitElement {
         margin-left: 100%;
     }
     #block-bean-uaqs-audience-select{
-        padding-right: 16px;
-        padding-left: 29px;
+        padding-right: 20px;
+        padding-left: 26px;
+        margin-top: 18px;
     }
     @media (min-width: 768px) {
         .col-sm-1,
@@ -1162,8 +1237,9 @@ class AzLogoSelectCta  extends LitElement {
         float: left;
         width: 100%;
         text-align: center;
-        margin: 24px 0;
-        margin: 1.5rem 0;
+        // margin: 24px 0;
+        // margin: 1.5rem 0;
+        margin: 39px 0 24px;
         padding: 0;
     }
     @media (min-width: 48em) {
@@ -1176,8 +1252,13 @@ class AzLogoSelectCta  extends LitElement {
     .header__logo-image {
         vertical-align: bottom;
         width: 100%;
-        max-width: 350px;
+        max-width: 510px;
         height: auto;
+    }
+    @media (min-width: 768px){
+        .header__logo-image{
+            max-width: 332px;
+        }
     }
     .header__site-link:link,
     .header__site-link:visited {
@@ -1229,21 +1310,21 @@ class AzLogoSelectCta  extends LitElement {
     <header class="header page-row" id="header_site" role="banner">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-lg-4">
+                <div class="col-xs-12 col-sm-6 col-md-4">
                     <a href="https://www.arizona.edu/" title="The University of Arizona, Tucson, Arizona | Home" class="header__logo active" rel="home" id="logo"><img src="https://www.arizona.edu/sites/default/files/www_webheader-01.svg" alt="The University of Arizona, Tucson, Arizona | Home" class="header__logo-image"></a>              </div>
-                    <div class="col-xs-12 col-sm-6 col-lg-8">
+                    <div class="col-xs-12 col-sm-6 col-md-8">
                         <div class="row">
                             <div class="region region-header-2">
-                                <div id="block-bean-uaqs-audience-select" class="col-12 col-lg-6 mt-sm-2 mt-md-4 mb-3 block block-az-select-menu block-az-select-menuselect-menu" role="complementary" aria-label="select menu">
+                                <div id="block-bean-uaqs-audience-select" class="col-12 col-md-6 mt-sm-2 mt-md-4 mb-3 block block-az-select-menu block-az-select-menuselect-menu" role="complementary" aria-label="select menu">
                                     <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="col-lg-5 pl-lg-2 pr-lg-0">
+                                <div class="col-md-6">
+                                    <div class="col-md-5 pl-lg-2 pr-lg-0">
                                         <div id="block-bean-cta-request-info" class="block block-bean even" role="complementary" aria-label="call to action link">
                                             <az-button theme="primary" block outline="true" link="https://www.arizona.edu/admissions/visit" elmid="cta-visit" value="Visit"></az-button>
                                         </div>
                                     </div>
-                                    <div class="col-lg-7 pl-lg-0 pr-lg-0"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
+                                    <div class="col-md-7 pl-lg-0 pr-lg-0"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
                                         <az-button theme="primary" block link="https://www.arizona.edu/admissions/apply" elmid="cta-apply" value="Apply"></az-button>
                                     </div>
                                 </div>

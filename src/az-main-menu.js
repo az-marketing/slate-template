@@ -105,11 +105,11 @@ export class MainMenu extends LitElement {
       target.setAttribute('aria-expanded', 'false');
       target.nextElementSibling.classList.remove('show');
     } else {
-        if(cur){
-            cur.parentElement.classList.remove('show');
-            cur.setAttribute('aria-expanded', 'false');
-            cur.nextElementSibling.classList.remove('show');
-        }
+        // if(cur){
+        //     cur.parentElement.classList.remove('show');
+        //     cur.setAttribute('aria-expanded', 'false');
+        //     cur.nextElementSibling.classList.remove('show');
+        // }
         target.parentElement.classList.add('show');
         target.setAttribute('aria-expanded', 'true');
         target.nextElementSibling.classList.add('show');
@@ -1443,7 +1443,7 @@ export class MainMenu extends LitElement {
        overflow-y: auto;
    }
    .navbar-offcanvas .navbar-nav .nav-link {
-       font-weight: 500;
+       font-weight: 600;
    }
    .navbar-offcanvas ul.navbar-nav li.nav-item a.nav-link,
    .navbar-offcanvas .nav-item-parent .nav-link {
@@ -1482,8 +1482,10 @@ export class MainMenu extends LitElement {
         border: none;
         margin-left: 20px;
         background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIGVuYWJsZS1iYWNrZ3JvdW5kPSduZXcgMCAwIDI0IDI0JyBoZWlnaHQ9JzI0cHgnIHZpZXdCb3g9JzAgMCAyNCAyNCcgd2lkdGg9JzI0cHgnIGZpbGw9JyNGRkZGRkYnPjxnPjxyZWN0IGZpbGw9J25vbmUnIGhlaWdodD0nMjQnIHdpZHRoPScyNCcvPjwvZz48Zz48Zz48cGF0aCBkPSdNMTksMTNoLTZ2NmgtMnYtNkg1di0yaDZWNWgydjZoNlYxM3onLz48L2c+PC9nPjwvc3ZnPg==");
-        height: 24px;
-        width: 24px;
+        height: 18px;
+        width: 16px;
+        background-size: cover;
+        background-position: center;
     }
     .navbar-offcanvas .nav-item.show .dropdown-toggle::after {
         background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iI0ZGRkZGRiI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTE5IDEzSDV2LTJoMTR2MnoiLz48L3N2Zz4=');

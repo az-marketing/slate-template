@@ -186,7 +186,7 @@
 								position: relative;
 								color: #fff;
 								background-color: #ab0520;
-								height: 53px;
+								height: 50px;
 						}
 						.container {
 								width: 100%;
