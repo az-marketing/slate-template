@@ -7748,7 +7748,7 @@ label {
                         <div class="row">
                             <div class="region region-header-2">
                             <div id="block-bean-uaqs-audience-select" class="block block-bean col-xs-12 top-buffer-xs-20 bottom-buffer-xs-20 col-sm-12 top-buffer-sm-15 bottom-buffer-sm-10 col-md-11 top-buffer-md-30 bottom-buffer-md-15 col-lg-5 col-lg-offset-2 top-buffer-lg-50 bottom-buffer-lg-5 left-buffer-lg-0 right-buffer-lg-0 first odd" role="complementary" aria-label="select menu">
-                                 <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
+                                 <az-select-menu baseurl="https://www.arizona.edu" menuId="header----select-menu" thisUrl="https://www.arizona.edu"></az-select-menu>
                             </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-5 col-lg-3 right-buffer-md-0 left-buffer-sm-3 right-buffer-sm-reset left-buffer-md-0 right-buffer-lg-5 left-buffer-lg-5 bottom-buffer-5 top-buffer-sm-0 top-buffer-lg-50 col-lg-offset-0">
