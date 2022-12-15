@@ -2164,7 +2164,7 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
    }
    .navbar-offcanvas ul.navbar-nav li.nav-item a.nav-link,
    .navbar-offcanvas .nav-item-parent .nav-link {
-       text-transform: uppercase;
+
    }
    .navbar-offcanvas .nav-item .nav-link {
        padding: 12px 20px;

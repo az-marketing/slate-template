@@ -1447,7 +1447,7 @@ export class MainMenu extends LitElement {
    }
    .navbar-offcanvas ul.navbar-nav li.nav-item a.nav-link,
    .navbar-offcanvas .nav-item-parent .nav-link {
-       text-transform: uppercase;
+
    }
    .navbar-offcanvas .nav-item .nav-link {
        padding: 12px 20px;

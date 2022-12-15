@@ -1938,8 +1938,8 @@ parcelRequire = function (e, r, t, n) {
 				height: 10px;
 				width: 100%;
 				margin-top: 24px;
-    		margin-bottom: 24px;
-    		border: 0;
+				margin-bottom: 24px;
+				border: 0;
 				box-sizing: content-box;
 			}
 			#footer_site hr:after, #footer_site hr:before {
@@ -3028,7 +3028,7 @@ parcelRequire = function (e, r, t, n) {
 				display: inline-block;
 				padding: 0;
 				margin: 0 0 12px;
-			}			
+			}
 			#footer_site ul>li {
 				border-right: 1px solid #e2e9eb;
 				display: inline-block;
@@ -3134,9 +3134,9 @@ parcelRequire = function (e, r, t, n) {
 											<li class="menu__item is-leaf leaf"><a href="http://cirt.arizona.edu" title="" class="menu__link" @click="${e => {
           (0, t.eventDataLayerPush)(e, "az-footer");
         }}">Emergency Information</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://titleix.arizona.edu/submit_complaint_report" title="" class="menu__link" @click="${e => {
+											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/title-ix" title="" class="menu__link" @click="${e => {
           (0, t.eventDataLayerPush)(e, "az-footer");
-        }}">Title IX / Sexual Misconduct Reporting</a></li>
+        }}">Title IX / Non-Discrimination</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/campus-safety" title="" class="menu__link" @click="${e => {
           (0, t.eventDataLayerPush)(e, "az-footer");
         }}">Campus Safety</a></li>
@@ -3224,7 +3224,7 @@ parcelRequire = function (e, r, t, n) {
 											<li class="menu__item is-leaf leaf"><a href="https://www.environment.arizona.edu" title="" class="menu__link" @click="${e => {
           (0, t.eventDataLayerPush)(e, "az-footer");
         }}">Environment &amp; Sustainability</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://global.arizona.edu" class="menu__link" @click="${e => {
+											<li class="menu__item is-leaf leaf"><a href="https://international.arizona.edu" class="menu__link" @click="${e => {
           (0, t.eventDataLayerPush)(e, "az-footer");
         }}">Global Engagement</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/health-sciences" title="" class="menu__link" @click="${e => {
@@ -3305,6 +3305,8 @@ parcelRequire = function (e, r, t, n) {
 										<div class="row">
 											<div class="col-sm-12">
 												<hr>
+												<p class="text-align-center text-muted mt-0 mb-0"><em>We respectfully acknowledge the University of Arizona is on the land and territories of Indigenous peoples. Today, Arizona is home to 22 federally recognized tribes, with Tucson being home to the O’odham and the Yaqui. Committed to diversity and inclusion, the University strives to build sustainable relationships with sovereign Native Nations and Indigenous communities through education offerings, partnerships, and community service.</em></p>
+												<hr>
 												<p class="text-align-center text-muted mt-0 mb-0">We are affiliated with the&nbsp;<a class="text-muted" href="https://www.uagc.edu" target="_blank" @click="${e => {
           (0, t.eventDataLayerPush)(e, "az-footer");
         }}">University of Arizona Global Campus</a></p>
@@ -3344,7 +3346,7 @@ parcelRequire = function (e, r, t, n) {
     "./mixins/shadow-events-datalayer": "tktD"
   }]
 }, {}, ["dZb0"], "az_redbar");
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -3372,7 +3374,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54955" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65285" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -3548,5 +3550,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","dist/az-footer.js"], null)
+},{}]},{},["../../.config/yarn/global/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","dist/az-footer.js"], null)
 //# sourceMappingURL=/az-footer.8bc8b4fc.js.map
