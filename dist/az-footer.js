@@ -1318,7 +1318,7 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/colleges-schools" title="" class="menu__link" @click="${e=>{(0,t.eventDataLayerPush)(e,"az-footer")}}">Colleges, Schools, Departments</a></li>
 											<li class="menu__item is-leaf leaf"><a href="http://diversity.arizona.edu" class="menu__link" @click="${e=>{(0,t.eventDataLayerPush)(e,"az-footer")}}">Diversity</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.environment.arizona.edu" title="" class="menu__link" @click="${e=>{(0,t.eventDataLayerPush)(e,"az-footer")}}">Environment &amp; Sustainability</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://global.arizona.edu" class="menu__link" @click="${e=>{(0,t.eventDataLayerPush)(e,"az-footer")}}">Global Engagement</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://international.arizona.edu" class="menu__link" @click="${e=>{(0,t.eventDataLayerPush)(e,"az-footer")}}">Global Engagement</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/health-sciences" title="" class="menu__link" @click="${e=>{(0,t.eventDataLayerPush)(e,"az-footer")}}">Health &amp; Medical</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/libraries" title="" class="menu__link" @click="${e=>{(0,t.eventDataLayerPush)(e,"az-footer")}}">Libraries</a></li>
 											<li class="menu__item is-leaf leaf"><a href="http://uaforyou.arizona.edu" class="menu__link" @click="${e=>{(0,t.eventDataLayerPush)(e,"az-footer")}}">Outreach &amp; Extension</a></li>
