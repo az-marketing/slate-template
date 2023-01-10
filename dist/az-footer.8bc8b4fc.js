@@ -1940,6 +1940,8 @@ parcelRequire = function (e, r, t, n) {
 				margin-top: 24px;
 				margin-bottom: 24px;
 				border: 0;
+				margin-bottom: 24px;
+				border: 0;
 				box-sizing: content-box;
 			}
 			#footer_site hr:after, #footer_site hr:before {
@@ -3224,7 +3226,7 @@ parcelRequire = function (e, r, t, n) {
 											<li class="menu__item is-leaf leaf"><a href="https://www.environment.arizona.edu" title="" class="menu__link" @click="${e => {
           (0, t.eventDataLayerPush)(e, "az-footer");
         }}">Environment &amp; Sustainability</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://global.arizona.edu" class="menu__link" @click="${e => {
+											<li class="menu__item is-leaf leaf"><a href="https://international.arizona.edu" class="menu__link" @click="${e => {
           (0, t.eventDataLayerPush)(e, "az-footer");
         }}">Global Engagement</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/health-sciences" title="" class="menu__link" @click="${e => {
@@ -3374,7 +3376,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62228" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59124" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -2167,7 +2167,7 @@ var t,r=function(t){"use strict";var r,e=Object.prototype,n=e.hasOwnProperty,o="
    }
    .navbar-offcanvas ul.navbar-nav li.nav-item a.nav-link,
    .navbar-offcanvas .nav-item-parent .nav-link {
-       text-transform: uppercase;
+
    }
    .navbar-offcanvas .nav-item .nav-link {
        padding: 12px 20px;
@@ -7817,9 +7817,9 @@ label {
                     <div class="col-xs-12 col-sm-6 col-md-8">
                         <div class="row">
                             <div class="region region-header-2">
-                                <div id="block-bean-uaqs-audience-select" class="col-12 col-md-6 mt-sm-2 mt-md-4 mb-3 block block-az-select-menu block-az-select-menuselect-menu" role="complementary" aria-label="select menu">
-                                    <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
-                                </div>
+                            <div id="block-bean-uaqs-audience-select" class="block block-bean col-xs-12 top-buffer-xs-20 bottom-buffer-xs-20 col-sm-12 top-buffer-sm-15 bottom-buffer-sm-10 col-md-11 top-buffer-md-30 bottom-buffer-md-15 col-lg-5 col-lg-offset-2 top-buffer-lg-50 bottom-buffer-lg-5 left-buffer-lg-0 right-buffer-lg-0 first odd" role="complementary" aria-label="select menu">
+																 <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
+                            </div>
                                 <div class="col-md-6">
                                     <div class="col-md-5 pl-lg-2 pr-lg-0">
                                         <div id="block-bean-cta-request-info" class="block block-bean even" role="complementary" aria-label="call to action link">
