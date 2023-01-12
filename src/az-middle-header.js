@@ -25,6 +25,9 @@ class AzLogoSelectCta  extends LitElement {
     [hidden] {
         display: none;
     }
+    .row{
+        display: none !important;
+    }
     a {
         background-color: transparent;
     }
@@ -1316,7 +1319,7 @@ class AzLogoSelectCta  extends LitElement {
                     <a href="https://www.arizona.edu/" title="The University of Arizona, Tucson, Arizona | Home" class="header__logo active" rel="home" id="logo"><img src="https://www.arizona.edu/sites/default/files/www_webheader-01.svg" alt="The University of Arizona, Tucson, Arizona | Home" class="header__logo-image"></a>              
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-8">
-                    <div class="row">
+                    <div class="row test-this">
                         <div class="region region-header-2">
                             <div id="block-bean-uaqs-audience-select" class="block first odd col-md-6" role="complementary" aria-label="select menu">
                                 <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>

@@ -706,9 +706,12 @@
 			}
 
 			renderAzMenuItem(item) {
-				const title = item?.link?.attributes?.title;
-				let href = item?.link?.href;
-				const children = item?.children;
+				let titleTest = item && item.link && item.link.attributes && item.link.attributes.title;
+				let hrefTest = item && item.link && item.link.href;
+				let childrenTest = item && item.children;
+				const title = (titleTest ? item.link.attributes.title : undefined);
+				let href = (hrefTest ? item.link.href : undefined);
+				const children = (childrenTest ? item.children : undefined);
 
 				href = href.charAt(0) === '/' ? this.thisUrl + href : href;
 
