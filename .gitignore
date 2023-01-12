@@ -21,5 +21,6 @@
 
 # cache files
 /.cache
+/.parcel-cache
 
 storybook-static

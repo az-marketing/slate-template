@@ -1,29 +1,25 @@
 {
 	"name": "slate-template",
 	"version": "1.0.0",
-	"main": "index.js",
 	"repository": "git@github.com:az-marketing/slate-template.git",
 	"author": "Ryan Dool <ryandool@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
+		"@babel/plugin-proposal-optional-chaining": "^7.20.7",
 		"@popperjs/core": "^2.9.2",
+		"@swc/helpers": "^0.4.14",
 		"@webcomponents/webcomponentsjs": "^2.5.0",
 		"linkset-menu": "^0.0.2",
 		"lit-element": "^2.5.1",
-		"regenerator-runtime": "^0.13.7"
+		"regenerator-runtime": "^0.13.7",
+		"terser": "^5.16.1"
 	},
 	"scripts": {
 		"develop": "parcel index.html --open",
-		"build": "parcel build src/header.js src/az-footer.js --no-source-maps --global az_redbar"
+		"build": "parcel build src/header.js src/az-footer.js src/az-middle-header.js"
 	},
 	"devDependencies": {
-		"parcel-bundler": "^1.12.5"
+		"parcel": "^2.0.0"
 	},
-	"browserslist": [
-		"last 3 and_chr versions",
-		"last 3 chrome versions",
-		"last 3 opera versions",
-		"last 3 ios_saf versions",
-		"last 3 safari versions"
-	]
+	"browserslist": "> 0.25%, not dead"
 }
