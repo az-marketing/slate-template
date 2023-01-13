@@ -25,7 +25,7 @@ class AzLogoSelectCta  extends LitElement {
     [hidden] {
         display: none;
     }
-    .row{
+    .test-this{
         display: none !important;
     }
     a {
