@@ -4368,9 +4368,6 @@ label {
     [hidden] {
         display: none;
     }
-    .test-this{
-        display: none !important;
-    }
     a {
         background-color: transparent;
     }
@@ -4472,7 +4469,6 @@ label {
     }
     .page-row > .row{
         border-bottom: 1px solid #E2E9EB;
-        display: flex;
     }
     .container {
         padding-right: 16px;
@@ -4505,7 +4501,6 @@ label {
     .region-header-2{
         max-width: 540px;
         margin: auto;
-        display: flex;
     }
 
 
@@ -4922,7 +4917,7 @@ label {
             margin-left: 100%;
         }
     }
-    @media (min-width: 1200px) {
+    @media (min-width: 992px) {
         .col-lg-1,
         .col-lg-10,
         .col-lg-11,
@@ -5658,18 +5653,18 @@ label {
                     <a href="https://www.arizona.edu/" title="The University of Arizona, Tucson, Arizona | Home" class="header__logo active" rel="home" id="logo"><img src="https://www.arizona.edu/sites/default/files/www_webheader-01.svg" alt="The University of Arizona, Tucson, Arizona | Home" class="header__logo-image"></a>              
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-8">
-                    <div class="row test-this">
+                    <div class="row">
                         <div class="region region-header-2">
-                            <div id="block-bean-uaqs-audience-select" class="block first odd col-md-6" role="complementary" aria-label="select menu">
+                            <div id="block-bean-uaqs-audience-select" class="block first odd col-12 col-lg-6" role="complementary" aria-label="select menu">
                                 <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
                             </div>
-                            <div class="col-md-6">
-                                <div class="col-md-5 pl-lg-2 pr-lg-0">
+                            <div class="col-12 pr-0 col-lg-6 block block-block-content block-block-content6c97ac4e-e033-4a8e-90d7-0d93867d625a">
+                                <div class="col-lg-6 pl-lg-1 pr-lg-1">
                                     <div id="block-bean-cta-request-info" class="block block-bean even" role="complementary" aria-label="call to action link">
                                         <az-button theme="primary" block outline="true" link="https://www.arizona.edu/admissions/visit" elmid="cta-visit" value="Visit"></az-button>
                                     </div>
                                 </div>
-                                <div class="col-md-7 pl-lg-0 pr-lg-0"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
+                                <div class="col-lg-6 pl-lg-2 pr-0"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
                                     <az-button theme="primary" block link="https://www.arizona.edu/admissions/apply" elmid="cta-apply" value="Apply"></az-button>
                                 </div>
                             </div>
