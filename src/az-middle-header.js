@@ -1316,7 +1316,7 @@ class AzLogoSelectCta  extends LitElement {
                 <div class="col-xs-12 col-sm-6 col-md-8">
                     <div class="row">
                         <div class="region region-header-2">
-                            <div id="block-bean-uaqs-audience-select" class="block first odd col-12 col-lg-6" role="complementary" aria-label="select menu">
+                            <div id="block-bean-uaqs-audience-select" class="block first odd col-12 col-lg-6 block-az-select-menu block-az-select-menuselect-menu" role="complementary" aria-label="select menu">
                                 <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
                             </div>
                             <div class="col-12 pr-0 col-lg-6 block block-block-content block-block-content6c97ac4e-e033-4a8e-90d7-0d93867d625a">

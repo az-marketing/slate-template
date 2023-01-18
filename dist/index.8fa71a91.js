@@ -37,8 +37,8 @@
  * http://polymer.github.io/PATENTS.txt
  */ const t = "undefined" != typeof window && null != window.customElements && void 0 !== window.customElements.polyfillWrapFlushCallback, e = (t, e, o = null)=>{
         for(; e !== o;){
-            const o1 = e.nextSibling;
-            t.removeChild(e), e = o1;
+            const o = e.nextSibling;
+            t.removeChild(e), e = o;
         }
     }, o = `{{lit-${String(Math.random()).slice(2)}}}`, n = `\x3c!--${o}--\x3e`, r = new RegExp(`${o}|${n}`), i = "$lit$";
     class a {
@@ -48,54 +48,54 @@
             let c = 0, f = -1, b = 0;
             const { strings: u , values: { length: m  }  } = t;
             for(; b < m;){
-                const t1 = s.nextNode();
-                if (null !== t1) {
-                    if (f++, 1 === t1.nodeType) {
-                        if (t1.hasAttributes()) {
-                            const e1 = t1.attributes, { length: o1  } = e1;
-                            let n1 = 0;
-                            for(let t2 = 0; t2 < o1; t2++)l(e1[t2].name, i) && n1++;
-                            for(; n1-- > 0;){
-                                const e2 = u[b], o2 = d.exec(e2)[2], n2 = o2.toLowerCase() + i, a1 = t1.getAttribute(n2);
-                                t1.removeAttribute(n2);
-                                const l1 = a1.split(r);
+                const t = s.nextNode();
+                if (null !== t) {
+                    if (f++, 1 === t.nodeType) {
+                        if (t.hasAttributes()) {
+                            const e = t.attributes, { length: o  } = e;
+                            let n = 0;
+                            for(let t = 0; t < o; t++)l(e[t].name, i) && n++;
+                            for(; n-- > 0;){
+                                const e = u[b], o = d.exec(e)[2], n = o.toLowerCase() + i, a = t.getAttribute(n);
+                                t.removeAttribute(n);
+                                const l = a.split(r);
                                 this.parts.push({
                                     type: "attribute",
                                     index: f,
-                                    name: o2,
-                                    strings: l1
-                                }), b += l1.length - 1;
+                                    name: o,
+                                    strings: l
+                                }), b += l.length - 1;
                             }
                         }
-                        "TEMPLATE" === t1.tagName && (a.push(t1), s.currentNode = t1.content);
-                    } else if (3 === t1.nodeType) {
-                        const e3 = t1.data;
-                        if (e3.indexOf(o) >= 0) {
-                            const o3 = t1.parentNode, a2 = e3.split(r), s1 = a2.length - 1;
-                            for(let e4 = 0; e4 < s1; e4++){
-                                let n3, r1 = a2[e4];
-                                if ("" === r1) n3 = p();
+                        "TEMPLATE" === t.tagName && (a.push(t), s.currentNode = t.content);
+                    } else if (3 === t.nodeType) {
+                        const e = t.data;
+                        if (e.indexOf(o) >= 0) {
+                            const o = t.parentNode, a = e.split(r), s = a.length - 1;
+                            for(let e = 0; e < s; e++){
+                                let n, r = a[e];
+                                if ("" === r) n = p();
                                 else {
-                                    const t3 = d.exec(r1);
-                                    null !== t3 && l(t3[2], i) && (r1 = r1.slice(0, t3.index) + t3[1] + t3[2].slice(0, -i.length) + t3[3]), n3 = document.createTextNode(r1);
+                                    const t = d.exec(r);
+                                    null !== t && l(t[2], i) && (r = r.slice(0, t.index) + t[1] + t[2].slice(0, -i.length) + t[3]), n = document.createTextNode(r);
                                 }
-                                o3.insertBefore(n3, t1), this.parts.push({
+                                o.insertBefore(n, t), this.parts.push({
                                     type: "node",
                                     index: ++f
                                 });
                             }
-                            "" === a2[s1] ? (o3.insertBefore(p(), t1), n.push(t1)) : t1.data = a2[s1], b += s1;
+                            "" === a[s] ? (o.insertBefore(p(), t), n.push(t)) : t.data = a[s], b += s;
                         }
-                    } else if (8 === t1.nodeType) {
-                        if (t1.data === o) {
-                            const e5 = t1.parentNode;
-                            null !== t1.previousSibling && f !== c || (f++, e5.insertBefore(p(), t1)), c = f, this.parts.push({
+                    } else if (8 === t.nodeType) {
+                        if (t.data === o) {
+                            const e = t.parentNode;
+                            null !== t.previousSibling && f !== c || (f++, e.insertBefore(p(), t)), c = f, this.parts.push({
                                 type: "node",
                                 index: f
-                            }), null === t1.nextSibling ? t1.data = "" : (n.push(t1), f--), b++;
+                            }), null === t.nextSibling ? t.data = "" : (n.push(t), f--), b++;
                         } else {
-                            let e6 = -1;
-                            for(; -1 !== (e6 = t1.data.indexOf(o, e6 + 1));)this.parts.push({
+                            let e = -1;
+                            for(; -1 !== (e = t.data.indexOf(o, e + 1));)this.parts.push({
                                 type: "node",
                                 index: -1
                             }), b++;
@@ -103,7 +103,7 @@
                     }
                 } else s.currentNode = a.pop();
             }
-            for (const t4 of n)t4.parentNode.removeChild(t4);
+            for (const t of n)t.parentNode.removeChild(t);
         }
     }
     const l = (t, e)=>{
@@ -117,8 +117,8 @@
         let d = null;
         for(; r.nextNode();){
             l++;
-            const t1 = r.currentNode;
-            for(t1.previousSibling === d && (d = null), e.has(t1) && (p.push(t1), null === d && (d = t1)), null !== d && s++; void 0 !== a && a.index === l;)a.index = null !== d ? -1 : a.index - s, i = b(n, i), a = n[i];
+            const t = r.currentNode;
+            for(t.previousSibling === d && (d = null), e.has(t) && (p.push(t), null === d && (d = t)), null !== d && s++; void 0 !== a && a.index === l;)a.index = null !== d ? -1 : a.index - s, i = b(n, i), a = n[i];
         }
         p.forEach((t)=>t.parentNode.removeChild(t));
     }
@@ -129,8 +129,8 @@
         return e;
     }, b = (t, e = -1)=>{
         for(let o = e + 1; o < t.length; o++){
-            const e1 = t[o];
-            if (s(e1)) return o;
+            const e = t[o];
+            if (s(e)) return o;
         }
         return -1;
     };
@@ -206,7 +206,7 @@
         update(t) {
             let e = 0;
             for (const o of this.__parts)void 0 !== o && o.setValue(t[e]), e++;
-            for (const t1 of this.__parts)void 0 !== t1 && t1.commit();
+            for (const t of this.__parts)void 0 !== t && t.commit();
         }
         _clone() {
             const e = t ? this.template.element.content.cloneNode(!0) : document.importNode(this.template.element.content, !0), o = [], n = this.template.parts, r = document.createTreeWalker(e, 133, null, !1);
@@ -214,8 +214,8 @@
             for(; a < n.length;)if (i = n[a], s(i)) {
                 for(; l < i.index;)l++, "TEMPLATE" === p.nodeName && (o.push(p), r.currentNode = p.content), null === (p = r.nextNode()) && (r.currentNode = o.pop(), p = r.nextNode());
                 if ("node" === i.type) {
-                    const t1 = this.processor.handleTextExpression(this.options);
-                    t1.insertAfterNode(p.previousSibling), this.__parts.push(t1);
+                    const t = this.processor.handleTextExpression(this.options);
+                    t.insertAfterNode(p.previousSibling), this.__parts.push(t);
                 } else this.__parts.push(...this.processor.handleAttributeExpressions(p, i.name, i.strings, this.options));
                 a++;
             } else this.__parts.push(void 0), a++;
@@ -245,10 +245,10 @@
             const t = this.strings.length - 1;
             let e = "", r = !1;
             for(let a = 0; a < t; a++){
-                const t1 = this.strings[a], l = t1.lastIndexOf("<!--");
-                r = (l > -1 || r) && -1 === t1.indexOf("-->", l + 1);
-                const s = d.exec(t1);
-                e += null === s ? t1 + (r ? y : n) : t1.substr(0, s.index) + s[1] + s[2] + i + s[3] + o;
+                const t = this.strings[a], l = t.lastIndexOf("<!--");
+                r = (l > -1 || r) && -1 === t.indexOf("-->", l + 1);
+                const s = d.exec(t);
+                e += null === s ? t + (r ? y : n) : t.substr(0, s.index) + s[1] + s[2] + i + s[3] + o;
             }
             return e += this.strings[t], e;
         }
@@ -262,7 +262,7 @@
     class _ {
         constructor(t, e, o){
             this.dirty = !0, this.element = t, this.name = e, this.strings = o, this.parts = [];
-            for(let t1 = 0; t1 < o.length - 1; t1++)this.parts[t1] = this._createPart();
+            for(let t = 0; t < o.length - 1; t++)this.parts[t] = this._createPart();
         }
         _createPart() {
             return new A(this);
@@ -270,18 +270,18 @@
         _getValue() {
             const t = this.strings, e = t.length - 1, o = this.parts;
             if (1 === e && "" === t[0] && "" === t[1]) {
-                const t1 = o[0].value;
-                if ("symbol" == typeof t1) return String(t1);
-                if ("string" == typeof t1 || !S(t1)) return t1;
+                const t = o[0].value;
+                if ("symbol" == typeof t) return String(t);
+                if ("string" == typeof t || !S(t)) return t;
             }
             let n = "";
             for(let r = 0; r < e; r++){
                 n += t[r];
-                const e1 = o[r];
-                if (void 0 !== e1) {
-                    const t2 = e1.value;
-                    if (z(t2) || !S(t2)) n += "string" == typeof t2 ? t2 : String(t2);
-                    else for (const e2 of t2)n += "string" == typeof e2 ? e2 : String(e2);
+                const e = o[r];
+                if (void 0 !== e) {
+                    const t = e.value;
+                    if (z(t) || !S(t)) n += "string" == typeof t ? t : String(t);
+                    else for (const e of t)n += "string" == typeof e ? e : String(e);
                 }
             }
             return n += t[e], n;
@@ -330,8 +330,8 @@
                 const t = this.__pendingValue;
                 this.__pendingValue = h, t(this);
             }
-            const t1 = this.__pendingValue;
-            t1 !== h && (z(t1) ? t1 !== this.value && this.__commitText(t1) : t1 instanceof k ? this.__commitTemplateResult(t1) : t1 instanceof Node ? this.__commitNode(t1) : S(t1) ? this.__commitIterable(t1) : t1 === x ? (this.value = x, this.clear()) : this.__commitText(t1));
+            const t = this.__pendingValue;
+            t !== h && (z(t) ? t !== this.value && this.__commitText(t) : t instanceof k ? this.__commitTemplateResult(t) : t instanceof Node ? this.__commitNode(t) : S(t) ? this.__commitIterable(t) : t === x ? (this.value = x, this.clear()) : this.__commitText(t));
         }
         __insert(t) {
             this.endNode.parentNode.insertBefore(t, this.endNode);
@@ -376,8 +376,8 @@
                 this.__pendingValue = h, t(this);
             }
             if (this.__pendingValue === h) return;
-            const t1 = !!this.__pendingValue;
-            this.value !== t1 && (t1 ? this.element.setAttribute(this.name, "") : this.element.removeAttribute(this.name), this.value = t1), this.__pendingValue = h;
+            const t = !!this.__pendingValue;
+            this.value !== t && (t ? this.element.setAttribute(this.name, "") : this.element.removeAttribute(this.name), this.value = t), this.__pendingValue = h;
         }
     }
     class T extends _ {
@@ -405,7 +405,7 @@
                 }
             };
             window.addEventListener("test", t, t), window.removeEventListener("test", t, t);
-        } catch (t1) {}
+        } catch (t) {}
     })();
     class I {
         constructor(t, e, o){
@@ -420,8 +420,8 @@
                 this.__pendingValue = h, t(this);
             }
             if (this.__pendingValue === h) return;
-            const t1 = this.__pendingValue, e = this.value, o = null == t1 || null != e && (t1.capture !== e.capture || t1.once !== e.once || t1.passive !== e.passive), n = null != t1 && (null == e || o);
-            o && this.element.removeEventListener(this.eventName, this.__boundHandleEvent, this.__options), n && (this.__options = O(t1), this.element.addEventListener(this.eventName, this.__boundHandleEvent, this.__options)), this.value = t1, this.__pendingValue = h;
+            const t = this.__pendingValue, e = this.value, o = null == t || null != e && (t.capture !== e.capture || t.once !== e.once || t.passive !== e.passive), n = null != t && (null == e || o);
+            o && this.element.removeEventListener(this.eventName, this.__boundHandleEvent, this.__options), n && (this.__options = O(t), this.element.addEventListener(this.eventName, this.__boundHandleEvent, this.__options)), this.value = t, this.__pendingValue = h;
         }
         handleEvent(t) {
             "function" == typeof this.value ? this.value.call(this.eventContext || this.element, t) : this.value.handleEvent(t);
@@ -516,8 +516,8 @@
             if (void 0 !== i) return i;
             const l = e.strings.join(o);
             if (i = r.keyString.get(l), void 0 === i) {
-                const o1 = e.getTemplateElement();
-                D && window.ShadyCSS.prepareTemplateDom(o1, t), i = new a(e, o1), r.keyString.set(l, i);
+                const o = e.getTemplateElement();
+                D && window.ShadyCSS.prepareTemplateDom(o, t), i = new a(e, o), r.keyString.set(l, i);
             }
             return r.stringsArray.set(e.strings, i), i;
         }, W = [
@@ -528,9 +528,9 @@
         const n = o ? o.element : document.createElement("template"), r = e.querySelectorAll("style"), { length: i  } = r;
         if (0 === i) return void window.ShadyCSS.prepareTemplateStyles(n, t);
         const a = document.createElement("style");
-        for(let t1 = 0; t1 < i; t1++){
-            const e1 = r[t1];
-            e1.parentNode.removeChild(e1), a.textContent += e1.textContent;
+        for(let t = 0; t < i; t++){
+            const e = r[t];
+            e.parentNode.removeChild(e), a.textContent += e.textContent;
         }
         ((t)=>{
             W.forEach((e)=>{
@@ -549,8 +549,8 @@
         if (window.ShadyCSS.nativeShadow && null !== s) e.insertBefore(s.cloneNode(!0), e.firstChild);
         else if (o) {
             l.insertBefore(a, l.firstChild);
-            const t2 = new Set;
-            t2.add(a), c(o, t2);
+            const t = new Set;
+            t.add(a), c(o, t);
         }
     };
     window.JSCompiler_renameProperty = (t, e)=>t;
@@ -627,11 +627,11 @@
         static finalize() {
             const t = Object.getPrototypeOf(this);
             if (t.hasOwnProperty(J) || t.finalize(), this[J] = !0, this._ensureClassProperties(), this._attributeToPropertyMap = new Map, this.hasOwnProperty(JSCompiler_renameProperty("properties", this))) {
-                const t1 = this.properties, e = [
-                    ...Object.getOwnPropertyNames(t1),
-                    ..."function" == typeof Object.getOwnPropertySymbols ? Object.getOwnPropertySymbols(t1) : []
+                const t = this.properties, e = [
+                    ...Object.getOwnPropertyNames(t),
+                    ..."function" == typeof Object.getOwnPropertySymbols ? Object.getOwnPropertySymbols(t) : []
                 ];
-                for (const o of e)this.createProperty(o, t1[o]);
+                for (const o of e)this.createProperty(o, t[o]);
             }
         }
         static _attributeNameForProperty(t, e) {
@@ -656,8 +656,8 @@
         _saveInstanceProperties() {
             this.constructor._classProperties.forEach((t, e)=>{
                 if (this.hasOwnProperty(e)) {
-                    const t1 = this[e];
-                    delete this[e], this._instanceProperties || (this._instanceProperties = new Map), this._instanceProperties.set(e, t1);
+                    const t = this[e];
+                    delete this[e], this._instanceProperties || (this._instanceProperties = new Map), this._instanceProperties.set(e, t);
                 }
             });
         }
@@ -677,17 +677,17 @@
         _propertyToAttribute(t, e, o = Y) {
             const n = this.constructor, r = n._attributeNameForProperty(t, o);
             if (void 0 !== r) {
-                const t1 = n._propertyValueToAttribute(e, o);
-                if (void 0 === t1) return;
-                this._updateState = 8 | this._updateState, null == t1 ? this.removeAttribute(r) : this.setAttribute(r, t1), this._updateState = -9 & this._updateState;
+                const t = n._propertyValueToAttribute(e, o);
+                if (void 0 === t) return;
+                this._updateState = 8 | this._updateState, null == t ? this.removeAttribute(r) : this.setAttribute(r, t), this._updateState = -9 & this._updateState;
             }
         }
         _attributeToProperty(t, e) {
             if (8 & this._updateState) return;
             const o = this.constructor, n = o._attributeToPropertyMap.get(t);
             if (void 0 !== n) {
-                const t1 = o.getPropertyOptions(n);
-                this._updateState = 16 | this._updateState, this[n] = o._propertyValueFromAttribute(e, t1), this._updateState = -17 & this._updateState;
+                const t = o.getPropertyOptions(n);
+                this._updateState = 16 | this._updateState, this[n] = o._propertyValueFromAttribute(e, t), this._updateState = -17 & this._updateState;
             }
         }
         requestUpdateInternal(t, e, o) {
@@ -706,8 +706,8 @@
             try {
                 await this._updatePromise;
             } catch (t) {}
-            const t1 = this.performUpdate();
-            return null != t1 && await t1, !this._hasRequestedUpdate;
+            const t = this.performUpdate();
+            return null != t && await t, !this._hasRequestedUpdate;
         }
         get _hasRequestedUpdate() {
             return 4 & this._updateState;
@@ -722,8 +722,8 @@
             const e = this._changedProperties;
             try {
                 t = this.shouldUpdate(e), t ? this.update(e) : this._markUpdated();
-            } catch (e1) {
-                throw t = !1, this._markUpdated(), e1;
+            } catch (e) {
+                throw t = !1, this._markUpdated(), e;
             }
             t && (1 & this._updateState || (this._updateState = 1 | this._updateState, this.firstUpdated(e)), this.updated(e));
         }
@@ -837,10 +837,10 @@ found at http://polymer.github.io/PATENTS.txt
         if (U(t, s, Object.assign({
             templateFactory: G(r)
         }, n)), l) {
-            const t1 = P.get(s);
+            const t = P.get(s);
             P.delete(s);
-            const n1 = t1.value instanceof w ? t1.value.template : void 0;
-            F(r, s, n1), e(o, o.firstChild), o.appendChild(s), P.set(o, t1);
+            const n = t.value instanceof w ? t.value.template : void 0;
+            F(r, s, n), e(o, o.firstChild), o.appendChild(s), P.set(o, t);
         }
         !i && a && window.ShadyCSS.styleElement(o.host);
     }, nt.shadowRootOptions = {
@@ -1387,11 +1387,11 @@ found at http://polymer.github.io/PATENTS.txt
         }
         _handleClick(t) {
             if (It(t, ""), this.event) {
-                let t1 = new Event(this.event);
-                document.querySelector(this.target).dispatchEvent(t1);
+                let t = new Event(this.event);
+                document.querySelector(this.target).dispatchEvent(t);
             } else {
-                let t2 = new Event("open-az-offcanvas-menu");
-                document.querySelector(this.target).dispatchEvent(t2);
+                let t = new Event("open-az-offcanvas-menu");
+                document.querySelector(this.target).dispatchEvent(t);
             }
         }
         render() {
@@ -2069,7 +2069,7 @@ found at http://polymer.github.io/PATENTS.txt
             const r = e ? t.link.attributes.title : void 0;
             let i = o ? t.link.href : void 0;
             const a = n ? t.children : void 0;
-            return i = "/" === i.charAt(0) ? this.thisUrl + i : i, a.length ? this.azMenuParentTemplate(r, a) : i ? Ct.azMenuLinkTemplate(r, i) : Ct.azMenuItemTemplate(r);
+            return a.length ? this.azMenuParentTemplate(r, a) : i ? (i = "/" === i.charAt(0) ? this.thisUrl + i : i, Ct.azMenuLinkTemplate(r, i)) : Ct.azMenuItemTemplate(r);
         }
         fetchData(t, e) {
             this.isLoading = !0;
@@ -2081,7 +2081,7 @@ found at http://polymer.github.io/PATENTS.txt
                 try {
                     const o = (0, rt.denormalize)(t, e);
                     this.tree = o.tree;
-                } catch (t1) {
+                } catch (t) {
                     throw new Error("Unable to denormalize menu.");
                 }
                 this.isLoading = !1;
@@ -2147,7 +2147,7 @@ found at http://polymer.github.io/PATENTS.txt
         }
         try {
             p({}, "");
-        } catch (t1) {
+        } catch (t) {
             p = function(t, e, o) {
                 return t[e] = o;
             };
@@ -2164,10 +2164,10 @@ found at http://polymer.github.io/PATENTS.txt
                     type: "normal",
                     arg: t.call(e, o)
                 };
-            } catch (t1) {
+            } catch (t) {
                 return {
                     type: "throw",
-                    arg: t1
+                    arg: t
                 };
             }
         }
@@ -2424,7 +2424,7 @@ found at http://polymer.github.io/PATENTS.txt
     }({});
     try {
         regeneratorRuntime = Lt;
-    } catch (t1) {
+    } catch (t) {
         "object" == typeof globalThis ? globalThis.regeneratorRuntime = Lt : Function("r", "regeneratorRuntime = r")(Lt);
     }
     class Pt extends nt {
@@ -2473,7 +2473,7 @@ found at http://polymer.github.io/PATENTS.txt
                 try {
                     const o = (0, rt.denormalize)(t, e);
                     this.tree = o.tree;
-                } catch (t1) {
+                } catch (t) {
                     throw new Error("Unable to denormalize menu.");
                 }
                 this.isLoading = !1;
@@ -8648,7 +8648,7 @@ label {
                 try {
                     const o = (0, rt.denormalize)(t, e);
                     this.tree = o.tree;
-                } catch (t1) {
+                } catch (t) {
                     throw new Error("Unable to denormalize menu.");
                 }
                 this.isLoading = !1;
@@ -10014,7 +10014,7 @@ label {
                 <div class="col-xs-12 col-sm-6 col-md-8">
                     <div class="row">
                         <div class="region region-header-2">
-                            <div id="block-bean-uaqs-audience-select" class="block first odd col-12 col-lg-6" role="complementary" aria-label="select menu">
+                            <div id="block-bean-uaqs-audience-select" class="block first odd col-12 col-lg-6 block-az-select-menu block-az-select-menuselect-menu" role="complementary" aria-label="select menu">
                                 <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
                             </div>
                             <div class="col-12 pr-0 col-lg-6 block block-block-content block-block-content6c97ac4e-e033-4a8e-90d7-0d93867d625a">

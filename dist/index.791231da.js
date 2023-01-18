@@ -37,8 +37,8 @@
  * http://polymer.github.io/PATENTS.txt
  */ const e = "undefined" != typeof window && null != window.customElements && void 0 !== window.customElements.polyfillWrapFlushCallback, t = (e, t, i = null)=>{
         for(; t !== i;){
-            const i1 = t.nextSibling;
-            e.removeChild(t), t = i1;
+            const i = t.nextSibling;
+            e.removeChild(t), t = i;
         }
     }, i = `{{lit-${String(Math.random()).slice(2)}}}`, o = `\x3c!--${i}--\x3e`, s = new RegExp(`${i}|${o}`), r = "$lit$";
     class n {
@@ -48,54 +48,54 @@
             let f = 0, m = -1, p = 0;
             const { strings: h , values: { length: u  }  } = e;
             for(; p < u;){
-                const e1 = l.nextNode();
-                if (null !== e1) {
-                    if (m++, 1 === e1.nodeType) {
-                        if (e1.hasAttributes()) {
-                            const t1 = e1.attributes, { length: i1  } = t1;
-                            let o1 = 0;
-                            for(let e2 = 0; e2 < i1; e2++)a(t1[e2].name, r) && o1++;
-                            for(; o1-- > 0;){
-                                const t2 = h[p], i2 = d.exec(t2)[2], o2 = i2.toLowerCase() + r, n1 = e1.getAttribute(o2);
-                                e1.removeAttribute(o2);
-                                const a1 = n1.split(s);
+                const e = l.nextNode();
+                if (null !== e) {
+                    if (m++, 1 === e.nodeType) {
+                        if (e.hasAttributes()) {
+                            const t = e.attributes, { length: i  } = t;
+                            let o = 0;
+                            for(let e = 0; e < i; e++)a(t[e].name, r) && o++;
+                            for(; o-- > 0;){
+                                const t = h[p], i = d.exec(t)[2], o = i.toLowerCase() + r, n = e.getAttribute(o);
+                                e.removeAttribute(o);
+                                const a = n.split(s);
                                 this.parts.push({
                                     type: "attribute",
                                     index: m,
-                                    name: i2,
-                                    strings: a1
-                                }), p += a1.length - 1;
+                                    name: i,
+                                    strings: a
+                                }), p += a.length - 1;
                             }
                         }
-                        "TEMPLATE" === e1.tagName && (n.push(e1), l.currentNode = e1.content);
-                    } else if (3 === e1.nodeType) {
-                        const t3 = e1.data;
-                        if (t3.indexOf(i) >= 0) {
-                            const i3 = e1.parentNode, n2 = t3.split(s), l1 = n2.length - 1;
-                            for(let t4 = 0; t4 < l1; t4++){
-                                let o3, s1 = n2[t4];
-                                if ("" === s1) o3 = c();
+                        "TEMPLATE" === e.tagName && (n.push(e), l.currentNode = e.content);
+                    } else if (3 === e.nodeType) {
+                        const t = e.data;
+                        if (t.indexOf(i) >= 0) {
+                            const i = e.parentNode, n = t.split(s), l = n.length - 1;
+                            for(let t = 0; t < l; t++){
+                                let o, s = n[t];
+                                if ("" === s) o = c();
                                 else {
-                                    const e3 = d.exec(s1);
-                                    null !== e3 && a(e3[2], r) && (s1 = s1.slice(0, e3.index) + e3[1] + e3[2].slice(0, -r.length) + e3[3]), o3 = document.createTextNode(s1);
+                                    const e = d.exec(s);
+                                    null !== e && a(e[2], r) && (s = s.slice(0, e.index) + e[1] + e[2].slice(0, -r.length) + e[3]), o = document.createTextNode(s);
                                 }
-                                i3.insertBefore(o3, e1), this.parts.push({
+                                i.insertBefore(o, e), this.parts.push({
                                     type: "node",
                                     index: ++m
                                 });
                             }
-                            "" === n2[l1] ? (i3.insertBefore(c(), e1), o.push(e1)) : e1.data = n2[l1], p += l1;
+                            "" === n[l] ? (i.insertBefore(c(), e), o.push(e)) : e.data = n[l], p += l;
                         }
-                    } else if (8 === e1.nodeType) {
-                        if (e1.data === i) {
-                            const t5 = e1.parentNode;
-                            null !== e1.previousSibling && m !== f || (m++, t5.insertBefore(c(), e1)), f = m, this.parts.push({
+                    } else if (8 === e.nodeType) {
+                        if (e.data === i) {
+                            const t = e.parentNode;
+                            null !== e.previousSibling && m !== f || (m++, t.insertBefore(c(), e)), f = m, this.parts.push({
                                 type: "node",
                                 index: m
-                            }), null === e1.nextSibling ? e1.data = "" : (o.push(e1), m--), p++;
+                            }), null === e.nextSibling ? e.data = "" : (o.push(e), m--), p++;
                         } else {
-                            let t6 = -1;
-                            for(; -1 !== (t6 = e1.data.indexOf(i, t6 + 1));)this.parts.push({
+                            let t = -1;
+                            for(; -1 !== (t = e.data.indexOf(i, t + 1));)this.parts.push({
                                 type: "node",
                                 index: -1
                             }), p++;
@@ -103,7 +103,7 @@
                     }
                 } else l.currentNode = n.pop();
             }
-            for (const e4 of o)e4.parentNode.removeChild(e4);
+            for (const e of o)e.parentNode.removeChild(e);
         }
     }
     const a = (e, t)=>{
@@ -117,8 +117,8 @@
         let d = null;
         for(; s.nextNode();){
             a++;
-            const e1 = s.currentNode;
-            for(e1.previousSibling === d && (d = null), t.has(e1) && (c.push(e1), null === d && (d = e1)), null !== d && l++; void 0 !== n && n.index === a;)n.index = null !== d ? -1 : n.index - l, r = p(o, r), n = o[r];
+            const e = s.currentNode;
+            for(e.previousSibling === d && (d = null), t.has(e) && (c.push(e), null === d && (d = e)), null !== d && l++; void 0 !== n && n.index === a;)n.index = null !== d ? -1 : n.index - l, r = p(o, r), n = o[r];
         }
         c.forEach((e)=>e.parentNode.removeChild(e));
     }
@@ -129,8 +129,8 @@
         return t;
     }, p = (e, t = -1)=>{
         for(let i = t + 1; i < e.length; i++){
-            const t1 = e[i];
-            if (l(t1)) return i;
+            const t = e[i];
+            if (l(t)) return i;
         }
         return -1;
     };
@@ -206,7 +206,7 @@
         update(e) {
             let t = 0;
             for (const i of this.__parts)void 0 !== i && i.setValue(e[t]), t++;
-            for (const e1 of this.__parts)void 0 !== e1 && e1.commit();
+            for (const e of this.__parts)void 0 !== e && e.commit();
         }
         _clone() {
             const t = e ? this.template.element.content.cloneNode(!0) : document.importNode(this.template.element.content, !0), i = [], o = this.template.parts, s = document.createTreeWalker(t, 133, null, !1);
@@ -214,8 +214,8 @@
             for(; n < o.length;)if (r = o[n], l(r)) {
                 for(; a < r.index;)a++, "TEMPLATE" === c.nodeName && (i.push(c), s.currentNode = c.content), null === (c = s.nextNode()) && (s.currentNode = i.pop(), c = s.nextNode());
                 if ("node" === r.type) {
-                    const e1 = this.processor.handleTextExpression(this.options);
-                    e1.insertAfterNode(c.previousSibling), this.__parts.push(e1);
+                    const e = this.processor.handleTextExpression(this.options);
+                    e.insertAfterNode(c.previousSibling), this.__parts.push(e);
                 } else this.__parts.push(...this.processor.handleAttributeExpressions(c, r.name, r.strings, this.options));
                 n++;
             } else this.__parts.push(void 0), n++;
@@ -245,10 +245,10 @@
             const e = this.strings.length - 1;
             let t = "", s = !1;
             for(let n = 0; n < e; n++){
-                const e1 = this.strings[n], a = e1.lastIndexOf("<!--");
-                s = (a > -1 || s) && -1 === e1.indexOf("-->", a + 1);
-                const l = d.exec(e1);
-                t += null === l ? e1 + (s ? y : o) : e1.substr(0, l.index) + l[1] + l[2] + r + l[3] + i;
+                const e = this.strings[n], a = e.lastIndexOf("<!--");
+                s = (a > -1 || s) && -1 === e.indexOf("-->", a + 1);
+                const l = d.exec(e);
+                t += null === l ? e + (s ? y : o) : e.substr(0, l.index) + l[1] + l[2] + r + l[3] + i;
             }
             return t += this.strings[e], t;
         }
@@ -262,7 +262,7 @@
     class z {
         constructor(e, t, i){
             this.dirty = !0, this.element = e, this.name = t, this.strings = i, this.parts = [];
-            for(let e1 = 0; e1 < i.length - 1; e1++)this.parts[e1] = this._createPart();
+            for(let e = 0; e < i.length - 1; e++)this.parts[e] = this._createPart();
         }
         _createPart() {
             return new C(this);
@@ -270,18 +270,18 @@
         _getValue() {
             const e = this.strings, t = e.length - 1, i = this.parts;
             if (1 === t && "" === e[0] && "" === e[1]) {
-                const e1 = i[0].value;
-                if ("symbol" == typeof e1) return String(e1);
-                if ("string" == typeof e1 || !S(e1)) return e1;
+                const e = i[0].value;
+                if ("symbol" == typeof e) return String(e);
+                if ("string" == typeof e || !S(e)) return e;
             }
             let o = "";
             for(let s = 0; s < t; s++){
                 o += e[s];
-                const t1 = i[s];
-                if (void 0 !== t1) {
-                    const e2 = t1.value;
-                    if (k(e2) || !S(e2)) o += "string" == typeof e2 ? e2 : String(e2);
-                    else for (const t2 of e2)o += "string" == typeof t2 ? t2 : String(t2);
+                const t = i[s];
+                if (void 0 !== t) {
+                    const e = t.value;
+                    if (k(e) || !S(e)) o += "string" == typeof e ? e : String(e);
+                    else for (const t of e)o += "string" == typeof t ? t : String(t);
                 }
             }
             return o += e[t], o;
@@ -330,8 +330,8 @@
                 const e = this.__pendingValue;
                 this.__pendingValue = b, e(this);
             }
-            const e1 = this.__pendingValue;
-            e1 !== b && (k(e1) ? e1 !== this.value && this.__commitText(e1) : e1 instanceof v ? this.__commitTemplateResult(e1) : e1 instanceof Node ? this.__commitNode(e1) : S(e1) ? this.__commitIterable(e1) : e1 === x ? (this.value = x, this.clear()) : this.__commitText(e1));
+            const e = this.__pendingValue;
+            e !== b && (k(e) ? e !== this.value && this.__commitText(e) : e instanceof v ? this.__commitTemplateResult(e) : e instanceof Node ? this.__commitNode(e) : S(e) ? this.__commitIterable(e) : e === x ? (this.value = x, this.clear()) : this.__commitText(e));
         }
         __insert(e) {
             this.endNode.parentNode.insertBefore(e, this.endNode);
@@ -376,8 +376,8 @@
                 this.__pendingValue = b, e(this);
             }
             if (this.__pendingValue === b) return;
-            const e1 = !!this.__pendingValue;
-            this.value !== e1 && (e1 ? this.element.setAttribute(this.name, "") : this.element.removeAttribute(this.name), this.value = e1), this.__pendingValue = b;
+            const e = !!this.__pendingValue;
+            this.value !== e && (e ? this.element.setAttribute(this.name, "") : this.element.removeAttribute(this.name), this.value = e), this.__pendingValue = b;
         }
     }
     class T extends z {
@@ -405,7 +405,7 @@
                 }
             };
             window.addEventListener("test", e, e), window.removeEventListener("test", e, e);
-        } catch (e1) {}
+        } catch (e) {}
     })();
     class $ {
         constructor(e, t, i){
@@ -420,8 +420,8 @@
                 this.__pendingValue = b, e(this);
             }
             if (this.__pendingValue === b) return;
-            const e1 = this.__pendingValue, t = this.value, i = null == e1 || null != t && (e1.capture !== t.capture || e1.once !== t.once || e1.passive !== t.passive), o = null != e1 && (null == t || i);
-            i && this.element.removeEventListener(this.eventName, this.__boundHandleEvent, this.__options), o && (this.__options = U(e1), this.element.addEventListener(this.eventName, this.__boundHandleEvent, this.__options)), this.value = e1, this.__pendingValue = b;
+            const e = this.__pendingValue, t = this.value, i = null == e || null != t && (e.capture !== t.capture || e.once !== t.once || e.passive !== t.passive), o = null != e && (null == t || i);
+            i && this.element.removeEventListener(this.eventName, this.__boundHandleEvent, this.__options), o && (this.__options = U(e), this.element.addEventListener(this.eventName, this.__boundHandleEvent, this.__options)), this.value = e, this.__pendingValue = b;
         }
         handleEvent(e) {
             "function" == typeof this.value ? this.value.call(this.eventContext || this.element, e) : this.value.handleEvent(e);
@@ -516,8 +516,8 @@
             if (void 0 !== r) return r;
             const a = t.strings.join(i);
             if (r = s.keyString.get(a), void 0 === r) {
-                const i1 = t.getTemplateElement();
-                F && window.ShadyCSS.prepareTemplateDom(i1, e), r = new n(t, i1), s.keyString.set(a, r);
+                const i = t.getTemplateElement();
+                F && window.ShadyCSS.prepareTemplateDom(i, e), r = new n(t, i), s.keyString.set(a, r);
             }
             return s.stringsArray.set(t.strings, r), r;
         }, B = [
@@ -528,9 +528,9 @@
         const o = i ? i.element : document.createElement("template"), s = t.querySelectorAll("style"), { length: r  } = s;
         if (0 === r) return void window.ShadyCSS.prepareTemplateStyles(o, e);
         const n = document.createElement("style");
-        for(let e1 = 0; e1 < r; e1++){
-            const t1 = s[e1];
-            t1.parentNode.removeChild(t1), n.textContent += t1.textContent;
+        for(let e = 0; e < r; e++){
+            const t = s[e];
+            t.parentNode.removeChild(t), n.textContent += t.textContent;
         }
         ((e)=>{
             B.forEach((t)=>{
@@ -549,8 +549,8 @@
         if (window.ShadyCSS.nativeShadow && null !== l) t.insertBefore(l.cloneNode(!0), t.firstChild);
         else if (i) {
             a.insertBefore(n, a.firstChild);
-            const e2 = new Set;
-            e2.add(n), f(i, e2);
+            const e = new Set;
+            e.add(n), f(i, e);
         }
     };
     window.JSCompiler_renameProperty = (e, t)=>e;
@@ -627,11 +627,11 @@
         static finalize() {
             const e = Object.getPrototypeOf(this);
             if (e.hasOwnProperty(G) || e.finalize(), this[G] = !0, this._ensureClassProperties(), this._attributeToPropertyMap = new Map, this.hasOwnProperty(JSCompiler_renameProperty("properties", this))) {
-                const e1 = this.properties, t = [
-                    ...Object.getOwnPropertyNames(e1),
-                    ..."function" == typeof Object.getOwnPropertySymbols ? Object.getOwnPropertySymbols(e1) : []
+                const e = this.properties, t = [
+                    ...Object.getOwnPropertyNames(e),
+                    ..."function" == typeof Object.getOwnPropertySymbols ? Object.getOwnPropertySymbols(e) : []
                 ];
-                for (const i of t)this.createProperty(i, e1[i]);
+                for (const i of t)this.createProperty(i, e[i]);
             }
         }
         static _attributeNameForProperty(e, t) {
@@ -656,8 +656,8 @@
         _saveInstanceProperties() {
             this.constructor._classProperties.forEach((e, t)=>{
                 if (this.hasOwnProperty(t)) {
-                    const e1 = this[t];
-                    delete this[t], this._instanceProperties || (this._instanceProperties = new Map), this._instanceProperties.set(t, e1);
+                    const e = this[t];
+                    delete this[t], this._instanceProperties || (this._instanceProperties = new Map), this._instanceProperties.set(t, e);
                 }
             });
         }
@@ -677,17 +677,17 @@
         _propertyToAttribute(e, t, i = Y) {
             const o = this.constructor, s = o._attributeNameForProperty(e, i);
             if (void 0 !== s) {
-                const e1 = o._propertyValueToAttribute(t, i);
-                if (void 0 === e1) return;
-                this._updateState = 8 | this._updateState, null == e1 ? this.removeAttribute(s) : this.setAttribute(s, e1), this._updateState = -9 & this._updateState;
+                const e = o._propertyValueToAttribute(t, i);
+                if (void 0 === e) return;
+                this._updateState = 8 | this._updateState, null == e ? this.removeAttribute(s) : this.setAttribute(s, e), this._updateState = -9 & this._updateState;
             }
         }
         _attributeToProperty(e, t) {
             if (8 & this._updateState) return;
             const i = this.constructor, o = i._attributeToPropertyMap.get(e);
             if (void 0 !== o) {
-                const e1 = i.getPropertyOptions(o);
-                this._updateState = 16 | this._updateState, this[o] = i._propertyValueFromAttribute(t, e1), this._updateState = -17 & this._updateState;
+                const e = i.getPropertyOptions(o);
+                this._updateState = 16 | this._updateState, this[o] = i._propertyValueFromAttribute(t, e), this._updateState = -17 & this._updateState;
             }
         }
         requestUpdateInternal(e, t, i) {
@@ -706,8 +706,8 @@
             try {
                 await this._updatePromise;
             } catch (e) {}
-            const e1 = this.performUpdate();
-            return null != e1 && await e1, !this._hasRequestedUpdate;
+            const e = this.performUpdate();
+            return null != e && await e, !this._hasRequestedUpdate;
         }
         get _hasRequestedUpdate() {
             return 4 & this._updateState;
@@ -722,8 +722,8 @@
             const t = this._changedProperties;
             try {
                 e = this.shouldUpdate(t), e ? this.update(t) : this._markUpdated();
-            } catch (t1) {
-                throw e = !1, this._markUpdated(), t1;
+            } catch (t) {
+                throw e = !1, this._markUpdated(), t;
             }
             e && (1 & this._updateState || (this._updateState = 1 | this._updateState, this.firstUpdated(t)), this.updated(t));
         }
@@ -837,10 +837,10 @@ found at http://polymer.github.io/PATENTS.txt
         if (M(e, l, Object.assign({
             templateFactory: H(s)
         }, o)), a) {
-            const e1 = O.get(l);
+            const e = O.get(l);
             O.delete(l);
-            const o1 = e1.value instanceof _ ? e1.value.template : void 0;
-            W(s, l, o1), t(i, i.firstChild), i.appendChild(l), O.set(i, e1);
+            const o = e.value instanceof _ ? e.value.template : void 0;
+            W(s, l, o), t(i, i.firstChild), i.appendChild(l), O.set(i, e);
         }
         !r && n && window.ShadyCSS.styleElement(i.host);
     }, oe.shadowRootOptions = {

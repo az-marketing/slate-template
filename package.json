@@ -13,10 +13,10 @@
 	},
 	"scripts": {
 		"develop": "parcel index.html --open",
-		"build": "parcel build src/az-footer.js src/az-middle-header.js src/header.js  --no-source-maps"
+		"build": "parcel build src/header.js src/az-footer.js src/az-redbar.js --no-source-maps"
 	},
 	"devDependencies": {
-		"parcel-bundler": "^1.12.5"
+		"parcel": "^2.0.0"
 	},
 	"browserslist": [
 		"last 3 and_chr versions",

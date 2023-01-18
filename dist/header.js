@@ -934,7 +934,7 @@ const X=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
 					<div class="dropdown-menu dropdown-menu pull-right">
 						${this.renderAzMenuLevel(e)}
 						</div>
-				`}static azMenuLinkTemplate(t,e){return V`<div class="dropdown-item"><a href=${e} @click="${t=>{It(t,"az-redbar")}}">${t}</a></div>`}static azMenuItemTemplate(t){return V`${t}`}renderAzMenuLevel(t){const e=t.map((t=>this.renderAzMenuItem(t)));return Ct.azMenuLevelTemplate(e)}renderAzMenuItem(t){let e=t&&t.link&&t.link.attributes&&t.link.attributes.title,o=t&&t.link&&t.link.href,n=t&&t.children;const r=e?t.link.attributes.title:void 0;let i=o?t.link.href:void 0;const a=n?t.children:void 0;return i="/"===i.charAt(0)?this.thisUrl+i:i,a.length?this.azMenuParentTemplate(r,a):i?Ct.azMenuLinkTemplate(r,i):Ct.azMenuItemTemplate(r)}fetchData(t,e){this.isLoading=!0;const o=`${t}/system/menu/${e}/linkset`;fetch(o,{}).then((t=>{if(t.ok)return t.json();throw this.isLoading=!1,new Error(`Unable to fetch ${o}. ${t.status} ${t.statusText}`)})).then((t=>{try{const o=(0,rt.denormalize)(t,e);this.tree=o.tree}catch(t){throw new Error("Unable to denormalize menu.")}this.isLoading=!1}))}render(){return V`
+				`}static azMenuLinkTemplate(t,e){return V`<div class="dropdown-item"><a href=${e} @click="${t=>{It(t,"az-redbar")}}">${t}</a></div>`}static azMenuItemTemplate(t){return V`${t}`}renderAzMenuLevel(t){const e=t.map((t=>this.renderAzMenuItem(t)));return Ct.azMenuLevelTemplate(e)}renderAzMenuItem(t){let e=t&&t.link&&t.link.attributes&&t.link.attributes.title,o=t&&t.link&&t.link.href,n=t&&t.children;const r=e?t.link.attributes.title:void 0;let i=o?t.link.href:void 0;const a=n?t.children:void 0;return a.length?this.azMenuParentTemplate(r,a):i?(i="/"===i.charAt(0)?this.thisUrl+i:i,Ct.azMenuLinkTemplate(r,i)):Ct.azMenuItemTemplate(r)}fetchData(t,e){this.isLoading=!0;const o=`${t}/system/menu/${e}/linkset`;fetch(o,{}).then((t=>{if(t.ok)return t.json();throw this.isLoading=!1,new Error(`Unable to fetch ${o}. ${t.status} ${t.statusText}`)})).then((t=>{try{const o=(0,rt.denormalize)(t,e);this.tree=o.tree}catch(t){throw new Error("Unable to denormalize menu.")}this.isLoading=!1}))}render(){return V`
 				<header class="bg-red arizona-header" id="header_arizona" role="banner">
 						<div class="container">
 								<div class="row">
@@ -7821,7 +7821,7 @@ label {
                 <div class="col-xs-12 col-sm-6 col-md-8">
                     <div class="row">
                         <div class="region region-header-2">
-                            <div id="block-bean-uaqs-audience-select" class="block first odd col-12 col-lg-6" role="complementary" aria-label="select menu">
+                            <div id="block-bean-uaqs-audience-select" class="block first odd col-12 col-lg-6 block-az-select-menu block-az-select-menuselect-menu" role="complementary" aria-label="select menu">
                                 <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
                             </div>
                             <div class="col-12 pr-0 col-lg-6 block block-block-content block-block-content6c97ac4e-e033-4a8e-90d7-0d93867d625a">

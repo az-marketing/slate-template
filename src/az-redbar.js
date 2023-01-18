@@ -713,12 +713,11 @@
 				let href = (hrefTest ? item.link.href : undefined);
 				const children = (childrenTest ? item.children : undefined);
 
-				href = href.charAt(0) === '/' ? this.thisUrl + href : href;
-
 				if (children.length) {
 					return this.azMenuParentTemplate(title, children);
 				}
 				if (href) {
+					href = href.charAt(0) === '/' ? this.thisUrl + href : href;
 					return AzRedbar.azMenuLinkTemplate(title, href);
 				}
 				return AzRedbar.azMenuItemTemplate(title);
