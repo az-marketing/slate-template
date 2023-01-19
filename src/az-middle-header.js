@@ -40,6 +40,7 @@ class AzLogoSelectCta  extends LitElement {
         font: inherit;
         margin: 0;
     }
+
     select {
         text-transform: none;
     } /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
@@ -140,12 +141,89 @@ class AzLogoSelectCta  extends LitElement {
     .container:after {
         clear: both;
     }
+
+    #block-bean-cta-request-info{
+        margin-top: 17px;
+        padding-left: 23px;
+        max-width: 539px;
+    }
+    
+    #block-bean-cta-apply{
+        margin-top: 16px;
+        padding-left: 23px;
+        max-width: 539px;
+        margin-bottom: 16px;
+    }
+
+    .region-header-2{
+        max-width: 540px;
+        margin: auto;
+    }
+
+
     @media (min-width: 768px) {
         .container {
             width: 752px;
         }
+        .region #block-bean-uaqs-audience-select{
+                padding-right: 35px;
+                padding-left: 25px;
+                margin-top: 27px;
+        }
+        #block-bean-cta-request-info{
+            margin-top: 39px;
+            padding-left: 23px;
+            max-width: 352px;
+        }
+        
+        #block-bean-cta-apply{
+            margin-top: 16px;
+            padding-left: 23px;
+            max-width: 352px;
+            margin-bottom: 16px;
+        }
+    }
+    @media (min-width: 992px){
+        #block-bean-cta-request-info{
+            margin-top: 0;
+            padding-left: 0;
+        }
+        #block-bean-cta-apply{
+            margin-top: 0;
+            padding-left: 0;
+        }
+        .region #block-bean-uaqs-audience-select{
+            padding-right: 33px;
+            padding-left: 15px;
+            margin-top: 0px;
+        }
+        .region-header-2{
+            max-width: 100%;
+        }
+    }
+    @media (min-width: 1200px){
+        .region #block-bean-uaqs-audience-select{
+            padding-right: 16px;
+            padding-left: 29px;
+            margin-top: 0px;
+        }
+        #block-bean-cta-request-info{
+            margin-top: 0px;
+            padding-left: 0;
+            max-width: 100%;
+        }
+        
+        #block-bean-cta-apply{
+            margin-top: 0px;
+            padding-left: 0;
+            max-width: 100%;
+            margin-bottom: 0;
+        }
     }
     @media (min-width: 992px) {
+        .region-header-2{
+            margin-top: 23px;
+        }
         .container {
             width: 972px;
         }
@@ -217,8 +295,8 @@ class AzLogoSelectCta  extends LitElement {
     .col-xs-9 {
         position: relative;
         min-height: 1px;
-        padding-right: 16px;
-        padding-left: 16px;
+        padding-right: 11px;
+        padding-left: 2px;
     }
     .col-xs-1,
     .col-xs-10,
@@ -308,6 +386,11 @@ class AzLogoSelectCta  extends LitElement {
     }
     .col-xs-offset-12 {
         margin-left: 100%;
+    }
+    #block-bean-uaqs-audience-select{
+        padding-right: 20px;
+        padding-left: 26px;
+        margin-top: 18px;
     }
     @media (min-width: 768px) {
         .col-sm-1,
@@ -491,7 +574,7 @@ class AzLogoSelectCta  extends LitElement {
             margin-left: 100%;
         }
     }
-    @media (min-width: 1200px) {
+    @media (min-width: 992px) {
         .col-lg-1,
         .col-lg-10,
         .col-lg-11,
@@ -1154,23 +1237,28 @@ class AzLogoSelectCta  extends LitElement {
         float: left;
         width: 100%;
         text-align: center;
-        margin: 24px 0;
-        margin: 1.5rem 0;
+        // margin: 24px 0;
+        // margin: 1.5rem 0;
+        margin: 39px 0 24px;
         padding: 0;
     }
     @media (min-width: 48em) {
         .header__logo {
-            width: auto;
+            width: 100%;
             text-align: left;
-            margin: 40px 0;
-            margin: 2rem 0;
+            margin: 30px 26px;
         }
     }
     .header__logo-image {
         vertical-align: bottom;
         width: 100%;
-        max-width: 400px;
+        max-width: 510px;
         height: auto;
+    }
+    @media (min-width: 768px){
+        .header__logo-image{
+            max-width: 332px;
+        }
     }
     .header__site-link:link,
     .header__site-link:visited {
@@ -1222,29 +1310,31 @@ class AzLogoSelectCta  extends LitElement {
     <header class="header page-row" id="header_site" role="banner">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-lg-4">
-                    <a href="https://www.arizona.edu/" title="The University of Arizona, Tucson, Arizona | Home" class="header__logo active" rel="home" id="logo"><img src="https://www.arizona.edu/sites/default/files/UA_horiz_rgb_webheader.png" alt="The University of Arizona, Tucson, Arizona | Home" class="header__logo-image"></a>              </div>
-                    <div class="col-xs-12 col-sm-6 col-lg-8">
-                        <div class="row">
-                            <div class="region region-header-2">
-                            <div id="block-bean-uaqs-audience-select" class="block block-bean col-xs-12 top-buffer-xs-20 bottom-buffer-xs-20 col-sm-12 top-buffer-sm-15 bottom-buffer-sm-10 col-md-11 top-buffer-md-30 bottom-buffer-md-15 col-lg-5 col-lg-offset-2 top-buffer-lg-50 bottom-buffer-lg-5 left-buffer-lg-0 right-buffer-lg-0 first odd" role="complementary" aria-label="select menu">
-																 <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <a href="https://www.arizona.edu/" title="The University of Arizona, Tucson, Arizona | Home" class="header__logo active" rel="home" id="logo"><img src="https://www.arizona.edu/sites/default/files/www_webheader-01.svg" alt="The University of Arizona, Tucson, Arizona | Home" class="header__logo-image"></a>              
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-8">
+                    <div class="row">
+                        <div class="region region-header-2">
+                            <div id="block-bean-uaqs-audience-select" class="block first odd col-12 col-lg-6 block-az-select-menu block-az-select-menuselect-menu" role="complementary" aria-label="select menu">
+                                <az-select-menu baseurl="https://live-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
                             </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-3 right-buffer-md-0 left-buffer-sm-3 right-buffer-sm-reset left-buffer-md-0 right-buffer-lg-5 left-buffer-lg-5 bottom-buffer-5 top-buffer-sm-0 top-buffer-lg-50 col-lg-offset-0">
+                            <div class="col-12 pr-0 col-lg-6 block block-block-content block-block-content6c97ac4e-e033-4a8e-90d7-0d93867d625a">
+                                <div class="col-lg-6 pl-lg-1 pr-lg-1">
                                     <div id="block-bean-cta-request-info" class="block block-bean even" role="complementary" aria-label="call to action link">
                                         <az-button theme="primary" block outline="true" link="https://www.arizona.edu/admissions/visit" elmid="cta-visit" value="Visit"></az-button>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-md-3 col-lg-2 left-buffer-md-5 left-buffer-lg-0 bottom-buffer-30 top-buffer-md-0 top-buffer-lg-50"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
+                                <div class="col-lg-6 pl-lg-2 pr-0"><div id="block-bean-cta-apply" class="block block-bean last even" role="complementary" aria-label="call to action link">
                                     <az-button theme="primary" block link="https://www.arizona.edu/admissions/apply" elmid="cta-apply" value="Apply"></az-button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div> <!-- /.row -->
-            </div> <!-- /.container -->
-        </header>
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </header>
     `;
    }
  }

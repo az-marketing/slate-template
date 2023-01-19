@@ -111,6 +111,9 @@
    					button {
    					    border-radius: 0;
    					}
+					   button span{
+						   font-family: proxima-nova !important;
+					   }
    					button:focus:not(:focus-visible) {
    					    outline: 0;
    					}
@@ -183,6 +186,7 @@
 								position: relative;
 								color: #fff;
 								background-color: #ab0520;
+								height: 50px;
 						}
 						.container {
 								width: 100%;
@@ -200,8 +204,7 @@
 								justify-content: flex-end;
 								margin-right: -15px;
 								margin-left: -15px;
-								padding-top: 6.59px;
-								padding-bottom: 8.59px;
+								padding: 5px 0;
 						}
 						.row section{
 								align-items: center;
@@ -210,11 +213,8 @@
 								position: absolute;
 								top: 0;
 								right: 0;
-								height: 50px;
-								max-height: 50px;
-						}
-						.arizona-header {
-								height: 50px;
+								height: 53px;
+								max-height: 53px;
 						}
 
 						@media (min-width: 576px) {
@@ -228,6 +228,9 @@
 								}
 						}
 						@media (min-width: 992px) {
+							.arizona-header{
+								height: auto;
+							}
 								.container, .container-lg, .container-md, .container-sm {
 										max-width: 960px;
 								}
@@ -281,7 +284,6 @@
 						}
 						#search-block-form {
 								display: flex;
-								border: 1px solid var(--bloom);
 								overflow: hidden;
 								position: relative;
 						}
@@ -315,27 +317,28 @@
 								-ms-flex-align: center;
 								align-items: center;
 								width: 100%;
-								border: 1px solid var(--bloom);
 								right: 1px;
 						}
 						.input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control, .input-group>.form-control-plaintext {
 								position: relative;
 								-ms-flex: 1 1 auto;
 								flex: 1 1 auto;
-								width: 1%;
 								min-width: 0;
-								margin-bottom: -1px;
 								border: none;
 						}
 						.search-block-form {
-								height: 37px;
 								overflow: hidden;
-								width: 228px;
+								width: 189.5px;
+								background-color: white;
+						}
+						#block-az-barrio-search{
+							border: 1px solid var(--bloom);
+							padding: 4px 0 5px;
 						}
 						.search-block-form input {
 								height: 34px;
-								font-size: 14px;
-								padding: 0px 37px 0px 9px;
+								font-size: 16px;
+								padding: 0px 37px 0px 13px;
 								width: 100%;
 						}
 						input[type="search"] {
@@ -363,13 +366,13 @@
 						.search-block-form .input-group-append button#edit-submit {
 								background-color: hsl(0deg 0% 100%);
 								padding: 0px;
-								height: 33px;
-								width: 34px;
 								border: none;
 								position: absolute;
 								top: 0px;
-								right: -1px;
+								right: 1px;
 								text-align: center;
+								padding: 0 8px;
+								border-left: 1px solid #CED4DA;
 						}
 						.search-block-form .input-group-append button#edit-submit
 						.search-block-form .input-group-append button#edit-submit svg {
@@ -536,7 +539,7 @@
 						}
 						.resources {
 								position: relative;
-								margin-left: 17px;
+								margin-left: 10px;
 								padding: 0 2px 0 6px;
 						}
 						.resources:hover button + .dropdown-menu, .resources button + .dropdown-menu:focus{
@@ -544,8 +547,8 @@
 						}
 						.resources .caret{
 								position: absolute;
-								right: 12px;
-								top: 19px;
+								right: 30px;
+								top: 18px;
 								margin: 0;
 								display: inline-block;
 								width: 0;
@@ -556,9 +559,9 @@
 								border-left: 4px solid transparent;
 						}
 						.resources button {
-								font-size: 12px;
-								height: 37px;
-								padding: 3px 28px 3px 16px;
+								font-size: 14px;
+								height: auto;
+								padding: 8px 40px 9px 24px;
 								font-weight: bold;
 						}
 						.resources button:hover{
@@ -703,16 +706,18 @@
 			}
 
 			renderAzMenuItem(item) {
-				const title = item?.link?.attributes?.title;
-				let href = item?.link?.href;
-				const children = item?.children;
-
-				href = href.charAt(0) === '/' ? this.thisUrl + href : href;
+				let titleTest = item && item.link && item.link.attributes && item.link.attributes.title;
+				let hrefTest = item && item.link && item.link.href;
+				let childrenTest = item && item.children;
+				const title = (titleTest ? item.link.attributes.title : undefined);
+				let href = (hrefTest ? item.link.href : undefined);
+				const children = (childrenTest ? item.children : undefined);
 
 				if (children.length) {
 					return this.azMenuParentTemplate(title, children);
 				}
 				if (href) {
+					href = href.charAt(0) === '/' ? this.thisUrl + href : href;
 					return AzRedbar.azMenuLinkTemplate(title, href);
 				}
 				return AzRedbar.azMenuItemTemplate(title);

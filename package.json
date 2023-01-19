@@ -1,7 +1,6 @@
 {
 	"name": "slate-template",
 	"version": "1.0.0",
-	"main": "index.js",
 	"repository": "git@github.com:az-marketing/slate-template.git",
 	"author": "Ryan Dool <ryandool@gmail.com>",
 	"license": "MIT",
@@ -14,10 +13,10 @@
 	},
 	"scripts": {
 		"develop": "parcel index.html --open",
-		"build": "parcel build src/header.js src/az-footer.js --no-source-maps --global az_redbar"
+		"build": "parcel build src/header.js src/az-footer.js --no-source-maps"
 	},
 	"devDependencies": {
-		"parcel-bundler": "^1.12.5"
+		"parcel": "^2.0.0"
 	},
 	"browserslist": [
 		"last 3 and_chr versions",

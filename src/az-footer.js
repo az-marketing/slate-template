@@ -1128,18 +1128,27 @@ class AzFooter  extends LitElement {
 				background: 0 0;
 			}
 			#footer_site a {
-    		color: #49595e;
-    		text-decoration: underline;
+				color: #8B0015;
+				text-decoration: underline;
 			}
 			#footer_site ul {
 				display: inline-block;
 				margin: 0;
 				padding: 1rem 0 0;
 			}
+			#block-bean-uaqs-footer-links-bean-informa h5 strong{
+				font-size: 16px;
+				font-weight: 500;
+				color: black;
+			}
 			#footer_site #block-bean-uaqs-footer-links-bean-main ul {
 				display: inline-block;
 				padding: 0;
 				margin: 0 0 12px;
+				text-align: center;
+			}
+			@media (min-width: 768px) {
+				text-align: left;
 			}
 			#footer_site ul>li {
 				border-right: 1px solid #e2e9eb;
@@ -1186,11 +1195,11 @@ class AzFooter  extends LitElement {
 				margin: 0;
 			}
 			#footer_site ul li a {
-				color: hsl(0,0%,20%);
-				font-weight: normal;
+				color: #49595e;
+				font-weight: 500;
 				display: block;
 				text-decoration: none;
-				font-size: 14px;
+				font-size: 16px;
 				line-height: inherit;
 				vertical-align: top;
 				text-transform: none;
@@ -1252,7 +1261,7 @@ class AzFooter  extends LitElement {
 									<div id="block-bean-footer-university-address" class="block block-bean last even" role="complementary">
 										<div class="entity entity-bean bean-uaqs-contact-summary clearfix" about="/block/footer---university-address">
 											<div class="content">
-												<p class="text-center-xs text-right-sm text-right-md text-right-lg"><span>
+												<p class="text-center text-right-sm text-right-md text-right-lg"><span>
 												The University of Arizona | Tucson, Arizona 85721 | </span><span>
 												<a href="tel:520-621-2211">520-621-2211</a></span></p>
 											</div>
