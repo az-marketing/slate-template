@@ -13,7 +13,7 @@
 	},
 	"scripts": {
 		"develop": "parcel index.html --open",
-		"build": "parcel build src/header.js src/az-footer.js src/az-redbar.js --no-source-maps"
+		"build": "parcel build src/header.js src/az-footer.js --no-source-maps"
 	},
 	"devDependencies": {
 		"parcel": "^2.0.0"
