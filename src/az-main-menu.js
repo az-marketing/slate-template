@@ -105,11 +105,11 @@ export class MainMenu extends LitElement {
       target.setAttribute('aria-expanded', 'false');
       target.nextElementSibling.classList.remove('show');
     } else {
-        // if(cur){
-        //     cur.parentElement.classList.remove('show');
-        //     cur.setAttribute('aria-expanded', 'false');
-        //     cur.nextElementSibling.classList.remove('show');
-        // }
+        if(cur){
+            cur.parentElement.classList.remove('show');
+            cur.setAttribute('aria-expanded', 'false');
+            cur.nextElementSibling.classList.remove('show');
+        }
         target.parentElement.classList.add('show');
         target.setAttribute('aria-expanded', 'true');
         target.nextElementSibling.classList.add('show');

@@ -444,21 +444,21 @@
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */ );
-    function C(t) {
-        let e = L.get(t.type);
+    function L(t) {
+        let e = C.get(t.type);
         void 0 === e && (e = {
             stringsArray: new WeakMap,
             keyString: new Map
-        }, L.set(t.type, e));
+        }, C.set(t.type, e));
         let n = e.stringsArray.get(t.strings);
         if (void 0 !== n) return n;
         const r = t.strings.join(o);
         return n = e.keyString.get(r), void 0 === n && (n = new a(t, t.getTemplateElement()), e.keyString.set(r, n)), e.stringsArray.set(t.strings, n), n;
     }
-    const L = new Map, P = new WeakMap, U = (t, o, n)=>{
+    const C = new Map, P = new WeakMap, U = (t, o, n)=>{
         let r = P.get(o);
         void 0 === r && (e(o, o.firstChild), P.set(o, r = new E(Object.assign({
-            templateFactory: C
+            templateFactory: L
         }, n))), r.appendInto(o)), r.setValue(t), r.commit();
     };
     const R = new /**
@@ -507,11 +507,11 @@
     void 0 === window.ShadyCSS ? D = !1 : void 0 === window.ShadyCSS.prepareTemplateDom && (console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."), D = !1);
     const G = (t)=>(e)=>{
             const n = B(e.type, t);
-            let r = L.get(n);
+            let r = C.get(n);
             void 0 === r && (r = {
                 stringsArray: new WeakMap,
                 keyString: new Map
-            }, L.set(n, r));
+            }, C.set(n, r));
             let i = r.stringsArray.get(e.strings);
             if (void 0 !== i) return i;
             const l = e.strings.join(o);
@@ -534,7 +534,7 @@
         }
         ((t)=>{
             W.forEach((e)=>{
-                const o = L.get(B(e, t));
+                const o = C.get(B(e, t));
                 void 0 !== o && o.keyString.forEach((t)=>{
                     const { element: { content: e  }  } = t, o = new Set;
                     Array.from(e.querySelectorAll("style")).forEach((t)=>{
@@ -1407,7 +1407,7 @@ found at http://polymer.github.io/PATENTS.txt
         }
     }
     customElements.get("az-button") || customElements.define("az-button", Ot);
-    class Ct extends nt {
+    class Lt extends nt {
         static get styles() {
             return et`
 						:root {
@@ -2038,7 +2038,7 @@ found at http://polymer.github.io/PATENTS.txt
         azMenuParentTemplate(t, e) {
             return V`
 					<button
-						@click="${Ct.openMenu}"
+						@click="${Lt.openMenu}"
 						role="button"
 						aria-expanded="false"
 						aria-haspopup="true"
@@ -2062,14 +2062,14 @@ found at http://polymer.github.io/PATENTS.txt
         }
         renderAzMenuLevel(t) {
             const e = t.map((t)=>this.renderAzMenuItem(t));
-            return Ct.azMenuLevelTemplate(e);
+            return Lt.azMenuLevelTemplate(e);
         }
         renderAzMenuItem(t) {
             let e = t && t.link && t.link.attributes && t.link.attributes.title, o = t && t.link && t.link.href, n = t && t.children;
             const r = e ? t.link.attributes.title : void 0;
             let i = o ? t.link.href : void 0;
             const a = n ? t.children : void 0;
-            return a.length ? this.azMenuParentTemplate(r, a) : i ? (i = "/" === i.charAt(0) ? this.thisUrl + i : i, Ct.azMenuLinkTemplate(r, i)) : Ct.azMenuItemTemplate(r);
+            return a.length ? this.azMenuParentTemplate(r, a) : i ? (i = "/" === i.charAt(0) ? this.thisUrl + i : i, Lt.azMenuLinkTemplate(r, i)) : Lt.azMenuItemTemplate(r);
         }
         fetchData(t, e) {
             this.isLoading = !0;
@@ -2131,8 +2131,8 @@ found at http://polymer.github.io/PATENTS.txt
 			`;
         }
     }
-    customElements.get("az-redbar") || customElements.define("az-redbar", Ct);
-    var Lt = function(t) {
+    customElements.get("az-redbar") || customElements.define("az-redbar", Lt);
+    var Ct = function(t) {
         "use strict";
         var e, o = Object.prototype, n = o.hasOwnProperty, r = Object.defineProperty || function(t, e, o) {
             t[e] = o.value;
@@ -2423,9 +2423,9 @@ found at http://polymer.github.io/PATENTS.txt
         }, t;
     }({});
     try {
-        regeneratorRuntime = Lt;
+        regeneratorRuntime = Ct;
     } catch (t) {
-        "object" == typeof globalThis ? globalThis.regeneratorRuntime = Lt : Function("r", "regeneratorRuntime = r")(Lt);
+        "object" == typeof globalThis ? globalThis.regeneratorRuntime = Ct : Function("r", "regeneratorRuntime = r")(Ct);
     }
     class Pt extends nt {
         static get properties() {
@@ -2500,8 +2500,8 @@ found at http://polymer.github.io/PATENTS.txt
         static openMenu(t) {
             t.preventDefault();
             const { target: e  } = t;
-            document.querySelector("az-main-menu").shadowRoot.querySelector(".nav-item.show button");
-            "true" === e.getAttribute("aria-expanded") ? (e.parentElement.classList.remove("show"), e.setAttribute("aria-expanded", "false"), e.nextElementSibling.classList.remove("show")) : (e.parentElement.classList.add("show"), e.setAttribute("aria-expanded", "true"), e.nextElementSibling.classList.add("show"));
+            let o = document.querySelector("az-main-menu").shadowRoot.querySelector(".nav-item.show button");
+            "true" === e.getAttribute("aria-expanded") ? (e.parentElement.classList.remove("show"), e.setAttribute("aria-expanded", "false"), e.nextElementSibling.classList.remove("show")) : (o && (o.parentElement.classList.remove("show"), o.setAttribute("aria-expanded", "false"), o.nextElementSibling.classList.remove("show")), e.parentElement.classList.add("show"), e.setAttribute("aria-expanded", "true"), e.nextElementSibling.classList.add("show"));
         }
         renderAzMenuLevel(t) {
             const e = t.map((t)=>this.renderAzMenuItem(t));
