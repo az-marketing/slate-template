@@ -455,13 +455,13 @@
         const s = e.strings.join(i);
         return o = t.keyString.get(s), void 0 === o && (o = new n(e, e.getTemplateElement()), t.keyString.set(s, o)), t.stringsArray.set(e.strings, o), o;
     }
-    const q = new Map, O = new WeakMap, M = (e, i, o)=>{
+    const q = new Map, O = new WeakMap, R = (e, i, o)=>{
         let s = O.get(i);
         void 0 === s && (t(i, i.firstChild), O.set(i, s = new P(Object.assign({
             templateFactory: V
         }, o))), s.appendInto(i)), s.setValue(e), s.commit();
     };
-    const R = new /**
+    const M = new /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
  * This code may only be used under the BSD style license found at
@@ -502,10 +502,10 @@
         }
     };
     "undefined" != typeof window && (window.litHtmlVersions || (window.litHtmlVersions = [])).push("1.4.1");
-    const I = (e, ...t)=>new v(e, t, "html", R), L = (e, t)=>`${e}--${t}`;
+    const I = (e, ...t)=>new v(e, t, "html", M), L = (e, t)=>`${e}--${t}`;
     let F = !0;
     void 0 === window.ShadyCSS ? F = !1 : void 0 === window.ShadyCSS.prepareTemplateDom && (console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."), F = !1);
-    const H = (e)=>(t)=>{
+    const j = (e)=>(t)=>{
             const o = L(t.type, e);
             let s = q.get(o);
             void 0 === s && (s = {
@@ -520,11 +520,11 @@
                 F && window.ShadyCSS.prepareTemplateDom(i, e), r = new n(t, i), s.keyString.set(a, r);
             }
             return s.stringsArray.set(t.strings, r), r;
-        }, B = [
+        }, H = [
         "html",
         "svg"
-    ], j = new Set, W = (e, t, i)=>{
-        j.add(e);
+    ], B = new Set, W = (e, t, i)=>{
+        B.add(e);
         const o = i ? i.element : document.createElement("template"), s = t.querySelectorAll("style"), { length: r  } = s;
         if (0 === r) return void window.ShadyCSS.prepareTemplateStyles(o, e);
         const n = document.createElement("style");
@@ -533,7 +533,7 @@
             t.parentNode.removeChild(t), n.textContent += t.textContent;
         }
         ((e)=>{
-            B.forEach((t)=>{
+            H.forEach((t)=>{
                 const i = q.get(L(t, e));
                 void 0 !== i && i.keyString.forEach((e)=>{
                     const { element: { content: t  }  } = e, i = new Set;
@@ -833,9 +833,9 @@ found at http://polymer.github.io/PATENTS.txt
     }
     oe.finalized = !0, oe.render = (e, i, o)=>{
         if (!o || "object" != typeof o || !o.scopeName) throw new Error("The `scopeName` option is required.");
-        const s = o.scopeName, r = O.has(i), n = F && 11 === i.nodeType && !!i.host, a = n && !j.has(s), l = a ? document.createDocumentFragment() : i;
-        if (M(e, l, Object.assign({
-            templateFactory: H(s)
+        const s = o.scopeName, r = O.has(i), n = F && 11 === i.nodeType && !!i.host, a = n && !B.has(s), l = a ? document.createDocumentFragment() : i;
+        if (R(e, l, Object.assign({
+            templateFactory: j(s)
         }, o)), a) {
             const e = O.get(l);
             O.delete(l);
@@ -2011,7 +2011,7 @@ found at http://polymer.github.io/PATENTS.txt
 				display: inline-block;
 				padding: 0;
 				margin: 0 0 12px;
-				text-align: center;
+				text-align: right;
 			}
 			@media (min-width: 768px) {
 				text-align: left;
@@ -2035,7 +2035,6 @@ found at http://polymer.github.io/PATENTS.txt
 				color: hsl(0,0%,20%);
 				text-decoration: none;
 				text-transform: none;
-				font-size: 14px;
 			}
 
 			#footer_site #footer_sub ul {
@@ -2059,6 +2058,8 @@ found at http://polymer.github.io/PATENTS.txt
 				list-style: none;
 				padding: 0;
 				margin: 0;
+				width: max-content;
+				width: -moz-max-content;
 			}
 			#footer_site ul li a {
 				color: #49595e;
@@ -2088,21 +2089,110 @@ found at http://polymer.github.io/PATENTS.txt
 			  margin: 0 -16px;
 			}
 
+			#footer_site .footer-top-wrap{
+				padding: 0 13px;
+			}
 
+			#footer_site .top-menu li{
+				font-size: 16px;
+				font-weight: 500;
+			}
 
+			#footer_site .footer-top-wrap hr{
+				margin-top: 32px;
+				margin-bottom: 17px;
+			}
 
+			#footer_site ul.menu-bottom li a{
+				margin: 3px 0;
+				max-width: 222px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			#footer_site ul li a{
+				border-bottom: 2px solid transparent;
+			}
+
+			#footer_site ul li a:hover{
+				border-bottom: 2px solid #49595e;
+			}
+
+			#footer_site ul.menu-bottom li a i{
+				margin: 0 9px 0 0;
+			}
+
+			#footer_site ul.menu-bottom li a i::before{
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-youtube::before{
+				content: "\\E64E";
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-linkedin::before {
+				content: "\\E625";
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-instagram::before {
+				content: "\\E61F";
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-twitter::before {
+				content: "\\E63E";
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-facebook::before {
+				content: "\\E618";
+			}
+
+			.topic-menu{
+				columns: 2;
+			}
+
+			@media screen and (max-width: 991px){
+				#footer_site #block-bean-uaqs-footer-links-bean-main ul{
+					text-align: right;
+				}
+				.bottom-text-wrap{
+					text-align: right;
+				}
+				.number-bottom{
+					display: block;
+				}
+				.topic-menu{
+					columns: 1;
+				}
+				#footer_site #footer_sub ul.menu-bottom{
+					margin-bottom: 21px;
+				}
+			}
+
+			@media screen and (max-width: 767px){
+				#footer_site #block-bean-uaqs-footer-links-bean-main ul{
+					margin-top: 21px;
+					text-align: center;
+				}
+
+				.bottom-text-wrap{
+					text-align: center;
+				}
+			}
 		`;
         }
         render() {
             return I`
 			<footer id="footer_site" class="page page-row" role="contentinfo">
 				<div class="region region-footer">
-					<div class="container">
+					<div class="container d-flex footer-top-wrap justify-content-between align-items-center">
 						<div class="row">
 							<div class="page-row-padding-top page-row-padding-bottom"></div>
 							<div class="page-row-padding-top page-row-padding-bottom"></div>
-							<div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 text-center-xs text-left-not-xs">
-								<div class="row bottom-buffer-30">
+							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center-xs text-left-not-xs">
+								<div class="row px-0">
 									<div class="col-xs-12">
 										<a href="https://www.arizona.edu/" title="Home" class="remove-external-link-icon active" @click="${(e)=>{
                 se(e, "az-footer");
@@ -2111,9 +2201,9 @@ found at http://polymer.github.io/PATENTS.txt
 								</div>
 								<!-- Add the extra clearfix for only the required viewport -->
 								<div class="clearfix visible-xs-block"></div>
-								<div class="col-xs-12 col-sm-7 col-md-8 col-lg-8">
+								<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 py-0">
 									<div id="block-bean-uaqs-footer-links-bean-main" class="block block-bean first odd small text-right-lg text-right-md  text-right-sm text-center-xs" role="complementary">
-										<ul class="menu">
+										<ul class="menu top-menu">
 											<li class="menu__item is-leaf first leaf"><a href="https://talent.arizona.edu" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Employment</a></li>
@@ -2126,9 +2216,9 @@ found at http://polymer.github.io/PATENTS.txt
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/campus-safety" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Campus Safety</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://cirt.arizona.edu/ualert" class="menu__link" @click="${(e)=>{
+											<li class="menu__item is-leaf leaf"><a href="https://clery.arizona.edu/annual-reports" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
-            }}">UAlert</a></li>
+            }}">Annual Security Report</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/copyright" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Copyright</a></li>
@@ -2146,9 +2236,9 @@ found at http://polymer.github.io/PATENTS.txt
 									<div id="block-bean-footer-university-address" class="block block-bean last even" role="complementary">
 										<div class="entity entity-bean bean-uaqs-contact-summary clearfix" about="/block/footer---university-address">
 											<div class="content">
-												<p class="text-center text-right-sm text-right-md text-right-lg"><span>
-												The University of Arizona | Tucson, Arizona 85721 | </span><span>
-												<a href="tel:520-621-2211">520-621-2211</a></span></p>
+												<p class="bottom-text-wrap text-right text-right-sm text-right-md text-right-lg">
+												The University of Arizona | Tucson, Arizona 85721 |
+												<span class="number-bottom"><a href="tel:520-621-2211">520-621-2211</a></span></p>
 											</div>
 										</div>
 									</div>
@@ -2160,9 +2250,9 @@ found at http://polymer.github.io/PATENTS.txt
 					<div id="footer_sub" class="region region-footer-sub">
 						<div class="container">
 							<div class="row">
-									<div id="block-bean-uaqs-footer-links-bean-informa" class="block block-bean first odd col-xs-12 col-sm-4 col-md-3 col-lg-3" role="complementary">
+									<div id="block-bean-uaqs-footer-links-bean-information" class="block block-bean first odd col-xs-12 col-sm-6 col-md-3 col-lg-3" role="complementary">
 										<h5><strong class="text-uppercase">Information for</strong></h5>
-										<ul class="menu">
+										<ul class="menu menu-bottom">
 											<li class="menu__item is-leaf first leaf"><a href="http://www.arizona.edu/future-students" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Future Students</a></li>
@@ -2186,9 +2276,9 @@ found at http://polymer.github.io/PATENTS.txt
 									<div class="clearfix visible-xs-block col-xs-12">
 										<hr>
 									</div>
-									<div id="block-bean-uaqs-footer-links-bean-topics" class="block block-bean even col-xs-12 col-sm-8 col-md-5 two-col-menu" role="complementary">
+									<div id="block-bean-uaqs-footer-links-bean-topics" class="block block-bean even col-xs-12 col-sm-6 col-md-5" role="complementary">
 										<h5><strong class="text-uppercase">Topics</strong></h5>
-										<ul class="menu">
+										<ul class="menu menu-bottom topic-menu">
 											<li class="menu__item is-leaf first leaf"><a href="https://www.arizona.edu/about" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">About the University</a></li>
@@ -2236,9 +2326,9 @@ found at http://polymer.github.io/PATENTS.txt
 									<div class="clearfix visible-sm-block col-xs-12">
 										<hr>
 									</div>
-									<div id="block-bean-uaqs-footer-links-bean-resourc" class="block block-bean odd col-xs-6 col-sm-4 col-md-2 clearfix" role="complementary">
+									<div id="block-bean-uaqs-footer-links-bean-resources" class="block block-bean odd col-xs-12 col-sm-6 col-md-2 clearfix" role="complementary">
 										<h5><strong class="text-uppercase">Resources</strong></h5>
-										<ul class="menu"><li class="menu__item is-leaf first leaf"><a href="http://directory.arizona.edu/index" class="menu__link" @click="${(e)=>{
+										<ul class="menu menu-bottom"><li class="menu__item is-leaf first leaf"><a href="http://directory.arizona.edu/index" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}"><i class="ua-brand-directory"></i>A-Z Index</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/calendars-events" title="" class="menu__link" @click="${(e)=>{
@@ -2258,30 +2348,28 @@ found at http://polymer.github.io/PATENTS.txt
             }}"><i class="ua-brand-weather"></i>Weather</a></li>
 										</ul>
 									</div>
-									<div id="block-uaqs-social-media-uaqs-social-media-links" class="block block-uaqs-social-media even col-xs-6 col-sm-4 col-md-2" role="complementary">
+									<div id="block-bean-uaqs-footer-links-bean-connect" class="block block-bean even col-xs-12 col-sm-6 col-md-2 clearfix" role="complementary">
 										<h5><strong class="text-uppercase">Connect</strong></h5>
-										<div class="content">
-											<ul id="social-media-links">
-												<li class="uaqs-social-media"><a href="https://facebook.com/uarizona" target="_blank" title="Click here to visit our Facebook page" rel="noopener noreferrer" @click="${(e)=>{
+										<ul class="menu menu-bottom">
+											<li class="menu__item is-leaf first leaf"><a class="menu__link" href="https://facebook.com/uarizona" target="_blank" title="Click here to visit our Facebook page" rel="noopener noreferrer" @click="${(e)=>{
                 se(e, "az-footer");
             }}"><i class="ua-brand-facebook"></i>Facebook</a></li>
-												<li class="uaqs-social-media"><a href="https://twitter.com/uarizona" target="_blank" title="Click here to visit our Twitter page" rel="noopener noreferrer" @click="${(e)=>{
+											<li class="menu__item is-leaf leaf"><a href="https://twitter.com/uarizona" target="_blank" title="Click here to visit our Twitter page" rel="noopener noreferrer" @click="${(e)=>{
                 se(e, "az-footer");
             }}"><i class="ua-brand-twitter"></i>Twitter</a></li>
-												<li class="uaqs-social-media"><a href="https://instagram.com/uarizona" target="_blank" title="Click here to visit our Instagram page" rel="noopener noreferrer" @click="${(e)=>{
+											<li class="menu__item is-leaf leaf"><a href="https://instagram.com/uarizona" target="_blank" title="Click here to visit our Instagram page" rel="noopener noreferrer" @click="${(e)=>{
                 se(e, "az-footer");
             }}"><i class="ua-brand-instagram"></i>Instagram</a></li>
-												<li class="uaqs-social-media"><a href="https://linkedin.com/edu/university-of-arizona-17783" target="_blank" title="Click here to visit our LinkedIn page" rel="noopener noreferrer" @click="${(e)=>{
+											<li class="menu__item is-leaf leaf"><a href="https://linkedin.com/edu/university-of-arizona-17783" target="_blank" title="Click here to visit our LinkedIn page" rel="noopener noreferrer" @click="${(e)=>{
                 se(e, "az-footer");
             }}"><i class="ua-brand-linkedin"></i>LinkedIn</a></li>
-												<li class="uaqs-social-media"><a href="https://youtube.com/universityofarizona" target="_blank" title="Click here to visit our YouTube page" rel="noopener noreferrer" @click="${(e)=>{
+											<li class="menu__item is-leaf leaf"><a href="https://youtube.com/universityofarizona" target="_blank" title="Click here to visit our YouTube page" rel="noopener noreferrer" @click="${(e)=>{
                 se(e, "az-footer");
             }}"><i class="ua-brand-youtube"></i>YouTube</a></li>
-											</ul>
-										</div>
+										</ul>
 									</div>
-									<div id="block-bean-uagc-footer" class="block block-bean last odd" role="complementary">
-										<div class="entity entity-bean bean-uaqs-flexible-block clearfix" about="/block/uagc-footer">
+									<div id="block-bean-uaqs-footer" class="block block-bean last odd" role="complementary">
+										<div class="entity entity-bean bean-uaqs-flexible-block clearfix" about="/block/uaqs-footer">
 											<div class="content"></div>
 										</div>
 									</div>
