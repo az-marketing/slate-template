@@ -117,7 +117,7 @@ class _{constructor(e,t,i){this.__parts=[],this.template=e,this.processor=t,this
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
- */;function V(e){let t=q.get(e.type);void 0===t&&(t={stringsArray:new WeakMap,keyString:new Map},q.set(e.type,t));let o=t.stringsArray.get(e.strings);if(void 0!==o)return o;const s=e.strings.join(i);return o=t.keyString.get(s),void 0===o&&(o=new n(e,e.getTemplateElement()),t.keyString.set(s,o)),t.stringsArray.set(e.strings,o),o}const q=new Map,O=new WeakMap,M=(e,i,o)=>{let s=O.get(i);void 0===s&&(t(i,i.firstChild),O.set(i,s=new P(Object.assign({templateFactory:V},o))),s.appendInto(i)),s.setValue(e),s.commit()};const R=new
+ */;function V(e){let t=q.get(e.type);void 0===t&&(t={stringsArray:new WeakMap,keyString:new Map},q.set(e.type,t));let o=t.stringsArray.get(e.strings);if(void 0!==o)return o;const s=e.strings.join(i);return o=t.keyString.get(s),void 0===o&&(o=new n(e,e.getTemplateElement()),t.keyString.set(s,o)),t.stringsArray.set(e.strings,o),o}const q=new Map,O=new WeakMap,R=(e,i,o)=>{let s=O.get(i);void 0===s&&(t(i,i.firstChild),O.set(i,s=new P(Object.assign({templateFactory:V},o))),s.appendInto(i)),s.setValue(e),s.commit()};const M=new
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -144,7 +144,7 @@ class _{constructor(e,t,i){this.__parts=[],this.template=e,this.processor=t,this
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-class{handleAttributeExpressions(e,t,i,o){const s=t[0];if("."===s){return new T(e,t.slice(1),i).parts}if("@"===s)return[new $(e,t.slice(1),o.eventContext)];if("?"===s)return[new N(e,t.slice(1),i)];return new z(e,t,i).parts}handleTextExpression(e){return new P(e)}};"undefined"!=typeof window&&(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.4.1");const I=(e,...t)=>new v(e,t,"html",R),L=(e,t)=>`${e}--${t}`;let F=!0;void 0===window.ShadyCSS?F=!1:void 0===window.ShadyCSS.prepareTemplateDom&&(console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."),F=!1);const H=e=>t=>{const o=L(t.type,e);let s=q.get(o);void 0===s&&(s={stringsArray:new WeakMap,keyString:new Map},q.set(o,s));let r=s.stringsArray.get(t.strings);if(void 0!==r)return r;const a=t.strings.join(i);if(r=s.keyString.get(a),void 0===r){const i=t.getTemplateElement();F&&window.ShadyCSS.prepareTemplateDom(i,e),r=new n(t,i),s.keyString.set(a,r)}return s.stringsArray.set(t.strings,r),r},B=["html","svg"],j=new Set,W=(e,t,i)=>{j.add(e);const o=i?i.element:document.createElement("template"),s=t.querySelectorAll("style"),{length:r}=s;if(0===r)return void window.ShadyCSS.prepareTemplateStyles(o,e);const n=document.createElement("style");for(let e=0;e<r;e++){const t=s[e];t.parentNode.removeChild(t),n.textContent+=t.textContent}(e=>{B.forEach((t=>{const i=q.get(L(t,e));void 0!==i&&i.keyString.forEach((e=>{const{element:{content:t}}=e,i=new Set;Array.from(t.querySelectorAll("style")).forEach((e=>{i.add(e)})),f(e,i)}))}))})(e);const a=o.content;i?h(i,n,a.firstChild):a.insertBefore(n,a.firstChild),window.ShadyCSS.prepareTemplateStyles(o,e);const l=a.querySelector("style");if(window.ShadyCSS.nativeShadow&&null!==l)t.insertBefore(l.cloneNode(!0),t.firstChild);else if(i){a.insertBefore(n,a.firstChild);const e=new Set;e.add(n),f(i,e)}};window.JSCompiler_renameProperty=(e,t)=>e;const D={toAttribute(e,t){switch(t){case Boolean:return e?"":null;case Object:case Array:return null==e?e:JSON.stringify(e)}return e},fromAttribute(e,t){switch(t){case Boolean:return null!==e;case Number:return null===e?null:Number(e);case Object:case Array:return JSON.parse(e)}return e}},J=(e,t)=>t!==e&&(t==t||e==e),Y={attribute:!0,type:String,converter:D,reflect:!1,hasChanged:J},G="finalized";class X extends HTMLElement{constructor(){super(),this.initialize()}static get observedAttributes(){this.finalize();const e=[];return this._classProperties.forEach(((t,i)=>{const o=this._attributeNameForProperty(i,t);void 0!==o&&(this._attributeToPropertyMap.set(o,i),e.push(o))})),e}static _ensureClassProperties(){if(!this.hasOwnProperty(JSCompiler_renameProperty("_classProperties",this))){this._classProperties=new Map;const e=Object.getPrototypeOf(this)._classProperties;void 0!==e&&e.forEach(((e,t)=>this._classProperties.set(t,e)))}}static createProperty(e,t=Y){if(this._ensureClassProperties(),this._classProperties.set(e,t),t.noAccessor||this.prototype.hasOwnProperty(e))return;const i="symbol"==typeof e?Symbol():`__${e}`,o=this.getPropertyDescriptor(e,i,t);void 0!==o&&Object.defineProperty(this.prototype,e,o)}static getPropertyDescriptor(e,t,i){return{get(){return this[t]},set(o){const s=this[e];this[t]=o,this.requestUpdateInternal(e,s,i)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this._classProperties&&this._classProperties.get(e)||Y}static finalize(){const e=Object.getPrototypeOf(this);if(e.hasOwnProperty(G)||e.finalize(),this[G]=!0,this._ensureClassProperties(),this._attributeToPropertyMap=new Map,this.hasOwnProperty(JSCompiler_renameProperty("properties",this))){const e=this.properties,t=[...Object.getOwnPropertyNames(e),..."function"==typeof Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(e):[]];for(const i of t)this.createProperty(i,e[i])}}static _attributeNameForProperty(e,t){const i=t.attribute;return!1===i?void 0:"string"==typeof i?i:"string"==typeof e?e.toLowerCase():void 0}static _valueHasChanged(e,t,i=J){return i(e,t)}static _propertyValueFromAttribute(e,t){const i=t.type,o=t.converter||D,s="function"==typeof o?o:o.fromAttribute;return s?s(e,i):e}static _propertyValueToAttribute(e,t){if(void 0===t.reflect)return;const i=t.type,o=t.converter;return(o&&o.toAttribute||D.toAttribute)(e,i)}initialize(){this._updateState=0,this._updatePromise=new Promise((e=>this._enableUpdatingResolver=e)),this._changedProperties=new Map,this._saveInstanceProperties(),this.requestUpdateInternal()}_saveInstanceProperties(){this.constructor._classProperties.forEach(((e,t)=>{if(this.hasOwnProperty(t)){const e=this[t];delete this[t],this._instanceProperties||(this._instanceProperties=new Map),this._instanceProperties.set(t,e)}}))}_applyInstanceProperties(){this._instanceProperties.forEach(((e,t)=>this[t]=e)),this._instanceProperties=void 0}connectedCallback(){this.enableUpdating()}enableUpdating(){void 0!==this._enableUpdatingResolver&&(this._enableUpdatingResolver(),this._enableUpdatingResolver=void 0)}disconnectedCallback(){}attributeChangedCallback(e,t,i){t!==i&&this._attributeToProperty(e,i)}_propertyToAttribute(e,t,i=Y){const o=this.constructor,s=o._attributeNameForProperty(e,i);if(void 0!==s){const e=o._propertyValueToAttribute(t,i);if(void 0===e)return;this._updateState=8|this._updateState,null==e?this.removeAttribute(s):this.setAttribute(s,e),this._updateState=-9&this._updateState}}_attributeToProperty(e,t){if(8&this._updateState)return;const i=this.constructor,o=i._attributeToPropertyMap.get(e);if(void 0!==o){const e=i.getPropertyOptions(o);this._updateState=16|this._updateState,this[o]=i._propertyValueFromAttribute(t,e),this._updateState=-17&this._updateState}}requestUpdateInternal(e,t,i){let o=!0;if(void 0!==e){const s=this.constructor;i=i||s.getPropertyOptions(e),s._valueHasChanged(this[e],t,i.hasChanged)?(this._changedProperties.has(e)||this._changedProperties.set(e,t),!0!==i.reflect||16&this._updateState||(void 0===this._reflectingProperties&&(this._reflectingProperties=new Map),this._reflectingProperties.set(e,i))):o=!1}!this._hasRequestedUpdate&&o&&(this._updatePromise=this._enqueueUpdate())}requestUpdate(e,t){return this.requestUpdateInternal(e,t),this.updateComplete}async _enqueueUpdate(){this._updateState=4|this._updateState;try{await this._updatePromise}catch(e){}const e=this.performUpdate();return null!=e&&await e,!this._hasRequestedUpdate}get _hasRequestedUpdate(){return 4&this._updateState}get hasUpdated(){return 1&this._updateState}performUpdate(){if(!this._hasRequestedUpdate)return;this._instanceProperties&&this._applyInstanceProperties();let e=!1;const t=this._changedProperties;try{e=this.shouldUpdate(t),e?this.update(t):this._markUpdated()}catch(t){throw e=!1,this._markUpdated(),t}e&&(1&this._updateState||(this._updateState=1|this._updateState,this.firstUpdated(t)),this.updated(t))}_markUpdated(){this._changedProperties=new Map,this._updateState=-5&this._updateState}get updateComplete(){return this._getUpdateComplete()}_getUpdateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._updatePromise}shouldUpdate(e){return!0}update(e){void 0!==this._reflectingProperties&&this._reflectingProperties.size>0&&(this._reflectingProperties.forEach(((e,t)=>this._propertyToAttribute(t,this[t],e))),this._reflectingProperties=void 0),this._markUpdated()}updated(e){}firstUpdated(e){}}X[G]=!0;const Z=Element.prototype;Z.msMatchesSelector||Z.webkitMatchesSelector;
+class{handleAttributeExpressions(e,t,i,o){const s=t[0];if("."===s){return new T(e,t.slice(1),i).parts}if("@"===s)return[new $(e,t.slice(1),o.eventContext)];if("?"===s)return[new N(e,t.slice(1),i)];return new z(e,t,i).parts}handleTextExpression(e){return new P(e)}};"undefined"!=typeof window&&(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.4.1");const I=(e,...t)=>new v(e,t,"html",M),L=(e,t)=>`${e}--${t}`;let F=!0;void 0===window.ShadyCSS?F=!1:void 0===window.ShadyCSS.prepareTemplateDom&&(console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."),F=!1);const j=e=>t=>{const o=L(t.type,e);let s=q.get(o);void 0===s&&(s={stringsArray:new WeakMap,keyString:new Map},q.set(o,s));let r=s.stringsArray.get(t.strings);if(void 0!==r)return r;const a=t.strings.join(i);if(r=s.keyString.get(a),void 0===r){const i=t.getTemplateElement();F&&window.ShadyCSS.prepareTemplateDom(i,e),r=new n(t,i),s.keyString.set(a,r)}return s.stringsArray.set(t.strings,r),r},H=["html","svg"],B=new Set,W=(e,t,i)=>{B.add(e);const o=i?i.element:document.createElement("template"),s=t.querySelectorAll("style"),{length:r}=s;if(0===r)return void window.ShadyCSS.prepareTemplateStyles(o,e);const n=document.createElement("style");for(let e=0;e<r;e++){const t=s[e];t.parentNode.removeChild(t),n.textContent+=t.textContent}(e=>{H.forEach((t=>{const i=q.get(L(t,e));void 0!==i&&i.keyString.forEach((e=>{const{element:{content:t}}=e,i=new Set;Array.from(t.querySelectorAll("style")).forEach((e=>{i.add(e)})),f(e,i)}))}))})(e);const a=o.content;i?h(i,n,a.firstChild):a.insertBefore(n,a.firstChild),window.ShadyCSS.prepareTemplateStyles(o,e);const l=a.querySelector("style");if(window.ShadyCSS.nativeShadow&&null!==l)t.insertBefore(l.cloneNode(!0),t.firstChild);else if(i){a.insertBefore(n,a.firstChild);const e=new Set;e.add(n),f(i,e)}};window.JSCompiler_renameProperty=(e,t)=>e;const D={toAttribute(e,t){switch(t){case Boolean:return e?"":null;case Object:case Array:return null==e?e:JSON.stringify(e)}return e},fromAttribute(e,t){switch(t){case Boolean:return null!==e;case Number:return null===e?null:Number(e);case Object:case Array:return JSON.parse(e)}return e}},J=(e,t)=>t!==e&&(t==t||e==e),Y={attribute:!0,type:String,converter:D,reflect:!1,hasChanged:J},G="finalized";class X extends HTMLElement{constructor(){super(),this.initialize()}static get observedAttributes(){this.finalize();const e=[];return this._classProperties.forEach(((t,i)=>{const o=this._attributeNameForProperty(i,t);void 0!==o&&(this._attributeToPropertyMap.set(o,i),e.push(o))})),e}static _ensureClassProperties(){if(!this.hasOwnProperty(JSCompiler_renameProperty("_classProperties",this))){this._classProperties=new Map;const e=Object.getPrototypeOf(this)._classProperties;void 0!==e&&e.forEach(((e,t)=>this._classProperties.set(t,e)))}}static createProperty(e,t=Y){if(this._ensureClassProperties(),this._classProperties.set(e,t),t.noAccessor||this.prototype.hasOwnProperty(e))return;const i="symbol"==typeof e?Symbol():`__${e}`,o=this.getPropertyDescriptor(e,i,t);void 0!==o&&Object.defineProperty(this.prototype,e,o)}static getPropertyDescriptor(e,t,i){return{get(){return this[t]},set(o){const s=this[e];this[t]=o,this.requestUpdateInternal(e,s,i)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this._classProperties&&this._classProperties.get(e)||Y}static finalize(){const e=Object.getPrototypeOf(this);if(e.hasOwnProperty(G)||e.finalize(),this[G]=!0,this._ensureClassProperties(),this._attributeToPropertyMap=new Map,this.hasOwnProperty(JSCompiler_renameProperty("properties",this))){const e=this.properties,t=[...Object.getOwnPropertyNames(e),..."function"==typeof Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(e):[]];for(const i of t)this.createProperty(i,e[i])}}static _attributeNameForProperty(e,t){const i=t.attribute;return!1===i?void 0:"string"==typeof i?i:"string"==typeof e?e.toLowerCase():void 0}static _valueHasChanged(e,t,i=J){return i(e,t)}static _propertyValueFromAttribute(e,t){const i=t.type,o=t.converter||D,s="function"==typeof o?o:o.fromAttribute;return s?s(e,i):e}static _propertyValueToAttribute(e,t){if(void 0===t.reflect)return;const i=t.type,o=t.converter;return(o&&o.toAttribute||D.toAttribute)(e,i)}initialize(){this._updateState=0,this._updatePromise=new Promise((e=>this._enableUpdatingResolver=e)),this._changedProperties=new Map,this._saveInstanceProperties(),this.requestUpdateInternal()}_saveInstanceProperties(){this.constructor._classProperties.forEach(((e,t)=>{if(this.hasOwnProperty(t)){const e=this[t];delete this[t],this._instanceProperties||(this._instanceProperties=new Map),this._instanceProperties.set(t,e)}}))}_applyInstanceProperties(){this._instanceProperties.forEach(((e,t)=>this[t]=e)),this._instanceProperties=void 0}connectedCallback(){this.enableUpdating()}enableUpdating(){void 0!==this._enableUpdatingResolver&&(this._enableUpdatingResolver(),this._enableUpdatingResolver=void 0)}disconnectedCallback(){}attributeChangedCallback(e,t,i){t!==i&&this._attributeToProperty(e,i)}_propertyToAttribute(e,t,i=Y){const o=this.constructor,s=o._attributeNameForProperty(e,i);if(void 0!==s){const e=o._propertyValueToAttribute(t,i);if(void 0===e)return;this._updateState=8|this._updateState,null==e?this.removeAttribute(s):this.setAttribute(s,e),this._updateState=-9&this._updateState}}_attributeToProperty(e,t){if(8&this._updateState)return;const i=this.constructor,o=i._attributeToPropertyMap.get(e);if(void 0!==o){const e=i.getPropertyOptions(o);this._updateState=16|this._updateState,this[o]=i._propertyValueFromAttribute(t,e),this._updateState=-17&this._updateState}}requestUpdateInternal(e,t,i){let o=!0;if(void 0!==e){const s=this.constructor;i=i||s.getPropertyOptions(e),s._valueHasChanged(this[e],t,i.hasChanged)?(this._changedProperties.has(e)||this._changedProperties.set(e,t),!0!==i.reflect||16&this._updateState||(void 0===this._reflectingProperties&&(this._reflectingProperties=new Map),this._reflectingProperties.set(e,i))):o=!1}!this._hasRequestedUpdate&&o&&(this._updatePromise=this._enqueueUpdate())}requestUpdate(e,t){return this.requestUpdateInternal(e,t),this.updateComplete}async _enqueueUpdate(){this._updateState=4|this._updateState;try{await this._updatePromise}catch(e){}const e=this.performUpdate();return null!=e&&await e,!this._hasRequestedUpdate}get _hasRequestedUpdate(){return 4&this._updateState}get hasUpdated(){return 1&this._updateState}performUpdate(){if(!this._hasRequestedUpdate)return;this._instanceProperties&&this._applyInstanceProperties();let e=!1;const t=this._changedProperties;try{e=this.shouldUpdate(t),e?this.update(t):this._markUpdated()}catch(t){throw e=!1,this._markUpdated(),t}e&&(1&this._updateState||(this._updateState=1|this._updateState,this.firstUpdated(t)),this.updated(t))}_markUpdated(){this._changedProperties=new Map,this._updateState=-5&this._updateState}get updateComplete(){return this._getUpdateComplete()}_getUpdateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._updatePromise}shouldUpdate(e){return!0}update(e){void 0!==this._reflectingProperties&&this._reflectingProperties.size>0&&(this._reflectingProperties.forEach(((e,t)=>this._propertyToAttribute(t,this[t],e))),this._reflectingProperties=void 0),this._markUpdated()}updated(e){}firstUpdated(e){}}X[G]=!0;const Z=Element.prototype;Z.msMatchesSelector||Z.webkitMatchesSelector;
 /**
 @license
 Copyright (c) 2019 The Polymer Project Authors. All rights reserved.
@@ -155,7 +155,7 @@ found at http://polymer.github.io/CONTRIBUTORS.txt Code distributed by Google as
 part of the polymer project is also subject to an additional IP rights grant
 found at http://polymer.github.io/PATENTS.txt
 */
-const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,Q=Symbol();class ee{constructor(e,t){if(t!==Q)throw new Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e}get styleSheet(){return void 0===this._styleSheet&&(K?(this._styleSheet=new CSSStyleSheet,this._styleSheet.replaceSync(this.cssText)):this._styleSheet=null),this._styleSheet}toString(){return this.cssText}}const te=(e,...t)=>{const i=t.reduce(((t,i,o)=>t+(e=>{if(e instanceof ee)return e.cssText;if("number"==typeof e)return e;throw new Error(`Value passed to 'css' function must be a 'css' function result: ${e}. Use 'unsafeCSS' to pass non-literal values, but\n            take care to ensure page security.`)})(i)+e[o+1]),e[0]);return new ee(i,Q)};(window.litElementVersions||(window.litElementVersions=[])).push("2.5.1");const ie={};class oe extends X{static getStyles(){return this.styles}static _getUniqueStyles(){if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this)))return;const e=this.getStyles();if(Array.isArray(e)){const t=(e,i)=>e.reduceRight(((e,i)=>Array.isArray(i)?t(i,e):(e.add(i),e)),i),i=t(e,new Set),o=[];i.forEach((e=>o.unshift(e))),this._styles=o}else this._styles=void 0===e?[]:[e];this._styles=this._styles.map((e=>{if(e instanceof CSSStyleSheet&&!K){const t=Array.prototype.slice.call(e.cssRules).reduce(((e,t)=>e+t.cssText),"");return new ee(String(t),Q)}return e}))}initialize(){super.initialize(),this.constructor._getUniqueStyles(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow(this.constructor.shadowRootOptions)}adoptStyles(){const e=this.constructor._styles;0!==e.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?K?this.renderRoot.adoptedStyleSheets=e.map((e=>e instanceof CSSStyleSheet?e:e.styleSheet)):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(e.map((e=>e.cssText)),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(e){const t=this.render();super.update(e),t!==ie&&this.constructor.render(t,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach((e=>{const t=document.createElement("style");t.textContent=e.cssText,this.renderRoot.appendChild(t)})))}render(){return ie}}oe.finalized=!0,oe.render=(e,i,o)=>{if(!o||"object"!=typeof o||!o.scopeName)throw new Error("The `scopeName` option is required.");const s=o.scopeName,r=O.has(i),n=F&&11===i.nodeType&&!!i.host,a=n&&!j.has(s),l=a?document.createDocumentFragment():i;if(M(e,l,Object.assign({templateFactory:H(s)},o)),a){const e=O.get(l);O.delete(l);const o=e.value instanceof _?e.value.template:void 0;W(s,l,o),t(i,i.firstChild),i.appendChild(l),O.set(i,e)}!r&&n&&window.ShadyCSS.styleElement(i.host)},oe.shadowRootOptions={mode:"open"};const se=(e,t="")=>{window.dataLayer=window.dataLayer||[];var i=e.composedPath()[0],o=e.composedPath()[3].innerText?e.composedPath()[3].innerText.split("\n")[0]:"";window.dataLayer.push({event:"shadow_event_"+e.type,shadow_event:{elementInnerHTML:i.textContent||"",elementInnerText:i.innerText||"",title:"shadow-dom-link",element:i,elementClasses:i.className||"",elementId:i.id||"",elementLocation:t||"",elementTarget:i.target||"",elementUrl:i.href||i.action||"",originalEvent:e,parent:o||"",inShadowDom:!0}})};customElements.get("az-footer")||customElements.define("az-footer",class extends oe{static get styles(){return te`
+const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,Q=Symbol();class ee{constructor(e,t){if(t!==Q)throw new Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e}get styleSheet(){return void 0===this._styleSheet&&(K?(this._styleSheet=new CSSStyleSheet,this._styleSheet.replaceSync(this.cssText)):this._styleSheet=null),this._styleSheet}toString(){return this.cssText}}const te=(e,...t)=>{const i=t.reduce(((t,i,o)=>t+(e=>{if(e instanceof ee)return e.cssText;if("number"==typeof e)return e;throw new Error(`Value passed to 'css' function must be a 'css' function result: ${e}. Use 'unsafeCSS' to pass non-literal values, but\n            take care to ensure page security.`)})(i)+e[o+1]),e[0]);return new ee(i,Q)};(window.litElementVersions||(window.litElementVersions=[])).push("2.5.1");const ie={};class oe extends X{static getStyles(){return this.styles}static _getUniqueStyles(){if(this.hasOwnProperty(JSCompiler_renameProperty("_styles",this)))return;const e=this.getStyles();if(Array.isArray(e)){const t=(e,i)=>e.reduceRight(((e,i)=>Array.isArray(i)?t(i,e):(e.add(i),e)),i),i=t(e,new Set),o=[];i.forEach((e=>o.unshift(e))),this._styles=o}else this._styles=void 0===e?[]:[e];this._styles=this._styles.map((e=>{if(e instanceof CSSStyleSheet&&!K){const t=Array.prototype.slice.call(e.cssRules).reduce(((e,t)=>e+t.cssText),"");return new ee(String(t),Q)}return e}))}initialize(){super.initialize(),this.constructor._getUniqueStyles(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow(this.constructor.shadowRootOptions)}adoptStyles(){const e=this.constructor._styles;0!==e.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?K?this.renderRoot.adoptedStyleSheets=e.map((e=>e instanceof CSSStyleSheet?e:e.styleSheet)):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(e.map((e=>e.cssText)),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(e){const t=this.render();super.update(e),t!==ie&&this.constructor.render(t,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach((e=>{const t=document.createElement("style");t.textContent=e.cssText,this.renderRoot.appendChild(t)})))}render(){return ie}}oe.finalized=!0,oe.render=(e,i,o)=>{if(!o||"object"!=typeof o||!o.scopeName)throw new Error("The `scopeName` option is required.");const s=o.scopeName,r=O.has(i),n=F&&11===i.nodeType&&!!i.host,a=n&&!B.has(s),l=a?document.createDocumentFragment():i;if(R(e,l,Object.assign({templateFactory:j(s)},o)),a){const e=O.get(l);O.delete(l);const o=e.value instanceof _?e.value.template:void 0;W(s,l,o),t(i,i.firstChild),i.appendChild(l),O.set(i,e)}!r&&n&&window.ShadyCSS.styleElement(i.host)},oe.shadowRootOptions={mode:"open"};const se=(e,t="")=>{window.dataLayer=window.dataLayer||[];var i=e.composedPath()[0],o=e.composedPath()[3].innerText?e.composedPath()[3].innerText.split("\n")[0]:"";window.dataLayer.push({event:"shadow_event_"+e.type,shadow_event:{elementInnerHTML:i.textContent||"",elementInnerText:i.innerText||"",title:"shadow-dom-link",element:i,elementClasses:i.className||"",elementId:i.id||"",elementLocation:t||"",elementTarget:i.target||"",elementUrl:i.href||i.action||"",originalEvent:e,parent:o||"",inShadowDom:!0}})};customElements.get("az-footer")||customElements.define("az-footer",class extends oe{static get styles(){return te`
 			* {
 				box-sizing: border-box;
 			}
@@ -1297,7 +1297,7 @@ const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
 				display: inline-block;
 				padding: 0;
 				margin: 0 0 12px;
-				text-align: center;
+				text-align: right;
 			}
 			@media (min-width: 768px) {
 				text-align: left;
@@ -1321,7 +1321,6 @@ const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
 				color: hsl(0,0%,20%);
 				text-decoration: none;
 				text-transform: none;
-				font-size: 14px;
 			}
 
 			#footer_site #footer_sub ul {
@@ -1345,6 +1344,8 @@ const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
 				list-style: none;
 				padding: 0;
 				margin: 0;
+				width: max-content;
+				width: -moz-max-content;
 			}
 			#footer_site ul li a {
 				color: #49595e;
@@ -1374,32 +1375,121 @@ const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
 			  margin: 0 -16px;
 			}
 
+			#footer_site .footer-top-wrap{
+				padding: 0 13px;
+			}
 
+			#footer_site .top-menu li{
+				font-size: 16px;
+				font-weight: 500;
+			}
 
+			#footer_site .footer-top-wrap hr{
+				margin-top: 32px;
+				margin-bottom: 17px;
+			}
 
+			#footer_site ul.menu-bottom li a{
+				margin: 3px 0;
+				max-width: 222px;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			#footer_site ul li a{
+				border-bottom: 2px solid transparent;
+			}
+
+			#footer_site ul li a:hover{
+				border-bottom: 2px solid #49595e;
+			}
+
+			#footer_site ul.menu-bottom li a i{
+				margin: 0 9px 0 0;
+			}
+
+			#footer_site ul.menu-bottom li a i::before{
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-youtube::before{
+				content: "\\E64E";
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-linkedin::before {
+				content: "\\E625";
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-instagram::before {
+				content: "\\E61F";
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-twitter::before {
+				content: "\\E63E";
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-facebook::before {
+				content: "\\E618";
+			}
+
+			.topic-menu{
+				columns: 2;
+			}
+
+			@media screen and (max-width: 991px){
+				#footer_site #block-bean-uaqs-footer-links-bean-main ul{
+					text-align: right;
+				}
+				.bottom-text-wrap{
+					text-align: right;
+				}
+				.number-bottom{
+					display: block;
+				}
+				.topic-menu{
+					columns: 1;
+				}
+				#footer_site #footer_sub ul.menu-bottom{
+					margin-bottom: 21px;
+				}
+			}
+
+			@media screen and (max-width: 767px){
+				#footer_site #block-bean-uaqs-footer-links-bean-main ul{
+					margin-top: 21px;
+					text-align: center;
+				}
+
+				.bottom-text-wrap{
+					text-align: center;
+				}
+			}
 		`}render(){return I`
 			<footer id="footer_site" class="page page-row" role="contentinfo">
 				<div class="region region-footer">
-					<div class="container">
+					<div class="container d-flex footer-top-wrap justify-content-between align-items-center">
 						<div class="row">
 							<div class="page-row-padding-top page-row-padding-bottom"></div>
 							<div class="page-row-padding-top page-row-padding-bottom"></div>
-							<div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 text-center-xs text-left-not-xs">
-								<div class="row bottom-buffer-30">
+							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center-xs text-left-not-xs">
+								<div class="row px-0">
 									<div class="col-xs-12">
 										<a href="https://www.arizona.edu/" title="Home" class="remove-external-link-icon active" @click="${e=>{se(e,"az-footer")}}"><img src="https://www.arizona.edu/sites/default/files/UA_horiz_rgb_webheader.png" alt="Home"></a>              </div>
 									</div>
 								</div>
 								<!-- Add the extra clearfix for only the required viewport -->
 								<div class="clearfix visible-xs-block"></div>
-								<div class="col-xs-12 col-sm-7 col-md-8 col-lg-8">
+								<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 py-0">
 									<div id="block-bean-uaqs-footer-links-bean-main" class="block block-bean first odd small text-right-lg text-right-md  text-right-sm text-center-xs" role="complementary">
-										<ul class="menu">
+										<ul class="menu top-menu">
 											<li class="menu__item is-leaf first leaf"><a href="https://talent.arizona.edu" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}">Employment</a></li>
 											<li class="menu__item is-leaf leaf"><a href="http://cirt.arizona.edu" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}">Emergency Information</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/title-ix" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}">Title IX / Non-Discrimination</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/campus-safety" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}">Campus Safety</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://cirt.arizona.edu/ualert" class="menu__link" @click="${e=>{se(e,"az-footer")}}">UAlert</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://clery.arizona.edu/annual-reports" class="menu__link" @click="${e=>{se(e,"az-footer")}}">Annual Security Report</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/copyright" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}">Copyright</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/campus-accessibility" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}">Campus Accessibility</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/contact-us" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}">Contact Us</a></li>
@@ -1409,9 +1499,9 @@ const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
 									<div id="block-bean-footer-university-address" class="block block-bean last even" role="complementary">
 										<div class="entity entity-bean bean-uaqs-contact-summary clearfix" about="/block/footer---university-address">
 											<div class="content">
-												<p class="text-center text-right-sm text-right-md text-right-lg"><span>
-												The University of Arizona | Tucson, Arizona 85721 | </span><span>
-												<a href="tel:520-621-2211">520-621-2211</a></span></p>
+												<p class="bottom-text-wrap text-right text-right-sm text-right-md text-right-lg">
+												The University of Arizona | Tucson, Arizona 85721 |
+												<span class="number-bottom"><a href="tel:520-621-2211">520-621-2211</a></span></p>
 											</div>
 										</div>
 									</div>
@@ -1423,9 +1513,9 @@ const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
 					<div id="footer_sub" class="region region-footer-sub">
 						<div class="container">
 							<div class="row">
-									<div id="block-bean-uaqs-footer-links-bean-informa" class="block block-bean first odd col-xs-12 col-sm-4 col-md-3 col-lg-3" role="complementary">
+									<div id="block-bean-uaqs-footer-links-bean-information" class="block block-bean first odd col-xs-12 col-sm-6 col-md-3 col-lg-3" role="complementary">
 										<h5><strong class="text-uppercase">Information for</strong></h5>
-										<ul class="menu">
+										<ul class="menu menu-bottom">
 											<li class="menu__item is-leaf first leaf"><a href="http://www.arizona.edu/future-students" class="menu__link" @click="${e=>{se(e,"az-footer")}}">Future Students</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/students" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}">Current Students</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/faculty-staff" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}">Faculty &amp; Staff</a></li>
@@ -1437,9 +1527,9 @@ const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
 									<div class="clearfix visible-xs-block col-xs-12">
 										<hr>
 									</div>
-									<div id="block-bean-uaqs-footer-links-bean-topics" class="block block-bean even col-xs-12 col-sm-8 col-md-5 two-col-menu" role="complementary">
+									<div id="block-bean-uaqs-footer-links-bean-topics" class="block block-bean even col-xs-12 col-sm-6 col-md-5" role="complementary">
 										<h5><strong class="text-uppercase">Topics</strong></h5>
-										<ul class="menu">
+										<ul class="menu menu-bottom topic-menu">
 											<li class="menu__item is-leaf first leaf"><a href="https://www.arizona.edu/about" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}">About the University</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/academics" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}">Academics</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/arts-museums" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}">Arts &amp; Museums</a></li>
@@ -1461,9 +1551,9 @@ const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
 									<div class="clearfix visible-sm-block col-xs-12">
 										<hr>
 									</div>
-									<div id="block-bean-uaqs-footer-links-bean-resourc" class="block block-bean odd col-xs-6 col-sm-4 col-md-2 clearfix" role="complementary">
+									<div id="block-bean-uaqs-footer-links-bean-resources" class="block block-bean odd col-xs-12 col-sm-6 col-md-2 clearfix" role="complementary">
 										<h5><strong class="text-uppercase">Resources</strong></h5>
-										<ul class="menu"><li class="menu__item is-leaf first leaf"><a href="http://directory.arizona.edu/index" class="menu__link" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-directory"></i>A-Z Index</a></li>
+										<ul class="menu menu-bottom"><li class="menu__item is-leaf first leaf"><a href="http://directory.arizona.edu/index" class="menu__link" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-directory"></i>A-Z Index</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/calendars-events" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-calendar"></i>Calendars</a></li>
 											<li class="menu__item is-leaf leaf"><a href="http://map.arizona.edu" class="menu__link" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-campus-map"></i>Campus Map</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://news.arizona.edu" class="menu__link" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-news"></i>News</a></li>
@@ -1471,20 +1561,18 @@ const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
 											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/weather" title="" class="menu__link" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-weather"></i>Weather</a></li>
 										</ul>
 									</div>
-									<div id="block-uaqs-social-media-uaqs-social-media-links" class="block block-uaqs-social-media even col-xs-6 col-sm-4 col-md-2" role="complementary">
+									<div id="block-bean-uaqs-footer-links-bean-connect" class="block block-bean even col-xs-12 col-sm-6 col-md-2 clearfix" role="complementary">
 										<h5><strong class="text-uppercase">Connect</strong></h5>
-										<div class="content">
-											<ul id="social-media-links">
-												<li class="uaqs-social-media"><a href="https://facebook.com/uarizona" target="_blank" title="Click here to visit our Facebook page" rel="noopener noreferrer" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-facebook"></i>Facebook</a></li>
-												<li class="uaqs-social-media"><a href="https://twitter.com/uarizona" target="_blank" title="Click here to visit our Twitter page" rel="noopener noreferrer" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-twitter"></i>Twitter</a></li>
-												<li class="uaqs-social-media"><a href="https://instagram.com/uarizona" target="_blank" title="Click here to visit our Instagram page" rel="noopener noreferrer" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-instagram"></i>Instagram</a></li>
-												<li class="uaqs-social-media"><a href="https://linkedin.com/edu/university-of-arizona-17783" target="_blank" title="Click here to visit our LinkedIn page" rel="noopener noreferrer" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-linkedin"></i>LinkedIn</a></li>
-												<li class="uaqs-social-media"><a href="https://youtube.com/universityofarizona" target="_blank" title="Click here to visit our YouTube page" rel="noopener noreferrer" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-youtube"></i>YouTube</a></li>
-											</ul>
-										</div>
+										<ul class="menu menu-bottom">
+											<li class="menu__item is-leaf first leaf"><a class="menu__link" href="https://facebook.com/uarizona" target="_blank" title="Click here to visit our Facebook page" rel="noopener noreferrer" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-facebook"></i>Facebook</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://twitter.com/uarizona" target="_blank" title="Click here to visit our Twitter page" rel="noopener noreferrer" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-twitter"></i>Twitter</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://instagram.com/uarizona" target="_blank" title="Click here to visit our Instagram page" rel="noopener noreferrer" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-instagram"></i>Instagram</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://linkedin.com/edu/university-of-arizona-17783" target="_blank" title="Click here to visit our LinkedIn page" rel="noopener noreferrer" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-linkedin"></i>LinkedIn</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://youtube.com/universityofarizona" target="_blank" title="Click here to visit our YouTube page" rel="noopener noreferrer" @click="${e=>{se(e,"az-footer")}}"><i class="ua-brand-youtube"></i>YouTube</a></li>
+										</ul>
 									</div>
-									<div id="block-bean-uagc-footer" class="block block-bean last odd" role="complementary">
-										<div class="entity entity-bean bean-uaqs-flexible-block clearfix" about="/block/uagc-footer">
+									<div id="block-bean-uaqs-footer" class="block block-bean last odd" role="complementary">
+										<div class="entity entity-bean bean-uaqs-flexible-block clearfix" about="/block/uaqs-footer">
 											<div class="content"></div>
 										</div>
 									</div>
@@ -1519,3 +1607,4 @@ const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
 				</div>
 			</footer>
 		`}})})();
+//# sourceMappingURL=az-footer.js.map
