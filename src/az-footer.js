@@ -1263,28 +1263,12 @@ class AzFooter  extends LitElement {
 				height: 16px;
 			}
 
-			#footer_site ul.menu-bottom li a i.ua-brand-youtube::before{
-				content: "\\E64E";
-			}
-
-			#footer_site ul.menu-bottom li a i.ua-brand-linkedin::before {
-				content: "\\E625";
-			}
-
-			#footer_site ul.menu-bottom li a i.ua-brand-instagram::before {
-				content: "\\E61F";
-			}
-
-			#footer_site ul.menu-bottom li a i.ua-brand-twitter::before {
-				content: "\\E63E";
-			}
-
-			#footer_site ul.menu-bottom li a i.ua-brand-facebook::before {
-				content: "\\E618";
-			}
-
 			.topic-menu{
 				columns: 2;
+			}
+
+			.bottom-text-wrap{
+				color: black;
 			}
 
 			@media screen and (max-width: 991px){
@@ -1450,7 +1434,7 @@ class AzFooter  extends LitElement {
 							<div class="col-xs-12 text-center">
 								<hr>
 								<p class="small"><a href="https://www.arizona.edu/information-security-privacy" target="_blank" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">University Information Security and Privacy</a></p>
-								<p class="copyright small">© <span><script>document.write( new Date().getFullYear() );</script></span> The Arizona Board of Regents on behalf of <a href="https://www.arizona.edu" target="_blank" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">The University of Arizona</a>.</p>
+								<p class="copyright small">© <span>2023</span> The Arizona Board of Regents on behalf of <a href="https://www.arizona.edu" target="_blank" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">The University of Arizona</a>.</p>
 							</div>
 						</div>
 					</div>
