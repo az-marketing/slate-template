@@ -1166,7 +1166,7 @@ class AzFooter  extends LitElement {
 				padding: 0 0 0 .75rem;
 			}
 			#footer_site #block-bean-uaqs-footer-links-bean-main ul li a {
-				color: hsl(0,0%,20%);
+				color: #49595e;
 				text-decoration: none;
 				text-transform: none;
 			}
@@ -1197,7 +1197,7 @@ class AzFooter  extends LitElement {
 			}
 			#footer_site ul li a {
 				color: #49595e;
-				font-weight: 500;
+				font-weight: 600;
 				display: block;
 				text-decoration: none;
 				font-size: 16px;
@@ -1229,7 +1229,7 @@ class AzFooter  extends LitElement {
 
 			#footer_site .top-menu li{
 				font-size: 16px;
-				font-weight: 500;
+				font-weight: 600;
 			}
 
 			#footer_site .footer-top-wrap hr{
@@ -1338,9 +1338,9 @@ class AzFooter  extends LitElement {
 									<div id="block-bean-uaqs-footer-links-bean-main" class="block block-bean first odd small text-right-lg text-right-md  text-right-sm text-center-xs" role="complementary">
 										<ul class="menu top-menu">
 											<li class="menu__item is-leaf first leaf"><a href="https://talent.arizona.edu" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Employment</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://cirt.arizona.edu" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Emergency Information</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://cirt.arizona.edu" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Emergency Information</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/title-ix" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Title IX / Non-Discrimination</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/campus-safety" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Campus Safety</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://safety.arizona.edu/" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Campus Safety</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://clery.arizona.edu/annual-reports" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Annual Security Report</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/copyright" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Copyright</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/campus-accessibility" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Campus Accessibility</a></li>
@@ -1368,12 +1368,12 @@ class AzFooter  extends LitElement {
 									<div id="block-bean-uaqs-footer-links-bean-information" class="block block-bean first odd col-xs-12 col-sm-6 col-md-3 col-lg-3" role="complementary">
 										<h5><strong class="text-uppercase">Information for</strong></h5>
 										<ul class="menu menu-bottom">
-											<li class="menu__item is-leaf first leaf"><a href="http://www.arizona.edu/future-students" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Future Students</a></li>
+											<li class="menu__item is-leaf first leaf"><a href="https://www.arizona.edu/admissions" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Future Students</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/students" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Current Students</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/faculty-staff" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Faculty &amp; Staff</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/alumni-donors" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Alumni &amp; Donors</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/parents-visitors" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Parents &amp; Visitors</a></li>
-											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/corporations-businesses" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Corporations &amp; Businesses</a></li>
+											<li class="menu__item is-leaf last leaf"><a href="https://corporate.arizona.edu/" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Corporations &amp; Businesses</a></li>
 										</ul>
 									</div>
 									<div class="clearfix visible-xs-block col-xs-12">
@@ -1387,13 +1387,13 @@ class AzFooter  extends LitElement {
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/arts-museums" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Arts &amp; Museums</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/athletics-recreation" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Athletics &amp; Recreation</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/colleges-schools" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Colleges, Schools, Departments</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://diversity.arizona.edu" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Diversity</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://diversity.arizona.edu" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Diversity</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.environment.arizona.edu" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Environment &amp; Sustainability</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://international.arizona.edu" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Global Engagement</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://international.arizona.edu" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">International Engagement</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/health-sciences" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Health &amp; Medical</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/libraries" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Libraries</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://uaforyou.arizona.edu" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Outreach &amp; Extension</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://research.arizona.edu" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Research &amp; Innovation</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://uaforyou.arizona.edu" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Outreach &amp; Extension</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://research.arizona.edu" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Research &amp; Innovation</a></li>
 											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/purpose-mission-values" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">Purpose, Mission &amp; Values</a></li>
 										</ul>
 									</div>
@@ -1405,11 +1405,11 @@ class AzFooter  extends LitElement {
 									</div>
 									<div id="block-bean-uaqs-footer-links-bean-resources" class="block block-bean odd col-xs-12 col-sm-6 col-md-2 clearfix" role="complementary">
 										<h5><strong class="text-uppercase">Resources</strong></h5>
-										<ul class="menu menu-bottom"><li class="menu__item is-leaf first leaf"><a href="http://directory.arizona.edu/index" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-directory"></i>A-Z Index</a></li>
+										<ul class="menu menu-bottom"><li class="menu__item is-leaf first leaf"><a href="https://directory.arizona.edu/index" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-directory"></i>A-Z Index</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/calendars-events" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-calendar"></i>Calendars</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://map.arizona.edu" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-campus-map"></i>Campus Map</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://map.arizona.edu" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-campus-map"></i>Campus Map</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://news.arizona.edu" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-news"></i>News</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://directory.arizona.edu/phonebook" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-directory"></i>Phonebook</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://directory.arizona.edu/phonebook" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-directory"></i>Phonebook</a></li>
 											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/weather" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-weather"></i>Weather</a></li>
 										</ul>
 									</div>
@@ -1435,8 +1435,6 @@ class AzFooter  extends LitElement {
 											<div class="col-sm-12">
 												<hr>
 												<p class="text-align-center text-muted mt-0 mb-0"><em>We respectfully acknowledge the University of Arizona is on the land and territories of Indigenous peoples. Today, Arizona is home to 22 federally recognized tribes, with Tucson being home to the O’odham and the Yaqui. Committed to diversity and inclusion, the University strives to build sustainable relationships with sovereign Native Nations and Indigenous communities through education offerings, partnerships, and community service.</em></p>
-												<hr>
-												<p class="text-align-center text-muted mt-0 mb-0">We are affiliated with the&nbsp;<a class="text-muted" href="https://www.uagc.edu" target="_blank" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">University of Arizona Global Campus</a></p>
 											</div>
 										</div>
 									</div>
@@ -1452,7 +1450,7 @@ class AzFooter  extends LitElement {
 							<div class="col-xs-12 text-center">
 								<hr>
 								<p class="small"><a href="https://www.arizona.edu/information-security-privacy" target="_blank" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">University Information Security and Privacy</a></p>
-								<p class="copyright small">© 2021 The Arizona Board of Regents on behalf of <a href="https://www.arizona.edu" target="_blank" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">The University of Arizona</a>.</p>
+								<p class="copyright small">© <span><script>document.write( new Date().getFullYear() );</script></span> The Arizona Board of Regents on behalf of <a href="https://www.arizona.edu" target="_blank" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">The University of Arizona</a>.</p>
 							</div>
 						</div>
 					</div>
