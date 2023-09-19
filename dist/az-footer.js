@@ -1607,4 +1607,3 @@ const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
 				</div>
 			</footer>
 		`}})})();
-//# sourceMappingURL=az-footer.js.map
