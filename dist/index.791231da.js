@@ -461,7 +461,7 @@
             templateFactory: V
         }, o))), s.appendInto(i)), s.setValue(e), s.commit();
     };
-    const M = new /**
+    const I = new /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
  * This code may only be used under the BSD style license found at
@@ -502,7 +502,7 @@
         }
     };
     "undefined" != typeof window && (window.litHtmlVersions || (window.litHtmlVersions = [])).push("1.4.1");
-    const I = (e, ...t)=>new v(e, t, "html", M), L = (e, t)=>`${e}--${t}`;
+    const M = (e, ...t)=>new v(e, t, "html", I), L = (e, t)=>`${e}--${t}`;
     let F = !0;
     void 0 === window.ShadyCSS ? F = !1 : void 0 === window.ShadyCSS.prepareTemplateDom && (console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."), F = !1);
     const j = (e)=>(t)=>{
@@ -583,8 +583,8 @@
         converter: D,
         reflect: !1,
         hasChanged: J
-    }, G = "finalized";
-    class X extends HTMLElement {
+    }, X = "finalized";
+    class Z extends HTMLElement {
         constructor(){
             super(), this.initialize();
         }
@@ -626,7 +626,7 @@
         }
         static finalize() {
             const e = Object.getPrototypeOf(this);
-            if (e.hasOwnProperty(G) || e.finalize(), this[G] = !0, this._ensureClassProperties(), this._attributeToPropertyMap = new Map, this.hasOwnProperty(JSCompiler_renameProperty("properties", this))) {
+            if (e.hasOwnProperty(X) || e.finalize(), this[X] = !0, this._ensureClassProperties(), this._attributeToPropertyMap = new Map, this.hasOwnProperty(JSCompiler_renameProperty("properties", this))) {
                 const e = this.properties, t = [
                     ...Object.getOwnPropertyNames(e),
                     ..."function" == typeof Object.getOwnPropertySymbols ? Object.getOwnPropertySymbols(e) : []
@@ -748,9 +748,9 @@
         updated(e) {}
         firstUpdated(e) {}
     }
-    X[G] = !0;
-    const Z = Element.prototype;
-    Z.msMatchesSelector || Z.webkitMatchesSelector;
+    Z[X] = !0;
+    const G = Element.prototype;
+    G.msMatchesSelector || G.webkitMatchesSelector;
     /**
 @license
 Copyright (c) 2019 The Polymer Project Authors. All rights reserved.
@@ -783,7 +783,7 @@ found at http://polymer.github.io/PATENTS.txt
     };
     (window.litElementVersions || (window.litElementVersions = [])).push("2.5.1");
     const ie = {};
-    class oe extends X {
+    class oe extends Z {
         static getStyles() {
             return this.styles;
         }
@@ -2032,7 +2032,7 @@ found at http://polymer.github.io/PATENTS.txt
 				padding: 0 0 0 .75rem;
 			}
 			#footer_site #block-bean-uaqs-footer-links-bean-main ul li a {
-				color: hsl(0,0%,20%);
+				color: #49595e;
 				text-decoration: none;
 				text-transform: none;
 			}
@@ -2063,7 +2063,7 @@ found at http://polymer.github.io/PATENTS.txt
 			}
 			#footer_site ul li a {
 				color: #49595e;
-				font-weight: 500;
+				font-weight: 600;
 				display: block;
 				text-decoration: none;
 				font-size: 16px;
@@ -2095,7 +2095,7 @@ found at http://polymer.github.io/PATENTS.txt
 
 			#footer_site .top-menu li{
 				font-size: 16px;
-				font-weight: 500;
+				font-weight: 600;
 			}
 
 			#footer_site .footer-top-wrap hr{
@@ -2129,7 +2129,7 @@ found at http://polymer.github.io/PATENTS.txt
 				height: 16px;
 			}
 
-			#footer_site ul.menu-bottom li a i.ua-brand-youtube::before{
+			#footer_site ul.menu-bottom li a i.ua-brand-youtube::before {
 				content: "\\E64E";
 			}
 
@@ -2151,6 +2151,10 @@ found at http://polymer.github.io/PATENTS.txt
 
 			.topic-menu{
 				columns: 2;
+			}
+
+			.bottom-text-wrap{
+				color: black;
 			}
 
 			@media screen and (max-width: 991px){
@@ -2184,7 +2188,7 @@ found at http://polymer.github.io/PATENTS.txt
 		`;
         }
         render() {
-            return I`
+            return M`
 			<footer id="footer_site" class="page page-row" role="contentinfo">
 				<div class="region region-footer">
 					<div class="container d-flex footer-top-wrap justify-content-between align-items-center">
@@ -2207,13 +2211,13 @@ found at http://polymer.github.io/PATENTS.txt
 											<li class="menu__item is-leaf first leaf"><a href="https://talent.arizona.edu" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Employment</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://cirt.arizona.edu" title="" class="menu__link" @click="${(e)=>{
+											<li class="menu__item is-leaf leaf"><a href="https://cirt.arizona.edu" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Emergency Information</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/title-ix" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Title IX / Non-Discrimination</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/campus-safety" title="" class="menu__link" @click="${(e)=>{
+											<li class="menu__item is-leaf leaf"><a href="https://safety.arizona.edu/" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Campus Safety</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://clery.arizona.edu/annual-reports" class="menu__link" @click="${(e)=>{
@@ -2253,7 +2257,7 @@ found at http://polymer.github.io/PATENTS.txt
 									<div id="block-bean-uaqs-footer-links-bean-information" class="block block-bean first odd col-xs-12 col-sm-6 col-md-3 col-lg-3" role="complementary">
 										<h5><strong class="text-uppercase">Information for</strong></h5>
 										<ul class="menu menu-bottom">
-											<li class="menu__item is-leaf first leaf"><a href="http://www.arizona.edu/future-students" class="menu__link" @click="${(e)=>{
+											<li class="menu__item is-leaf first leaf"><a href="https://www.arizona.edu/admissions" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Future Students</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/students" title="" class="menu__link" @click="${(e)=>{
@@ -2268,7 +2272,7 @@ found at http://polymer.github.io/PATENTS.txt
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/parents-visitors" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Parents &amp; Visitors</a></li>
-											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/corporations-businesses" title="" class="menu__link" @click="${(e)=>{
+											<li class="menu__item is-leaf last leaf"><a href="https://corporate.arizona.edu/" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Corporations &amp; Businesses</a></li>
 										</ul>
@@ -2294,7 +2298,7 @@ found at http://polymer.github.io/PATENTS.txt
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/colleges-schools" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Colleges, Schools, Departments</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://diversity.arizona.edu" class="menu__link" @click="${(e)=>{
+											<li class="menu__item is-leaf leaf"><a href="https://diversity.arizona.edu" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Diversity</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.environment.arizona.edu" title="" class="menu__link" @click="${(e)=>{
@@ -2302,17 +2306,17 @@ found at http://polymer.github.io/PATENTS.txt
             }}">Environment &amp; Sustainability</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://international.arizona.edu" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
-            }}">Global Engagement</a></li>
+            }}">International Engagement</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/health-sciences" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Health &amp; Medical</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/libraries" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Libraries</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://uaforyou.arizona.edu" class="menu__link" @click="${(e)=>{
+											<li class="menu__item is-leaf leaf"><a href="https://uaforyou.arizona.edu" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Outreach &amp; Extension</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://research.arizona.edu" class="menu__link" @click="${(e)=>{
+											<li class="menu__item is-leaf leaf"><a href="https://research.arizona.edu" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}">Research &amp; Innovation</a></li>
 											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/purpose-mission-values" title="" class="menu__link" @click="${(e)=>{
@@ -2328,19 +2332,19 @@ found at http://polymer.github.io/PATENTS.txt
 									</div>
 									<div id="block-bean-uaqs-footer-links-bean-resources" class="block block-bean odd col-xs-12 col-sm-6 col-md-2 clearfix" role="complementary">
 										<h5><strong class="text-uppercase">Resources</strong></h5>
-										<ul class="menu menu-bottom"><li class="menu__item is-leaf first leaf"><a href="http://directory.arizona.edu/index" class="menu__link" @click="${(e)=>{
+										<ul class="menu menu-bottom"><li class="menu__item is-leaf first leaf"><a href="https://directory.arizona.edu/index" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}"><i class="ua-brand-directory"></i>A-Z Index</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/calendars-events" title="" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}"><i class="ua-brand-calendar"></i>Calendars</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://map.arizona.edu" class="menu__link" @click="${(e)=>{
+											<li class="menu__item is-leaf leaf"><a href="https://map.arizona.edu" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}"><i class="ua-brand-campus-map"></i>Campus Map</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://news.arizona.edu" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}"><i class="ua-brand-news"></i>News</a></li>
-											<li class="menu__item is-leaf leaf"><a href="http://directory.arizona.edu/phonebook" class="menu__link" @click="${(e)=>{
+											<li class="menu__item is-leaf leaf"><a href="https://directory.arizona.edu/phonebook" class="menu__link" @click="${(e)=>{
                 se(e, "az-footer");
             }}"><i class="ua-brand-directory"></i>Phonebook</a></li>
 											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/weather" title="" class="menu__link" @click="${(e)=>{
@@ -2380,10 +2384,6 @@ found at http://polymer.github.io/PATENTS.txt
 											<div class="col-sm-12">
 												<hr>
 												<p class="text-align-center text-muted mt-0 mb-0"><em>We respectfully acknowledge the University of Arizona is on the land and territories of Indigenous peoples. Today, Arizona is home to 22 federally recognized tribes, with Tucson being home to the O’odham and the Yaqui. Committed to diversity and inclusion, the University strives to build sustainable relationships with sovereign Native Nations and Indigenous communities through education offerings, partnerships, and community service.</em></p>
-												<hr>
-												<p class="text-align-center text-muted mt-0 mb-0">We are affiliated with the&nbsp;<a class="text-muted" href="https://www.uagc.edu" target="_blank" @click="${(e)=>{
-                se(e, "az-footer");
-            }}">University of Arizona Global Campus</a></p>
 											</div>
 										</div>
 									</div>
@@ -2401,7 +2401,7 @@ found at http://polymer.github.io/PATENTS.txt
 								<p class="small"><a href="https://www.arizona.edu/information-security-privacy" target="_blank" @click="${(e)=>{
                 se(e, "az-footer");
             }}">University Information Security and Privacy</a></p>
-								<p class="copyright small">© 2021 The Arizona Board of Regents on behalf of <a href="https://www.arizona.edu" target="_blank" @click="${(e)=>{
+								<p class="copyright small">© <span>2023</span> The Arizona Board of Regents on behalf of <a href="https://www.arizona.edu" target="_blank" @click="${(e)=>{
                 se(e, "az-footer");
             }}">The University of Arizona</a>.</p>
 							</div>
