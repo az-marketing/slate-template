@@ -1415,6 +1415,26 @@ const K=window.ShadowRoot&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShad
 				height: 16px;
 			}
 
+			#footer_site ul.menu-bottom li a i.ua-brand-youtube::before {
+				content: "\\E64E";
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-linkedin::before {
+				content: "\\E625";
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-instagram::before {
+				content: "\\E61F";
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-twitter::before {
+				content: "\\E63E";
+			}
+
+			#footer_site ul.menu-bottom li a i.ua-brand-facebook::before {
+				content: "\\E618";
+			}
+
 			.topic-menu{
 				columns: 2;
 			}
