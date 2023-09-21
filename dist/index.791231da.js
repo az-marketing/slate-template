@@ -523,7 +523,7 @@
         }, H = [
         "html",
         "svg"
-    ], B = new Set, W = (e, t, i)=>{
+    ], B = new Set, D = (e, t, i)=>{
         B.add(e);
         const o = i ? i.element : document.createElement("template"), s = t.querySelectorAll("style"), { length: r  } = s;
         if (0 === r) return void window.ShadyCSS.prepareTemplateStyles(o, e);
@@ -554,7 +554,7 @@
         }
     };
     window.JSCompiler_renameProperty = (e, t)=>e;
-    const D = {
+    const W = {
         toAttribute (e, t) {
             switch(t){
                 case Boolean:
@@ -580,7 +580,7 @@
     }, J = (e, t)=>t !== e && (t == t || e == e), Y = {
         attribute: !0,
         type: String,
-        converter: D,
+        converter: W,
         reflect: !1,
         hasChanged: J
     }, X = "finalized";
@@ -642,13 +642,13 @@
             return i(e, t);
         }
         static _propertyValueFromAttribute(e, t) {
-            const i = t.type, o = t.converter || D, s = "function" == typeof o ? o : o.fromAttribute;
+            const i = t.type, o = t.converter || W, s = "function" == typeof o ? o : o.fromAttribute;
             return s ? s(e, i) : e;
         }
         static _propertyValueToAttribute(e, t) {
             if (void 0 === t.reflect) return;
             const i = t.type, o = t.converter;
-            return (o && o.toAttribute || D.toAttribute)(e, i);
+            return (o && o.toAttribute || W.toAttribute)(e, i);
         }
         initialize() {
             this._updateState = 0, this._updatePromise = new Promise((e)=>this._enableUpdatingResolver = e), this._changedProperties = new Map, this._saveInstanceProperties(), this.requestUpdateInternal();
@@ -840,7 +840,7 @@ found at http://polymer.github.io/PATENTS.txt
             const e = O.get(l);
             O.delete(l);
             const o = e.value instanceof _ ? e.value.template : void 0;
-            W(s, l, o), t(i, i.firstChild), i.appendChild(l), O.set(i, e);
+            D(s, l, o), t(i, i.firstChild), i.appendChild(l), O.set(i, e);
         }
         !r && n && window.ShadyCSS.styleElement(i.host);
     }, oe.shadowRootOptions = {
@@ -2401,7 +2401,7 @@ found at http://polymer.github.io/PATENTS.txt
 								<p class="small"><a href="https://www.arizona.edu/information-security-privacy" target="_blank" @click="${(e)=>{
                 se(e, "az-footer");
             }}">University Information Security and Privacy</a></p>
-								<p class="copyright small">© <span>2023</span> The Arizona Board of Regents on behalf of <a href="https://www.arizona.edu" target="_blank" @click="${(e)=>{
+								<p class="copyright small">© <span>${(new Date).getFullYear()}</span> The Arizona Board of Regents on behalf of <a href="https://www.arizona.edu" target="_blank" @click="${(e)=>{
                 se(e, "az-footer");
             }}">The University of Arizona</a>.</p>
 							</div>

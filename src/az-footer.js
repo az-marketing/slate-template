@@ -1454,7 +1454,7 @@ class AzFooter  extends LitElement {
 							<div class="col-xs-12 text-center">
 								<hr>
 								<p class="small"><a href="https://www.arizona.edu/information-security-privacy" target="_blank" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">University Information Security and Privacy</a></p>
-								<p class="copyright small">© <span>2023</span> The Arizona Board of Regents on behalf of <a href="https://www.arizona.edu" target="_blank" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">The University of Arizona</a>.</p>
+								<p class="copyright small">© <span>${new Date().getFullYear() }</span> The Arizona Board of Regents on behalf of <a href="https://www.arizona.edu" target="_blank" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}">The University of Arizona</a>.</p>
 							</div>
 						</div>
 					</div>
