@@ -40,11 +40,11 @@
             const i = t.nextSibling;
             e.removeChild(t), t = i;
         }
-    }, i = `{{lit-${String(Math.random()).slice(2)}}}`, o = `\x3c!--${i}--\x3e`, s = new RegExp(`${i}|${o}`), r = "$lit$";
-    class n {
+    }, i = `{{lit-${String(Math.random()).slice(2)}}}`, o = `\x3c!--${i}--\x3e`, n = new RegExp(`${i}|${o}`), s = "$lit$";
+    class r {
         constructor(e, t){
             this.parts = [], this.element = t;
-            const o = [], n = [], l = document.createTreeWalker(t.content, 133, null, !1);
+            const o = [], r = [], l = document.createTreeWalker(t.content, 133, null, !1);
             let f = 0, m = -1, p = 0;
             const { strings: h , values: { length: u  }  } = e;
             for(; p < u;){
@@ -54,11 +54,11 @@
                         if (e.hasAttributes()) {
                             const t = e.attributes, { length: i  } = t;
                             let o = 0;
-                            for(let e = 0; e < i; e++)a(t[e].name, r) && o++;
+                            for(let e = 0; e < i; e++)a(t[e].name, s) && o++;
                             for(; o-- > 0;){
-                                const t = h[p], i = d.exec(t)[2], o = i.toLowerCase() + r, n = e.getAttribute(o);
+                                const t = h[p], i = d.exec(t)[2], o = i.toLowerCase() + s, r = e.getAttribute(o);
                                 e.removeAttribute(o);
-                                const a = n.split(s);
+                                const a = r.split(n);
                                 this.parts.push({
                                     type: "attribute",
                                     index: m,
@@ -67,24 +67,24 @@
                                 }), p += a.length - 1;
                             }
                         }
-                        "TEMPLATE" === e.tagName && (n.push(e), l.currentNode = e.content);
+                        "TEMPLATE" === e.tagName && (r.push(e), l.currentNode = e.content);
                     } else if (3 === e.nodeType) {
                         const t = e.data;
                         if (t.indexOf(i) >= 0) {
-                            const i = e.parentNode, n = t.split(s), l = n.length - 1;
+                            const i = e.parentNode, r = t.split(n), l = r.length - 1;
                             for(let t = 0; t < l; t++){
-                                let o, s = n[t];
-                                if ("" === s) o = c();
+                                let o, n = r[t];
+                                if ("" === n) o = c();
                                 else {
-                                    const e = d.exec(s);
-                                    null !== e && a(e[2], r) && (s = s.slice(0, e.index) + e[1] + e[2].slice(0, -r.length) + e[3]), o = document.createTextNode(s);
+                                    const e = d.exec(n);
+                                    null !== e && a(e[2], s) && (n = n.slice(0, e.index) + e[1] + e[2].slice(0, -s.length) + e[3]), o = document.createTextNode(n);
                                 }
                                 i.insertBefore(o, e), this.parts.push({
                                     type: "node",
                                     index: ++m
                                 });
                             }
-                            "" === n[l] ? (i.insertBefore(c(), e), o.push(e)) : e.data = n[l], p += l;
+                            "" === r[l] ? (i.insertBefore(c(), e), o.push(e)) : e.data = r[l], p += l;
                         }
                     } else if (8 === e.nodeType) {
                         if (e.data === i) {
@@ -101,7 +101,7 @@
                             }), p++;
                         }
                     }
-                } else l.currentNode = n.pop();
+                } else l.currentNode = r.pop();
             }
             for (const e of o)e.parentNode.removeChild(e);
         }
@@ -111,14 +111,14 @@
         return i >= 0 && e.slice(i) === t;
     }, l = (e)=>-1 !== e.index, c = ()=>document.createComment(""), d = /([ \x09\x0a\x0c\x0d])([^\0-\x1F\x7F-\x9F "'>=/]+)([ \x09\x0a\x0c\x0d]*=[ \x09\x0a\x0c\x0d]*(?:[^ \x09\x0a\x0c\x0d"'`<>=]*|"[^"]*|'[^']*))$/;
     function f(e, t) {
-        const { element: { content: i  } , parts: o  } = e, s = document.createTreeWalker(i, 133, null, !1);
-        let r = p(o), n = o[r], a = -1, l = 0;
+        const { element: { content: i  } , parts: o  } = e, n = document.createTreeWalker(i, 133, null, !1);
+        let s = p(o), r = o[s], a = -1, l = 0;
         const c = [];
         let d = null;
-        for(; s.nextNode();){
+        for(; n.nextNode();){
             a++;
-            const e = s.currentNode;
-            for(e.previousSibling === d && (d = null), t.has(e) && (c.push(e), null === d && (d = e)), null !== d && l++; void 0 !== n && n.index === a;)n.index = null !== d ? -1 : n.index - l, r = p(o, r), n = o[r];
+            const e = n.currentNode;
+            for(e.previousSibling === d && (d = null), t.has(e) && (c.push(e), null === d && (d = e)), null !== d && l++; void 0 !== r && r.index === a;)r.index = null !== d ? -1 : r.index - l, s = p(o, s), r = o[s];
         }
         c.forEach((e)=>e.parentNode.removeChild(e));
     }
@@ -135,18 +135,18 @@
         return -1;
     };
     function h(e, t, i = null) {
-        const { element: { content: o  } , parts: s  } = e;
+        const { element: { content: o  } , parts: n  } = e;
         if (null == i) return void o.appendChild(t);
-        const r = document.createTreeWalker(o, 133, null, !1);
-        let n = p(s), a = 0, l = -1;
-        for(; r.nextNode();){
+        const s = document.createTreeWalker(o, 133, null, !1);
+        let r = p(n), a = 0, l = -1;
+        for(; s.nextNode();){
             l++;
-            for(r.currentNode === i && (a = m(t), i.parentNode.insertBefore(t, i)); -1 !== n && s[n].index === l;){
+            for(s.currentNode === i && (a = m(t), i.parentNode.insertBefore(t, i)); -1 !== r && n[r].index === l;){
                 if (a > 0) {
-                    for(; -1 !== n;)s[n].index += a, n = p(s, n);
+                    for(; -1 !== r;)n[r].index += a, r = p(n, r);
                     return;
                 }
-                n = p(s, n);
+                r = p(n, r);
             }
         }
     }
@@ -209,16 +209,16 @@
             for (const e of this.__parts)void 0 !== e && e.commit();
         }
         _clone() {
-            const t = e ? this.template.element.content.cloneNode(!0) : document.importNode(this.template.element.content, !0), i = [], o = this.template.parts, s = document.createTreeWalker(t, 133, null, !1);
-            let r, n = 0, a = 0, c = s.nextNode();
-            for(; n < o.length;)if (r = o[n], l(r)) {
-                for(; a < r.index;)a++, "TEMPLATE" === c.nodeName && (i.push(c), s.currentNode = c.content), null === (c = s.nextNode()) && (s.currentNode = i.pop(), c = s.nextNode());
-                if ("node" === r.type) {
+            const t = e ? this.template.element.content.cloneNode(!0) : document.importNode(this.template.element.content, !0), i = [], o = this.template.parts, n = document.createTreeWalker(t, 133, null, !1);
+            let s, r = 0, a = 0, c = n.nextNode();
+            for(; r < o.length;)if (s = o[r], l(s)) {
+                for(; a < s.index;)a++, "TEMPLATE" === c.nodeName && (i.push(c), n.currentNode = c.content), null === (c = n.nextNode()) && (n.currentNode = i.pop(), c = n.nextNode());
+                if ("node" === s.type) {
                     const e = this.processor.handleTextExpression(this.options);
                     e.insertAfterNode(c.previousSibling), this.__parts.push(e);
-                } else this.__parts.push(...this.processor.handleAttributeExpressions(c, r.name, r.strings, this.options));
-                n++;
-            } else this.__parts.push(void 0), n++;
+                } else this.__parts.push(...this.processor.handleAttributeExpressions(c, s.name, s.strings, this.options));
+                r++;
+            } else this.__parts.push(void 0), r++;
             return e && (document.adoptNode(t), customElements.upgrade(t)), t;
         }
     }
@@ -243,12 +243,12 @@
         }
         getHTML() {
             const e = this.strings.length - 1;
-            let t = "", s = !1;
-            for(let n = 0; n < e; n++){
-                const e = this.strings[n], a = e.lastIndexOf("<!--");
-                s = (a > -1 || s) && -1 === e.indexOf("-->", a + 1);
+            let t = "", n = !1;
+            for(let r = 0; r < e; r++){
+                const e = this.strings[r], a = e.lastIndexOf("<!--");
+                n = (a > -1 || n) && -1 === e.indexOf("-->", a + 1);
                 const l = d.exec(e);
-                t += null === l ? e + (s ? y : o) : e.substr(0, l.index) + l[1] + l[2] + r + l[3] + i;
+                t += null === l ? e + (n ? y : o) : e.substr(0, l.index) + l[1] + l[2] + s + l[3] + i;
             }
             return t += this.strings[e], t;
         }
@@ -275,9 +275,9 @@
                 if ("string" == typeof e || !S(e)) return e;
             }
             let o = "";
-            for(let s = 0; s < t; s++){
-                o += e[s];
-                const t = i[s];
+            for(let n = 0; n < t; n++){
+                o += e[n];
+                const t = i[n];
                 if (void 0 !== t) {
                     const e = t.value;
                     if (k(e) || !S(e)) o += "string" == typeof e ? e : String(e);
@@ -355,7 +355,7 @@
             Array.isArray(this.value) || (this.value = [], this.clear());
             const t = this.value;
             let i, o = 0;
-            for (const s of e)i = t[o], void 0 === i && (i = new P(this.options), t.push(i), 0 === o ? i.appendIntoPart(this) : i.insertAfterPart(t[o - 1])), i.setValue(s), i.commit(), o++;
+            for (const n of e)i = t[o], void 0 === i && (i = new P(this.options), t.push(i), 0 === o ? i.appendIntoPart(this) : i.insertAfterPart(t[o - 1])), i.setValue(n), i.commit(), o++;
             o < t.length && (t.length = o, this.clear(i && i.endNode));
         }
         clear(e = this.startNode) {
@@ -452,14 +452,14 @@
         }, q.set(e.type, t));
         let o = t.stringsArray.get(e.strings);
         if (void 0 !== o) return o;
-        const s = e.strings.join(i);
-        return o = t.keyString.get(s), void 0 === o && (o = new n(e, e.getTemplateElement()), t.keyString.set(s, o)), t.stringsArray.set(e.strings, o), o;
+        const n = e.strings.join(i);
+        return o = t.keyString.get(n), void 0 === o && (o = new r(e, e.getTemplateElement()), t.keyString.set(n, o)), t.stringsArray.set(e.strings, o), o;
     }
     const q = new Map, O = new WeakMap, R = (e, i, o)=>{
-        let s = O.get(i);
-        void 0 === s && (t(i, i.firstChild), O.set(i, s = new P(Object.assign({
+        let n = O.get(i);
+        void 0 === n && (t(i, i.firstChild), O.set(i, n = new P(Object.assign({
             templateFactory: V
-        }, o))), s.appendInto(i)), s.setValue(e), s.commit();
+        }, o))), n.appendInto(i)), n.setValue(e), n.commit();
     };
     const I = new /**
  * @license
@@ -487,12 +487,12 @@
  * http://polymer.github.io/PATENTS.txt
  */ class {
         handleAttributeExpressions(e, t, i, o) {
-            const s = t[0];
-            if ("." === s) return new T(e, t.slice(1), i).parts;
-            if ("@" === s) return [
+            const n = t[0];
+            if ("." === n) return new T(e, t.slice(1), i).parts;
+            if ("@" === n) return [
                 new $(e, t.slice(1), o.eventContext)
             ];
-            if ("?" === s) return [
+            if ("?" === n) return [
                 new N(e, t.slice(1), i)
             ];
             return new z(e, t, i).parts;
@@ -507,33 +507,33 @@
     void 0 === window.ShadyCSS ? F = !1 : void 0 === window.ShadyCSS.prepareTemplateDom && (console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."), F = !1);
     const j = (e)=>(t)=>{
             const o = L(t.type, e);
-            let s = q.get(o);
-            void 0 === s && (s = {
+            let n = q.get(o);
+            void 0 === n && (n = {
                 stringsArray: new WeakMap,
                 keyString: new Map
-            }, q.set(o, s));
-            let r = s.stringsArray.get(t.strings);
-            if (void 0 !== r) return r;
+            }, q.set(o, n));
+            let s = n.stringsArray.get(t.strings);
+            if (void 0 !== s) return s;
             const a = t.strings.join(i);
-            if (r = s.keyString.get(a), void 0 === r) {
+            if (s = n.keyString.get(a), void 0 === s) {
                 const i = t.getTemplateElement();
-                F && window.ShadyCSS.prepareTemplateDom(i, e), r = new n(t, i), s.keyString.set(a, r);
+                F && window.ShadyCSS.prepareTemplateDom(i, e), s = new r(t, i), n.keyString.set(a, s);
             }
-            return s.stringsArray.set(t.strings, r), r;
-        }, H = [
+            return n.stringsArray.set(t.strings, s), s;
+        }, B = [
         "html",
         "svg"
-    ], B = new Set, D = (e, t, i)=>{
-        B.add(e);
-        const o = i ? i.element : document.createElement("template"), s = t.querySelectorAll("style"), { length: r  } = s;
-        if (0 === r) return void window.ShadyCSS.prepareTemplateStyles(o, e);
-        const n = document.createElement("style");
-        for(let e = 0; e < r; e++){
-            const t = s[e];
-            t.parentNode.removeChild(t), n.textContent += t.textContent;
+    ], H = new Set, D = (e, t, i)=>{
+        H.add(e);
+        const o = i ? i.element : document.createElement("template"), n = t.querySelectorAll("style"), { length: s  } = n;
+        if (0 === s) return void window.ShadyCSS.prepareTemplateStyles(o, e);
+        const r = document.createElement("style");
+        for(let e = 0; e < s; e++){
+            const t = n[e];
+            t.parentNode.removeChild(t), r.textContent += t.textContent;
         }
         ((e)=>{
-            H.forEach((t)=>{
+            B.forEach((t)=>{
                 const i = q.get(L(t, e));
                 void 0 !== i && i.keyString.forEach((e)=>{
                     const { element: { content: t  }  } = e, i = new Set;
@@ -544,13 +544,13 @@
             });
         })(e);
         const a = o.content;
-        i ? h(i, n, a.firstChild) : a.insertBefore(n, a.firstChild), window.ShadyCSS.prepareTemplateStyles(o, e);
+        i ? h(i, r, a.firstChild) : a.insertBefore(r, a.firstChild), window.ShadyCSS.prepareTemplateStyles(o, e);
         const l = a.querySelector("style");
         if (window.ShadyCSS.nativeShadow && null !== l) t.insertBefore(l.cloneNode(!0), t.firstChild);
         else if (i) {
-            a.insertBefore(n, a.firstChild);
+            a.insertBefore(r, a.firstChild);
             const e = new Set;
-            e.add(n), f(i, e);
+            e.add(r), f(i, e);
         }
     };
     window.JSCompiler_renameProperty = (e, t)=>e;
@@ -614,8 +614,8 @@
                     return this[t];
                 },
                 set (o) {
-                    const s = this[e];
-                    this[t] = o, this.requestUpdateInternal(e, s, i);
+                    const n = this[e];
+                    this[t] = o, this.requestUpdateInternal(e, n, i);
                 },
                 configurable: !0,
                 enumerable: !0
@@ -642,8 +642,8 @@
             return i(e, t);
         }
         static _propertyValueFromAttribute(e, t) {
-            const i = t.type, o = t.converter || W, s = "function" == typeof o ? o : o.fromAttribute;
-            return s ? s(e, i) : e;
+            const i = t.type, o = t.converter || W, n = "function" == typeof o ? o : o.fromAttribute;
+            return n ? n(e, i) : e;
         }
         static _propertyValueToAttribute(e, t) {
             if (void 0 === t.reflect) return;
@@ -675,11 +675,11 @@
             t !== i && this._attributeToProperty(e, i);
         }
         _propertyToAttribute(e, t, i = Y) {
-            const o = this.constructor, s = o._attributeNameForProperty(e, i);
-            if (void 0 !== s) {
+            const o = this.constructor, n = o._attributeNameForProperty(e, i);
+            if (void 0 !== n) {
                 const e = o._propertyValueToAttribute(t, i);
                 if (void 0 === e) return;
-                this._updateState = 8 | this._updateState, null == e ? this.removeAttribute(s) : this.setAttribute(s, e), this._updateState = -9 & this._updateState;
+                this._updateState = 8 | this._updateState, null == e ? this.removeAttribute(n) : this.setAttribute(n, e), this._updateState = -9 & this._updateState;
             }
         }
         _attributeToProperty(e, t) {
@@ -693,8 +693,8 @@
         requestUpdateInternal(e, t, i) {
             let o = !0;
             if (void 0 !== e) {
-                const s = this.constructor;
-                i = i || s.getPropertyOptions(e), s._valueHasChanged(this[e], t, i.hasChanged) ? (this._changedProperties.has(e) || this._changedProperties.set(e, t), !0 !== i.reflect || 16 & this._updateState || (void 0 === this._reflectingProperties && (this._reflectingProperties = new Map), this._reflectingProperties.set(e, i))) : o = !1;
+                const n = this.constructor;
+                i = i || n.getPropertyOptions(e), n._valueHasChanged(this[e], t, i.hasChanged) ? (this._changedProperties.has(e) || this._changedProperties.set(e, t), !0 !== i.reflect || 16 & this._updateState || (void 0 === this._reflectingProperties && (this._reflectingProperties = new Map), this._reflectingProperties.set(e, i))) : o = !1;
             }
             !this._hasRequestedUpdate && o && (this._updatePromise = this._enqueueUpdate());
         }
@@ -833,20 +833,20 @@ found at http://polymer.github.io/PATENTS.txt
     }
     oe.finalized = !0, oe.render = (e, i, o)=>{
         if (!o || "object" != typeof o || !o.scopeName) throw new Error("The `scopeName` option is required.");
-        const s = o.scopeName, r = O.has(i), n = F && 11 === i.nodeType && !!i.host, a = n && !B.has(s), l = a ? document.createDocumentFragment() : i;
+        const n = o.scopeName, s = O.has(i), r = F && 11 === i.nodeType && !!i.host, a = r && !H.has(n), l = a ? document.createDocumentFragment() : i;
         if (R(e, l, Object.assign({
-            templateFactory: j(s)
+            templateFactory: j(n)
         }, o)), a) {
             const e = O.get(l);
             O.delete(l);
             const o = e.value instanceof _ ? e.value.template : void 0;
-            D(s, l, o), t(i, i.firstChild), i.appendChild(l), O.set(i, e);
+            D(n, l, o), t(i, i.firstChild), i.appendChild(l), O.set(i, e);
         }
-        !r && n && window.ShadyCSS.styleElement(i.host);
+        !s && r && window.ShadyCSS.styleElement(i.host);
     }, oe.shadowRootOptions = {
         mode: "open"
     };
-    const se = (e, t = "")=>{
+    const ne = (e, t = "")=>{
         window.dataLayer = window.dataLayer || [];
         var i = e.composedPath()[0], o = e.composedPath()[3].innerText ? e.composedPath()[3].innerText.split("\n")[0] : "";
         window.dataLayer.push({
@@ -2129,25 +2129,6 @@ found at http://polymer.github.io/PATENTS.txt
 				height: 16px;
 			}
 
-			#footer_site ul.menu-bottom li a i.ua-brand-youtube::before {
-				content: "\\E64E";
-			}
-
-			#footer_site ul.menu-bottom li a i.ua-brand-linkedin::before {
-				content: "\\E625";
-			}
-
-			#footer_site ul.menu-bottom li a i.ua-brand-instagram::before {
-				content: "\\E61F";
-			}
-
-			#footer_site ul.menu-bottom li a i.ua-brand-twitter::before {
-				content: "\\E63E";
-			}
-
-			#footer_site ul.menu-bottom li a i.ua-brand-facebook::before {
-				content: "\\E618";
-			}
 
 			.topic-menu{
 				columns: 2;
@@ -2185,6 +2166,93 @@ found at http://polymer.github.io/PATENTS.txt
 					text-align: center;
 				}
 			}
+			@font-face {
+				font-family: 'az-icons';
+				src:  url('fonts/az-icons.eot?d54800');
+				src:  url('fonts/az-icons.eot?d54800#iefix') format('embedded-opentype'),
+				  url('fonts/az-icons.ttf?d54800') format('truetype'),
+				  url('fonts/az-icons.woff?d54800') format('woff'),
+				  url('fonts/az-icons.svg?d54800#az-icons') format('svg');
+				font-weight: normal;
+				font-style: normal;
+				font-display: block;
+			  }
+			  
+			  [class^="az-icon-"]::before, [class*=" az-icon-"]::before {
+				/* use !important to prevent issues with browser extensions that change fonts */
+				font-family: 'az-icons' !important;
+				speak: never;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+			  
+				/* Better Font Rendering =========== */
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			  }
+			  
+			  .az-icon-arizona:before {
+				content: "\\e900";
+			  }
+			  .az-icon-award:before {
+				content: "\\e901";
+			  }
+			  .az-icon-cost:before {
+				content: "\\e902";
+			  }
+			  .az-icon-facebook:before {
+				content: "\\e903";
+			  }
+			  .az-icon-financial-aid:before {
+				content: "\\e904";
+			  }
+			  .az-icon-grad-cap:before {
+				content: "\\e905";
+			  }
+			  .az-icon-instagram:before {
+				content: "\\e906";
+			  }
+			  .az-icon-linkedin:before {
+				content: "\\e907";
+			  }
+			  .az-icon-majors-and-degrees:before {
+				content: "\\e908";
+			  }
+			  .az-icon-map-marker:before {
+				content: "\\e909";
+			  }
+			  .az-icon-pinterest:before {
+				content: "\\e90a";
+			  }
+			  .az-icon-scholarship:before {
+				content: "\\e90b";
+			  }
+			  .az-icon-sign-post:before {
+				content: "\\e90c";
+			  }
+			  .az-icon-spotify:before {
+				content: "\\e90d";
+			  }
+			  .az-icon-spring-fling:before {
+				content: "\\e90e";
+			  }
+			  .az-icon-tiktok:before {
+				content: "\\e90f";
+			  }
+			  .az-icon-twitter:before {
+				content: "\\e910";
+			  }
+			  .az-icon-wildcat:before {
+				content: "\\e911";
+			  }
+			  .az-icon-youtube:before {
+				content: "\\e912";
+			  }
+			  .az-icon-vimeo:before {
+				content: "\\e913";
+			  }
 		`;
         }
         render() {
@@ -2199,7 +2267,7 @@ found at http://polymer.github.io/PATENTS.txt
 								<div class="row px-0">
 									<div class="col-xs-12">
 										<a href="https://www.arizona.edu/" title="Home" class="remove-external-link-icon active" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}"><img src="https://www.arizona.edu/sites/default/files/UA_horiz_rgb_webheader.png" alt="Home"></a>              </div>
 									</div>
 								</div>
@@ -2209,31 +2277,31 @@ found at http://polymer.github.io/PATENTS.txt
 									<div id="block-bean-uaqs-footer-links-bean-main" class="block block-bean first odd small text-right-lg text-right-md  text-right-sm text-center-xs" role="complementary">
 										<ul class="menu top-menu">
 											<li class="menu__item is-leaf first leaf"><a href="https://talent.arizona.edu" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Employment</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://cirt.arizona.edu" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Emergency Information</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/title-ix" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Title IX / Non-Discrimination</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://safety.arizona.edu/" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Campus Safety</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://clery.arizona.edu/annual-reports" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Annual Security Report</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/copyright" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Copyright</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/campus-accessibility" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Campus Accessibility</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/contact-us" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Contact Us</a></li>
 											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/website-feedback" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Feedback</a></li>
 										</ul>
 									</div>
@@ -2258,22 +2326,22 @@ found at http://polymer.github.io/PATENTS.txt
 										<h5><strong class="text-uppercase">Information for</strong></h5>
 										<ul class="menu menu-bottom">
 											<li class="menu__item is-leaf first leaf"><a href="https://www.arizona.edu/admissions" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Future Students</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/students" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Current Students</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/faculty-staff" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Faculty &amp; Staff</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/alumni-donors" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Alumni &amp; Donors</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/parents-visitors" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Parents &amp; Visitors</a></li>
 											<li class="menu__item is-leaf last leaf"><a href="https://corporate.arizona.edu/" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Corporations &amp; Businesses</a></li>
 										</ul>
 									</div>
@@ -2284,43 +2352,43 @@ found at http://polymer.github.io/PATENTS.txt
 										<h5><strong class="text-uppercase">Topics</strong></h5>
 										<ul class="menu menu-bottom topic-menu">
 											<li class="menu__item is-leaf first leaf"><a href="https://www.arizona.edu/about" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">About the University</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/academics" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Academics</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/arts-museums" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Arts &amp; Museums</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/athletics-recreation" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Athletics &amp; Recreation</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/colleges-schools" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Colleges, Schools, Departments</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://diversity.arizona.edu" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Diversity</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.environment.arizona.edu" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Environment &amp; Sustainability</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://international.arizona.edu" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">International Engagement</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/health-sciences" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Health &amp; Medical</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/libraries" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Libraries</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://uaforyou.arizona.edu" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Outreach &amp; Extension</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://research.arizona.edu" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Research &amp; Innovation</a></li>
 											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/purpose-mission-values" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">Purpose, Mission &amp; Values</a></li>
 										</ul>
 									</div>
@@ -2333,22 +2401,22 @@ found at http://polymer.github.io/PATENTS.txt
 									<div id="block-bean-uaqs-footer-links-bean-resources" class="block block-bean odd col-xs-12 col-sm-6 col-md-2 clearfix" role="complementary">
 										<h5><strong class="text-uppercase">Resources</strong></h5>
 										<ul class="menu menu-bottom"><li class="menu__item is-leaf first leaf"><a href="https://directory.arizona.edu/index" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}"><i class="ua-brand-directory"></i>A-Z Index</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/calendars-events" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}"><i class="ua-brand-calendar"></i>Calendars</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://map.arizona.edu" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}"><i class="ua-brand-campus-map"></i>Campus Map</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://news.arizona.edu" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}"><i class="ua-brand-news"></i>News</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://directory.arizona.edu/phonebook" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}"><i class="ua-brand-directory"></i>Phonebook</a></li>
 											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/weather" title="" class="menu__link" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}"><i class="ua-brand-weather"></i>Weather</a></li>
 										</ul>
 									</div>
@@ -2356,20 +2424,20 @@ found at http://polymer.github.io/PATENTS.txt
 										<h5><strong class="text-uppercase">Connect</strong></h5>
 										<ul class="menu menu-bottom">
 											<li class="menu__item is-leaf first leaf"><a class="menu__link" href="https://facebook.com/uarizona" target="_blank" title="Click here to visit our Facebook page" rel="noopener noreferrer" @click="${(e)=>{
-                se(e, "az-footer");
-            }}"><i class="ua-brand-facebook"></i>Facebook</a></li>
+                ne(e, "az-footer");
+            }}"><i class="az-icon-facebook"></i>Facebook</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://twitter.com/uarizona" target="_blank" title="Click here to visit our Twitter page" rel="noopener noreferrer" @click="${(e)=>{
-                se(e, "az-footer");
-            }}"><i class="ua-brand-twitter"></i>Twitter</a></li>
+                ne(e, "az-footer");
+            }}"><i class="az-icon-twitter"></i>Twitter</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://instagram.com/uarizona" target="_blank" title="Click here to visit our Instagram page" rel="noopener noreferrer" @click="${(e)=>{
-                se(e, "az-footer");
-            }}"><i class="ua-brand-instagram"></i>Instagram</a></li>
+                ne(e, "az-footer");
+            }}"><i class="az-icon-instagram"></i>Instagram</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://linkedin.com/edu/university-of-arizona-17783" target="_blank" title="Click here to visit our LinkedIn page" rel="noopener noreferrer" @click="${(e)=>{
-                se(e, "az-footer");
-            }}"><i class="ua-brand-linkedin"></i>LinkedIn</a></li>
+                ne(e, "az-footer");
+            }}"><i class="az-icon-linkedin"></i>LinkedIn</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://youtube.com/universityofarizona" target="_blank" title="Click here to visit our YouTube page" rel="noopener noreferrer" @click="${(e)=>{
-                se(e, "az-footer");
-            }}"><i class="ua-brand-youtube"></i>YouTube</a></li>
+                ne(e, "az-footer");
+            }}"><i class="az-icon-youtube"></i>YouTube</a></li>
 										</ul>
 									</div>
 									<div id="block-bean-uaqs-footer" class="block block-bean last odd" role="complementary">
@@ -2399,10 +2467,10 @@ found at http://polymer.github.io/PATENTS.txt
 							<div class="col-xs-12 text-center">
 								<hr>
 								<p class="small"><a href="https://www.arizona.edu/information-security-privacy" target="_blank" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">University Information Security and Privacy</a></p>
 								<p class="copyright small">© <span>${(new Date).getFullYear()}</span> The Arizona Board of Regents on behalf of <a href="https://www.arizona.edu" target="_blank" @click="${(e)=>{
-                se(e, "az-footer");
+                ne(e, "az-footer");
             }}">The University of Arizona</a>.</p>
 							</div>
 						</div>
