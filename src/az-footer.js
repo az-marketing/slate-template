@@ -1,6 +1,5 @@
-import { css, html, LitElement } from 'lit-element';
+import { css, html, LitElement, firstUpdated } from 'lit-element';
 import { eventDataLayerPush } from './mixins/shadow-events-datalayer';
-
 class AzFooter  extends LitElement {
 	static get styles() {
 		return css`
@@ -1263,25 +1262,6 @@ class AzFooter  extends LitElement {
 				height: 16px;
 			}
 
-			#footer_site ul.menu-bottom li a i.ua-brand-youtube::before {
-				content: "\\E64E";
-			}
-
-			#footer_site ul.menu-bottom li a i.ua-brand-linkedin::before {
-				content: "\\E625";
-			}
-
-			#footer_site ul.menu-bottom li a i.ua-brand-instagram::before {
-				content: "\\E61F";
-			}
-
-			#footer_site ul.menu-bottom li a i.ua-brand-twitter::before {
-				content: "\\E63E";
-			}
-
-			#footer_site ul.menu-bottom li a i.ua-brand-facebook::before {
-				content: "\\E618";
-			}
 
 			.topic-menu{
 				columns: 2;
@@ -1319,6 +1299,93 @@ class AzFooter  extends LitElement {
 					text-align: center;
 				}
 			}
+			@font-face {
+				font-family: 'az-icons';
+				src:  url('fonts/az-icons.eot?d54800');
+				src:  url('fonts/az-icons.eot?d54800#iefix') format('embedded-opentype'),
+				  url('fonts/az-icons.ttf?d54800') format('truetype'),
+				  url('fonts/az-icons.woff?d54800') format('woff'),
+				  url('fonts/az-icons.svg?d54800#az-icons') format('svg');
+				font-weight: normal;
+				font-style: normal;
+				font-display: block;
+			  }
+			  
+			  [class^="az-icon-"]::before, [class*=" az-icon-"]::before {
+				/* use !important to prevent issues with browser extensions that change fonts */
+				font-family: 'az-icons' !important;
+				speak: never;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+			  
+				/* Better Font Rendering =========== */
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			  }
+			  
+			  .az-icon-arizona:before {
+				content: "\\e900";
+			  }
+			  .az-icon-award:before {
+				content: "\\e901";
+			  }
+			  .az-icon-cost:before {
+				content: "\\e902";
+			  }
+			  .az-icon-facebook:before {
+				content: "\\e903";
+			  }
+			  .az-icon-financial-aid:before {
+				content: "\\e904";
+			  }
+			  .az-icon-grad-cap:before {
+				content: "\\e905";
+			  }
+			  .az-icon-instagram:before {
+				content: "\\e906";
+			  }
+			  .az-icon-linkedin:before {
+				content: "\\e907";
+			  }
+			  .az-icon-majors-and-degrees:before {
+				content: "\\e908";
+			  }
+			  .az-icon-map-marker:before {
+				content: "\\e909";
+			  }
+			  .az-icon-pinterest:before {
+				content: "\\e90a";
+			  }
+			  .az-icon-scholarship:before {
+				content: "\\e90b";
+			  }
+			  .az-icon-sign-post:before {
+				content: "\\e90c";
+			  }
+			  .az-icon-spotify:before {
+				content: "\\e90d";
+			  }
+			  .az-icon-spring-fling:before {
+				content: "\\e90e";
+			  }
+			  .az-icon-tiktok:before {
+				content: "\\e90f";
+			  }
+			  .az-icon-twitter:before {
+				content: "\\e910";
+			  }
+			  .az-icon-wildcat:before {
+				content: "\\e911";
+			  }
+			  .az-icon-youtube:before {
+				content: "\\e912";
+			  }
+			  .az-icon-vimeo:before {
+				content: "\\e913";
+			  }
 		`;
 	}
 
@@ -1420,11 +1487,11 @@ class AzFooter  extends LitElement {
 									<div id="block-bean-uaqs-footer-links-bean-connect" class="block block-bean even col-xs-12 col-sm-6 col-md-2 clearfix" role="complementary">
 										<h5><strong class="text-uppercase">Connect</strong></h5>
 										<ul class="menu menu-bottom">
-											<li class="menu__item is-leaf first leaf"><a class="menu__link" href="https://facebook.com/uarizona" target="_blank" title="Click here to visit our Facebook page" rel="noopener noreferrer" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-facebook"></i>Facebook</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://twitter.com/uarizona" target="_blank" title="Click here to visit our Twitter page" rel="noopener noreferrer" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-twitter"></i>Twitter</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://instagram.com/uarizona" target="_blank" title="Click here to visit our Instagram page" rel="noopener noreferrer" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-instagram"></i>Instagram</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://linkedin.com/edu/university-of-arizona-17783" target="_blank" title="Click here to visit our LinkedIn page" rel="noopener noreferrer" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-linkedin"></i>LinkedIn</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://youtube.com/universityofarizona" target="_blank" title="Click here to visit our YouTube page" rel="noopener noreferrer" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-youtube"></i>YouTube</a></li>
+											<li class="menu__item is-leaf first leaf"><a class="menu__link" href="https://facebook.com/uarizona" target="_blank" title="Click here to visit our Facebook page" rel="noopener noreferrer" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="az-icon-facebook"></i>Facebook</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://twitter.com/uarizona" target="_blank" title="Click here to visit our Twitter page" rel="noopener noreferrer" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="az-icon-twitter"></i>Twitter</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://instagram.com/uarizona" target="_blank" title="Click here to visit our Instagram page" rel="noopener noreferrer" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="az-icon-instagram"></i>Instagram</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://linkedin.com/edu/university-of-arizona-17783" target="_blank" title="Click here to visit our LinkedIn page" rel="noopener noreferrer" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="az-icon-linkedin"></i>LinkedIn</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://youtube.com/universityofarizona" target="_blank" title="Click here to visit our YouTube page" rel="noopener noreferrer" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="az-icon-youtube"></i>YouTube</a></li>
 										</ul>
 									</div>
 									<div id="block-bean-uaqs-footer" class="block block-bean last odd" role="complementary">
@@ -1460,7 +1527,7 @@ class AzFooter  extends LitElement {
 					</div>
 				</div>
 			</footer>
-		`
+		`;
 	}
 };
 
