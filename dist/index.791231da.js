@@ -461,7 +461,7 @@
             templateFactory: V
         }, o))), n.appendInto(i)), n.setValue(e), n.commit();
     };
-    const I = new /**
+    const M = new /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
  * This code may only be used under the BSD style license found at
@@ -502,7 +502,7 @@
         }
     };
     "undefined" != typeof window && (window.litHtmlVersions || (window.litHtmlVersions = [])).push("1.4.1");
-    const M = (e, ...t)=>new v(e, t, "html", I), L = (e, t)=>`${e}--${t}`;
+    const I = (e, ...t)=>new v(e, t, "html", M), L = (e, t)=>`${e}--${t}`;
     let F = !0;
     void 0 === window.ShadyCSS ? F = !1 : void 0 === window.ShadyCSS.prepareTemplateDom && (console.warn("Incompatible ShadyCSS version detected. Please update to at least @webcomponents/webcomponentsjs@2.0.2 and @webcomponents/shadycss@1.3.1."), F = !1);
     const j = (e)=>(t)=>{
@@ -584,7 +584,7 @@
         reflect: !1,
         hasChanged: J
     }, X = "finalized";
-    class Z extends HTMLElement {
+    class G extends HTMLElement {
         constructor(){
             super(), this.initialize();
         }
@@ -748,9 +748,9 @@
         updated(e) {}
         firstUpdated(e) {}
     }
-    Z[X] = !0;
-    const G = Element.prototype;
-    G.msMatchesSelector || G.webkitMatchesSelector;
+    G[X] = !0;
+    const K = Element.prototype;
+    K.msMatchesSelector || K.webkitMatchesSelector;
     /**
 @license
 Copyright (c) 2019 The Polymer Project Authors. All rights reserved.
@@ -760,14 +760,14 @@ http://polymer.github.io/AUTHORS.txt The complete set of contributors may be
 found at http://polymer.github.io/CONTRIBUTORS.txt Code distributed by Google as
 part of the polymer project is also subject to an additional IP rights grant
 found at http://polymer.github.io/PATENTS.txt
-*/ const K = window.ShadowRoot && (void 0 === window.ShadyCSS || window.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, Q = Symbol();
+*/ const Q = window.ShadowRoot && (void 0 === window.ShadyCSS || window.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, Z = Symbol();
     class ee {
         constructor(e, t){
-            if (t !== Q) throw new Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
+            if (t !== Z) throw new Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
             this.cssText = e;
         }
         get styleSheet() {
-            return void 0 === this._styleSheet && (K ? (this._styleSheet = new CSSStyleSheet, this._styleSheet.replaceSync(this.cssText)) : this._styleSheet = null), this._styleSheet;
+            return void 0 === this._styleSheet && (Q ? (this._styleSheet = new CSSStyleSheet, this._styleSheet.replaceSync(this.cssText)) : this._styleSheet = null), this._styleSheet;
         }
         toString() {
             return this.cssText;
@@ -779,11 +779,11 @@ found at http://polymer.github.io/PATENTS.txt
                 if ("number" == typeof e) return e;
                 throw new Error(`Value passed to 'css' function must be a 'css' function result: ${e}. Use 'unsafeCSS' to pass non-literal values, but\n            take care to ensure page security.`);
             })(i) + e[o + 1], e[0]);
-        return new ee(i, Q);
+        return new ee(i, Z);
     };
     (window.litElementVersions || (window.litElementVersions = [])).push("2.5.1");
     const ie = {};
-    class oe extends Z {
+    class oe extends G {
         static getStyles() {
             return this.styles;
         }
@@ -797,9 +797,9 @@ found at http://polymer.github.io/PATENTS.txt
                 e
             ];
             this._styles = this._styles.map((e)=>{
-                if (e instanceof CSSStyleSheet && !K) {
+                if (e instanceof CSSStyleSheet && !Q) {
                     const t = Array.prototype.slice.call(e.cssRules).reduce((e, t)=>e + t.cssText, "");
-                    return new ee(String(t), Q);
+                    return new ee(String(t), Z);
                 }
                 return e;
             });
@@ -812,7 +812,7 @@ found at http://polymer.github.io/PATENTS.txt
         }
         adoptStyles() {
             const e = this.constructor._styles;
-            0 !== e.length && (void 0 === window.ShadyCSS || window.ShadyCSS.nativeShadow ? K ? this.renderRoot.adoptedStyleSheets = e.map((e)=>e instanceof CSSStyleSheet ? e : e.styleSheet) : this._needsShimAdoptedStyleSheets = !0 : window.ShadyCSS.ScopingShim.prepareAdoptedCssText(e.map((e)=>e.cssText), this.localName));
+            0 !== e.length && (void 0 === window.ShadyCSS || window.ShadyCSS.nativeShadow ? Q ? this.renderRoot.adoptedStyleSheets = e.map((e)=>e instanceof CSSStyleSheet ? e : e.styleSheet) : this._needsShimAdoptedStyleSheets = !0 : window.ShadyCSS.ScopingShim.prepareAdoptedCssText(e.map((e)=>e.cssText), this.localName));
         }
         connectedCallback() {
             super.connectedCallback(), this.hasUpdated && void 0 !== window.ShadyCSS && window.ShadyCSS.styleElement(this);
@@ -2177,7 +2177,7 @@ found at http://polymer.github.io/PATENTS.txt
 				font-style: normal;
 				font-display: block;
 			  }
-			  
+
 			  [class^="az-icon-"]::before, [class*=" az-icon-"]::before {
 				/* use !important to prevent issues with browser extensions that change fonts */
 				font-family: 'az-icons' !important;
@@ -2187,12 +2187,12 @@ found at http://polymer.github.io/PATENTS.txt
 				font-variant: normal;
 				text-transform: none;
 				line-height: 1;
-			  
+
 				/* Better Font Rendering =========== */
 				-webkit-font-smoothing: antialiased;
 				-moz-osx-font-smoothing: grayscale;
 			  }
-			  
+
 			  .az-icon-arizona:before {
 				content: "\\e900";
 			  }
@@ -2256,7 +2256,7 @@ found at http://polymer.github.io/PATENTS.txt
 		`;
         }
         render() {
-            return M`
+            return I`
 			<footer id="footer_site" class="page page-row" role="contentinfo">
 				<div class="region region-footer">
 					<div class="container d-flex footer-top-wrap justify-content-between align-items-center">
@@ -2400,9 +2400,9 @@ found at http://polymer.github.io/PATENTS.txt
 									</div>
 									<div id="block-bean-uaqs-footer-links-bean-resources" class="block block-bean odd col-xs-12 col-sm-6 col-md-2 clearfix" role="complementary">
 										<h5><strong class="text-uppercase">Resources</strong></h5>
-										<ul class="menu menu-bottom"><li class="menu__item is-leaf first leaf"><a href="https://directory.arizona.edu/index" class="menu__link" @click="${(e)=>{
+										<ul class="menu menu-bottom"><li class="menu__item is-leaf first leaf"><a href="https://directory.arizona.edu/" class="menu__link" @click="${(e)=>{
                 ne(e, "az-footer");
-            }}"><i class="ua-brand-directory"></i>A-Z Index</a></li>
+            }}"><i class="ua-brand-directory"></i>Directory</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/calendars-events" title="" class="menu__link" @click="${(e)=>{
                 ne(e, "az-footer");
             }}"><i class="ua-brand-calendar"></i>Calendars</a></li>
@@ -2412,7 +2412,7 @@ found at http://polymer.github.io/PATENTS.txt
 											<li class="menu__item is-leaf leaf"><a href="https://news.arizona.edu" class="menu__link" @click="${(e)=>{
                 ne(e, "az-footer");
             }}"><i class="ua-brand-news"></i>News</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://directory.arizona.edu/phonebook" class="menu__link" @click="${(e)=>{
+											<li class="menu__item is-leaf leaf"><a href="https://phonebook.arizona.edu/" class="menu__link" @click="${(e)=>{
                 ne(e, "az-footer");
             }}"><i class="ua-brand-directory"></i>Phonebook</a></li>
 											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/weather" title="" class="menu__link" @click="${(e)=>{

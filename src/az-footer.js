@@ -1310,7 +1310,7 @@ class AzFooter  extends LitElement {
 				font-style: normal;
 				font-display: block;
 			  }
-			  
+
 			  [class^="az-icon-"]::before, [class*=" az-icon-"]::before {
 				/* use !important to prevent issues with browser extensions that change fonts */
 				font-family: 'az-icons' !important;
@@ -1320,12 +1320,12 @@ class AzFooter  extends LitElement {
 				font-variant: normal;
 				text-transform: none;
 				line-height: 1;
-			  
+
 				/* Better Font Rendering =========== */
 				-webkit-font-smoothing: antialiased;
 				-moz-osx-font-smoothing: grayscale;
 			  }
-			  
+
 			  .az-icon-arizona:before {
 				content: "\\e900";
 			  }
@@ -1476,11 +1476,11 @@ class AzFooter  extends LitElement {
 									</div>
 									<div id="block-bean-uaqs-footer-links-bean-resources" class="block block-bean odd col-xs-12 col-sm-6 col-md-2 clearfix" role="complementary">
 										<h5><strong class="text-uppercase">Resources</strong></h5>
-										<ul class="menu menu-bottom"><li class="menu__item is-leaf first leaf"><a href="https://directory.arizona.edu/index" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-directory"></i>A-Z Index</a></li>
+										<ul class="menu menu-bottom"><li class="menu__item is-leaf first leaf"><a href="https://directory.arizona.edu/" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-directory"></i>Directory</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://www.arizona.edu/calendars-events" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-calendar"></i>Calendars</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://map.arizona.edu" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-campus-map"></i>Campus Map</a></li>
 											<li class="menu__item is-leaf leaf"><a href="https://news.arizona.edu" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-news"></i>News</a></li>
-											<li class="menu__item is-leaf leaf"><a href="https://directory.arizona.edu/phonebook" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-directory"></i>Phonebook</a></li>
+											<li class="menu__item is-leaf leaf"><a href="https://phonebook.arizona.edu/" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-directory"></i>Phonebook</a></li>
 											<li class="menu__item is-leaf last leaf"><a href="https://www.arizona.edu/weather" title="" class="menu__link" @click="${(e) => {eventDataLayerPush(e, 'az-footer')}}"><i class="ua-brand-weather"></i>Weather</a></li>
 										</ul>
 									</div>
