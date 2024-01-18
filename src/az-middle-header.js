@@ -147,7 +147,7 @@ class AzLogoSelectCta  extends LitElement {
         padding-left: 23px;
         max-width: 539px;
     }
-    
+
     #block-bean-cta-apply{
         margin-top: 16px;
         padding-left: 23px;
@@ -175,7 +175,7 @@ class AzLogoSelectCta  extends LitElement {
             padding-left: 23px;
             max-width: 352px;
         }
-        
+
         #block-bean-cta-apply{
             margin-top: 16px;
             padding-left: 23px;
@@ -212,7 +212,7 @@ class AzLogoSelectCta  extends LitElement {
             padding-left: 0;
             max-width: 100%;
         }
-        
+
         #block-bean-cta-apply{
             margin-top: 0px;
             padding-left: 0;
@@ -1311,7 +1311,7 @@ class AzLogoSelectCta  extends LitElement {
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <a href="https://www.arizona.edu/" title="The University of Arizona, Tucson, Arizona | Home" class="header__logo active" rel="home" id="logo"><img src="https://www.arizona.edu/sites/default/files/www_webheader-01.svg" alt="The University of Arizona, Tucson, Arizona | Home" class="header__logo-image"></a>              
+                    <a href="https://www.arizona.edu/" title="The University of Arizona, Tucson, Arizona | Home" class="header__logo active" rel="home" id="logo"><img src="https://www.arizona.edu/sites/default/files/www_webheader-01.svg" alt="The University of Arizona, Tucson, Arizona | Home" class="header__logo-image"></a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-8">
                     <div class="row">

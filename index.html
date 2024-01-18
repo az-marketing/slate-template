@@ -8,13 +8,15 @@
 		/>
 		<title>slate-template</title>
 		<link rel="stylesheet" media="all" href="./src/styles/global.min.css">
-		<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/arizona-bootstrap/2.0.13/css/arizona-bootstrap.min.css" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.digital.arizona.edu/lib/arizona-bootstrap/latest-2.x/css/arizona-bootstrap.min.css" crossorigin="anonymous">
 	</head>
 	<body>
-		<az-redbar baseurl="https://live-az-admissions.pantheonsite.io" thisUrl="https://arizona.edu" menuId="resources"></az-redbar>
-		<az-middle-header baseurl="https://live-az-admissions.pantheonsite.io" thisUrl="https://arizona.edu" menuId="resources"></az-middle-header>
-		<az-main-menu baseurl="https://live-az-admissions.pantheonsite.io" thisUrl="https://arizona.edu" menuId="main"></az-main-menu>
+		<az-redbar baseurl="https://test-az-admissions.pantheonsite.io" thisUrl="https://arizona.edu" menuId="resources"></az-redbar>
+		<az-middle-header baseurl="https://test-az-admissions.pantheonsite.io" menuId="resources" thisUrl="https://arizona.edu"></az-middle-header>
+		<az-main-menu baseurl="https://test-az-admissions.pantheonsite.io" menuId="main" thisUrl="https://arizona.edu" ></az-main-menu>
+		<az-select-menu baseurl="https://test-az-admissions.pantheonsite.io" menuId="header----select-menu"></az-select-menu>
 		<az-footer thisUrl="https://arizona.edu"></az-footer>
+
 	</body>
 	<script defer src="./dist/header.js"></script>
 	<script defer src="./dist/az-footer.js"></script>

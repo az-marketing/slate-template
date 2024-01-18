@@ -5,15 +5,15 @@
 	"author": "Ryan Dool <ryandool@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
+		"@drupal/decoupled-menu-parser": "^1.0.0",
 		"@popperjs/core": "^2.9.2",
 		"@webcomponents/webcomponentsjs": "^2.5.0",
-		"linkset-menu": "^0.0.2",
 		"lit-element": "^2.5.1",
 		"regenerator-runtime": "^0.13.7"
 	},
 	"scripts": {
 		"develop": "parcel index.html --open",
-		"build": "parcel build src/header.js src/az-footer.js src/external-style.js --no-source-maps"
+		"build": "parcel build src/az-main-menu.js src/header.js src/az-footer.js src/external-style.js --no-source-maps"
 	},
 	"devDependencies": {
 		"parcel": "^2.0.0"
