@@ -147,14 +147,11 @@ export class MainMenu extends LitElement {
     const title = item?.link?.attributes?.title;
     const href = item?.link?.href;
     const children = item?.children;
-    const hierarchyArray = item?.link?.attributes?.["drupal-menu-hierarchy"];
+    const hierarchyArray = item?.link?.attributes?.["hierarchy"];
 
     // Safely calculate the hierarchy level
     let hierarchyLevel = 0;
-    if (hierarchyArray && hierarchyArray.length > 0) {
-      const matches = hierarchyArray[0].match(/\./g);
-      hierarchyLevel = matches ? matches.length : 0;
-    }
+    hierarchyLevel = hierarchyArray.length;
 
     // Construct the full URL if needed
     const fullHref =
