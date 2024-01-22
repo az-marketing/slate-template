@@ -1,6 +1,6 @@
 import { LitElement, html } from "lit";
 import { DelegateFocusMixin } from './mixins/delegate-focus-mixin.js';
-import azButtonStyles from './styles/az-button-css.js';
+import azButtonStyles from "./styles/az-button-css.js";
 import {eventDataLayerPush} from './mixins/shadow-events-datalayer';
 
 export class AzButton extends DelegateFocusMixin(LitElement) {

@@ -13,7 +13,7 @@
 		"regenerator-runtime": "^0.13.7"
 	},
 	"scripts": {
-		"develop": "parcel src/index.html --open",
+		"develop": "parcel index.html --open",
 		"build": "parcel build src/header.js src/az-footer.js src/external-style.js --no-source-maps"
 	},
 

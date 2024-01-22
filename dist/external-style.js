@@ -1,1 +1,0 @@
-document.addEventListener("DOMContentLoaded",()=>{let e=document.createElement("link");e.rel="stylesheet",e.href='<link href="https://cdn.digital.arizona.edu/lib/az-icons/main/az-icons-styles.css" rel="stylesheet">',document.head.appendChild(e)});
