@@ -144,7 +144,6 @@ export class MainMenu extends LitElement {
     // Safely calculate the hierarchy level
     let hierarchyLevel = 0;
     hierarchyLevel = hierarchyArray.length;
-    console.log(hierarchyLevel + " " + title);
     // Construct the full URL if needed
     const fullHref =
     	href && href.charAt(0) === "/" ? `${this.thisUrl}${href}` : href;
