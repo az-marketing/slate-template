@@ -15,24 +15,24 @@ export class AzButton extends DelegateFocusMixin(LitElement) {
       },
       target: {
         type: String,
-        reflect: true
+				reflect: true
       },
       toggle: {
         type: String,
-        reflect: true
+				reflect: true
       },
       event: {
         type: String,
-        reflect: true
+				reflect: true
       },
-      elmid: {
-        type: String,
-        reflect: true
-      },
-      value: {
-        type: String,
-        reflect: true
-      }
+			elmid: {
+				type: String,
+				reflect: true
+			},
+			value: {
+				type: String,
+				reflect: true
+			}
     };
   }
 
@@ -54,26 +54,26 @@ export class AzButton extends DelegateFocusMixin(LitElement) {
     this.requestUpdate();
   }
 
-  _handleClick(e) {
-    eventDataLayerPush(e, '');
-    if(this.event){
-      let event = new Event(this.event);
-      document.querySelector(this.target).dispatchEvent(event);
-      return
-    } else {
-      let openAzOffCanvasMenu = new Event('open-az-offcanvas-menu');
-      document.querySelector(this.target).dispatchEvent(openAzOffCanvasMenu);
-    }
-  }
-  
-  render() {  
-    return html`
-      ${this.link ? 
-        html`<a class="button" href="${this.link}" ?disabled="${this.disabled}" @click="${eventDataLayerPush}" id="${this.elmid}">${this.value}<slot></slot></a>`
-        : 
-        html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick}" id="${this.elmid}">${this.value}<slot></slot></button>`}
-    `;
-  }
+	_handleClick(e) {
+		eventDataLayerPush(e, '');
+		if(this.event){
+			let event = new Event(this.event);
+			document.querySelector(this.target).dispatchEvent(event);
+			return
+		} else {
+			let openAzOffCanvasMenu = new Event('open-az-offcanvas-menu');
+			document.querySelector(this.target).dispatchEvent(openAzOffCanvasMenu);
+		}
+	}
+	
+	render() {	
+		return html`
+			${this.link ? 
+				html`<a class="button" href="${this.link}" ?disabled="${this.disabled}" @click="${eventDataLayerPush}" id="${this.elmid}">${this.value}<slot></slot></a>`
+				: 
+				html`<button type="button" class="button" ?disabled="${this.disabled}" role="presentation" @click="${this._handleClick}" id="${this.elmid}">${this.value}<slot></slot></button>`}
+		`;
+	}
 
   firstUpdated() {
     super.firstUpdated();
