@@ -4,17 +4,19 @@
 	"repository": "git@github.com:az-marketing/slate-template.git",
 	"author": "Ryan Dool <ryandool@gmail.com>",
 	"license": "MIT",
+	"type": "module",
 	"dependencies": {
 		"@drupal/decoupled-menu-parser": "^1.0.0",
 		"@popperjs/core": "^2.9.2",
 		"@webcomponents/webcomponentsjs": "^2.5.0",
-		"lit-element": "^2.5.1",
+		"lit": "^3.1.1",
 		"regenerator-runtime": "^0.13.7"
 	},
 	"scripts": {
-		"develop": "parcel index.html --open",
+		"develop": "parcel src/index.html --open",
 		"build": "parcel build src/header.js src/az-footer.js src/external-style.js --no-source-maps"
 	},
+
 	"devDependencies": {
 		"parcel": "^2.0.0"
 	},

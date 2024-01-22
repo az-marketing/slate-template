@@ -1,8 +1,7 @@
-import { css, html, LitElement } from 'lit-element';
+import { LitElement, html, css } from "lit";
 import { eventDataLayerPush } from './mixins/shadow-events-datalayer';
 class AzFooter  extends LitElement {
-	static get styles() {
-		return css`
+  static styles = css`
 			* {
 				box-sizing: border-box;
 			}
@@ -1386,8 +1385,7 @@ class AzFooter  extends LitElement {
 			  .az-icon-vimeo:before {
 				content: "\\e913";
 			  }
-		`;
-	}
+	`;
 
 	render() {
 		return html`

@@ -1,48 +1,47 @@
 import { denormalize } from '@drupal/decoupled-menu-parser';
-import { css, html, LitElement } from 'lit-element';
+import { LitElement, html, css } from "lit";
 import 'regenerator-runtime/runtime';
 import { eventDataLayerPush } from './mixins/shadow-events-datalayer';
 
 export class MainMenu extends LitElement {
 
-  static get properties() {
-    return {
-        thisUrl: { type: String},
-        data: {attribute: false},
-        /**
-         * Base URL of menu endpoint
-         */
-        baseUrl: { type: String },
+	static properties = {
+		thisUrl: { type: String},
+		data: {attribute: false},
+		/**
+		 * Base URL of menu endpoint
+		 */
+		baseUrl: { type: String },
 
-        /**
-         * Machine name of menu
-         */
-        menuId: { type: String },
+		/**
+		 * Machine name of menu
+		 */
+		menuId: { type: String },
 
-        /**
-         * Branding heading for the menu
-         */
-        branding: { type: String },
+		/**
+		 * Branding heading for the menu
+		 */
+		branding: { type: String },
 
-        /**
-         * An array of objects containing data for the menu tree
-         */
-        tree: { type: Array },
+		/**
+		 * An array of objects containing data for the menu tree
+		 */
+		tree: { type: Array },
 
-        /**
-         * Loading state
-         */
-        isLoading: {
-        type: Boolean,
-        attribute: false,
-        },
+		/**
+		 * Loading state
+		 */
+		isLoading: {
+		type: Boolean,
+		attribute: false,
+		},
 
-        /**
-         * Loading message
-         */
-        loadingMessage: { type: String },
-    };
-  }
+		/**
+		 * Loading message
+		 */
+		loadingMessage: { type: String },
+	};
+
   static menuLevelTemplate(levels) {
 
     return html`
@@ -177,8 +176,7 @@ export class MainMenu extends LitElement {
     }
   }
 
-  static get styles() {
-    return css`
+  static styles = css`
    :root {
        --blue: #0c234b;
        --red: #ab0520;
@@ -1644,8 +1642,7 @@ export class MainMenu extends LitElement {
            width: auto;
        }
    }
-       `;
-  }
+  `;
 
   async firstUpdated() {
     // Give the browser a chance to paint
