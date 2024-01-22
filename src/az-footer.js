@@ -1,4 +1,4 @@
-import { css, html, LitElement, firstUpdated } from 'lit-element';
+import { css, html, LitElement } from 'lit-element';
 import { eventDataLayerPush } from './mixins/shadow-events-datalayer';
 class AzFooter  extends LitElement {
 	static get styles() {
