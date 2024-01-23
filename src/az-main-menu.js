@@ -1,12 +1,10 @@
-import { denormalize } from 'linkset-menu';
-import { css, html, LitElement } from 'lit-element';
+import { denormalize } from '@drupal/decoupled-menu-parser';
+import { LitElement, html, css } from "lit";
 import 'regenerator-runtime/runtime';
 import { eventDataLayerPush } from './mixins/shadow-events-datalayer';
 
 export class MainMenu extends LitElement {
-
-  static get properties() {
-    return {
+	static properties = {
         thisUrl: { type: String},
         data: {attribute: false},
         /**
@@ -42,20 +40,16 @@ export class MainMenu extends LitElement {
          */
         loadingMessage: { type: String },
     };
-  }
+
   static menuLevelTemplate(levels) {
-
-    return html`
-      ${levels}
-
-    `;
+		return html` ${levels} `;
   }
   fetchData(baseURL, menuID) {
     this.isLoading = true;
     const url = `${baseURL}/system/menu/${menuID}/linkset`;
 
     fetch(url, {})
-      .then(response => {
+			.then((response) => {
         if (response.ok) {
           return response.json();
         }
@@ -64,19 +58,22 @@ export class MainMenu extends LitElement {
           `Unable to fetch ${url}. ${response.status} ${response.statusText}`
         );
       })
-      .then(json => {
+			.then((json) => {
         try {
           const denormalized = denormalize(json, menuID);
           this.tree = denormalized.tree;
         } catch (e) {
-          throw new Error('Unable to denormalize menu.');
+					throw new Error("Unable to denormalize menu.");
         }
         this.isLoading = false;
       });
   }
 
   menuParentTemplate(title, children) {
-    return html`<li part="menu-item" class="nav-item menu-item--expanded dropdown nav-item nav-item-parent keep-open">
+		return html`<li
+			part="menu-item"
+			class="nav-item menu-item--expanded dropdown nav-item nav-item-parent keep-open"
+		>
       <button
         @click="${MainMenu.openMenu}"
         role="button"
@@ -87,49 +84,58 @@ export class MainMenu extends LitElement {
       >
         ${title}
       </button>
-      <div class="dropdown-menu">
-
-      ${this.renderAzMenuLevel(children)}
-        </div>
+			<div class="dropdown-menu">${this.renderAzMenuLevel(children)}</div>
     </li>`;
   }
 
   static openMenu(e) {
     e.preventDefault();
     const { target } = e;
-    let cur = document.querySelector('az-main-menu').shadowRoot.querySelector('.nav-item.show button');
-    const isExpanded = target.getAttribute('aria-expanded') === 'true';
+		let cur = document
+			.querySelector("az-main-menu")
+			.shadowRoot.querySelector(".nav-item.show button");
+		const isExpanded = target.getAttribute("aria-expanded") === "true";
 
     if (isExpanded) {
-      target.parentElement.classList.remove('show');
-      target.setAttribute('aria-expanded', 'false');
-      target.nextElementSibling.classList.remove('show');
+			target.parentElement.classList.remove("show");
+			target.setAttribute("aria-expanded", "false");
+			target.nextElementSibling.classList.remove("show");
     } else {
         if(cur){
-            cur.parentElement.classList.remove('show');
-            cur.setAttribute('aria-expanded', 'false');
-            cur.nextElementSibling.classList.remove('show');
+				cur.parentElement.classList.remove("show");
+				cur.setAttribute("aria-expanded", "false");
+				cur.nextElementSibling.classList.remove("show");
         }
-        target.parentElement.classList.add('show');
-        target.setAttribute('aria-expanded', 'true');
-        target.nextElementSibling.classList.add('show');
+			target.parentElement.classList.add("show");
+			target.setAttribute("aria-expanded", "true");
+			target.nextElementSibling.classList.add("show");
     }
   }
 
   renderAzMenuLevel(level) {
-    const levels = level.map(item => this.renderAzMenuItem(item));
+		const levels = level.map((item) => this.renderAzMenuItem(item));
 
     return MainMenu.menuLevelTemplate(levels);
   }
   static azMenuTopLevelLinkTemplate(title, href) {
-		href = href.charAt(0) === '/' ? this.thisUrl + href : href;
+		href = href.charAt(0) === "/" ? this.thisUrl + href : href;
 
-    return html`<li part="menu-item" class="nav-item"><a href=${href} class="nav-link">${title}</a></li>`;
+		return html`<li part="menu-item" class="nav-item">
+			<a href=${href} class="nav-link">${title}</a>
+		</li>`;
   }
 
   static menuLinkTemplate(title, href) {
-		href = href.charAt(0) === '/' ? this.thisUrl + href : href;
-    return html`<a part="menu-item" class="dropdown-item" href=${href} @click="${(e) => {eventDataLayerPush(e, 'az-main-menu')}}">${title}</a>`;
+		href = href.charAt(0) === "/" ? this.thisUrl + href : href;
+		return html`<a
+			part="menu-item"
+			class="dropdown-item"
+			href=${href}
+			@click="${(e) => {
+				eventDataLayerPush(e, "az-main-menu");
+			}}"
+			>${title}</a
+		>`;
   }
 
   static menuItemTemplate(title) {
@@ -140,30 +146,32 @@ export class MainMenu extends LitElement {
     const title = item?.link?.attributes?.title;
     let href = item?.link?.href;
     const children = item?.children;
-    let hierarchy = item?.link?.attributes?.['drupal-menu-hierarchy'];
-        hierarchy = hierarchy[0].match(/\./g).length;
-
-		href = item?.link?.href.charAt(0) === '/' ? this.thisUrl + item?.link?.href : item?.link?.href;
-
+    const hierarchyArray = item?.link?.attributes?.["hierarchy"];
+    // Safely calculate the hierarchy level
+    let hierarchyLevel = 0;
+    hierarchyLevel = hierarchyArray.length;
+    // Construct the full URL if needed
+    const fullHref =
+    	href && href.charAt(0) === "/" ? `${this.thisUrl}${href}` : href;
+    	// Logic to determine the type of menu item to render
     if (children && children.length) {
       return this.menuParentTemplate(title, children);
     }
-    if (children && children.length === 0 && href && hierarchy && hierarchy === 1) {
-        return MainMenu.azMenuTopLevelLinkTemplate(title, href);
+    if (children && children.length === 0 && fullHref && hierarchyLevel === 1) {
+      return MainMenu.azMenuTopLevelLinkTemplate(title, fullHref);
     }
-    if (href) {
-      return MainMenu.menuLinkTemplate(title, href);
+    if (fullHref) {
+      return MainMenu.menuLinkTemplate(title, fullHref);
     }
     return MainMenu.menuItemTemplate(title);
   }
-
 
   constructor() {
     super();
 
     this.tree = [];
     this.isLoading = false;
-    this.loadingMessage = 'Loading...';
+		this.loadingMessage = "Loading...";
   }
 
   connectedCallback() {
@@ -174,8 +182,7 @@ export class MainMenu extends LitElement {
     }
   }
 
-  static get styles() {
-    return css`
+	static styles = css`
    :root {
        --blue: #0c234b;
        --red: #ab0520;
@@ -206,8 +213,12 @@ export class MainMenu extends LitElement {
        --breakpoint-md: 768px;
        --breakpoint-lg: 992px;
        --breakpoint-xl: 1200px;
-       --font-family-sans-serif: proxima-nova, calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-       --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+			--font-family-sans-serif: proxima-nova, calibri, -apple-system,
+				BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+				"Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+				"Segoe UI Symbol", "Noto Color Emoji";
+			--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+				"Liberation Mono", "Courier New", monospace;
    }
    *,
    ::after,
@@ -222,7 +233,10 @@ export class MainMenu extends LitElement {
    }
    :host {
        margin: 0;
-       font-family: proxima-nova, calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+			font-family: proxima-nova, calibri, -apple-system, BlinkMacSystemFont,
+				"Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+				"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+				"Noto Color Emoji";
        font-size: 1rem;
        font-weight: 400;
        line-height: 1.5;
@@ -470,16 +484,14 @@ export class MainMenu extends LitElement {
        }
    }
    .dropdown-item:active {
-        background-color: rgba(255,255,255,.15);
+			background-color: rgba(255, 255, 255, 0.15);
         color: white;
     }
     .nav-item-parent button[aria-expanded="true"] {
-        background-color: rgba(255,255,255,.15);
-
+			background-color: rgba(255, 255, 255, 0.15);
     }
     .navbar-offcanvas .nav-item .nav-link:focus {
-        background-color: rgba(255,255,255,.15);
-
+			background-color: rgba(255, 255, 255, 0.15);
     }
 
    .form-control::-ms-expand {
@@ -571,7 +583,8 @@ export class MainMenu extends LitElement {
        font-size: 1rem;
        line-height: 1.5;
        border-radius: 0;
-       transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+			transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+				border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
    }
    @media (prefers-reduced-motion: reduce) {
        .btn {
@@ -922,7 +935,8 @@ export class MainMenu extends LitElement {
        text-align: center;
        white-space: nowrap;
        vertical-align: baseline;
-       transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+			transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+				border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
    }
    @media (prefers-reduced-motion: reduce) {
        .label {
@@ -1240,7 +1254,10 @@ export class MainMenu extends LitElement {
    .text-size-h2,
    h1,
    h2 {
-       font-family: proxima-nova, calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+			font-family: proxima-nova, calibri, -apple-system, BlinkMacSystemFont,
+				"Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+				"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+				"Noto Color Emoji";
        color: #49595e;
        font-display: block;
    }
@@ -1296,7 +1313,10 @@ export class MainMenu extends LitElement {
    h5,
    h6 {
        margin: 1.042em 0 0.667em;
-       font-family: proxima-nova, calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+			font-family: proxima-nova, calibri, -apple-system, BlinkMacSystemFont,
+				"Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+				"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+				"Noto Color Emoji";
        color: #49595e;
        font-display: block;
    }
@@ -1431,7 +1451,11 @@ export class MainMenu extends LitElement {
        height: 60px;
        padding-left: 20px;
    }
-   .navbar-offcanvas .navbar-offcanvas-search .input-group .input-group-append > button.btn-search {
+		.navbar-offcanvas
+			.navbar-offcanvas-search
+			.input-group
+			.input-group-append
+			> button.btn-search {
        height: 60px;
        width: 60px;
        font-size: 24px;
@@ -1447,7 +1471,6 @@ export class MainMenu extends LitElement {
    }
    .navbar-offcanvas ul.navbar-nav li.nav-item a.nav-link,
    .navbar-offcanvas .nav-item-parent .nav-link {
-
    }
    .navbar-offcanvas .nav-item .nav-link {
        padding: 12px 20px;
@@ -1488,7 +1511,7 @@ export class MainMenu extends LitElement {
         background-position: center;
     }
     .navbar-offcanvas .nav-item.show .dropdown-toggle::after {
-        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iI0ZGRkZGRiI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTE5IDEzSDV2LTJoMTR2MnoiLz48L3N2Zz4=');
+			background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgZmlsbD0iI0ZGRkZGRiI+PHBhdGggZD0iTTAgMGgyNHYyNEgwVjB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTE5IDEzSDV2LTJoMTR2MnoiLz48L3N2Zz4=");
     }
    .container .navbar-offcanvas.open {
        -webkit-transform: translateX(0);
@@ -1549,7 +1572,7 @@ export class MainMenu extends LitElement {
            width: initial;
            height: initial;
            transition: initial;
-           border-top: 1px solid #e9ecef
+				border-top: 1px solid #e9ecef;
        }
        .navbar .navbar-offcanvas .container,
        .navbar .navbar-offcanvas .container-lg,
@@ -1642,50 +1665,137 @@ export class MainMenu extends LitElement {
        }
    }
        `;
-  }
 
   async firstUpdated() {
     // Give the browser a chance to paint
     await new Promise((r) => setTimeout(r, 0));
-    this.addEventListener('open-az-offcanvas-menu', this.handleOpen);
+		this.addEventListener("open-az-offcanvas-menu", this.handleOpen);
 
     await new Promise((r) => setTimeout(r, 0));
-    this.addEventListener('close-az-offcanvas-menu', this.handleClose);
+		this.addEventListener("close-az-offcanvas-menu", this.handleClose);
   }
   handleClose = (event) => {
-      this.setAttribute('state', 'closed');
+		this.setAttribute("state", "closed");
       document.body.style.overflowY = "initial";
-  }
+	};
   handleOpen = (event) => {
-    this.setAttribute('state', 'open');
+		this.setAttribute("state", "open");
     document.body.style.overflowY = "hidden";
-  }
-
+	};
 
   render() {
     return html`
             <div class="container">
                 <nav class="navbar-offcanvas offcanvas-toggle" id="navbarOffcanvasDemo">
                     <div class="navbar-offcanvas-header">
-                        <div class="bg-chili d-flex justify-content-between align-items-center">
-                            <az-button theme="primary" redbar link="https://www.arizona.edu" aria-expanded="false" aria-haspopup="true" target="az-main-menu" aria-controls="navbarOffcanvasDemo">
-                                <svg class="icon" title="home" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/></svg>
+						<div
+							class="bg-chili d-flex justify-content-between align-items-center"
+						>
+							<az-button
+								theme="primary"
+								redbar
+								link="https://www.arizona.edu"
+								aria-expanded="false"
+								aria-haspopup="true"
+								target="az-main-menu"
+								aria-controls="navbarOffcanvasDemo"
+							>
+								<svg
+									class="icon"
+									title="home"
+									xmlns="http://www.w3.org/2000/svg"
+									height="24px"
+									viewBox="0 0 24 24"
+									width="24px"
+									fill="#FFFFFF"
+								>
+									<path d="M0 0h24v24H0V0z" fill="none" />
+									<path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z" />
+								</svg>
                                 <span class="icon-text"> home </span>
                             </az-button>
-                            <az-button theme="primary" redbar role="button" aria-expanded="false" aria-haspopup="true" target="az-main-menu" aria-controls="navbarOffcanvasDemo" event="close-az-offcanvas-menu">
-                                <svg class="icon" title="close" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+							<az-button
+								theme="primary"
+								redbar
+								role="button"
+								aria-expanded="false"
+								aria-haspopup="true"
+								target="az-main-menu"
+								aria-controls="navbarOffcanvasDemo"
+								event="close-az-offcanvas-menu"
+							>
+								<svg
+									class="icon"
+									title="close"
+									xmlns="http://www.w3.org/2000/svg"
+									height="24px"
+									viewBox="0 0 24 24"
+									width="24px"
+									fill="#FFFFFF"
+								>
+									<path d="M0 0h24v24H0V0z" fill="none" />
+									<path
+										d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+									/>
+								</svg>
                                 <span class="icon-text"> close </span>
                             </az-button>
                         </div>
                         <section class="region region-navigation-offcanvas">
-                            <div class="search-block-form bg-white navbar-offcanvas-search" data-drupal-selector="search-block-form-2" id="block-az-barrio-offcanvas-searchform" role="search">
-                                <form action="${this.thisUrl}/search/google" method="GET" id="search-block-form" accept-charset="UTF-8" class="search-form search-block-form">
+							<div
+								class="search-block-form bg-white navbar-offcanvas-search"
+								data-drupal-selector="search-block-form-2"
+								id="block-az-barrio-offcanvas-searchform"
+								role="search"
+							>
+								<form
+									action="${this.thisUrl}/search/google"
+									method="GET"
+									id="search-block-form"
+									accept-charset="UTF-8"
+									class="search-form search-block-form"
+								>
                                     <div class="input-group">
                                         <label for="edit-keys--2" class="sr-only">Search</label>
-                                        <input title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" type="search" id="edit-keys--2" name="keys" value="" size="15" maxlength="128" class="form-search form-control" placeholder="Search this site" aria-label="Search this site">
-                                        <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper input-group-append" id="edit-actions--2">
-                                            <button data-drupal-selector="edit-submit" type="submit" id="edit-submit--2" value="Search" class="button js-form-submit form-submit btn">
-                                            <svg id="search-icon-menu" title="search" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#212529"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+										<input
+											title="Enter the terms you wish to search for."
+											data-drupal-selector="edit-keys"
+											type="search"
+											id="edit-keys--2"
+											name="keys"
+											value=""
+											size="15"
+											maxlength="128"
+											class="form-search form-control"
+											placeholder="Search this site"
+											aria-label="Search this site"
+										/>
+										<div
+											data-drupal-selector="edit-actions"
+											class="form-actions js-form-wrapper input-group-append"
+											id="edit-actions--2"
+										>
+											<button
+												data-drupal-selector="edit-submit"
+												type="submit"
+												id="edit-submit--2"
+												value="Search"
+												class="button js-form-submit form-submit btn"
+											>
+												<svg
+													id="search-icon-menu"
+													title="search"
+													xmlns="http://www.w3.org/2000/svg"
+													height="24px"
+													viewBox="0 0 24 24"
+													width="24px"
+													fill="#212529"
+												>
+													<path d="M0 0h24v24H0V0z" fill="none" />
+													<path
+														d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+													/>
+												</svg>
                                             </button>
                                         </div>
                                     </div>
@@ -1694,12 +1804,36 @@ export class MainMenu extends LitElement {
                         </section>
                     </div>
                     <section class="region region-navigation">
-                        <nav role="navigation" aria-labelledby="block-az-barrio-main-menu-menu" id="block-az-barrio-main-menu" class="block block-menu navigation menu--main">
-                            <h2 class="sr-only" id="block-az-barrio-main-menu-menu" slot name="brand">${this.branding}</h2>
-                            <ul block="block-az-barrio-main-menu" class="clearfix navbar-nav flex-lg-row">
+						<nav
+							role="navigation"
+							aria-labelledby="block-az-barrio-main-menu-menu"
+							id="block-az-barrio-main-menu"
+							class="block block-menu navigation menu--main"
+						>
+							<h2
+								class="sr-only"
+								id="block-az-barrio-main-menu-menu"
+								slot
+								name="brand"
+							>
+								${this.branding}
+							</h2>
+							<ul
+								block="block-az-barrio-main-menu"
+								class="clearfix navbar-nav flex-lg-row"
+							>
                                 ${this.isLoading
-                                    ? html`<li part="menu-item" class="nav-item menu-item--expanded dropdown nav-item nav-item-parent keep-open">
-                                    <button role="button" aria-expanded="false" aria-haspopup="true" href="#" class="nav-item menu-item--expanded dropdown nav-item nav-item-parent keep-open nav-link dropdown-toggle">
+									? html`<li
+											part="menu-item"
+											class="nav-item menu-item--expanded dropdown nav-item nav-item-parent keep-open"
+									  >
+											<button
+												role="button"
+												aria-expanded="false"
+												aria-haspopup="true"
+												href="#"
+												class="nav-item menu-item--expanded dropdown nav-item nav-item-parent keep-open nav-link dropdown-toggle"
+											>
                                         <slot name="loading">${this.loadingMessage}</slot>
                                     </button>
                                   </li>`
@@ -1711,6 +1845,5 @@ export class MainMenu extends LitElement {
             </div>
       `;
   }
-
 }
 customElements.get('az-main-menu') || customElements.define('az-main-menu', MainMenu);

@@ -1,21 +1,589 @@
-(()=>{function e(e,t,i,o){Object.defineProperty(e,t,{get:i,set:o,enumerable:!0,configurable:!0})}var t=globalThis,i={},o={},r=t.parcelRequirefbca;null==r&&((r=function(e){if(e in i)return i[e].exports;if(e in o){var t=o[e];delete o[e];var r={id:e,exports:{}};return i[e]=r,t.call(r.exports,r,r.exports),r.exports}var a=Error("Cannot find module '"+e+"'");throw a.code="MODULE_NOT_FOUND",a}).register=function(e,t){o[e]=t},t.parcelRequirefbca=r);var a=r.register;a("fYgrz",function(t,i){e(t.exports,"css",()=>r("iSKEb").css),e(t.exports,"html",()=>r("19cNw").html),e(t.exports,"LitElement",()=>r("h3wye").LitElement),r("aA4Rn"),r("19cNw"),r("h3wye"),r("bWWHI")}),a("aA4Rn",function(t,i){e(t.exports,"ReactiveElement",()=>_),e(t.exports,"css",()=>r("iSKEb").css);var o=r("iSKEb");/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */let{is:a,defineProperty:s,getOwnPropertyDescriptor:l,getOwnPropertyNames:n,getOwnPropertySymbols:f,getPrototypeOf:c}=Object,m=globalThis,d=m.trustedTypes,h=d?d.emptyScript:"",p=m.reactiveElementPolyfillSupport,u=(e,t)=>e,g={toAttribute(e,t){switch(t){case Boolean:e=e?h:null;break;case Object:case Array:e=null==e?e:JSON.stringify(e)}return e},fromAttribute(e,t){let i=e;switch(t){case Boolean:i=null!==e;break;case Number:i=null===e?null:Number(e);break;case Object:case Array:try{i=JSON.parse(e)}catch(e){i=null}}return i}},b=(e,t)=>!a(e,t),x={attribute:!0,type:String,converter:g,reflect:!1,hasChanged:b};Symbol.metadata??=Symbol("metadata"),m.litPropertyMetadata??=new WeakMap;class _ extends HTMLElement{static addInitializer(e){this._$Ei(),(this.l??=[]).push(e)}static get observedAttributes(){return this.finalize(),this._$Eh&&[...this._$Eh.keys()]}static createProperty(e,t=x){if(t.state&&(t.attribute=!1),this._$Ei(),this.elementProperties.set(e,t),!t.noAccessor){let i=Symbol(),o=this.getPropertyDescriptor(e,i,t);void 0!==o&&s(this.prototype,e,o)}}static getPropertyDescriptor(e,t,i){let{get:o,set:r}=l(this.prototype,e)??{get(){return this[t]},set(e){this[t]=e}};return{get(){return o?.call(this)},set(t){let a=o?.call(this);r.call(this,t),this.requestUpdate(e,a,i)},configurable:!0,enumerable:!0}}static getPropertyOptions(e){return this.elementProperties.get(e)??x}static _$Ei(){if(this.hasOwnProperty(u("elementProperties")))return;let e=c(this);e.finalize(),void 0!==e.l&&(this.l=[...e.l]),this.elementProperties=new Map(e.elementProperties)}static finalize(){if(this.hasOwnProperty(u("finalized")))return;if(this.finalized=!0,this._$Ei(),this.hasOwnProperty(u("properties"))){let e=this.properties;for(let t of[...n(e),...f(e)])this.createProperty(t,e[t])}let e=this[Symbol.metadata];if(null!==e){let t=litPropertyMetadata.get(e);if(void 0!==t)for(let[e,i]of t)this.elementProperties.set(e,i)}for(let[e,t]of(this._$Eh=new Map,this.elementProperties)){let i=this._$Eu(e,t);void 0!==i&&this._$Eh.set(i,e)}this.elementStyles=this.finalizeStyles(this.styles)}static finalizeStyles(e){let t=[];if(Array.isArray(e))for(let i of new Set(e.flat(1/0).reverse()))t.unshift((0,o.getCompatibleStyle)(i));else void 0!==e&&t.push((0,o.getCompatibleStyle)(e));return t}static _$Eu(e,t){let i=t.attribute;return!1===i?void 0:"string"==typeof i?i:"string"==typeof e?e.toLowerCase():void 0}constructor(){super(),this._$Ep=void 0,this.isUpdatePending=!1,this.hasUpdated=!1,this._$Em=null,this._$Ev()}_$Ev(){this._$Eg=new Promise(e=>this.enableUpdating=e),this._$AL=new Map,this._$ES(),this.requestUpdate(),this.constructor.l?.forEach(e=>e(this))}addController(e){(this._$E_??=new Set).add(e),void 0!==this.renderRoot&&this.isConnected&&e.hostConnected?.()}removeController(e){this._$E_?.delete(e)}_$ES(){let e=new Map;for(let t of this.constructor.elementProperties.keys())this.hasOwnProperty(t)&&(e.set(t,this[t]),delete this[t]);e.size>0&&(this._$Ep=e)}createRenderRoot(){let e=this.shadowRoot??this.attachShadow(this.constructor.shadowRootOptions);return(0,o.adoptStyles)(e,this.constructor.elementStyles),e}connectedCallback(){this.renderRoot??=this.createRenderRoot(),this.enableUpdating(!0),this._$E_?.forEach(e=>e.hostConnected?.())}enableUpdating(e){}disconnectedCallback(){this._$E_?.forEach(e=>e.hostDisconnected?.())}attributeChangedCallback(e,t,i){this._$AK(e,i)}_$EO(e,t){let i=this.constructor.elementProperties.get(e),o=this.constructor._$Eu(e,i);if(void 0!==o&&!0===i.reflect){let r=(void 0!==i.converter?.toAttribute?i.converter:g).toAttribute(t,i.type);this._$Em=e,null==r?this.removeAttribute(o):this.setAttribute(o,r),this._$Em=null}}_$AK(e,t){let i=this.constructor,o=i._$Eh.get(e);if(void 0!==o&&this._$Em!==o){let e=i.getPropertyOptions(o),r="function"==typeof e.converter?{fromAttribute:e.converter}:void 0!==e.converter?.fromAttribute?e.converter:g;this._$Em=o,this[o]=r.fromAttribute(t,e.type),this._$Em=null}}requestUpdate(e,t,i){if(void 0!==e){if(!((i??=this.constructor.getPropertyOptions(e)).hasChanged??b)(this[e],t))return;this.C(e,t,i)}!1===this.isUpdatePending&&(this._$Eg=this._$EP())}C(e,t,i){this._$AL.has(e)||this._$AL.set(e,t),!0===i.reflect&&this._$Em!==e&&(this._$ET??=new Set).add(e)}async _$EP(){this.isUpdatePending=!0;try{await this._$Eg}catch(e){Promise.reject(e)}let e=this.scheduleUpdate();return null!=e&&await e,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){if(!this.isUpdatePending)return;if(!this.hasUpdated){if(this.renderRoot??=this.createRenderRoot(),this._$Ep){for(let[e,t]of this._$Ep)this[e]=t;this._$Ep=void 0}let e=this.constructor.elementProperties;if(e.size>0)for(let[t,i]of e)!0!==i.wrapped||this._$AL.has(t)||void 0===this[t]||this.C(t,this[t],i)}let e=!1,t=this._$AL;try{(e=this.shouldUpdate(t))?(this.willUpdate(t),this._$E_?.forEach(e=>e.hostUpdate?.()),this.update(t)):this._$Ej()}catch(t){throw e=!1,this._$Ej(),t}e&&this._$AE(t)}willUpdate(e){}_$AE(e){this._$E_?.forEach(e=>e.hostUpdated?.()),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(e)),this.updated(e)}_$Ej(){this._$AL=new Map,this.isUpdatePending=!1}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$Eg}shouldUpdate(e){return!0}update(e){this._$ET&&=this._$ET.forEach(e=>this._$EO(e,this[e])),this._$Ej()}updated(e){}firstUpdated(e){}}_.elementStyles=[],_.shadowRootOptions={mode:"open"},_[u("elementProperties")]=new Map,_[u("finalized")]=new Map,p?.({ReactiveElement:_}),(m.reactiveElementVersions??=[]).push("2.0.3")}),a("iSKEb",function(t,i){e(t.exports,"css",()=>f),e(t.exports,"adoptStyles",()=>c),e(t.exports,"getCompatibleStyle",()=>m);/**
- * @license
- * Copyright 2019 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */let o=globalThis,r=o.ShadowRoot&&(void 0===o.ShadyCSS||o.ShadyCSS.nativeShadow)&&"adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,a=Symbol(),s=new WeakMap;class l{constructor(e,t,i){if(this._$cssResult$=!0,i!==a)throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e,this.t=t}get styleSheet(){let e=this.o,t=this.t;if(r&&void 0===e){let i=void 0!==t&&1===t.length;i&&(e=s.get(t)),void 0===e&&((this.o=e=new CSSStyleSheet).replaceSync(this.cssText),i&&s.set(t,e))}return e}toString(){return this.cssText}}let n=e=>new l("string"==typeof e?e:e+"",void 0,a),f=(e,...t)=>new l(1===e.length?e[0]:t.reduce((t,i,o)=>t+(e=>{if(!0===e._$cssResult$)return e.cssText;if("number"==typeof e)return e;throw Error("Value passed to 'css' function must be a 'css' function result: "+e+". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.")})(i)+e[o+1],e[0]),e,a),c=(e,t)=>{if(r)e.adoptedStyleSheets=t.map(e=>e instanceof CSSStyleSheet?e:e.styleSheet);else for(let i of t){let t=document.createElement("style"),r=o.litNonce;void 0!==r&&t.setAttribute("nonce",r),t.textContent=i.cssText,e.appendChild(t)}},m=r?e=>e:e=>e instanceof CSSStyleSheet?(e=>{let t="";for(let i of e.cssRules)t+=i.cssText;return n(t)})(e):e}),a("19cNw",function(t,i){e(t.exports,"html",()=>$),e(t.exports,"noChange",()=>z),e(t.exports,"render",()=>q);/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */let o=globalThis,r=o.trustedTypes,a=r?r.createPolicy("lit-html",{createHTML:e=>e}):void 0,s="$lit$",l=`lit$${(Math.random()+"").slice(9)}$`,n="?"+l,f=`<${n}>`,c=document,m=()=>c.createComment(""),d=e=>null===e||"object"!=typeof e&&"function"!=typeof e,h=Array.isArray,p=e=>h(e)||"function"==typeof e?.[Symbol.iterator],u="[ 	\n\f\r]",g=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,b=/-->/g,x=/>/g,_=RegExp(`>|${u}(?:([^\\s"'>=/]+)(${u}*=${u}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`,"g"),w=/'/g,v=/"/g,y=/^(?:script|style|textarea|title)$/i,k=e=>(t,...i)=>({_$litType$:e,strings:t,values:i}),$=k(1),z=(k(2),Symbol.for("lit-noChange")),A=Symbol.for("lit-nothing"),E=new WeakMap,P=c.createTreeWalker(c,129);function S(e,t){if(!Array.isArray(e)||!e.hasOwnProperty("raw"))throw Error("invalid template strings array");return void 0!==a?a.createHTML(t):t}let C=(e,t)=>{let i=e.length-1,o=[],r,a=2===t?"<svg>":"",n=g;for(let t=0;t<i;t++){let i=e[t],c,m,d=-1,h=0;for(;h<i.length&&(n.lastIndex=h,null!==(m=n.exec(i)));)h=n.lastIndex,n===g?"!--"===m[1]?n=b:void 0!==m[1]?n=x:void 0!==m[2]?(y.test(m[2])&&(r=RegExp("</"+m[2],"g")),n=_):void 0!==m[3]&&(n=_):n===_?">"===m[0]?(n=r??g,d=-1):void 0===m[1]?d=-2:(d=n.lastIndex-m[2].length,c=m[1],n=void 0===m[3]?_:'"'===m[3]?v:w):n===v||n===w?n=_:n===b||n===x?n=g:(n=_,r=void 0);let p=n===_&&e[t+1].startsWith("/>")?" ":"";a+=n===g?i+f:d>=0?(o.push(c),i.slice(0,d)+s+i.slice(d)+l+p):i+l+(-2===d?t:p)}return[S(e,a+(e[i]||"<?>")+(2===t?"</svg>":"")),o]};class L{constructor({strings:e,_$litType$:t},i){let o;this.parts=[];let a=0,f=0,c=e.length-1,d=this.parts,[h,p]=C(e,t);if(this.el=L.createElement(h,i),P.currentNode=this.el.content,2===t){let e=this.el.content.firstChild;e.replaceWith(...e.childNodes)}for(;null!==(o=P.nextNode())&&d.length<c;){if(1===o.nodeType){if(o.hasAttributes())for(let e of o.getAttributeNames())if(e.endsWith(s)){let t=p[f++],i=o.getAttribute(e).split(l),r=/([.?@])?(.*)/.exec(t);d.push({type:1,index:a,name:r[2],strings:i,ctor:"."===r[1]?R:"?"===r[1]?H:"@"===r[1]?O:N}),o.removeAttribute(e)}else e.startsWith(l)&&(d.push({type:6,index:a}),o.removeAttribute(e));if(y.test(o.tagName)){let e=o.textContent.split(l),t=e.length-1;if(t>0){o.textContent=r?r.emptyScript:"";for(let i=0;i<t;i++)o.append(e[i],m()),P.nextNode(),d.push({type:2,index:++a});o.append(e[t],m())}}}else if(8===o.nodeType){if(o.data===n)d.push({type:2,index:a});else{let e=-1;for(;-1!==(e=o.data.indexOf(l,e+1));)d.push({type:7,index:a}),e+=l.length-1}}a++}}static createElement(e,t){let i=c.createElement("template");return i.innerHTML=e,i}}function D(e,t,i=e,o){if(t===z)return t;let r=void 0!==o?i._$Co?.[o]:i._$Cl,a=d(t)?void 0:t._$litDirective$;return r?.constructor!==a&&(r?._$AO?.(!1),void 0===a?r=void 0:(r=new a(e))._$AT(e,i,o),void 0!==o?(i._$Co??=[])[o]=r:i._$Cl=r),void 0!==r&&(t=D(e,r._$AS(e,t.values),r,o)),t}class U{constructor(e,t){this._$AV=[],this._$AN=void 0,this._$AD=e,this._$AM=t}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(e){let{el:{content:t},parts:i}=this._$AD,o=(e?.creationScope??c).importNode(t,!0);P.currentNode=o;let r=P.nextNode(),a=0,s=0,l=i[0];for(;void 0!==l;){if(a===l.index){let t;2===l.type?t=new T(r,r.nextSibling,this,e):1===l.type?t=new l.ctor(r,l.name,l.strings,this,e):6===l.type&&(t=new M(r,this,e)),this._$AV.push(t),l=i[++s]}a!==l?.index&&(r=P.nextNode(),a++)}return P.currentNode=c,o}p(e){let t=0;for(let i of this._$AV)void 0!==i&&(void 0!==i.strings?(i._$AI(e,i,t),t+=i.strings.length-2):i._$AI(e[t])),t++}}class T{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(e,t,i,o){this.type=2,this._$AH=A,this._$AN=void 0,this._$AA=e,this._$AB=t,this._$AM=i,this.options=o,this._$Cv=o?.isConnected??!0}get parentNode(){let e=this._$AA.parentNode,t=this._$AM;return void 0!==t&&11===e?.nodeType&&(e=t.parentNode),e}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(e,t=this){d(e=D(this,e,t))?e===A||null==e||""===e?(this._$AH!==A&&this._$AR(),this._$AH=A):e!==this._$AH&&e!==z&&this._(e):void 0!==e._$litType$?this.g(e):void 0!==e.nodeType?this.$(e):p(e)?this.T(e):this._(e)}k(e){return this._$AA.parentNode.insertBefore(e,this._$AB)}$(e){this._$AH!==e&&(this._$AR(),this._$AH=this.k(e))}_(e){this._$AH!==A&&d(this._$AH)?this._$AA.nextSibling.data=e:this.$(c.createTextNode(e)),this._$AH=e}g(e){let{values:t,_$litType$:i}=e,o="number"==typeof i?this._$AC(e):(void 0===i.el&&(i.el=L.createElement(S(i.h,i.h[0]),this.options)),i);if(this._$AH?._$AD===o)this._$AH.p(t);else{let e=new U(o,this),i=e.u(this.options);e.p(t),this.$(i),this._$AH=e}}_$AC(e){let t=E.get(e.strings);return void 0===t&&E.set(e.strings,t=new L(e)),t}T(e){h(this._$AH)||(this._$AH=[],this._$AR());let t=this._$AH,i,o=0;for(let r of e)o===t.length?t.push(i=new T(this.k(m()),this.k(m()),this,this.options)):i=t[o],i._$AI(r),o++;o<t.length&&(this._$AR(i&&i._$AB.nextSibling,o),t.length=o)}_$AR(e=this._$AA.nextSibling,t){for(this._$AP?.(!1,!0,t);e&&e!==this._$AB;){let t=e.nextSibling;e.remove(),e=t}}setConnected(e){void 0===this._$AM&&(this._$Cv=e,this._$AP?.(e))}}class N{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(e,t,i,o,r){this.type=1,this._$AH=A,this._$AN=void 0,this.element=e,this.name=t,this._$AM=o,this.options=r,i.length>2||""!==i[0]||""!==i[1]?(this._$AH=Array(i.length-1).fill(new String),this.strings=i):this._$AH=A}_$AI(e,t=this,i,o){let r=this.strings,a=!1;if(void 0===r)(a=!d(e=D(this,e,t,0))||e!==this._$AH&&e!==z)&&(this._$AH=e);else{let o,s;let l=e;for(e=r[0],o=0;o<r.length-1;o++)(s=D(this,l[i+o],t,o))===z&&(s=this._$AH[o]),a||=!d(s)||s!==this._$AH[o],s===A?e=A:e!==A&&(e+=(s??"")+r[o+1]),this._$AH[o]=s}a&&!o&&this.O(e)}O(e){e===A?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,e??"")}}class R extends N{constructor(){super(...arguments),this.type=3}O(e){this.element[this.name]=e===A?void 0:e}}class H extends N{constructor(){super(...arguments),this.type=4}O(e){this.element.toggleAttribute(this.name,!!e&&e!==A)}}class O extends N{constructor(e,t,i,o,r){super(e,t,i,o,r),this.type=5}_$AI(e,t=this){if((e=D(this,e,t,0)??A)===z)return;let i=this._$AH,o=e===A&&i!==A||e.capture!==i.capture||e.once!==i.once||e.passive!==i.passive,r=e!==A&&(i===A||o);o&&this.element.removeEventListener(this.name,this,i),r&&this.element.addEventListener(this.name,this,e),this._$AH=e}handleEvent(e){"function"==typeof this._$AH?this._$AH.call(this.options?.host??this.element,e):this._$AH.handleEvent(e)}}class M{constructor(e,t,i){this.element=e,this.type=6,this._$AN=void 0,this._$AM=t,this.options=i}get _$AU(){return this._$AM._$AU}_$AI(e){D(this,e)}}let I=o.litHtmlPolyfillSupport;I?.(L,T),(o.litHtmlVersions??=[]).push("3.1.1");let q=(e,t,i)=>{let o=i?.renderBefore??t,r=o._$litPart$;if(void 0===r){let e=i?.renderBefore??null;o._$litPart$=r=new T(t.insertBefore(m(),e),e,void 0,i??{})}return r._$AI(e),r}}),a("h3wye",function(t,i){e(t.exports,"css",()=>r("iSKEb").css),e(t.exports,"ReactiveElement",()=>r("aA4Rn").ReactiveElement),e(t.exports,"html",()=>r("19cNw").html),e(t.exports,"render",()=>r("19cNw").render),e(t.exports,"noChange",()=>r("19cNw").noChange),e(t.exports,"LitElement",()=>s);var o=r("aA4Rn"),a=r("19cNw");/**
- * @license
- * Copyright 2017 Google LLC
- * SPDX-License-Identifier: BSD-3-Clause
- */class s extends o.ReactiveElement{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0}createRenderRoot(){let e=super.createRenderRoot();return this.renderOptions.renderBefore??=e.firstChild,e}update(e){let t=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(e),this._$Do=(0,a.render)(t,this.renderRoot,this.renderOptions)}connectedCallback(){super.connectedCallback(),this._$Do?.setConnected(!0)}disconnectedCallback(){super.disconnectedCallback(),this._$Do?.setConnected(!1)}render(){return a.noChange}}s._$litElement$=!0,s.finalized=!0,globalThis.litElementHydrateSupport?.({LitElement:s});let l=globalThis.litElementPolyfillSupport;l?.({LitElement:s}),(globalThis.litElementVersions??=[]).push("4.0.3")}),a("bWWHI",function(e,t){}),r("fYgrz");var s=r("iSKEb"),l=r("19cNw"),n=r("h3wye");class f extends n.LitElement{static styles=(0,s.css)`
+// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+
+(function (modules, entry, mainEntry, parcelRequireName, globalName) {
+  /* eslint-disable no-undef */
+  var globalObject =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof self !== 'undefined'
+      ? self
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : {};
+  /* eslint-enable no-undef */
+
+  // Save the require from previous bundle to this closure if any
+  var previousRequire =
+    typeof globalObject[parcelRequireName] === 'function' &&
+    globalObject[parcelRequireName];
+
+  var cache = previousRequire.cache || {};
+  // Do not use `require` to prevent Webpack from trying to bundle this call
+  var nodeRequire =
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
+    module.require.bind(module);
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire =
+          typeof globalObject[parcelRequireName] === 'function' &&
+          globalObject[parcelRequireName];
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = (cache[name] = new newRequire.Module(name));
+
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x) {
+      var res = localRequire.resolve(x);
+      return res === false ? {} : newRequire(res);
+    }
+
+    function resolve(x) {
+      var id = modules[name][1][x];
+      return id != null ? id : x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function (id, exports) {
+    modules[id] = [
+      function (require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
+  };
+
+  Object.defineProperty(newRequire, 'root', {
+    get: function () {
+      return globalObject[parcelRequireName];
+    },
+  });
+
+  globalObject[parcelRequireName] = newRequire;
+
+  for (var i = 0; i < entry.length; i++) {
+    newRequire(entry[i]);
+  }
+
+  if (mainEntry) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(mainEntry);
+
+    // CommonJS
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+      module.exports = mainExports;
+
+      // RequireJS
+    } else if (typeof define === 'function' && define.amd) {
+      define(function () {
+        return mainExports;
+      });
+
+      // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+})({"bh7qo":[function(require,module,exports) {
+var global = arguments[3];
+var HMR_HOST = null;
+var HMR_PORT = null;
+var HMR_SECURE = false;
+var HMR_ENV_HASH = "d6ea1d42532a7575";
+module.bundle.HMR_BUNDLE_ID = "ba225394f2e71945";
+"use strict";
+/* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
+import type {
+  HMRAsset,
+  HMRMessage,
+} from '@parcel/reporter-dev-server/src/HMRServer.js';
+interface ParcelRequire {
+  (string): mixed;
+  cache: {|[string]: ParcelModule|};
+  hotData: {|[string]: mixed|};
+  Module: any;
+  parent: ?ParcelRequire;
+  isParcelRequire: true;
+  modules: {|[string]: [Function, {|[string]: string|}]|};
+  HMR_BUNDLE_ID: string;
+  root: ParcelRequire;
+}
+interface ParcelModule {
+  hot: {|
+    data: mixed,
+    accept(cb: (Function) => void): void,
+    dispose(cb: (mixed) => void): void,
+    // accept(deps: Array<string> | string, cb: (Function) => void): void,
+    // decline(): void,
+    _acceptCallbacks: Array<(Function) => void>,
+    _disposeCallbacks: Array<(mixed) => void>,
+  |};
+}
+interface ExtensionContext {
+  runtime: {|
+    reload(): void,
+    getURL(url: string): string;
+    getManifest(): {manifest_version: number, ...};
+  |};
+}
+declare var module: {bundle: ParcelRequire, ...};
+declare var HMR_HOST: string;
+declare var HMR_PORT: string;
+declare var HMR_ENV_HASH: string;
+declare var HMR_SECURE: boolean;
+declare var chrome: ExtensionContext;
+declare var browser: ExtensionContext;
+declare var __parcel__import__: (string) => Promise<void>;
+declare var __parcel__importScripts__: (string) => Promise<void>;
+declare var globalThis: typeof self;
+declare var ServiceWorkerGlobalScope: Object;
+*/ var OVERLAY_ID = "__parcel__error__overlay__";
+var OldModule = module.bundle.Module;
+function Module(moduleName) {
+    OldModule.call(this, moduleName);
+    this.hot = {
+        data: module.bundle.hotData[moduleName],
+        _acceptCallbacks: [],
+        _disposeCallbacks: [],
+        accept: function(fn) {
+            this._acceptCallbacks.push(fn || function() {});
+        },
+        dispose: function(fn) {
+            this._disposeCallbacks.push(fn);
+        }
+    };
+    module.bundle.hotData[moduleName] = undefined;
+}
+module.bundle.Module = Module;
+module.bundle.hotData = {};
+var checkedAssets /*: {|[string]: boolean|} */ , assetsToDispose /*: Array<[ParcelRequire, string]> */ , assetsToAccept /*: Array<[ParcelRequire, string]> */ ;
+function getHostname() {
+    return HMR_HOST || (location.protocol.indexOf("http") === 0 ? location.hostname : "localhost");
+}
+function getPort() {
+    return HMR_PORT || location.port;
+}
+// eslint-disable-next-line no-redeclare
+var parent = module.bundle.parent;
+if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
+    var hostname = getHostname();
+    var port = getPort();
+    var protocol = HMR_SECURE || location.protocol == "https:" && ![
+        "localhost",
+        "127.0.0.1",
+        "0.0.0.0"
+    ].includes(hostname) ? "wss" : "ws";
+    var ws;
+    try {
+        ws = new WebSocket(protocol + "://" + hostname + (port ? ":" + port : "") + "/");
+    } catch (err) {
+        if (err.message) console.error(err.message);
+        ws = {};
+    }
+    // Web extension context
+    var extCtx = typeof browser === "undefined" ? typeof chrome === "undefined" ? null : chrome : browser;
+    // Safari doesn't support sourceURL in error stacks.
+    // eval may also be disabled via CSP, so do a quick check.
+    var supportsSourceURL = false;
+    try {
+        (0, eval)('throw new Error("test"); //# sourceURL=test.js');
+    } catch (err) {
+        supportsSourceURL = err.stack.includes("test.js");
+    }
+    // $FlowFixMe
+    ws.onmessage = async function(event /*: {data: string, ...} */ ) {
+        checkedAssets = {} /*: {|[string]: boolean|} */ ;
+        assetsToAccept = [];
+        assetsToDispose = [];
+        var data /*: HMRMessage */  = JSON.parse(event.data);
+        if (data.type === "update") {
+            // Remove error overlay if there is one
+            if (typeof document !== "undefined") removeErrorOverlay();
+            let assets = data.assets.filter((asset)=>asset.envHash === HMR_ENV_HASH);
+            // Handle HMR Update
+            let handled = assets.every((asset)=>{
+                return asset.type === "css" || asset.type === "js" && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
+            });
+            if (handled) {
+                console.clear();
+                // Dispatch custom event so other runtimes (e.g React Refresh) are aware.
+                if (typeof window !== "undefined" && typeof CustomEvent !== "undefined") window.dispatchEvent(new CustomEvent("parcelhmraccept"));
+                await hmrApplyUpdates(assets);
+                // Dispose all old assets.
+                let processedAssets = {} /*: {|[string]: boolean|} */ ;
+                for(let i = 0; i < assetsToDispose.length; i++){
+                    let id = assetsToDispose[i][1];
+                    if (!processedAssets[id]) {
+                        hmrDispose(assetsToDispose[i][0], id);
+                        processedAssets[id] = true;
+                    }
+                }
+                // Run accept callbacks. This will also re-execute other disposed assets in topological order.
+                processedAssets = {};
+                for(let i = 0; i < assetsToAccept.length; i++){
+                    let id = assetsToAccept[i][1];
+                    if (!processedAssets[id]) {
+                        hmrAccept(assetsToAccept[i][0], id);
+                        processedAssets[id] = true;
+                    }
+                }
+            } else fullReload();
+        }
+        if (data.type === "error") {
+            // Log parcel errors to console
+            for (let ansiDiagnostic of data.diagnostics.ansi){
+                let stack = ansiDiagnostic.codeframe ? ansiDiagnostic.codeframe : ansiDiagnostic.stack;
+                console.error("\uD83D\uDEA8 [parcel]: " + ansiDiagnostic.message + "\n" + stack + "\n\n" + ansiDiagnostic.hints.join("\n"));
+            }
+            if (typeof document !== "undefined") {
+                // Render the fancy html overlay
+                removeErrorOverlay();
+                var overlay = createErrorOverlay(data.diagnostics.html);
+                // $FlowFixMe
+                document.body.appendChild(overlay);
+            }
+        }
+    };
+    ws.onerror = function(e) {
+        if (e.message) console.error(e.message);
+    };
+    ws.onclose = function() {
+        console.warn("[parcel] \uD83D\uDEA8 Connection to the HMR server was lost");
+    };
+}
+function removeErrorOverlay() {
+    var overlay = document.getElementById(OVERLAY_ID);
+    if (overlay) {
+        overlay.remove();
+        console.log("[parcel] \u2728 Error resolved");
+    }
+}
+function createErrorOverlay(diagnostics) {
+    var overlay = document.createElement("div");
+    overlay.id = OVERLAY_ID;
+    let errorHTML = '<div style="background: black; opacity: 0.85; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; font-family: Menlo, Consolas, monospace; z-index: 9999;">';
+    for (let diagnostic of diagnostics){
+        let stack = diagnostic.frames.length ? diagnostic.frames.reduce((p, frame)=>{
+            return `${p}
+<a href="/__parcel_launch_editor?file=${encodeURIComponent(frame.location)}" style="text-decoration: underline; color: #888" onclick="fetch(this.href); return false">${frame.location}</a>
+${frame.code}`;
+        }, "") : diagnostic.stack;
+        errorHTML += `
+      <div>
+        <div style="font-size: 18px; font-weight: bold; margin-top: 20px;">
+          \u{1F6A8} ${diagnostic.message}
+        </div>
+        <pre>${stack}</pre>
+        <div>
+          ${diagnostic.hints.map((hint)=>"<div>\uD83D\uDCA1 " + hint + "</div>").join("")}
+        </div>
+        ${diagnostic.documentation ? `<div>\u{1F4DD} <a style="color: violet" href="${diagnostic.documentation}" target="_blank">Learn more</a></div>` : ""}
+      </div>
+    `;
+    }
+    errorHTML += "</div>";
+    overlay.innerHTML = errorHTML;
+    return overlay;
+}
+function fullReload() {
+    if ("reload" in location) location.reload();
+    else if (extCtx && extCtx.runtime && extCtx.runtime.reload) extCtx.runtime.reload();
+}
+function getParents(bundle, id) /*: Array<[ParcelRequire, string]> */ {
+    var modules = bundle.modules;
+    if (!modules) return [];
+    var parents = [];
+    var k, d, dep;
+    for(k in modules)for(d in modules[k][1]){
+        dep = modules[k][1][d];
+        if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) parents.push([
+            bundle,
+            k
+        ]);
+    }
+    if (bundle.parent) parents = parents.concat(getParents(bundle.parent, id));
+    return parents;
+}
+function updateLink(link) {
+    var href = link.getAttribute("href");
+    if (!href) return;
+    var newLink = link.cloneNode();
+    newLink.onload = function() {
+        if (link.parentNode !== null) // $FlowFixMe
+        link.parentNode.removeChild(link);
+    };
+    newLink.setAttribute("href", // $FlowFixMe
+    href.split("?")[0] + "?" + Date.now());
+    // $FlowFixMe
+    link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+var cssTimeout = null;
+function reloadCSS() {
+    if (cssTimeout) return;
+    cssTimeout = setTimeout(function() {
+        var links = document.querySelectorAll('link[rel="stylesheet"]');
+        for(var i = 0; i < links.length; i++){
+            // $FlowFixMe[incompatible-type]
+            var href /*: string */  = links[i].getAttribute("href");
+            var hostname = getHostname();
+            var servedFromHMRServer = hostname === "localhost" ? new RegExp("^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):" + getPort()).test(href) : href.indexOf(hostname + ":" + getPort());
+            var absolute = /^https?:\/\//i.test(href) && href.indexOf(location.origin) !== 0 && !servedFromHMRServer;
+            if (!absolute) updateLink(links[i]);
+        }
+        cssTimeout = null;
+    }, 50);
+}
+function hmrDownload(asset) {
+    if (asset.type === "js") {
+        if (typeof document !== "undefined") {
+            let script = document.createElement("script");
+            script.src = asset.url + "?t=" + Date.now();
+            if (asset.outputFormat === "esmodule") script.type = "module";
+            return new Promise((resolve, reject)=>{
+                var _document$head;
+                script.onload = ()=>resolve(script);
+                script.onerror = reject;
+                (_document$head = document.head) === null || _document$head === void 0 || _document$head.appendChild(script);
+            });
+        } else if (typeof importScripts === "function") {
+            // Worker scripts
+            if (asset.outputFormat === "esmodule") return import(asset.url + "?t=" + Date.now());
+            else return new Promise((resolve, reject)=>{
+                try {
+                    importScripts(asset.url + "?t=" + Date.now());
+                    resolve();
+                } catch (err) {
+                    reject(err);
+                }
+            });
+        }
+    }
+}
+async function hmrApplyUpdates(assets) {
+    global.parcelHotUpdate = Object.create(null);
+    let scriptsToRemove;
+    try {
+        // If sourceURL comments aren't supported in eval, we need to load
+        // the update from the dev server over HTTP so that stack traces
+        // are correct in errors/logs. This is much slower than eval, so
+        // we only do it if needed (currently just Safari).
+        // https://bugs.webkit.org/show_bug.cgi?id=137297
+        // This path is also taken if a CSP disallows eval.
+        if (!supportsSourceURL) {
+            let promises = assets.map((asset)=>{
+                var _hmrDownload;
+                return (_hmrDownload = hmrDownload(asset)) === null || _hmrDownload === void 0 ? void 0 : _hmrDownload.catch((err)=>{
+                    // Web extension fix
+                    if (extCtx && extCtx.runtime && extCtx.runtime.getManifest().manifest_version == 3 && typeof ServiceWorkerGlobalScope != "undefined" && global instanceof ServiceWorkerGlobalScope) {
+                        extCtx.runtime.reload();
+                        return;
+                    }
+                    throw err;
+                });
+            });
+            scriptsToRemove = await Promise.all(promises);
+        }
+        assets.forEach(function(asset) {
+            hmrApply(module.bundle.root, asset);
+        });
+    } finally{
+        delete global.parcelHotUpdate;
+        if (scriptsToRemove) scriptsToRemove.forEach((script)=>{
+            if (script) {
+                var _document$head2;
+                (_document$head2 = document.head) === null || _document$head2 === void 0 || _document$head2.removeChild(script);
+            }
+        });
+    }
+}
+function hmrApply(bundle /*: ParcelRequire */ , asset /*:  HMRAsset */ ) {
+    var modules = bundle.modules;
+    if (!modules) return;
+    if (asset.type === "css") reloadCSS();
+    else if (asset.type === "js") {
+        let deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
+        if (deps) {
+            if (modules[asset.id]) {
+                // Remove dependencies that are removed and will become orphaned.
+                // This is necessary so that if the asset is added back again, the cache is gone, and we prevent a full page reload.
+                let oldDeps = modules[asset.id][1];
+                for(let dep in oldDeps)if (!deps[dep] || deps[dep] !== oldDeps[dep]) {
+                    let id = oldDeps[dep];
+                    let parents = getParents(module.bundle.root, id);
+                    if (parents.length === 1) hmrDelete(module.bundle.root, id);
+                }
+            }
+            if (supportsSourceURL) // Global eval. We would use `new Function` here but browser
+            // support for source maps is better with eval.
+            (0, eval)(asset.output);
+            // $FlowFixMe
+            let fn = global.parcelHotUpdate[asset.id];
+            modules[asset.id] = [
+                fn,
+                deps
+            ];
+        } else if (bundle.parent) hmrApply(bundle.parent, asset);
+    }
+}
+function hmrDelete(bundle, id) {
+    let modules = bundle.modules;
+    if (!modules) return;
+    if (modules[id]) {
+        // Collect dependencies that will become orphaned when this module is deleted.
+        let deps = modules[id][1];
+        let orphans = [];
+        for(let dep in deps){
+            let parents = getParents(module.bundle.root, deps[dep]);
+            if (parents.length === 1) orphans.push(deps[dep]);
+        }
+        // Delete the module. This must be done before deleting dependencies in case of circular dependencies.
+        delete modules[id];
+        delete bundle.cache[id];
+        // Now delete the orphans.
+        orphans.forEach((id)=>{
+            hmrDelete(module.bundle.root, id);
+        });
+    } else if (bundle.parent) hmrDelete(bundle.parent, id);
+}
+function hmrAcceptCheck(bundle /*: ParcelRequire */ , id /*: string */ , depsByBundle /*: ?{ [string]: { [string]: string } }*/ ) {
+    if (hmrAcceptCheckOne(bundle, id, depsByBundle)) return true;
+    // Traverse parents breadth first. All possible ancestries must accept the HMR update, or we'll reload.
+    let parents = getParents(module.bundle.root, id);
+    let accepted = false;
+    while(parents.length > 0){
+        let v = parents.shift();
+        let a = hmrAcceptCheckOne(v[0], v[1], null);
+        if (a) // If this parent accepts, stop traversing upward, but still consider siblings.
+        accepted = true;
+        else {
+            // Otherwise, queue the parents in the next level upward.
+            let p = getParents(module.bundle.root, v[1]);
+            if (p.length === 0) {
+                // If there are no parents, then we've reached an entry without accepting. Reload.
+                accepted = false;
+                break;
+            }
+            parents.push(...p);
+        }
+    }
+    return accepted;
+}
+function hmrAcceptCheckOne(bundle /*: ParcelRequire */ , id /*: string */ , depsByBundle /*: ?{ [string]: { [string]: string } }*/ ) {
+    var modules = bundle.modules;
+    if (!modules) return;
+    if (depsByBundle && !depsByBundle[bundle.HMR_BUNDLE_ID]) {
+        // If we reached the root bundle without finding where the asset should go,
+        // there's nothing to do. Mark as "accepted" so we don't reload the page.
+        if (!bundle.parent) return true;
+        return hmrAcceptCheck(bundle.parent, id, depsByBundle);
+    }
+    if (checkedAssets[id]) return true;
+    checkedAssets[id] = true;
+    var cached = bundle.cache[id];
+    assetsToDispose.push([
+        bundle,
+        id
+    ]);
+    if (!cached || cached.hot && cached.hot._acceptCallbacks.length) {
+        assetsToAccept.push([
+            bundle,
+            id
+        ]);
+        return true;
+    }
+}
+function hmrDispose(bundle /*: ParcelRequire */ , id /*: string */ ) {
+    var cached = bundle.cache[id];
+    bundle.hotData[id] = {};
+    if (cached && cached.hot) cached.hot.data = bundle.hotData[id];
+    if (cached && cached.hot && cached.hot._disposeCallbacks.length) cached.hot._disposeCallbacks.forEach(function(cb) {
+        cb(bundle.hotData[id]);
+    });
+    delete bundle.cache[id];
+}
+function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
+    // Execute the module.
+    bundle(id);
+    // Run the accept callbacks in the new version of the module.
+    var cached = bundle.cache[id];
+    if (cached && cached.hot && cached.hot._acceptCallbacks.length) cached.hot._acceptCallbacks.forEach(function(cb) {
+        var assetsToAlsoAccept = cb(function() {
+            return getParents(module.bundle.root, id);
+        });
+        if (assetsToAlsoAccept && assetsToAccept.length) {
+            assetsToAlsoAccept.forEach(function(a) {
+                hmrDispose(a[0], a[1]);
+            });
+            // $FlowFixMe[method-unbinding]
+            assetsToAccept.push.apply(assetsToAccept, assetsToAlsoAccept);
+        }
+    });
+}
+
+},{}],"l8lF1":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _lit = require("lit");
+class AzFooter extends (0, _lit.LitElement) {
+    static styles = (0, _lit.css)`
 		* {
 			box-sizing: border-box;
 		}
@@ -1586,7 +2154,9 @@
 		.az-icon-vimeo:before {
 			content: "\\e913";
 		}
-	`;render(){return(0,l.html)`
+	`;
+    render() {
+        return (0, _lit.html)`
 			<footer id="footer_site" class="page page-row" role="contentinfo">
 				<div class="region region-footer">
 					<div
@@ -1604,7 +2174,9 @@
 											href="https://www.arizona.edu/"
 											title="Home"
 											class="remove-external-link-icon active"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											><img
 												src="https://www.arizona.edu/sites/default/files/UA_horiz_rgb_webheader.png"
 												alt="Home"
@@ -1626,7 +2198,9 @@
 												href="https://talent.arizona.edu"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 												>Employment</a
 											>
 										</li>
@@ -1635,7 +2209,9 @@
 												href="https://cirt.arizona.edu"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 												>Emergency Information</a
 											>
 										</li>
@@ -1644,7 +2220,9 @@
 												href="https://www.arizona.edu/title-ix"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 												>Title IX / Non-Discrimination</a
 											>
 										</li>
@@ -1653,7 +2231,9 @@
 												href="https://safety.arizona.edu/"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 												>Campus Safety</a
 											>
 										</li>
@@ -1661,7 +2241,9 @@
 											<a
 												href="https://clery.arizona.edu/annual-reports"
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 												>Annual Security Report</a
 											>
 										</li>
@@ -1670,7 +2252,9 @@
 												href="https://www.arizona.edu/copyright"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 												>Copyright</a
 											>
 										</li>
@@ -1679,7 +2263,9 @@
 												href="https://www.arizona.edu/campus-accessibility"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 												>Campus Accessibility</a
 											>
 										</li>
@@ -1688,7 +2274,9 @@
 												href="https://www.arizona.edu/contact-us"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 												>Contact Us</a
 											>
 										</li>
@@ -1697,7 +2285,9 @@
 												href="https://www.arizona.edu/website-feedback"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 												>Feedback</a
 											>
 										</li>
@@ -1743,7 +2333,9 @@
 										<a
 											href="https://www.arizona.edu/admissions"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Future Students</a
 										>
 									</li>
@@ -1752,7 +2344,9 @@
 											href="https://www.arizona.edu/students"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Current Students</a
 										>
 									</li>
@@ -1761,7 +2355,9 @@
 											href="https://www.arizona.edu/faculty-staff"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Faculty &amp; Staff</a
 										>
 									</li>
@@ -1770,7 +2366,9 @@
 											href="https://www.arizona.edu/alumni-donors"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Alumni &amp; Donors</a
 										>
 									</li>
@@ -1779,7 +2377,9 @@
 											href="https://www.arizona.edu/parents-visitors"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Parents &amp; Visitors</a
 										>
 									</li>
@@ -1788,7 +2388,9 @@
 											href="https://corporate.arizona.edu/"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Corporations &amp; Businesses</a
 										>
 									</li>
@@ -1809,7 +2411,9 @@
 											href="https://www.arizona.edu/about"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>About the University</a
 										>
 									</li>
@@ -1818,7 +2422,9 @@
 											href="https://www.arizona.edu/academics"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Academics</a
 										>
 									</li>
@@ -1827,7 +2433,9 @@
 											href="https://www.arizona.edu/arts-museums"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Arts &amp; Museums</a
 										>
 									</li>
@@ -1836,7 +2444,9 @@
 											href="https://www.arizona.edu/athletics-recreation"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Athletics &amp; Recreation</a
 										>
 									</li>
@@ -1845,7 +2455,9 @@
 											href="https://www.arizona.edu/colleges-schools"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Colleges, Schools, Departments</a
 										>
 									</li>
@@ -1853,7 +2465,9 @@
 										<a
 											href="https://diversity.arizona.edu"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Diversity</a
 										>
 									</li>
@@ -1862,7 +2476,9 @@
 											href="https://www.environment.arizona.edu"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Environment &amp; Sustainability</a
 										>
 									</li>
@@ -1870,7 +2486,9 @@
 										<a
 											href="https://international.arizona.edu"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>International Engagement</a
 										>
 									</li>
@@ -1879,7 +2497,9 @@
 											href="https://www.arizona.edu/health-sciences"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Health &amp; Medical</a
 										>
 									</li>
@@ -1888,7 +2508,9 @@
 											href="https://www.arizona.edu/libraries"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Libraries</a
 										>
 									</li>
@@ -1896,7 +2518,9 @@
 										<a
 											href="https://uaforyou.arizona.edu"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Outreach &amp; Extension</a
 										>
 									</li>
@@ -1904,7 +2528,9 @@
 										<a
 											href="https://research.arizona.edu"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Research &amp; Innovation</a
 										>
 									</li>
@@ -1913,7 +2539,9 @@
 											href="https://www.arizona.edu/purpose-mission-values"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											>Purpose, Mission &amp; Values</a
 										>
 									</li>
@@ -1936,7 +2564,9 @@
 										<a
 											href="https://directory.arizona.edu/"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											><i class="ua-brand-directory"></i>Directory</a
 										>
 									</li>
@@ -1945,7 +2575,9 @@
 											href="https://www.arizona.edu/calendars-events"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											><i class="ua-brand-calendar"></i>Calendars</a
 										>
 									</li>
@@ -1953,7 +2585,9 @@
 										<a
 											href="https://map.arizona.edu"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											><i class="ua-brand-campus-map"></i>Campus Map</a
 										>
 									</li>
@@ -1961,7 +2595,9 @@
 										<a
 											href="https://news.arizona.edu"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											><i class="ua-brand-news"></i>News</a
 										>
 									</li>
@@ -1969,7 +2605,9 @@
 										<a
 											href="https://phonebook.arizona.edu/"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											><i class="ua-brand-directory"></i>Phonebook</a
 										>
 									</li>
@@ -1978,7 +2616,9 @@
 											href="https://www.arizona.edu/weather"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											><i class="ua-brand-weather"></i>Weather</a
 										>
 									</li>
@@ -1998,7 +2638,9 @@
 											target="_blank"
 											title="Click here to visit our Facebook page"
 											rel="noopener noreferrer"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											><i class="az-icon-facebook"></i>Facebook</a
 										>
 									</li>
@@ -2008,7 +2650,9 @@
 											target="_blank"
 											title="Click here to visit our Twitter page"
 											rel="noopener noreferrer"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											><i class="az-icon-twitter"></i>Twitter</a
 										>
 									</li>
@@ -2018,7 +2662,9 @@
 											target="_blank"
 											title="Click here to visit our Instagram page"
 											rel="noopener noreferrer"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											><i class="az-icon-instagram"></i>Instagram</a
 										>
 									</li>
@@ -2028,7 +2674,9 @@
 											target="_blank"
 											title="Click here to visit our LinkedIn page"
 											rel="noopener noreferrer"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											><i class="az-icon-linkedin"></i>LinkedIn</a
 										>
 									</li>
@@ -2038,7 +2686,9 @@
 											target="_blank"
 											title="Click here to visit our YouTube page"
 											rel="noopener noreferrer"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 											><i class="az-icon-youtube"></i>YouTube</a
 										>
 									</li>
@@ -2094,7 +2744,9 @@
 									<a
 										href="https://www.arizona.edu/information-security-privacy"
 										target="_blank"
-										@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+										@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 										>University Information Security and Privacy</a
 									>
 								</p>
@@ -2104,7 +2756,9 @@
 									<a
 										href="https://www.arizona.edu"
 										target="_blank"
-										@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+										@click="${(e)=>{
+            eventDataLayerPush(e, "az-footer");
+        }}"
 										>The University of Arizona</a
 									>.
 								</p>
@@ -2113,4 +2767,12 @@
 					</div>
 				</div>
 			</footer>
-		`}}customElements.get("az-footer")||customElements.define("az-footer",f)})();
+		`;
+    }
+}
+exports.default = AzFooter;
+customElements.get("az-footer") || customElements.define("az-footer", AzFooter);
+
+},{"lit":"4antt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["bh7qo","l8lF1"], "l8lF1", "parcelRequirefbca")
+
+//# sourceMappingURL=index.f2e71945.js.map
