@@ -16,6 +16,22 @@
 		"develop": "parcel index.html --open",
 		"build": "parcel build src/header.js src/az-footer.js src/external-style.js --no-source-maps"
 	},
+	"targets": {
+		"default": {
+      "distDir": "./dist"
+    },
+		"main": false,
+
+		"header": {
+			"source" : "src/header.js"
+		},
+		"az-footer": {
+			"source": "src/az-footer.js"
+		},
+		"external-style": {
+			"source": "src/external-style.js"
+		}
+	},
 
 	"devDependencies": {
 		"parcel": "^2.0.0"
