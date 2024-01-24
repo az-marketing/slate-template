@@ -18,10 +18,8 @@
 	},
 	"targets": {
 		"default": {
-      "distDir": "./dist"
-    },
-		"main": false,
-
+			"distDir": "./dist"
+		},
 		"header": {
 			"source" : "src/header.js"
 		},
