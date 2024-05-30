@@ -4203,10 +4203,11 @@ class AzSelectMenu extends LitElement {
 		return html` ${levels} `;
 	}
 	static azMenuOptionTemplate(title, href) {
+		let selOption = title.split(' ').join('-');
 		return html`<option
 			data-href="${href}"
 			@click="${(e) => {
-				eventDataLayerPush(e, "az-select-menu");
+				eventDataLayerPush(e, "az-select-menu"+selOption);
 			}}"
 		>
 			${title}
