@@ -4143,7 +4143,7 @@ class AzSelectMenu extends LitElement {
 			// Add window.dataLayer if doesnt exist
 			window.dataLayer = window.dataLayer || [];
 			let selcOption = this.select.options[this.select.selectedIndex];
-			let selctText = selcOption.dataset.title.replace(/(\t\a|\t|\a|\r\n|\n|\r)/gm, "").trim();
+			let selctText = selcOption.dataset.title.trim();
 			window.dataLayer.push({
 				event: 'shadow_event_' + 'click',
 				shadow_event: {
