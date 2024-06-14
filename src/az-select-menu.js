@@ -4139,6 +4139,26 @@ class AzSelectMenu extends LitElement {
 		});
 	};
 
+	testFn = (e) => {
+			// Add window.dataLayer if doesnt exist
+			window.dataLayer = window.dataLayer || [];
+			let selcOption = this.select.options[this.select.selectedIndex];
+			let selctText = selcOption.dataset.title.replace(/(\t\a|\t|\a|\r\n|\n|\r)/gm, "").trim();
+			window.dataLayer.push({
+				event: 'shadow_event_' + 'click',
+				shadow_event: {
+					elementInnerHTML: selctText,
+					elementInnerText: selctText.split(' ').join('-'),
+					title: 'shadow-dom-link',
+					element: selcOption,
+					elementLocation: 'az-select-menu',
+					elementUrl: selcOption.dataset.href,
+					originalEvent: 'click',
+					inShadowDom: true
+				}
+			});			
+	}
+
 	_handleEvents = (e) => {
 		// Hide the popover when user touches any part of the screen, except the
 		// select form button regardless of state.
@@ -4203,12 +4223,9 @@ class AzSelectMenu extends LitElement {
 		return html` ${levels} `;
 	}
 	static azMenuOptionTemplate(title, href) {
-		let selOption = title.split(' ').join('-');
 		return html`<option
 			data-href="${href}"
-			@click="${(e) => {
-				eventDataLayerPush(e, "az-select-menu"+selOption);
-			}}"
+			data-title="${title}"
 		>
 			${title}
 		</option>`;
@@ -4289,6 +4306,7 @@ class AzSelectMenu extends LitElement {
 			],
 		});
 		this.select = this.shadowRoot.querySelector("select");
+		this.select.addEventListener("change", this.testFn, { passive: true });
 	}
 
 	render() {

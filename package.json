@@ -21,7 +21,7 @@
 			"distDir": "./dist"
 		},
 		"header": {
-			"source" : "src/header.js"
+			"source": "src/header.js"
 		},
 		"az-footer": {
 			"source": "src/az-footer.js"
@@ -30,7 +30,6 @@
 			"source": "src/external-style.js"
 		}
 	},
-
 	"devDependencies": {
 		"parcel": "^2.0.0"
 	},
