@@ -4139,7 +4139,7 @@ class AzSelectMenu extends LitElement {
 		});
 	};
 
-	testFn = (e) => {
+	shadowSelect = (e) => {
 			// Add window.dataLayer if doesnt exist
 			window.dataLayer = window.dataLayer || [];
 			let selcOption = this.select.options[this.select.selectedIndex];
@@ -4306,7 +4306,7 @@ class AzSelectMenu extends LitElement {
 			],
 		});
 		this.select = this.shadowRoot.querySelector("select");
-		this.select.addEventListener("change", this.testFn, { passive: true });
+		this.select.addEventListener("change", this.shadowSelect, { passive: true });
 	}
 
 	render() {
