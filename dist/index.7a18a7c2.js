@@ -10918,11 +10918,11 @@ class AzSelectMenu extends (0, _lit.LitElement) {
             ]
         });
     };
-    testFn = (e)=>{
+    shadowSelect = (e)=>{
         // Add window.dataLayer if doesnt exist
         window.dataLayer = window.dataLayer || [];
         let selcOption = this.select.options[this.select.selectedIndex];
-        let selctText = selcOption.dataset.title.replace(/(\t\a|\t|\a|\r\n|\n|\r)/gm, "").trim();
+        let selctText = selcOption.dataset.title.trim();
         window.dataLayer.push({
             event: "shadow_event_click",
             shadow_event: {
@@ -11067,7 +11067,7 @@ class AzSelectMenu extends (0, _lit.LitElement) {
             ]
         });
         this.select = this.shadowRoot.querySelector("select");
-        this.select.addEventListener("change", this.testFn, {
+        this.select.addEventListener("change", this.shadowSelect, {
             passive: true
         });
     }

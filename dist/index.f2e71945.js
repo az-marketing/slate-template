@@ -2145,6 +2145,9 @@ class AzFooter extends (0, _lit.LitElement) {
 		.az-icon-twitter:before {
 			content: "\\e910";
 		}
+		.az-icon-x-twitter:before {
+			content: "\\e914";
+		}
 		.az-icon-wildcat:before {
 			content: "\\e911";
 		}
@@ -2648,12 +2651,12 @@ class AzFooter extends (0, _lit.LitElement) {
 										<a
 											href="https://twitter.com/uarizona"
 											target="_blank"
-											title="Click here to visit our Twitter page"
+											title="Click here to visit us on X, formerly Twitter"
 											rel="noopener noreferrer"
 											@click="${(e)=>{
             eventDataLayerPush(e, "az-footer");
         }}"
-											><i class="az-icon-twitter"></i>Twitter</a
+											><i class="az-icon-x-twitter"></i>X, formerly Twitter</a
 										>
 									</li>
 									<li class="menu__item is-leaf leaf">
