@@ -10,12 +10,13 @@
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */let o=globalThis,r=o.trustedTypes,a=r?r.createPolicy("lit-html",{createHTML:e=>e}):void 0,s="$lit$",l=`lit$${(Math.random()+"").slice(9)}$`,n="?"+l,f=`<${n}>`,c=document,m=()=>c.createComment(""),d=e=>null===e||"object"!=typeof e&&"function"!=typeof e,h=Array.isArray,p=e=>h(e)||"function"==typeof e?.[Symbol.iterator],u="[ 	\n\f\r]",g=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,b=/-->/g,x=/>/g,_=RegExp(`>|${u}(?:([^\\s"'>=/]+)(${u}*=${u}*(?:[^ 	
+ */let o=globalThis,r=o.trustedTypes,a=r?r.createPolicy("lit-html",{createHTML:e=>e}):void 0,s="$lit$",l=`lit$${(Math.random()+"").slice(9)}$`,n="?"+l,f=`<${n}>`,c=document,m=()=>c.createComment(""),d=e=>null===e||"object"!=typeof e&&"function"!=typeof e,h=Array.isArray,p=e=>h(e)||"function"==typeof e?.[Symbol.iterator],u="[ 	\n\f\r]",g=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,b=/-->/g,x=/>/g,_=RegExp(`>|${u}(?:([^\\s"'>=/]+)(${u}*=${u}*(?:[^
 \f\r"'\`<>=]|("|')|))|$)`,"g"),w=/'/g,v=/"/g,y=/^(?:script|style|textarea|title)$/i,k=e=>(t,...i)=>({_$litType$:e,strings:t,values:i}),$=k(1),z=(k(2),Symbol.for("lit-noChange")),A=Symbol.for("lit-nothing"),E=new WeakMap,P=c.createTreeWalker(c,129);function S(e,t){if(!Array.isArray(e)||!e.hasOwnProperty("raw"))throw Error("invalid template strings array");return void 0!==a?a.createHTML(t):t}let C=(e,t)=>{let i=e.length-1,o=[],r,a=2===t?"<svg>":"",n=g;for(let t=0;t<i;t++){let i=e[t],c,m,d=-1,h=0;for(;h<i.length&&(n.lastIndex=h,null!==(m=n.exec(i)));)h=n.lastIndex,n===g?"!--"===m[1]?n=b:void 0!==m[1]?n=x:void 0!==m[2]?(y.test(m[2])&&(r=RegExp("</"+m[2],"g")),n=_):void 0!==m[3]&&(n=_):n===_?">"===m[0]?(n=r??g,d=-1):void 0===m[1]?d=-2:(d=n.lastIndex-m[2].length,c=m[1],n=void 0===m[3]?_:'"'===m[3]?v:w):n===v||n===w?n=_:n===b||n===x?n=g:(n=_,r=void 0);let p=n===_&&e[t+1].startsWith("/>")?" ":"";a+=n===g?i+f:d>=0?(o.push(c),i.slice(0,d)+s+i.slice(d)+l+p):i+l+(-2===d?t:p)}return[S(e,a+(e[i]||"<?>")+(2===t?"</svg>":"")),o]};class L{constructor({strings:e,_$litType$:t},i){let o;this.parts=[];let a=0,f=0,c=e.length-1,d=this.parts,[h,p]=C(e,t);if(this.el=L.createElement(h,i),P.currentNode=this.el.content,2===t){let e=this.el.content.firstChild;e.replaceWith(...e.childNodes)}for(;null!==(o=P.nextNode())&&d.length<c;){if(1===o.nodeType){if(o.hasAttributes())for(let e of o.getAttributeNames())if(e.endsWith(s)){let t=p[f++],i=o.getAttribute(e).split(l),r=/([.?@])?(.*)/.exec(t);d.push({type:1,index:a,name:r[2],strings:i,ctor:"."===r[1]?R:"?"===r[1]?H:"@"===r[1]?O:N}),o.removeAttribute(e)}else e.startsWith(l)&&(d.push({type:6,index:a}),o.removeAttribute(e));if(y.test(o.tagName)){let e=o.textContent.split(l),t=e.length-1;if(t>0){o.textContent=r?r.emptyScript:"";for(let i=0;i<t;i++)o.append(e[i],m()),P.nextNode(),d.push({type:2,index:++a});o.append(e[t],m())}}}else if(8===o.nodeType){if(o.data===n)d.push({type:2,index:a});else{let e=-1;for(;-1!==(e=o.data.indexOf(l,e+1));)d.push({type:7,index:a}),e+=l.length-1}}a++}}static createElement(e,t){let i=c.createElement("template");return i.innerHTML=e,i}}function D(e,t,i=e,o){if(t===z)return t;let r=void 0!==o?i._$Co?.[o]:i._$Cl,a=d(t)?void 0:t._$litDirective$;return r?.constructor!==a&&(r?._$AO?.(!1),void 0===a?r=void 0:(r=new a(e))._$AT(e,i,o),void 0!==o?(i._$Co??=[])[o]=r:i._$Cl=r),void 0!==r&&(t=D(e,r._$AS(e,t.values),r,o)),t}class U{constructor(e,t){this._$AV=[],this._$AN=void 0,this._$AD=e,this._$AM=t}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(e){let{el:{content:t},parts:i}=this._$AD,o=(e?.creationScope??c).importNode(t,!0);P.currentNode=o;let r=P.nextNode(),a=0,s=0,l=i[0];for(;void 0!==l;){if(a===l.index){let t;2===l.type?t=new T(r,r.nextSibling,this,e):1===l.type?t=new l.ctor(r,l.name,l.strings,this,e):6===l.type&&(t=new M(r,this,e)),this._$AV.push(t),l=i[++s]}a!==l?.index&&(r=P.nextNode(),a++)}return P.currentNode=c,o}p(e){let t=0;for(let i of this._$AV)void 0!==i&&(void 0!==i.strings?(i._$AI(e,i,t),t+=i.strings.length-2):i._$AI(e[t])),t++}}class T{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(e,t,i,o){this.type=2,this._$AH=A,this._$AN=void 0,this._$AA=e,this._$AB=t,this._$AM=i,this.options=o,this._$Cv=o?.isConnected??!0}get parentNode(){let e=this._$AA.parentNode,t=this._$AM;return void 0!==t&&11===e?.nodeType&&(e=t.parentNode),e}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(e,t=this){d(e=D(this,e,t))?e===A||null==e||""===e?(this._$AH!==A&&this._$AR(),this._$AH=A):e!==this._$AH&&e!==z&&this._(e):void 0!==e._$litType$?this.g(e):void 0!==e.nodeType?this.$(e):p(e)?this.T(e):this._(e)}k(e){return this._$AA.parentNode.insertBefore(e,this._$AB)}$(e){this._$AH!==e&&(this._$AR(),this._$AH=this.k(e))}_(e){this._$AH!==A&&d(this._$AH)?this._$AA.nextSibling.data=e:this.$(c.createTextNode(e)),this._$AH=e}g(e){let{values:t,_$litType$:i}=e,o="number"==typeof i?this._$AC(e):(void 0===i.el&&(i.el=L.createElement(S(i.h,i.h[0]),this.options)),i);if(this._$AH?._$AD===o)this._$AH.p(t);else{let e=new U(o,this),i=e.u(this.options);e.p(t),this.$(i),this._$AH=e}}_$AC(e){let t=E.get(e.strings);return void 0===t&&E.set(e.strings,t=new L(e)),t}T(e){h(this._$AH)||(this._$AH=[],this._$AR());let t=this._$AH,i,o=0;for(let r of e)o===t.length?t.push(i=new T(this.k(m()),this.k(m()),this,this.options)):i=t[o],i._$AI(r),o++;o<t.length&&(this._$AR(i&&i._$AB.nextSibling,o),t.length=o)}_$AR(e=this._$AA.nextSibling,t){for(this._$AP?.(!1,!0,t);e&&e!==this._$AB;){let t=e.nextSibling;e.remove(),e=t}}setConnected(e){void 0===this._$AM&&(this._$Cv=e,this._$AP?.(e))}}class N{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(e,t,i,o,r){this.type=1,this._$AH=A,this._$AN=void 0,this.element=e,this.name=t,this._$AM=o,this.options=r,i.length>2||""!==i[0]||""!==i[1]?(this._$AH=Array(i.length-1).fill(new String),this.strings=i):this._$AH=A}_$AI(e,t=this,i,o){let r=this.strings,a=!1;if(void 0===r)(a=!d(e=D(this,e,t,0))||e!==this._$AH&&e!==z)&&(this._$AH=e);else{let o,s;let l=e;for(e=r[0],o=0;o<r.length-1;o++)(s=D(this,l[i+o],t,o))===z&&(s=this._$AH[o]),a||=!d(s)||s!==this._$AH[o],s===A?e=A:e!==A&&(e+=(s??"")+r[o+1]),this._$AH[o]=s}a&&!o&&this.O(e)}O(e){e===A?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,e??"")}}class R extends N{constructor(){super(...arguments),this.type=3}O(e){this.element[this.name]=e===A?void 0:e}}class H extends N{constructor(){super(...arguments),this.type=4}O(e){this.element.toggleAttribute(this.name,!!e&&e!==A)}}class O extends N{constructor(e,t,i,o,r){super(e,t,i,o,r),this.type=5}_$AI(e,t=this){if((e=D(this,e,t,0)??A)===z)return;let i=this._$AH,o=e===A&&i!==A||e.capture!==i.capture||e.once!==i.once||e.passive!==i.passive,r=e!==A&&(i===A||o);o&&this.element.removeEventListener(this.name,this,i),r&&this.element.addEventListener(this.name,this,e),this._$AH=e}handleEvent(e){"function"==typeof this._$AH?this._$AH.call(this.options?.host??this.element,e):this._$AH.handleEvent(e)}}class M{constructor(e,t,i){this.element=e,this.type=6,this._$AN=void 0,this._$AM=t,this.options=i}get _$AU(){return this._$AM._$AU}_$AI(e){D(this,e)}}let I=o.litHtmlPolyfillSupport;I?.(L,T),(o.litHtmlVersions??=[]).push("3.1.1");let q=(e,t,i)=>{let o=i?.renderBefore??t,r=o._$litPart$;if(void 0===r){let e=i?.renderBefore??null;o._$litPart$=r=new T(t.insertBefore(m(),e),e,void 0,i??{})}return r._$AI(e),r}}),a("h3wye",function(t,i){e(t.exports,"css",()=>r("iSKEb").css),e(t.exports,"ReactiveElement",()=>r("aA4Rn").ReactiveElement),e(t.exports,"html",()=>r("19cNw").html),e(t.exports,"noChange",()=>r("19cNw").noChange),e(t.exports,"render",()=>r("19cNw").render),e(t.exports,"LitElement",()=>s);var o=r("aA4Rn"),a=r("19cNw");/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */class s extends o.ReactiveElement{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0}createRenderRoot(){let e=super.createRenderRoot();return this.renderOptions.renderBefore??=e.firstChild,e}update(e){let t=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(e),this._$Do=(0,a.render)(t,this.renderRoot,this.renderOptions)}connectedCallback(){super.connectedCallback(),this._$Do?.setConnected(!0)}disconnectedCallback(){super.disconnectedCallback(),this._$Do?.setConnected(!1)}render(){return a.noChange}}s._$litElement$=!0,s.finalized=!0,globalThis.litElementHydrateSupport?.({LitElement:s});let l=globalThis.litElementPolyfillSupport;l?.({LitElement:s}),(globalThis.litElementVersions??=[]).push("4.0.3")}),a("bWWHI",function(e,t){}),r("fYgrz");var s=r("iSKEb"),l=r("19cNw"),n=r("h3wye");class f extends n.LitElement{static styles=(0,s.css)`
+ */class s extends o.ReactiveElement{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0}createRenderRoot(){let e=super.createRenderRoot();return this.renderOptions.renderBefore??=e.firstChild,e}update(e){let t=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(e),this._$Do=(0,a.render)(t,this.renderRoot,this.renderOptions)}connectedCallback(){super.connectedCallback(),this._$Do?.setConnected(!0)}disconnectedCallback(){super.disconnectedCallback(),this._$Do?.setConnected(!1)}render(){return a.noChange}}s._$litElement$=!0,s.finalized=!0,globalThis.litElementHydrateSupport?.({LitElement:s});let l=globalThis.litElementPolyfillSupport;l?.({LitElement:s}),(globalThis.litElementVersions??=[]).push("4.0.3")}),a("bWWHI",function(e,t){}),r("fYgrz");var s=r("iSKEb"),l=r("19cNw"),n=r("h3wye");class f extends n.LitElement {
+		static styles = (0, s.css)`
 		* {
 			box-sizing: border-box;
 		}
@@ -1577,6 +1578,9 @@
 		.az-icon-twitter:before {
 			content: "\\e910";
 		}
+		.az-icon-x-twitter:before {
+			content: "\\e914";
+		}
 		.az-icon-wildcat:before {
 			content: "\\e911";
 		}
@@ -1586,7 +1590,9 @@
 		.az-icon-vimeo:before {
 			content: "\\e913";
 		}
-	`;render(){return(0,l.html)`
+	`;
+		render() {
+			return (0, l.html)`
 			<footer id="footer_site" class="page page-row" role="contentinfo">
 				<div class="region region-footer">
 					<div
@@ -1604,7 +1610,9 @@
 											href="https://www.arizona.edu/"
 											title="Home"
 											class="remove-external-link-icon active"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											><img
 												src="https://www.arizona.edu/sites/default/files/UA_horiz_rgb_webheader.png"
 												alt="Home"
@@ -1626,7 +1634,9 @@
 												href="https://talent.arizona.edu"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e) => {
+													eventDataLayerPush(e, "az-footer");
+												}}"
 												>Employment</a
 											>
 										</li>
@@ -1635,7 +1645,9 @@
 												href="https://cirt.arizona.edu"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e) => {
+													eventDataLayerPush(e, "az-footer");
+												}}"
 												>Emergency Information</a
 											>
 										</li>
@@ -1644,7 +1656,9 @@
 												href="https://www.arizona.edu/title-ix"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e) => {
+													eventDataLayerPush(e, "az-footer");
+												}}"
 												>Title IX / Non-Discrimination</a
 											>
 										</li>
@@ -1653,7 +1667,9 @@
 												href="https://safety.arizona.edu/"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e) => {
+													eventDataLayerPush(e, "az-footer");
+												}}"
 												>Campus Safety</a
 											>
 										</li>
@@ -1661,7 +1677,9 @@
 											<a
 												href="https://clery.arizona.edu/annual-reports"
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e) => {
+													eventDataLayerPush(e, "az-footer");
+												}}"
 												>Annual Security Report</a
 											>
 										</li>
@@ -1670,7 +1688,9 @@
 												href="https://www.arizona.edu/copyright"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e) => {
+													eventDataLayerPush(e, "az-footer");
+												}}"
 												>Copyright</a
 											>
 										</li>
@@ -1679,7 +1699,9 @@
 												href="https://www.arizona.edu/campus-accessibility"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e) => {
+													eventDataLayerPush(e, "az-footer");
+												}}"
 												>Campus Accessibility</a
 											>
 										</li>
@@ -1688,7 +1710,9 @@
 												href="https://www.arizona.edu/contact-us"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e) => {
+													eventDataLayerPush(e, "az-footer");
+												}}"
 												>Contact Us</a
 											>
 										</li>
@@ -1697,7 +1721,9 @@
 												href="https://www.arizona.edu/website-feedback"
 												title=""
 												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+												@click="${(e) => {
+													eventDataLayerPush(e, "az-footer");
+												}}"
 												>Feedback</a
 											>
 										</li>
@@ -1743,7 +1769,9 @@
 										<a
 											href="https://www.arizona.edu/admissions"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Future Students</a
 										>
 									</li>
@@ -1752,7 +1780,9 @@
 											href="https://www.arizona.edu/students"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Current Students</a
 										>
 									</li>
@@ -1761,7 +1791,9 @@
 											href="https://www.arizona.edu/faculty-staff"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Faculty &amp; Staff</a
 										>
 									</li>
@@ -1770,7 +1802,9 @@
 											href="https://www.arizona.edu/alumni-donors"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Alumni &amp; Donors</a
 										>
 									</li>
@@ -1779,7 +1813,9 @@
 											href="https://www.arizona.edu/parents-visitors"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Parents &amp; Visitors</a
 										>
 									</li>
@@ -1788,7 +1824,9 @@
 											href="https://corporate.arizona.edu/"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Corporations &amp; Businesses</a
 										>
 									</li>
@@ -1809,7 +1847,9 @@
 											href="https://www.arizona.edu/about"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>About the University</a
 										>
 									</li>
@@ -1818,7 +1858,9 @@
 											href="https://www.arizona.edu/academics"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Academics</a
 										>
 									</li>
@@ -1827,7 +1869,9 @@
 											href="https://www.arizona.edu/arts-museums"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Arts &amp; Museums</a
 										>
 									</li>
@@ -1836,7 +1880,9 @@
 											href="https://www.arizona.edu/athletics-recreation"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Athletics &amp; Recreation</a
 										>
 									</li>
@@ -1845,7 +1891,9 @@
 											href="https://www.arizona.edu/colleges-schools"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Colleges, Schools, Departments</a
 										>
 									</li>
@@ -1853,7 +1901,9 @@
 										<a
 											href="https://diversity.arizona.edu"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Diversity</a
 										>
 									</li>
@@ -1862,7 +1912,9 @@
 											href="https://www.environment.arizona.edu"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Environment &amp; Sustainability</a
 										>
 									</li>
@@ -1870,7 +1922,9 @@
 										<a
 											href="https://international.arizona.edu"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>International Engagement</a
 										>
 									</li>
@@ -1879,7 +1933,9 @@
 											href="https://www.arizona.edu/health-sciences"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Health &amp; Medical</a
 										>
 									</li>
@@ -1888,7 +1944,9 @@
 											href="https://www.arizona.edu/libraries"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Libraries</a
 										>
 									</li>
@@ -1896,7 +1954,9 @@
 										<a
 											href="https://uaforyou.arizona.edu"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Outreach &amp; Extension</a
 										>
 									</li>
@@ -1904,7 +1964,9 @@
 										<a
 											href="https://research.arizona.edu"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Research &amp; Innovation</a
 										>
 									</li>
@@ -1913,7 +1975,9 @@
 											href="https://www.arizona.edu/purpose-mission-values"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											>Purpose, Mission &amp; Values</a
 										>
 									</li>
@@ -1936,7 +2000,9 @@
 										<a
 											href="https://directory.arizona.edu/"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											><i class="ua-brand-directory"></i>Directory</a
 										>
 									</li>
@@ -1945,7 +2011,9 @@
 											href="https://www.arizona.edu/calendars-events"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											><i class="ua-brand-calendar"></i>Calendars</a
 										>
 									</li>
@@ -1953,7 +2021,9 @@
 										<a
 											href="https://map.arizona.edu"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											><i class="ua-brand-campus-map"></i>Campus Map</a
 										>
 									</li>
@@ -1961,7 +2031,9 @@
 										<a
 											href="https://news.arizona.edu"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											><i class="ua-brand-news"></i>News</a
 										>
 									</li>
@@ -1969,7 +2041,9 @@
 										<a
 											href="https://phonebook.arizona.edu/"
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											><i class="ua-brand-directory"></i>Phonebook</a
 										>
 									</li>
@@ -1978,7 +2052,9 @@
 											href="https://www.arizona.edu/weather"
 											title=""
 											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											><i class="ua-brand-weather"></i>Weather</a
 										>
 									</li>
@@ -1998,7 +2074,9 @@
 											target="_blank"
 											title="Click here to visit our Facebook page"
 											rel="noopener noreferrer"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											><i class="az-icon-facebook"></i>Facebook</a
 										>
 									</li>
@@ -2006,10 +2084,12 @@
 										<a
 											href="https://twitter.com/uarizona"
 											target="_blank"
-											title="Click here to visit our Twitter page"
+											title="Click here to visit us on X, formerly Twitter"
 											rel="noopener noreferrer"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
-											><i class="az-icon-twitter"></i>Twitter</a
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
+											><i class="az-icon-x-twitter"></i>X, formerly Twitter</a
 										>
 									</li>
 									<li class="menu__item is-leaf leaf">
@@ -2018,7 +2098,9 @@
 											target="_blank"
 											title="Click here to visit our Instagram page"
 											rel="noopener noreferrer"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											><i class="az-icon-instagram"></i>Instagram</a
 										>
 									</li>
@@ -2028,7 +2110,9 @@
 											target="_blank"
 											title="Click here to visit our LinkedIn page"
 											rel="noopener noreferrer"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											><i class="az-icon-linkedin"></i>LinkedIn</a
 										>
 									</li>
@@ -2038,7 +2122,9 @@
 											target="_blank"
 											title="Click here to visit our YouTube page"
 											rel="noopener noreferrer"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											@click="${(e) => {
+												eventDataLayerPush(e, "az-footer");
+											}}"
 											><i class="az-icon-youtube"></i>YouTube</a
 										>
 									</li>
@@ -2094,7 +2180,9 @@
 									<a
 										href="https://www.arizona.edu/information-security-privacy"
 										target="_blank"
-										@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+										@click="${(e) => {
+											eventDataLayerPush(e, "az-footer");
+										}}"
 										>University Information Security and Privacy</a
 									>
 								</p>
@@ -2104,7 +2192,9 @@
 									<a
 										href="https://www.arizona.edu"
 										target="_blank"
-										@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+										@click="${(e) => {
+											eventDataLayerPush(e, "az-footer");
+										}}"
 										>The University of Arizona</a
 									>.
 								</p>
@@ -2113,4 +2203,6 @@
 					</div>
 				</div>
 			</footer>
-		`}}customElements.get("az-footer")||customElements.define("az-footer",f)})();
+		`;
+		}
+ }customElements.get("az-footer")||customElements.define("az-footer",f)})();
