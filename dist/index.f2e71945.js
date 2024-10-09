@@ -2239,7 +2239,7 @@ class AzFooter extends (0, _lit.LitElement) {
 										</li>
 										<li class="menu__item is-leaf leaf">
 											<a
-												href="https://clery.arizona.edu/annual-reports"
+												href="https://clery.arizona.edu/asr"
 												class="menu__link"
 												@click="${(e)=>{
             eventDataLayerPush(e, "az-footer");
