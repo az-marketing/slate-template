@@ -1842,6 +1842,14 @@
 									</li>
 									<li class="menu__item is-leaf leaf">
 										<a
+											href="https://shop.arizona.edu/"
+											class="menu__link"
+											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
+											>Campus Store</a
+										>
+									</li>
+									<li class="menu__item is-leaf leaf">
+										<a
 											href="https://www.arizona.edu/colleges-schools"
 											title=""
 											class="menu__link"
@@ -1890,14 +1898,6 @@
 											class="menu__link"
 											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
 											>Libraries</a
-										>
-									</li>
-									<li class="menu__item is-leaf leaf">
-										<a
-											href="https://uaforyou.arizona.edu"
-											class="menu__link"
-											@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
-											>Outreach &amp; Extension</a
 										>
 									</li>
 									<li class="menu__item is-leaf leaf">
