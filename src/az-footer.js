@@ -1892,16 +1892,6 @@ export default class AzFooter extends LitElement {
 									</li>
 									<li class="menu__item is-leaf leaf">
 										<a
-											href="https://diversity.arizona.edu"
-											class="menu__link"
-											@click="${(e) => {
-												eventDataLayerPush(e, "az-footer");
-											}}"
-											>Diversity</a
-										>
-									</li>
-									<li class="menu__item is-leaf leaf">
-										<a
 											href="https://www.environment.arizona.edu"
 											title=""
 											class="menu__link"
@@ -2139,7 +2129,7 @@ export default class AzFooter extends LitElement {
 												is on the land and territories of Indigenous peoples.
 												Today, Arizona is home to 22 federally recognized
 												tribes, with Tucson being home to the O’odham and the
-												Yaqui. Committed to diversity and inclusion, the
+												Yaqui. The
 												University strives to build sustainable relationships
 												with sovereign Native Nations and Indigenous communities
 												through education offerings, partnerships, and community
