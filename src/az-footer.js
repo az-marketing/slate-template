@@ -2125,8 +2125,13 @@ export default class AzFooter extends LitElement {
 										<hr />
 										<p class="text-align-center text-muted mt-0 mb-0">
 											<em
-												>We respectfully acknowledge the University of Arizona
-												is on the land and territories of Indigenous peoples.
+												>We respectfully acknowledge <a
+										href="https://www.arizona.edu/university-arizona-land-acknowledgment"
+										target="_blank"
+										@click="${(e) => {
+											eventDataLayerPush(e, "az-footer");
+										}}"
+										>the University of Arizona is on the land and territories of Indigenous peoples</a>. 
 												Today, Arizona is home to 22 federally recognized
 												tribes, with Tucson being home to the O’odham and the
 												Yaqui. The
