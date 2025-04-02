@@ -1563,6 +1563,9 @@ export default class AzFooter extends LitElement {
 		.az-icon-twitter:before {
 			content: "\\e910";
 		}
+		.az-icon-x-twitter:before {
+			content: "\\e914";
+		}
 		.az-icon-wildcat:before {
 			content: "\\e911";
 		}
@@ -1913,7 +1916,7 @@ export default class AzFooter extends LitElement {
 									</li>
 									<li class="menu__item is-leaf leaf">
 										<a
-											href="https://www.arizona.edu/health-sciences"
+											href="https://healthsciences.arizona.edu/"
 											title=""
 											class="menu__link"
 											@click="${(e) => {
@@ -1971,12 +1974,12 @@ export default class AzFooter extends LitElement {
 								<ul class="menu menu-bottom">
 									<li class="menu__item is-leaf first leaf">
 										<a
-											href="https://directory.arizona.edu/"
+											href="https://directory.arizona.edu/all"
 											class="menu__link"
 											@click="${(e) => {
 												eventDataLayerPush(e, "az-footer");
 											}}"
-											><i class="ua-brand-directory"></i>Directory</a
+											><i class="ua-brand-directory"></i>A-Z Directory</a
 										>
 									</li>
 									<li class="menu__item is-leaf leaf">
@@ -2055,14 +2058,14 @@ export default class AzFooter extends LitElement {
 									</li>
 									<li class="menu__item is-leaf leaf">
 										<a
-											href="https://twitter.com/uarizona"
+											href="https://x.com/uarizona"
 											target="_blank"
-											title="Click here to visit our Twitter page"
+											title="Click here to visit our X, formerly Twitter page"
 											rel="noopener noreferrer"
 											@click="${(e) => {
 												eventDataLayerPush(e, "az-footer");
 											}}"
-											><i class="az-icon-twitter"></i>Twitter</a
+											><i class="az-icon-x-twitter"></i>X, formerly Twitter</a
 										>
 									</li>
 									<li class="menu__item is-leaf leaf">
