@@ -1636,13 +1636,13 @@ export default class AzFooter extends LitElement {
 										</li>
 										<li class="menu__item is-leaf leaf">
 											<a
-												href="https://www.arizona.edu/title-ix"
+												href="https://www.arizona.edu/nondiscrimination"
 												title=""
 												class="menu__link"
 												@click="${(e) => {
 													eventDataLayerPush(e, "az-footer");
 												}}"
-												>Title IX / Non-Discrimination</a
+												>Nondiscrimination</a
 											>
 										</li>
 										<li class="menu__item is-leaf leaf">
