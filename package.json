@@ -31,7 +31,8 @@
 		}
 	},
 	"devDependencies": {
-		"parcel": "^2.0.0"
+		"@parcel/watcher": "^2.5.1",
+		"parcel": "^2.14.4"
 	},
 	"browserslist": [
 		"last 3 and_chr versions",
