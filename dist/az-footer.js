@@ -1346,12 +1346,13 @@
 			border-right: 0px solid hsl(196, 8%, 74%);
 			display: inline-block;
 			list-style: none;
-			padding: 0 0 0 0.75rem;
+			padding: 0 0.45rem 0 0.45rem;
 		}
 		#footer_site #block-bean-uaqs-footer-links-bean-main ul li a {
 			color: #49595e;
 			text-decoration: none;
 			text-transform: none;
+			margin: 0;
 		}
 
 		#footer_site #footer_sub ul {
@@ -1642,14 +1643,6 @@
 												class="menu__link"
 												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
 												>Campus Safety</a
-											>
-										</li>
-										<li class="menu__item is-leaf leaf">
-											<a
-												href="https://clery.arizona.edu/asr"
-												class="menu__link"
-												@click="${e=>{eventDataLayerPush(e,"az-footer")}}"
-												>Annual Security Report</a
 											>
 										</li>
 										<li class="menu__item is-leaf leaf">
