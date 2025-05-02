@@ -2046,7 +2046,7 @@
 												Today, Arizona is home to 22 federally recognized
 												tribes, with Tucson being home to the O’odham and the
 												Yaqui. The
-												University strives to build sustainable relationships
+												university strives to build sustainable relationships
 												with sovereign Native Nations and Indigenous communities
 												through education offerings, partnerships, and community
 												service.</em
