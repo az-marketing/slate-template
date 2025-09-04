@@ -728,7 +728,7 @@ export class AzRedbar extends LitElement {
 				aria-expanded="false"
 				aria-haspopup="true"
 				href="#"
-				class="resource-menu btn btn-outline-red"
+				class="resource-menu btn btn-outline-red rounded-pill"
 			>
 				${title}
 			</button>
@@ -876,15 +876,15 @@ export class AzRedbar extends LitElement {
 								<span class="caret"></span>
 								${this.isLoading
 									? html`
-											<button
-												role="button"
-												aria-expanded="false"
-												aria-haspopup="true"
-												href="#"
-												class="resource-menu btn btn-outline-red"
-											>
-												<slot name="loading">${this.loadingMessage}</slot>
-											</button>
+												<button
+													role="button"
+													aria-expanded="false"
+													aria-haspopup="true"
+													href="#"
+													class="resource-menu btn btn-outline-red rounded-pill"
+												>
+													<slot name="loading">${this.loadingMessage}</slot>
+												</button>
 									  `
 									: this.renderAzMenuLevel(this.tree)}
 							</div>

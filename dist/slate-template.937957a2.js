@@ -2018,12 +2018,13 @@ class AzFooter extends (0, _lit.LitElement) {
 			border-right: 0px solid hsl(196, 8%, 74%);
 			display: inline-block;
 			list-style: none;
-			padding: 0 0 0 0.75rem;
+			padding: 0 0.45rem 0 0.45rem;
 		}
 		#footer_site #block-bean-uaqs-footer-links-bean-main ul li a {
 			color: #49595e;
 			text-decoration: none;
 			text-transform: none;
+			margin: 0;
 		}
 
 		#footer_site #footer_sub ul {
@@ -2326,16 +2327,6 @@ class AzFooter extends (0, _lit.LitElement) {
             eventDataLayerPush(e, "az-footer");
         }}"
 												>Campus Safety</a
-											>
-										</li>
-										<li class="menu__item is-leaf leaf">
-											<a
-												href="https://clery.arizona.edu/asr"
-												class="menu__link"
-												@click="${(e)=>{
-            eventDataLayerPush(e, "az-footer");
-        }}"
-												>Annual Security Report</a
 											>
 										</li>
 										<li class="menu__item is-leaf leaf">
@@ -2807,7 +2798,7 @@ class AzFooter extends (0, _lit.LitElement) {
 												Today, Arizona is home to 22 federally recognized
 												tribes, with Tucson being home to the O’odham and the
 												Yaqui. The
-												University strives to build sustainable relationships
+												university strives to build sustainable relationships
 												with sovereign Native Nations and Indigenous communities
 												through education offerings, partnerships, and community
 												service.</em
