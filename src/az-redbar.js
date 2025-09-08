@@ -10,46 +10,152 @@ import { eventDataLayerPush } from "./mixins/shadow-events-datalayer";
 export class AzRedbar extends LitElement {
 	static styles = css`
 		:root {
-			--blue: #0c234b;
-			--red: #ab0520;
-			--white: #fff;
-			--bloom: #ef4056;
-			--chili: #8b0015;
-			--sky: #81d3eb;
-			--oasis: #378dbd;
-			--azurite: #1e5288;
-			--midnight: #001c48;
-			--cool-gray: #e2e9eb;
-			--warm-gray: #f4ede5;
-			--leaf: #70b865;
-			--river: #007d84;
-			--silver: #9eabae;
-			--mesa: #a95c42;
-			--ash: #403635;
-			--sage: #4a634e;
-			--black: #000;
-			--success: #70b865;
-			--info: #81d3eb;
-			--warning: #f19e1f;
-			--danger: #a95c42;
-			--light: #dee2e6;
-			--dark: #343a40;
-			--breakpoint-xs: 0;
-			--breakpoint-sm: 576px;
-			--breakpoint-md: 768px;
-			--breakpoint-lg: 992px;
-			--breakpoint-xl: 1200px;
-			--font-family-sans-serif: proxima-nova, calibri, -apple-system,
-				BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-				"Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-				"Segoe UI Symbol", "Noto Color Emoji";
-			--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-				"Liberation Mono", "Courier New", monospace;
+			--bs-red: #ab0520;
+  			--bs-bloom: #ef4056;
+  			--bs-chili: #8b0015;
+  			--bs-blue: #0c234b;
+  			--bs-sky: #81d3eb;
+  			--bs-oasis: #378dbd;
+  			--bs-azurite: #1e5288;
+  			--bs-midnight: #001c48;
+  			--bs-cool-gray: #e2e9eb;
+  			--bs-warm-gray: #f4ede5;
+  			--bs-leaf: #70b865;
+  			--bs-river: #007d84;
+  			--bs-silver: #9eabae;
+  			--bs-mesa: #a95c42;
+  			--bs-ash: #403635;
+  			--bs-sage: #4a634e;
+  			--bs-white: #fff;
+  			--bs-black: #000;
+  			--bs-gray-100: #f8f9fa;
+  			--bs-gray-200: #e9ecef;
+  			--bs-gray-300: #dee2e6;
+  			--bs-gray-400: #ced4da;
+  			--bs-gray-500: #adb5bd;
+  			--bs-gray-600: #6c757d;
+  			--bs-gray-700: #495057;
+  			--bs-gray-800: #343a40;
+  			--bs-gray-900: #212529;
+  			--bs-primary: #ab0520;
+  			--bs-secondary: #0c234b;
+  			--bs-success: #70b865;
+  			--bs-info: #81d3eb;
+  			--bs-warning: #f19e1f;
+  			--bs-danger: #a95c42;
+  			--bs-light: #dee2e6;
+  			--bs-dark: #343a40;
+  			--bs-primary-rgb: 171, 5, 32;
+  			--bs-secondary-rgb: 12, 35, 75;
+  			--bs-success-rgb: 112, 184, 101;
+  			--bs-info-rgb: 129, 211, 235;
+  			--bs-warning-rgb: 241, 158, 31;
+  			--bs-danger-rgb: 169, 92, 66;
+  			--bs-light-rgb: 222, 226, 230;
+  			--bs-dark-rgb: 52, 58, 64;
+  			--bs-primary-text-emphasis: #44020d;
+  			--bs-secondary-text-emphasis: #050e1e;
+  			--bs-success-text-emphasis: #2d4a28;
+  			--bs-info-text-emphasis: #34545e;
+  			--bs-warning-text-emphasis: #603f0c;
+  			--bs-danger-text-emphasis: #44251a;
+  			--bs-light-text-emphasis: #495057;
+  			--bs-dark-text-emphasis: #495057;
+  			--bs-primary-bg-subtle: #eecdd2;
+  			--bs-secondary-bg-subtle: #ced3db;
+  			--bs-success-bg-subtle: #e2f1e0;
+  			--bs-info-bg-subtle: #e6f6fb;
+  			--bs-warning-bg-subtle: #fcecd2;
+  			--bs-danger-bg-subtle: #eeded9;
+  			--bs-light-bg-subtle: #fcfcfd;
+  			--bs-dark-bg-subtle: #ced4da;
+  			--bs-primary-border-subtle: #dd9ba6;
+  			--bs-secondary-border-subtle: #9ea7b7;
+  			--bs-success-border-subtle: #c6e3c1;
+  			--bs-info-border-subtle: #cdedf7;
+  			--bs-warning-border-subtle: #f9d8a5;
+  			--bs-danger-border-subtle: #ddbeb3;
+  			--bs-light-border-subtle: #e9ecef;
+  			--bs-dark-border-subtle: #adb5bd;
+  			--bs-white-rgb: 255, 255, 255;
+  			--bs-black-rgb: 0, 0, 0;
+  			--bs-font-sans-serif: proxima-nova, calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  			--bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  			--bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  			--bs-body-font-family: var(--bs-font-sans-serif);
+  			--bs-body-font-size: 1rem;
+  			--bs-body-font-weight: 400;
+  			--bs-body-line-height: 1.5;
+  			--bs-body-color: #212529;
+  			--bs-body-color-rgb: 33, 37, 41;
+  			--bs-body-bg: #fff;
+  			--bs-body-bg-rgb: 255, 255, 255;
+  			--bs-emphasis-color: #000;
+  			--bs-emphasis-color-rgb: 0, 0, 0;
+  			--bs-secondary-color: rgba(33, 37, 41, 0.75);
+  			--bs-secondary-color-rgb: 33, 37, 41;
+  			--bs-secondary-bg: #e9ecef;
+  			--bs-secondary-bg-rgb: 233, 236, 239;
+  			--bs-tertiary-color: rgba(33, 37, 41, 0.5);
+  			--bs-tertiary-color-rgb: 33, 37, 41;
+  			--bs-tertiary-bg: #f8f9fa;
+  			--bs-tertiary-bg-rgb: 248, 249, 250;
+  			--bs-heading-color: inherit;
+  			--bs-link-color: #ab0520;
+  			--bs-link-color-rgb: 171, 5, 32;
+  			--bs-link-decoration: underline;
+  			--bs-link-hover-color: #8b0015;
+  			--bs-link-hover-color-rgb: 139, 0, 21;
+  			--bs-code-color: #d63384;
+  			--bs-highlight-color: #212529;
+  			--bs-highlight-bg: #fff3cd;
+  			--bs-border-width: 1px;
+  			--bs-border-style: solid;
+  			--bs-border-color: #dee2e6;
+  			--bs-border-color-translucent: rgba(0, 0, 0, 0.175);
+  			--bs-border-radius: 0.375rem;
+  			--bs-border-radius-sm: 0.25rem;
+  			--bs-border-radius-lg: 0.5rem;
+  			--bs-border-radius-xl: 1rem;
+  			--bs-border-radius-xxl: 2rem;
+  			--bs-border-radius-2xl: var(--bs-border-radius-xxl);
+  			--bs-border-radius-pill: 50rem;
+  			--bs-box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.15);
+  			--bs-box-shadow-sm: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.075);
+  			--bs-box-shadow-lg: 0 0.75rem 3rem rgba(0, 0, 0, 0.175);
+  			--bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+  			--bs-focus-ring-width: 0.25rem;
+  			--bs-focus-ring-opacity: 0.25;
+  			--bs-focus-ring-color: rgba(171, 5, 32, 0.25);
+  			--bs-form-valid-color: #70b865;
+			--bs-form-valid-border-color: #70b865;
+			--bs-form-invalid-color: #a95c42;
+			--bs-form-invalid-border-color: #a95c42;
 		}
+
 		*,
-		::after,
-		::before {
+		*::before,
+		*::after {
 			box-sizing: border-box;
+		}
+
+		@media (prefers-reduced-motion: no-preference) {
+  			:root {
+    			scroll-behavior: smooth;
+  			}
+		}
+
+		body {
+			margin: 0;
+			font-family: var(--bs-body-font-family);
+			font-size: var(--bs-body-font-size);
+			font-weight: var(--bs-body-font-weight);
+			line-height: var(--bs-body-line-height);
+			color: var(--bs-body-color);
+			text-align: var(--bs-body-text-align);
+			background-color: var(--bs-body-bg);
+			-webkit-text-size-adjust: 100%;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 		}
 		header,
 		main,
@@ -69,9 +175,6 @@ export class AzRedbar extends LitElement {
 			color: #212529;
 			text-align: left;
 			background-color: #fff;
-		}
-		div {
-			font-size: 16px;
 		}
 		[tabindex="-1"]:focus:not(:focus-visible) {
 			outline: 0 !important;
@@ -181,9 +284,6 @@ export class AzRedbar extends LitElement {
 		[hidden] {
 			display: none !important;
 		}
-		* {
-			box-sizing: border-box;
-		}
 		header {
 			display: block;
 		}
@@ -200,20 +300,43 @@ export class AzRedbar extends LitElement {
 			margin-right: auto;
 			margin-left: auto;
 		}
+		.flex-nowrap {
+			-ms-flex-wrap: nowrap!important;
+			flex-wrap: nowrap !important;
+		}
 		.row {
-			display: -ms-flexbox;
-			display: flex;
-			-ms-flex-wrap: wrap;
-			flex-wrap: wrap;
-			align-items: center;
-			justify-content: flex-end;
-			margin-right: -15px;
-			margin-left: -15px;
-			padding: 5px 0;
+		    --bs-gutter-x: 1.5rem;
+		    --bs-gutter-y: 0;
+		    display: -ms-flexbox;
+		    display: flex;
+		    -ms-flex-wrap: wrap;
+		    flex-wrap: wrap;
+		    margin-top: calc(-1 * var(--bs-gutter-y));
+		    margin-right: calc(-.5 * var(--bs-gutter-x));
+		    margin-left: calc(-.5 * var(--bs-gutter-x));
 		}
 		.row section {
 			align-items: center;
 		}
+		.ms-auto {
+			margin-left: auto !important;
+		}
+		.d-none {
+			display: none !important;
+		}
+		.d-lg-flex {
+			display: -ms-flexbox !important;
+			display: flex !important;
+		}
+		.row>* {
+			-ms-flex-negative: 0;
+			flex-shrink: 0;
+			width: 100%;
+			max-width: 100%;
+			padding-right: calc(var(--bs-gutter-x) * .5);
+			padding-left: calc(var(--bs-gutter-x) * .5);
+			margin-top: var(--bs-gutter-y);
+		}	
 		.redbar-buttons {
 			position: absolute;
 			top: 0;
@@ -221,7 +344,38 @@ export class AzRedbar extends LitElement {
 			height: 53px;
 			max-height: 53px;
 		}
-
+		.arizona-header>.container>.row {
+			-ms-flex-align: center;
+			align-items: center;
+			-ms-flex-pack: justify;
+			justify-content: space-between;
+			min-height: 50px;
+		}
+		.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-control, .input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-select, .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		.visually-hidden-focusable:not(:focus):not(:focus-within):not(caption), .visually-hidden:not(caption) {
+		    position: absolute !important;
+		}
+		.visually-hidden, .visually-hidden-focusable:not(:focus):not(:focus-within) {
+		    width: 1px !important;
+		    height: 1px !important;
+		    padding: 0 !important;
+		    margin: -1px !important;
+		    overflow: hidden !important;
+		    clip: rect(0, 0, 0, 0) !important;
+		    white-space: nowrap !important;
+		    border: 0 !important;
+		}
+		.visually-hidden {
+		    position: absolute !important;
+		    overflow: hidden;
+		    clip: rect(1px, 1px, 1px, 1px);
+		    width: 1px;
+		    height: 1px;
+		    word-wrap: normal;
+		}
 		@media (min-width: 576px) {
 			.container,
 			.container-sm {
@@ -271,11 +425,7 @@ export class AzRedbar extends LitElement {
 			margin: 17px 20px 17px 10px;
 		}
 		@media (min-width: 576px) {
-			svg#search-icon {
-				width: 266.41px;
-				height: 19.8px;
-				margin: 15.11px 20px 15.1px 10px;
-			}
+
 		}
 		.ml-auto,
 		.mx-auto {
@@ -295,6 +445,10 @@ export class AzRedbar extends LitElement {
 			.d-lg-none {
 				display: none !important;
 			}
+			.d-xl-flex {
+				display: -ms-flexbox!important;
+				display: flex !important;
+			}
 		}
 		@media (min-width: 1200px) {
 			.d-xl-block {
@@ -304,15 +458,17 @@ export class AzRedbar extends LitElement {
 				flex-direction: row !important;
 				display: flex !important;
 			}
+			.d-xl-flex {
+				display: -ms-flexbox!important;
+				display: flex !important;
+			}
 		}
 		header #search-block-form {
-			/* padding: 5px 12px; */
+			padding: 5px 12px;
 			flex-flow: row wrap;
 		}
 		#search-block-form {
 			display: flex;
-			overflow: hidden;
-			position: relative;
 		}
 		.form-control:focus {
 			border-color: hsl(191deg 9% 65%);
@@ -343,10 +499,9 @@ export class AzRedbar extends LitElement {
 			display: flex;
 			-ms-flex-wrap: wrap;
 			flex-wrap: wrap;
-			-ms-flex-align: center;
-			align-items: center;
+			-ms-flex-align: stretch;
+			align-items: stretch;
 			width: 100%;
-			right: 1px;
 		}
 		.input-group > .custom-file,
 		.input-group > .custom-select,
@@ -358,38 +513,64 @@ export class AzRedbar extends LitElement {
 			min-width: 0;
 			border: none;
 		}
-		.search-block-form {
-			overflow: hidden;
-			width: 189.5px;
-			background-color: white;
+		.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), 
+		.input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-control, 
+		.input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-select, 
+		.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) Specificity: (0,5,0) {
+    		border-top-right-radius: 0;
+    		border-bottom-right-radius: 0;
 		}
-		#block-az-barrio-search {
-			border: 1px solid var(--bloom);
-			padding: 4px 0 5px;
-		}
+			
+
+
 		.search-block-form input {
-			height: 34px;
-			font-size: 16px;
-			padding: 0px 37px 0px 13px;
+			height: 43px;
+    		margin-left: 0 !important;
 			width: 100%;
+		}
+		.input-group>.form-control, .input-group>.form-floating, .input-group>.form-select {
+    		position: relative;
+    		-ms-flex: 1 1 auto;
+    		flex: 1 1 auto;
+    		width: 1%;
+    		min-width: 0;
 		}
 		input[type="search"] {
 			box-sizing: border-box;
 		}
+		.rounded-start {
+    		border-bottom-left-radius: var(--bs-border-radius) !important;
+    		border-top-left-radius: var(--bs-border-radius) !important;
+		}
 		.form-control {
-			display: block;
-			width: 100%;
-			height: calc(1.5em + 0.75rem + 2px);
-			padding: 0.375rem 0.75rem;
-			font-size: 1rem;
-			font-weight: 400;
-			line-height: 1.5;
-			color: #495057;
-			background-color: #fff;
-			background-clip: padding-box;
-			/* border: 1px solid #ced4da; */
-			border-radius: 0;
-			transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+		    display: block;
+		    width: 100%;
+		    padding: .375rem .75rem;
+		    font-size: 1rem;
+		    font-weight: 400;
+		    line-height: 1.5;
+		    color: var(--bs-body-color);
+		    -webkit-appearance: none;
+		    -moz-appearance: none;
+		    appearance: none;
+		    background-color: var(--bs-body-bg);
+		    background-clip: padding-box;
+		    border: var(--bs-border-width) solid var(--bs-border-color);
+		    border-radius: var(--bs-border-radius);
+		    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+		}
+		.input-group>.form-control,
+		.input-group>.form-floating,
+		.input-group>.form-select {
+    		position: relative;
+    		-ms-flex: 1 1 auto;
+    		flex: 1 1 auto;
+    		width: 1%;
+    		min-width: 0;
+		}
+		.az-search-block .search-block-form .form-search {
+			height: 43px;
+			margin-left: 0 !important;
 		}
 		[type="search"] {
 			outline-offset: -2px;
@@ -444,46 +625,85 @@ export class AzRedbar extends LitElement {
 			font-size: inherit;
 			line-height: inherit;
 		}
-		.btn:not(:disabled):not(.disabled) {
-			cursor: pointer;
+		.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    		margin-left: calc(-1 * var(--bs-border-width));
+    		border-top-left-radius: 0;
+    		border-bottom-left-radius: 0;
 		}
-		.bd-example > .btn,
-		.bd-example > .btn-group {
-			margin-top: 0.25rem;
-			margin-bottom: 0.25rem;
+		.az-search-block .search-block-form .input-group button {
+    		display: flex;
+    		align-items: center;
+    		font-size: 20px;
+    		color: #8B0015;
+    		background-color: #ffffff;
+    		border: 1px solid #ced4da;
+    		padding: 0 8px;
+		}
+		.input-group .btn {
+		    padding: .375rem .75rem;
+		    border-width: var(--bs-border-width);
+		    border-radius: var(--bs-border-radius);
+		}
+		.input-group .btn {
+		    position: relative;
+		    z-index: 2;
+		}
+		[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+		    cursor: pointer;
 		}
 		.btn {
-			font-weight: 500;
-			text-transform: uppercase;
-			text-decoration: none;
-			letter-spacing: 0.04em;
-			white-space: normal;
-			border-width: 2px;
+		    --bs-btn-padding-x: 1.25rem;
+		    --bs-btn-padding-y: 0.5rem;
+		    --bs-btn-font-family: ;
+		    --bs-btn-font-size: 1rem;
+		    --bs-btn-font-weight: 500;
+		    --bs-btn-line-height: 1.5;
+		    --bs-btn-color: var(--bs-body-color);
+		    --bs-btn-bg: transparent;
+		    --bs-btn-border-width: 2px;
+		    --bs-btn-border-color: transparent;
+		    --bs-btn-border-radius: 3rem;
+		    --bs-btn-hover-border-color: transparent;
+		    --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+		    --bs-btn-disabled-opacity: 0.65;
+		    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+		    display: inline-block;
+		    padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+		    font-family: var(--bs-btn-font-family);
+		    font-size: var(--bs-btn-font-size);
+		    font-weight: var(--bs-btn-font-weight);
+		    line-height: var(--bs-btn-line-height);
+		    color: var(--bs-btn-color);
+		    text-align: center;
+		    text-decoration: none;
+		    vertical-align: middle;
+		    cursor: pointer;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		    border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+		    border-radius: var(--bs-btn-border-radius);
+		    background-color: var(--bs-btn-bg);
+		    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 		}
-		.btn {
-			display: inline-block;
-			font-weight: 500;
-			color: #212529;
-			text-align: center;
-			vertical-align: middle;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-			background-color: transparent;
-			border: 2px solid transparent;
-			padding: 0.375rem 0.75rem;
-			font-size: 1rem;
-			line-height: 1.5;
-			border-radius: 0;
-			transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-				border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+		[type=button], [type=reset], [type=submit], button {
+		    -webkit-appearance: button;
 		}
-		[type="button"],
-		[type="reset"],
-		[type="submit"],
+		button, select {
+		    text-transform: none;
+		}
+		button, input, optgroup, select, textarea {
+		    margin: 0;
+		    font-family: inherit;
+		    font-size: inherit;
+		    line-height: inherit;
+		}
 		button {
-			-webkit-appearance: button;
+		    border-radius: 0;
+		}
+		*, ::after, ::before {
+		    box-sizing: border-box;
 		}
 		button,
 		select {
@@ -817,12 +1037,12 @@ export class AzRedbar extends LitElement {
 		return html`
 			<header class="bg-red arizona-header" id="header_arizona" role="banner">
 				<div class="container">
-					<div class="row">
+					<div class="row flex-nowrap">
 						<section
-							class="ml-auto d-none d-lg-block d-xl-block region region-header-ua-utilities"
+							class="ms-auto d-none d-lg-flex d-xl-flex align region region-header-ua-utilities"
 						>
 							<div
-								class="search-block-form block block-search block-search-form-block"
+								class="search-block-form google-cse ms-auto az-search-block block block-search block-search-form-block"
 								data-drupal-selector="search-block-form"
 								id="block-az-barrio-search"
 								role="search"
@@ -836,7 +1056,7 @@ export class AzRedbar extends LitElement {
 										class="search-form search-block-form"
 									>
 										<div class="input-group">
-											<label for="edit-keys" class="sr-only">Search</label>
+											<label for="edit-keys" class="visually-hidden">Search</label>
 											<input
 												title="Enter the terms you wish to search for."
 												data-drupal-selector="edit-keys"
@@ -846,38 +1066,32 @@ export class AzRedbar extends LitElement {
 												value=""
 												size="15"
 												maxlength="128"
-												class="form-search form-control"
+												class="form-search form-control rounded-start"
 												placeholder="Search this site"
 												aria-label="Search this site"
 											/>
-											<div
-												data-drupal-selector="edit-actions"
-												class="form-actions js-form-wrapper input-group-append"
-												id="edit-actions"
+											<button
+												data-drupal-selector="edit-submit"
+												type="submit"
+												id="edit-submit"
+												value="Search"
+												class="button js-form-submit form-submit btn"
 											>
-												<button
-													data-drupal-selector="edit-submit"
-													type="submit"
-													id="edit-submit"
-													value="Search"
-													class="button js-form-submit form-submit btn"
+												<svg
+													id="search-icon"
+													title="search"
+													xmlns="http://www.w3.org/2000/svg"
+													height="24px"
+													viewBox="0 0 24 24"
+													width="24px"
+													fill="#8B0015"
 												>
-													<svg
-														id="search-icon"
-														title="search"
-														xmlns="http://www.w3.org/2000/svg"
-														height="24px"
-														viewBox="0 0 24 24"
-														width="24px"
-														fill="#8B0015"
-													>
-														<path d="M0 0h24v24H0V0z" fill="none" />
-														<path
-															d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-														/>
-													</svg>
-												</button>
-											</div>
+													<path d="M0 0h24v24H0V0z" fill="none" />
+													<path
+														d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+													/>
+												</svg>
+											</button>
 										</div>
 									</form>
 								</div>
