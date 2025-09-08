@@ -1099,9 +1099,6 @@ class AzRedbar extends (0, _lit.LitElement) {
 			height: 16px;
 			margin: 17px 20px 17px 10px;
 		}
-		@media (min-width: 576px) {
-
-		}
 		.ml-auto,
 		.mx-auto {
 			margin-left: auto !important;
