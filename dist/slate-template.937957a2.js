@@ -818,6 +818,16 @@ class AzFooter extends (0, _lit.LitElement) {
 				max-width: 1140px;
 			}
 		}
+		@media (min-width: 1400px) {
+			.container,
+			.container-lg,
+			.container-md,
+			.container-sm,
+			.container-xl,
+			.container-xxl {
+				max-width: 1320px;
+			}
+		}
 		.row section {
 			align-items: center;
 		}

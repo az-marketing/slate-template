@@ -255,6 +255,16 @@ export class AzRedbar extends LitElement {
 				max-width: 1140px;
 			}
 		}
+		@media (min-width: 1400px) {
+			.container,
+			.container-lg,
+			.container-md,
+			.container-sm,
+			.container-xl,
+			.container-xxl {
+				max-width: 1320px;
+			}
+		}
 		.arizona-line-logo {
 			width: 211px;
 			height: 16px;

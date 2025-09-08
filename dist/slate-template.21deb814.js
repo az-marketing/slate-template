@@ -930,6 +930,16 @@ class AzRedbar extends (0, _lit.LitElement) {
 				max-width: 1140px;
 			}
 		}
+		@media (min-width: 1400px) {
+			.container,
+			.container-lg,
+			.container-md,
+			.container-sm,
+			.container-xl,
+			.container-xxl {
+				max-width: 1320px;
+			}
+		}
 		.arizona-line-logo {
 			width: 211px;
 			height: 16px;
@@ -5680,10 +5690,52 @@ var _azSelectMenu = require("./az-select-menu");
 				margin: auto;
 			}
 
+
+					@media (min-width: 576px) {
+			.container,
+			.container-sm {
+				max-width: 540px;
+			}
+		}
+		@media (min-width: 768px) {
+			.container,
+			.container-md,
+			.container-sm {
+				max-width: 720px;
+			}
+		}
+		@media (min-width: 992px) {
+			.arizona-header {
+				height: auto;
+			}
+			.container,
+			.container-lg,
+			.container-md,
+			.container-sm {
+				max-width: 960px;
+			}
+		}
+		@media (min-width: 1200px) {
+			.container,
+			.container-lg,
+			.container-md,
+			.container-sm,
+			.container-xl {
+				max-width: 1140px;
+			}
+		}
+		@media (min-width: 1400px) {
+			.container,
+			.container-lg,
+			.container-md,
+			.container-sm,
+			.container-xl,
+			.container-xxl {
+				max-width: 1320px;
+			}
+		}
+
 			@media (min-width: 768px) {
-				.container {
-					width: 752px;
-				}
 				.region #block-bean-uaqs-audience-select {
 					padding-right: 35px;
 					padding-left: 25px;
@@ -5743,14 +5795,8 @@ var _azSelectMenu = require("./az-select-menu");
 				.region-header-2 {
 					margin-top: 23px;
 				}
-				.container {
-					width: 972px;
-				}
 			}
 			@media (min-width: 1200px) {
-				.container {
-					width: 1172px;
-				}
 			}
 			.row {
 				margin-right: -15px;
