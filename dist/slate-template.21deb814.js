@@ -819,7 +819,6 @@ class AzRedbar extends (0, _lit.LitElement) {
     			scroll-behavior: smooth;
   			}
 		}
-
 		body {
 			margin: 0;
 			font-family: var(--bs-body-font-family);
@@ -1142,13 +1141,29 @@ class AzRedbar extends (0, _lit.LitElement) {
 		#search-block-form {
 			display: flex;
 		}
+		.form-control {
+			display: block;
+			width: 100%;
+			padding: .375rem .75rem;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			color: var(--bs-body-color);
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			background-color: var(--bs-body-bg);
+			background-clip: padding-box;
+			border: var(--bs-border-width) solid var(--bs-border-color);
+			border-radius: var(--bs-border-radius);
+			transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+		}
 		.form-control:focus {
-			border-color: hsl(191deg 9% 65%);
-			outline: 0;
-			-webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%),
-				0 0 8px rgb(158 171 174 / 60%);
-			box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%),
-				0 0 8px rgb(158 171 174 / 60%);
+			color: var(--bs-body-color);
+    		background-color: var(--bs-body-bg);
+    		border-color: #d58290;
+    		outline: 0;
+    		box-shadow: 0 0 0 .25rem rgba(171, 5, 32, .25);
 		}
 		.sr-only {
 			position: absolute;
@@ -1213,23 +1228,6 @@ class AzRedbar extends (0, _lit.LitElement) {
 		.rounded-start {
     		border-bottom-left-radius: var(--bs-border-radius) !important;
     		border-top-left-radius: var(--bs-border-radius) !important;
-		}
-		.form-control {
-		    display: block;
-		    width: 100%;
-		    padding: .375rem .75rem;
-		    font-size: 1rem;
-		    font-weight: 400;
-		    line-height: 1.5;
-		    color: var(--bs-body-color);
-		    -webkit-appearance: none;
-		    -moz-appearance: none;
-		    appearance: none;
-		    background-color: var(--bs-body-bg);
-		    background-clip: padding-box;
-		    border: var(--bs-border-width) solid var(--bs-border-color);
-		    border-radius: var(--bs-border-radius);
-		    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 		}
 		.input-group>.form-control,
 		.input-group>.form-floating,
@@ -1398,6 +1396,18 @@ class AzRedbar extends (0, _lit.LitElement) {
 		button {
 			border-radius: 0;
 		}
+		button.resources-menu {
+			height: 43px;
+			margin-top: 5px;
+			padding: 5px 25px;
+		}
+		button.resources-menu:hover,
+		button.resources-menu:active,
+		button.resources-menu:focus {
+			color: white;
+			background-color: #8B0015;
+			border-color: #8B0015 !important;
+		}
 		.btn-hollow-default:hover,
 		.btn-outline-red:hover {
 			background-color: #8b0015 !important;
@@ -1441,6 +1451,9 @@ class AzRedbar extends (0, _lit.LitElement) {
 			right: 0;
 			left: auto;
 		}
+		.dropdown, .dropdown-center, .dropend, .dropstart, .dropup, .dropup-center {
+			position: relative;
+		}
 		@media (min-width: 768px) {
 			.dropdown-menu {
 				padding: 10px 0 0 0;
@@ -1471,6 +1484,43 @@ class AzRedbar extends (0, _lit.LitElement) {
 				left: auto;
 			}
 		}
+			[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+
+button.resources-menu {
+    height: 43px;
+    margin-top: 5px;
+    padding: 5px 25px;
+}
+.btn-outline-white {
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: #fff;
+    --bs-btn-hover-color: #343a40;
+    --bs-btn-hover-bg: #fff;
+    --bs-btn-hover-border-color: #fff;
+    --bs-btn-focus-shadow-rgb: 255, 255, 255;
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #fff;
+    --bs-btn-active-border-color: #fff;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #fff;
+    --bs-gradient: none;
+}
+.w-100 {
+    width: 100% !important;
+}
+.dropdown-toggle {
+    white-space: nowrap;
+}
+.btn-group-sm>.btn, .btn-sm {
+    --bs-btn-padding-y: 0.25rem;
+    --bs-btn-padding-x: 0.5rem;
+    --bs-btn-font-size: 0.875rem;
+    --bs-btn-border-radius: 3rem;
+}
 		.dropdown-menu {
 			position: absolute;
 			top: calc(100% - 1px);
@@ -1739,19 +1789,25 @@ class AzRedbar extends (0, _lit.LitElement) {
 									</form>
 								</div>
 							</div>
-							<div class="resources">
-								<span class="caret"></span>
-								${this.isLoading ? (0, _lit.html)`
-												<button
-													role="button"
-													aria-expanded="false"
-													aria-haspopup="true"
-													href="#"
-													class="resource-menu btn btn-outline-red rounded-pill"
-												>
-													<slot name="loading">${this.loadingMessage}</slot>
-												</button>
-									  ` : this.renderAzMenuLevel(this.tree)}
+
+							<div id="block-resourcesdropdown">
+								<div class="content">
+									<div class="field field--name-field-az-main-content field--type-entity-reference-revisions field--label-hidden field__items">
+										<div class="field__item">
+											<div class="mb-0 paragraph paragraph--type--az-html paragraph--view-mode--default">
+												<div class="clearfix text-formatted field field--name-field-az-full-html field--type-text-long field--label-hidden field__item">
+													<div class="dropdown">
+														${this.isLoading ? (0, _lit.html)`
+															<button class="btn w-100 btn-outline-white btn-sm dropdown-toggle resources-menu border-bloom" type="button" id="dropdownResourcesMenu" aria-expanded="false" data-bs-toggle="dropdown">
+																Resources
+															</button>
+														` : this.renderAzMenuLevel(this.tree)}
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</section>
 						<section class="redbar-buttons d-lg-none">
