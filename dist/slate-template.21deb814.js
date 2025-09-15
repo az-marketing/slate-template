@@ -686,126 +686,155 @@ class AzRedbar extends (0, _lit.LitElement) {
     static styles = (0, _lit.css)`
 		:root {
 			--bs-red: #ab0520;
-  			--bs-bloom: #ef4056;
-  			--bs-chili: #8b0015;
-  			--bs-blue: #0c234b;
-  			--bs-sky: #81d3eb;
-  			--bs-oasis: #378dbd;
-  			--bs-azurite: #1e5288;
-  			--bs-midnight: #001c48;
-  			--bs-cool-gray: #e2e9eb;
-  			--bs-warm-gray: #f4ede5;
-  			--bs-leaf: #70b865;
-  			--bs-river: #007d84;
-  			--bs-silver: #9eabae;
-  			--bs-mesa: #a95c42;
-  			--bs-ash: #403635;
-  			--bs-sage: #4a634e;
-  			--bs-white: #fff;
-  			--bs-black: #000;
-  			--bs-gray-100: #f8f9fa;
-  			--bs-gray-200: #e9ecef;
-  			--bs-gray-300: #dee2e6;
-  			--bs-gray-400: #ced4da;
-  			--bs-gray-500: #adb5bd;
-  			--bs-gray-600: #6c757d;
-  			--bs-gray-700: #495057;
-  			--bs-gray-800: #343a40;
-  			--bs-gray-900: #212529;
-  			--bs-primary: #ab0520;
-  			--bs-secondary: #0c234b;
-  			--bs-success: #70b865;
-  			--bs-info: #81d3eb;
-  			--bs-warning: #f19e1f;
-  			--bs-danger: #a95c42;
-  			--bs-light: #dee2e6;
-  			--bs-dark: #343a40;
-  			--bs-primary-rgb: 171, 5, 32;
-  			--bs-secondary-rgb: 12, 35, 75;
-  			--bs-success-rgb: 112, 184, 101;
-  			--bs-info-rgb: 129, 211, 235;
-  			--bs-warning-rgb: 241, 158, 31;
-  			--bs-danger-rgb: 169, 92, 66;
-  			--bs-light-rgb: 222, 226, 230;
-  			--bs-dark-rgb: 52, 58, 64;
-  			--bs-primary-text-emphasis: #44020d;
-  			--bs-secondary-text-emphasis: #050e1e;
-  			--bs-success-text-emphasis: #2d4a28;
-  			--bs-info-text-emphasis: #34545e;
-  			--bs-warning-text-emphasis: #603f0c;
-  			--bs-danger-text-emphasis: #44251a;
-  			--bs-light-text-emphasis: #495057;
-  			--bs-dark-text-emphasis: #495057;
-  			--bs-primary-bg-subtle: #eecdd2;
-  			--bs-secondary-bg-subtle: #ced3db;
-  			--bs-success-bg-subtle: #e2f1e0;
-  			--bs-info-bg-subtle: #e6f6fb;
-  			--bs-warning-bg-subtle: #fcecd2;
-  			--bs-danger-bg-subtle: #eeded9;
-  			--bs-light-bg-subtle: #fcfcfd;
-  			--bs-dark-bg-subtle: #ced4da;
-  			--bs-primary-border-subtle: #dd9ba6;
-  			--bs-secondary-border-subtle: #9ea7b7;
-  			--bs-success-border-subtle: #c6e3c1;
-  			--bs-info-border-subtle: #cdedf7;
-  			--bs-warning-border-subtle: #f9d8a5;
-  			--bs-danger-border-subtle: #ddbeb3;
-  			--bs-light-border-subtle: #e9ecef;
-  			--bs-dark-border-subtle: #adb5bd;
-  			--bs-white-rgb: 255, 255, 255;
-  			--bs-black-rgb: 0, 0, 0;
-  			--bs-font-sans-serif: proxima-nova, calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  			--bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  			--bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  			--bs-body-font-family: var(--bs-font-sans-serif);
-  			--bs-body-font-size: 1rem;
-  			--bs-body-font-weight: 400;
-  			--bs-body-line-height: 1.5;
-  			--bs-body-color: #212529;
-  			--bs-body-color-rgb: 33, 37, 41;
-  			--bs-body-bg: #fff;
-  			--bs-body-bg-rgb: 255, 255, 255;
-  			--bs-emphasis-color: #000;
-  			--bs-emphasis-color-rgb: 0, 0, 0;
-  			--bs-secondary-color: rgba(33, 37, 41, 0.75);
-  			--bs-secondary-color-rgb: 33, 37, 41;
-  			--bs-secondary-bg: #e9ecef;
-  			--bs-secondary-bg-rgb: 233, 236, 239;
-  			--bs-tertiary-color: rgba(33, 37, 41, 0.5);
-  			--bs-tertiary-color-rgb: 33, 37, 41;
-  			--bs-tertiary-bg: #f8f9fa;
-  			--bs-tertiary-bg-rgb: 248, 249, 250;
-  			--bs-heading-color: inherit;
-  			--bs-link-color: #ab0520;
-  			--bs-link-color-rgb: 171, 5, 32;
-  			--bs-link-decoration: underline;
-  			--bs-link-hover-color: #8b0015;
-  			--bs-link-hover-color-rgb: 139, 0, 21;
-  			--bs-code-color: #d63384;
-  			--bs-highlight-color: #212529;
-  			--bs-highlight-bg: #fff3cd;
-  			--bs-border-width: 1px;
-  			--bs-border-style: solid;
-  			--bs-border-color: #dee2e6;
-  			--bs-border-color-translucent: rgba(0, 0, 0, 0.175);
-  			--bs-border-radius: 0.375rem;
-  			--bs-border-radius-sm: 0.25rem;
-  			--bs-border-radius-lg: 0.5rem;
-  			--bs-border-radius-xl: 1rem;
-  			--bs-border-radius-xxl: 2rem;
-  			--bs-border-radius-2xl: var(--bs-border-radius-xxl);
-  			--bs-border-radius-pill: 50rem;
-  			--bs-box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.15);
-  			--bs-box-shadow-sm: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.075);
-  			--bs-box-shadow-lg: 0 0.75rem 3rem rgba(0, 0, 0, 0.175);
-  			--bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
-  			--bs-focus-ring-width: 0.25rem;
-  			--bs-focus-ring-opacity: 0.25;
-  			--bs-focus-ring-color: rgba(171, 5, 32, 0.25);
-  			--bs-form-valid-color: #70b865;
-			--bs-form-valid-border-color: #70b865;
-			--bs-form-invalid-color: #a95c42;
-			--bs-form-invalid-border-color: #a95c42;
+    --bs-bloom: #ef4056;
+    --bs-chili: #8b0015;
+    --bs-blue: #0c234b;
+    --bs-sky: #81d3eb;
+    --bs-oasis: #378dbd;
+    --bs-azurite: #1e5288;
+    --bs-midnight: #001c48;
+    --bs-cool-gray: #e2e9eb;
+    --bs-warm-gray: #f4ede5;
+    --bs-leaf: #70b865;
+    --bs-river: #007d84;
+    --bs-silver: #9eabae;
+    --bs-mesa: #a95c42;
+    --bs-ash: #403635;
+    --bs-sage: #4a634e;
+    --bs-white: #fff;
+    --bs-black: #000;
+    --bs-gray-100: #f8f9fa;
+    --bs-gray-200: #e9ecef;
+    --bs-gray-300: #dee2e6;
+    --bs-gray-400: #ced4da;
+    --bs-gray-500: #adb5bd;
+    --bs-gray-600: #6c757d;
+    --bs-gray-700: #495057;
+    --bs-gray-800: #343a40;
+    --bs-gray-900: #212529;
+    --bs-primary: #ab0520;
+    --bs-secondary: #0c234b;
+    --bs-success: #70b865;
+    --bs-info: #81d3eb;
+    --bs-warning: #f19e1f;
+    --bs-danger: #a95c42;
+    --bs-light: #dee2e6;
+    --bs-dark: #343a40;
+    --bs-primary-rgb: 171, 5, 32;
+    --bs-secondary-rgb: 12, 35, 75;
+    --bs-success-rgb: 112, 184, 101;
+    --bs-info-rgb: 129, 211, 235;
+    --bs-warning-rgb: 241, 158, 31;
+    --bs-danger-rgb: 169, 92, 66;
+    --bs-light-rgb: 222, 226, 230;
+    --bs-dark-rgb: 52, 58, 64;
+    --bs-primary-text-emphasis: #44020d;
+    --bs-secondary-text-emphasis: #050e1e;
+    --bs-success-text-emphasis: #2d4a28;
+    --bs-info-text-emphasis: #34545e;
+    --bs-warning-text-emphasis: #603f0c;
+    --bs-danger-text-emphasis: #44251a;
+    --bs-light-text-emphasis: #495057;
+    --bs-dark-text-emphasis: #495057;
+    --bs-primary-bg-subtle: #eecdd2;
+    --bs-secondary-bg-subtle: #ced3db;
+    --bs-success-bg-subtle: #e2f1e0;
+    --bs-info-bg-subtle: #e6f6fb;
+    --bs-warning-bg-subtle: #fcecd2;
+    --bs-danger-bg-subtle: #eeded9;
+    --bs-light-bg-subtle: #fcfcfd;
+    --bs-dark-bg-subtle: #ced4da;
+    --bs-primary-border-subtle: #dd9ba6;
+    --bs-secondary-border-subtle: #9ea7b7;
+    --bs-success-border-subtle: #c6e3c1;
+    --bs-info-border-subtle: #cdedf7;
+    --bs-warning-border-subtle: #f9d8a5;
+    --bs-danger-border-subtle: #ddbeb3;
+    --bs-light-border-subtle: #e9ecef;
+    --bs-dark-border-subtle: #adb5bd;
+    --bs-white-rgb: 255, 255, 255;
+    --bs-black-rgb: 0, 0, 0;
+    --bs-font-sans-serif: proxima-nova, calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-size: 1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.5;
+    --bs-body-color: #212529;
+    --bs-body-color-rgb: 33, 37, 41;
+    --bs-body-bg: #fff;
+    --bs-body-bg-rgb: 255, 255, 255;
+    --bs-emphasis-color: #000;
+    --bs-emphasis-color-rgb: 0, 0, 0;
+    --bs-secondary-color: rgba(33, 37, 41, 0.75);
+    --bs-secondary-color-rgb: 33, 37, 41;
+    --bs-secondary-bg: #e9ecef;
+    --bs-secondary-bg-rgb: 233, 236, 239;
+    --bs-tertiary-color: rgba(33, 37, 41, 0.5);
+    --bs-tertiary-color-rgb: 33, 37, 41;
+    --bs-tertiary-bg: #f8f9fa;
+    --bs-tertiary-bg-rgb: 248, 249, 250;
+    --bs-heading-color: inherit;
+    --bs-link-color: #ab0520;
+    --bs-link-color-rgb: 171, 5, 32;
+    --bs-link-decoration: underline;
+    --bs-link-hover-color: #8b0015;
+    --bs-link-hover-color-rgb: 139, 0, 21;
+    --bs-code-color: #d63384;
+    --bs-highlight-color: #212529;
+    --bs-highlight-bg: #fff3cd;
+    --bs-border-width: 1px;
+    --bs-border-style: solid;
+    --bs-border-color: #dee2e6;
+    --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
+    --bs-border-radius: 0.375rem;
+    --bs-border-radius-sm: 0.25rem;
+    --bs-border-radius-lg: 0.5rem;
+    --bs-border-radius-xl: 1rem;
+    --bs-border-radius-xxl: 2rem;
+    --bs-border-radius-2xl: var(--bs-border-radius-xxl);
+    --bs-border-radius-pill: 50rem;
+    --bs-box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.15);
+    --bs-box-shadow-sm: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.075);
+    --bs-box-shadow-lg: 0 0.75rem 3rem rgba(0, 0, 0, 0.175);
+    --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+    --bs-focus-ring-width: 0.25rem;
+    --bs-focus-ring-opacity: 0.25;
+    --bs-focus-ring-color: rgba(171, 5, 32, 0.25);
+    --bs-form-valid-color: #70b865;
+    --bs-form-valid-border-color: #70b865;
+    --bs-form-invalid-color: #a95c42;
+    --bs-form-invalid-border-color: #a95c42;
+	--bs-breakpoint-xs: 0;
+    --bs-breakpoint-sm: 576px;
+    --bs-breakpoint-md: 768px;
+    --bs-breakpoint-lg: 992px;
+    --bs-breakpoint-xl: 1200px;
+    --bs-breakpoint-xxl: 1400px;
+	--bs-btn-close-filter: ;
+	--bs-carousel-indicator-active-bg: #fff;
+    --bs-carousel-caption-color: #fff;
+    --bs-carousel-control-icon-filter: ;
+	--bs-red-rgb: 171, 5, 32;
+    --bs-bloom-rgb: 239, 64, 86;
+    --bs-chili-rgb: 139, 0, 21;
+    --bs-blue-rgb: 12, 35, 75;
+    --bs-sky-rgb: 129, 211, 235;
+    --bs-oasis-rgb: 55, 141, 189;
+    --bs-azurite-rgb: 30, 82, 136;
+    --bs-midnight-rgb: 0, 28, 72;
+    --bs-cool-gray-rgb: 226, 233, 235;
+    --bs-warm-gray-rgb: 244, 237, 229;
+    --bs-leaf-rgb: 112, 184, 101;
+    --bs-river-rgb: 0, 125, 132;
+    --bs-silver-rgb: 158, 171, 174;
+    --bs-mesa-rgb: 169, 92, 66;
+    --bs-ash-rgb: 64, 54, 53;
+    --bs-sage-rgb: 74, 99, 78;
+    --bs-white-rgb: 255, 255, 255;
+    --bs-black-rgb: 0, 0, 0;
+    --bs-dark-silver-rgb: 73, 89, 94;
 		}
 
 		*,
@@ -899,6 +928,14 @@ class AzRedbar extends (0, _lit.LitElement) {
 		button:focus:not(:focus-visible) {
 			outline: 0;
 		}
+		.btn-check:checked+.btn:focus-visible, .btn.active:focus-visible, .btn.show:focus-visible, .btn:first-child:active:focus-visible, :not(.btn-check)+.btn:active:focus-visible {
+			box-shadow: var(--bs-btn-focus-box-shadow);
+		}
+		.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+    		color: var(--bs-btn-active-color);
+    		background-color: var(--bs-btn-active-bg);
+    		border-color: var(--bs-btn-active-border-color);
+		}
 		button,
 		input {
 			margin: 0;
@@ -969,8 +1006,8 @@ class AzRedbar extends (0, _lit.LitElement) {
 		}
 		.container {
 			width: 100%;
-			padding-right: 15px;
-			padding-left: 15px;
+			padding-right: 12px;
+			padding-left: 12px;
 			margin-right: auto;
 			margin-left: auto;
 		}
@@ -988,9 +1025,6 @@ class AzRedbar extends (0, _lit.LitElement) {
 		    margin-top: calc(-1 * var(--bs-gutter-y));
 		    margin-right: calc(-.5 * var(--bs-gutter-x));
 		    margin-left: calc(-.5 * var(--bs-gutter-x));
-		}
-		.row section {
-			align-items: center;
 		}
 		.ms-auto {
 			margin-left: auto !important;
@@ -1025,6 +1059,7 @@ class AzRedbar extends (0, _lit.LitElement) {
 			justify-content: space-between;
 			min-height: 50px;
 		}
+		
 		.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-control, .input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-select, .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
 			border-top-right-radius: 0;
 			border-bottom-right-radius: 0;
@@ -1073,6 +1108,20 @@ class AzRedbar extends (0, _lit.LitElement) {
 			.container-sm {
 				max-width: 960px;
 			}
+			.arizona-header {
+        		position: fixed;
+        		top: 0;
+        		right: 0;
+        		left: 0;
+        		z-index: 100;
+        		height: 50px;
+		    }
+			.arizona-header>.container {
+        		padding-right: 0;
+    		}
+			.arizona-header>.container>.row {
+        		margin-right: 0;
+    		}
 		}
 		@media (min-width: 1200px) {
 			.container,
@@ -1509,6 +1558,16 @@ button.resources-menu {
     --bs-btn-disabled-border-color: #fff;
     --bs-gradient: none;
 }
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
 .w-100 {
     width: 100% !important;
 }
@@ -1522,25 +1581,53 @@ button.resources-menu {
     --bs-btn-border-radius: 3rem;
 }
 		.dropdown-menu {
-			position: absolute;
-			top: calc(100% - 1px);
-			left: 5px;
-			z-index: 1000;
-			display: none;
-			padding: 5px 0px;
-			margin: 2px 0px 0px;
-			font-size: 16px;
-			text-align: left;
-			list-style: none;
-			background-color: rgba(0, 28, 72, 0.97);
-			background-clip: padding-box;
-			border: 1px solid rgba(0, 0, 0, 0.15);
-			border-radius: 0px;
-			box-shadow: rgb(0 0 0 / 18%) 0px 6px 12px;
-			min-width: 0px;
+			--bs-dropdown-zindex: 1000;
+    		--bs-dropdown-min-width: 10rem;
+    		--bs-dropdown-padding-x: 0;
+    		--bs-dropdown-padding-y: 0.5rem;
+    		--bs-dropdown-spacer: 0.125rem;
+    		--bs-dropdown-font-size: 1rem;
+    		--bs-dropdown-color: #e2e9eb;
+    		--bs-dropdown-bg: #0c234b;
+    		--bs-dropdown-border-color: var(--bs-border-color-translucent);
+    		--bs-dropdown-border-radius: var(--bs-border-radius);
+    		--bs-dropdown-border-width: var(--bs-border-width);
+    		--bs-dropdown-inner-border-radius: calc(var(--bs-border-radius) - var(--bs-border-width));
+    		--bs-dropdown-divider-bg: #fff;
+    		--bs-dropdown-divider-margin-y: 0.5rem;
+    		--bs-dropdown-box-shadow: var(--bs-box-shadow);
+    		--bs-dropdown-link-color: #fff;
+    		--bs-dropdown-link-hover-color: #fff;
+    		--bs-dropdown-link-hover-bg: #1e5288;
+    		--bs-dropdown-link-active-color: #0c234b;
+    		--bs-dropdown-link-active-bg: #fff;
+    		--bs-dropdown-link-disabled-color: #6c757d;
+    		--bs-dropdown-item-padding-x: 1rem;
+    		--bs-dropdown-item-padding-y: 0.25rem;
+    		--bs-dropdown-header-color: #fff;
+    		--bs-dropdown-header-padding-x: 1rem;
+    		--bs-dropdown-header-padding-y: 0.5rem;
+    		position: absolute;
+    		z-index: var(--bs-dropdown-zindex);
+    		display: none;
+    		min-width: var(--bs-dropdown-min-width);
+    		padding: var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);
+    		margin: 0;
+    		font-size: var(--bs-dropdown-font-size);
+    		color: var(--bs-dropdown-color);
+    		text-align: left;
+    		list-style: none;
+    		background-color: var(--bs-dropdown-bg);
+    		background-clip: padding-box;
+    		border: var(--bs-dropdown-border-width) solid var(--bs-dropdown-border-color);
+    		border-radius: var(--bs-dropdown-border-radius);
 		}
 		.dropdown-menu.show {
 			display: block;
+			position: absolute;
+    		inset: 0px auto auto 0px;
+    		margin: 0px;
+    		transform: translate(0px, 50px);
 		}
 		.resources {
 			position: relative;
@@ -1577,8 +1664,10 @@ button.resources-menu {
 			display: block;
 			color: #fff;
 			text-decoration: none;
-			padding: 6px 20px;
+			padding: 4px 20px;
 			width: 100%;
+			font-size: 14px;
+			font-weight: 400;
 		}
 		.dropdown-item {
 			display: block;
@@ -1665,14 +1754,17 @@ button.resources-menu {
 			<button
 				@click="${AzRedbar.openMenu}"
 				role="button"
+				type="button"
+				id="dropdownResourcesMenu"
 				aria-expanded="false"
 				aria-haspopup="true"
+				data-bs-toggle="dropdown"
+				class="btn w-100 btn-outline-white btn-sm dropdown-toggle resources-menu border-bloom"
 				href="#"
-				class="resource-menu btn btn-outline-red rounded-pill"
 			>
 				${title}
 			</button>
-			<div class="dropdown-menu dropdown-menu pull-right">
+			<div class="dropdown-menu" aria-labelledby="dropdownResourcesMenu" style="">
 				${this.renderAzMenuLevel(children)}
 			</div>
 		`;
@@ -1731,9 +1823,7 @@ button.resources-menu {
 			<header class="bg-red arizona-header" id="header_arizona" role="banner">
 				<div class="container">
 					<div class="row flex-nowrap">
-						<section
-							class="ms-auto d-none d-lg-flex d-xl-flex align region region-header-ua-utilities"
-						>
+						<section class="ms-auto d-none d-lg-flex d-xl-flex align region region-header-ua-utilities">
 							<div
 								class="search-block-form google-cse ms-auto az-search-block block block-search block-search-form-block"
 								data-drupal-selector="search-block-form"
@@ -1790,7 +1880,7 @@ button.resources-menu {
 								</div>
 							</div>
 
-							<div id="block-resourcesdropdown">
+							<div id="block-resourcesdropdown" class="block-content-az_flexible_block block block-block-content">
 								<div class="content">
 									<div class="field field--name-field-az-main-content field--type-entity-reference-revisions field--label-hidden field__items">
 										<div class="field__item">
@@ -1809,8 +1899,10 @@ button.resources-menu {
 									</div>
 								</div>
 							</div>
+
+
 						</section>
-						<section class="redbar-buttons d-lg-none">
+						<div class="d-lg-none d-flex col-auto px-0">
 							<az-button
 								theme="red"
 								redbar
@@ -5051,7 +5143,7 @@ class MainMenu extends (0, _lit.LitElement) {
     render() {
         return (0, _lit.html)`
             <div class="container">
-                <nav class="navbar-offcanvas offcanvas-toggle" id="navbarOffcanvasDemo">
+                <nav class="navbar-offcanvas offcanvas-toggle " id="navbarOffcanvasDemo">
                     <div class="navbar-offcanvas-header">
 						<div
 							class="bg-chili d-flex justify-content-between align-items-center"
