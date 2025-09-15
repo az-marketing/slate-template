@@ -9,159 +9,7 @@ import { eventDataLayerPush } from "./mixins/shadow-events-datalayer";
  */
 export class AzRedbar extends LitElement {
 	static styles = css`
-		:root {
-			--bs-red: #ab0520;
-    --bs-bloom: #ef4056;
-    --bs-chili: #8b0015;
-    --bs-blue: #0c234b;
-    --bs-sky: #81d3eb;
-    --bs-oasis: #378dbd;
-    --bs-azurite: #1e5288;
-    --bs-midnight: #001c48;
-    --bs-cool-gray: #e2e9eb;
-    --bs-warm-gray: #f4ede5;
-    --bs-leaf: #70b865;
-    --bs-river: #007d84;
-    --bs-silver: #9eabae;
-    --bs-mesa: #a95c42;
-    --bs-ash: #403635;
-    --bs-sage: #4a634e;
-    --bs-white: #fff;
-    --bs-black: #000;
-    --bs-gray-100: #f8f9fa;
-    --bs-gray-200: #e9ecef;
-    --bs-gray-300: #dee2e6;
-    --bs-gray-400: #ced4da;
-    --bs-gray-500: #adb5bd;
-    --bs-gray-600: #6c757d;
-    --bs-gray-700: #495057;
-    --bs-gray-800: #343a40;
-    --bs-gray-900: #212529;
-    --bs-primary: #ab0520;
-    --bs-secondary: #0c234b;
-    --bs-success: #70b865;
-    --bs-info: #81d3eb;
-    --bs-warning: #f19e1f;
-    --bs-danger: #a95c42;
-    --bs-light: #dee2e6;
-    --bs-dark: #343a40;
-    --bs-primary-rgb: 171, 5, 32;
-    --bs-secondary-rgb: 12, 35, 75;
-    --bs-success-rgb: 112, 184, 101;
-    --bs-info-rgb: 129, 211, 235;
-    --bs-warning-rgb: 241, 158, 31;
-    --bs-danger-rgb: 169, 92, 66;
-    --bs-light-rgb: 222, 226, 230;
-    --bs-dark-rgb: 52, 58, 64;
-    --bs-primary-text-emphasis: #44020d;
-    --bs-secondary-text-emphasis: #050e1e;
-    --bs-success-text-emphasis: #2d4a28;
-    --bs-info-text-emphasis: #34545e;
-    --bs-warning-text-emphasis: #603f0c;
-    --bs-danger-text-emphasis: #44251a;
-    --bs-light-text-emphasis: #495057;
-    --bs-dark-text-emphasis: #495057;
-    --bs-primary-bg-subtle: #eecdd2;
-    --bs-secondary-bg-subtle: #ced3db;
-    --bs-success-bg-subtle: #e2f1e0;
-    --bs-info-bg-subtle: #e6f6fb;
-    --bs-warning-bg-subtle: #fcecd2;
-    --bs-danger-bg-subtle: #eeded9;
-    --bs-light-bg-subtle: #fcfcfd;
-    --bs-dark-bg-subtle: #ced4da;
-    --bs-primary-border-subtle: #dd9ba6;
-    --bs-secondary-border-subtle: #9ea7b7;
-    --bs-success-border-subtle: #c6e3c1;
-    --bs-info-border-subtle: #cdedf7;
-    --bs-warning-border-subtle: #f9d8a5;
-    --bs-danger-border-subtle: #ddbeb3;
-    --bs-light-border-subtle: #e9ecef;
-    --bs-dark-border-subtle: #adb5bd;
-    --bs-white-rgb: 255, 255, 255;
-    --bs-black-rgb: 0, 0, 0;
-    --bs-font-sans-serif: proxima-nova, calibri, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-    --bs-body-font-family: var(--bs-font-sans-serif);
-    --bs-body-font-size: 1rem;
-    --bs-body-font-weight: 400;
-    --bs-body-line-height: 1.5;
-    --bs-body-color: #212529;
-    --bs-body-color-rgb: 33, 37, 41;
-    --bs-body-bg: #fff;
-    --bs-body-bg-rgb: 255, 255, 255;
-    --bs-emphasis-color: #000;
-    --bs-emphasis-color-rgb: 0, 0, 0;
-    --bs-secondary-color: rgba(33, 37, 41, 0.75);
-    --bs-secondary-color-rgb: 33, 37, 41;
-    --bs-secondary-bg: #e9ecef;
-    --bs-secondary-bg-rgb: 233, 236, 239;
-    --bs-tertiary-color: rgba(33, 37, 41, 0.5);
-    --bs-tertiary-color-rgb: 33, 37, 41;
-    --bs-tertiary-bg: #f8f9fa;
-    --bs-tertiary-bg-rgb: 248, 249, 250;
-    --bs-heading-color: inherit;
-    --bs-link-color: #ab0520;
-    --bs-link-color-rgb: 171, 5, 32;
-    --bs-link-decoration: underline;
-    --bs-link-hover-color: #8b0015;
-    --bs-link-hover-color-rgb: 139, 0, 21;
-    --bs-code-color: #d63384;
-    --bs-highlight-color: #212529;
-    --bs-highlight-bg: #fff3cd;
-    --bs-border-width: 1px;
-    --bs-border-style: solid;
-    --bs-border-color: #dee2e6;
-    --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
-    --bs-border-radius: 0.375rem;
-    --bs-border-radius-sm: 0.25rem;
-    --bs-border-radius-lg: 0.5rem;
-    --bs-border-radius-xl: 1rem;
-    --bs-border-radius-xxl: 2rem;
-    --bs-border-radius-2xl: var(--bs-border-radius-xxl);
-    --bs-border-radius-pill: 50rem;
-    --bs-box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.15);
-    --bs-box-shadow-sm: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.075);
-    --bs-box-shadow-lg: 0 0.75rem 3rem rgba(0, 0, 0, 0.175);
-    --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
-    --bs-focus-ring-width: 0.25rem;
-    --bs-focus-ring-opacity: 0.25;
-    --bs-focus-ring-color: rgba(171, 5, 32, 0.25);
-    --bs-form-valid-color: #70b865;
-    --bs-form-valid-border-color: #70b865;
-    --bs-form-invalid-color: #a95c42;
-    --bs-form-invalid-border-color: #a95c42;
-	--bs-breakpoint-xs: 0;
-    --bs-breakpoint-sm: 576px;
-    --bs-breakpoint-md: 768px;
-    --bs-breakpoint-lg: 992px;
-    --bs-breakpoint-xl: 1200px;
-    --bs-breakpoint-xxl: 1400px;
-	--bs-btn-close-filter: ;
-	--bs-carousel-indicator-active-bg: #fff;
-    --bs-carousel-caption-color: #fff;
-    --bs-carousel-control-icon-filter: ;
-	--bs-red-rgb: 171, 5, 32;
-    --bs-bloom-rgb: 239, 64, 86;
-    --bs-chili-rgb: 139, 0, 21;
-    --bs-blue-rgb: 12, 35, 75;
-    --bs-sky-rgb: 129, 211, 235;
-    --bs-oasis-rgb: 55, 141, 189;
-    --bs-azurite-rgb: 30, 82, 136;
-    --bs-midnight-rgb: 0, 28, 72;
-    --bs-cool-gray-rgb: 226, 233, 235;
-    --bs-warm-gray-rgb: 244, 237, 229;
-    --bs-leaf-rgb: 112, 184, 101;
-    --bs-river-rgb: 0, 125, 132;
-    --bs-silver-rgb: 158, 171, 174;
-    --bs-mesa-rgb: 169, 92, 66;
-    --bs-ash-rgb: 64, 54, 53;
-    --bs-sage-rgb: 74, 99, 78;
-    --bs-white-rgb: 255, 255, 255;
-    --bs-black-rgb: 0, 0, 0;
-    --bs-dark-silver-rgb: 73, 89, 94;
-		}
-
+		
 		*,
 		*::before,
 		*::after {
@@ -410,28 +258,53 @@ export class AzRedbar extends LitElement {
 		    height: 1px;
 		    word-wrap: normal;
 		}
+
+
+		.container,
+		.container-fluid,
+		.container-xxl,
+		.container-xl,
+		.container-lg,
+		.container-md,
+		.container-sm {
+		  --bs-gutter-x: 1.5rem;
+		  --bs-gutter-y: 0;
+		  width: 100%;
+		  padding-right: calc(var(--bs-gutter-x) * 0.5);
+		  padding-left: calc(var(--bs-gutter-x) * 0.5);
+		  margin-right: auto;
+		  margin-left: auto;
+		}
+		
 		@media (min-width: 576px) {
-			.container,
-			.container-sm {
-				max-width: 540px;
-			}
+		  .container-sm, .container {
+		    max-width: 540px;
+		  }
 		}
 		@media (min-width: 768px) {
-			.container,
-			.container-md,
-			.container-sm {
-				max-width: 720px;
-			}
+		  .container-md, .container-sm, .container {
+		    max-width: 720px;
+		  }
 		}
 		@media (min-width: 992px) {
+		  .container-lg, .container-md, .container-sm, .container {
+		    max-width: 960px;
+		  }
+		}
+		@media (min-width: 1200px) {
+		  .container-xl, .container-lg, .container-md, .container-sm, .container {
+		    max-width: 1140px;
+		  }
+		}
+		@media (min-width: 1400px) {
+		  .container-xxl, .container-xl, .container-lg, .container-md, .container-sm, .container {
+		    max-width: 1320px;
+		  }
+		}
+
+		@media (max-width: 992px) {
 			.arizona-header {
 				height: auto;
-			}
-			.container,
-			.container-lg,
-			.container-md,
-			.container-sm {
-				max-width: 960px;
 			}
 			.arizona-header {
         		position: fixed;
@@ -447,25 +320,6 @@ export class AzRedbar extends LitElement {
 			.arizona-header>.container>.row {
         		margin-right: 0;
     		}
-		}
-		@media (min-width: 1200px) {
-			.container,
-			.container-lg,
-			.container-md,
-			.container-sm,
-			.container-xl {
-				max-width: 1140px;
-			}
-		}
-		@media (min-width: 1400px) {
-			.container,
-			.container-lg,
-			.container-md,
-			.container-sm,
-			.container-xl,
-			.container-xxl {
-				max-width: 1320px;
-			}
 		}
 		.arizona-line-logo {
 			width: 211px;
@@ -1258,7 +1112,7 @@ button.resources-menu {
 
 
 						</section>
-						<div class="d-lg-none d-flex col-auto px-0">
+						<section class="redbar-buttons d-lg-none">
 							<az-button
 								theme="red"
 								redbar

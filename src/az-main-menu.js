@@ -1686,7 +1686,7 @@ export class MainMenu extends LitElement {
   render() {
     return html`
             <div class="container">
-                <nav class="navbar-offcanvas offcanvas-toggle " id="navbarOffcanvasDemo">
+                <nav class="navbar-offcanvas offcanvas-toggle" id="navbarOffcanvasDemo">
                     <div class="navbar-offcanvas-header">
 						<div
 							class="bg-chili d-flex justify-content-between align-items-center"
